@@ -11,6 +11,12 @@ export const languages = {
     dir: 'ltr',
     ticketLang: 'EN',
   },
+  uk: {
+    code: 'uk',
+    name: 'Українська',
+    dir: 'ltr',
+    ticketLang: 'UK',
+  },
 } as const;
 
 export type Locale = keyof typeof languages;

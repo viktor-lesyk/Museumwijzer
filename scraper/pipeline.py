@@ -147,6 +147,7 @@ class Pipeline:
                 "museum_website": parsed_raw.museum_website,
                 "source_date_raw": parsed_raw.source_date_raw,
                 "first_seen": first_seen,
+                "programmes": ["welkom-in-het-museum"],
             }
 
             # Apply manual overrides (e.g. source typo corrections)
@@ -198,8 +199,33 @@ class Pipeline:
 
             processed_museums.append(museum_record)
 
-        # Sort stably by slug
-        processed_museums.sort(key=lambda m: m["slug"])
+        # Mark all freshly-scraped museums as active
+        for m in processed_museums:
+            m.setdefault("status", "active")
+
+        # Soft-delete: carry forward any museum that was previously active but is
+        # absent from this scrape, marking it as "removed" (data preserved, not deleted).
+        # Also re-include previously-removed museums so they stay in the file.
+        if old_dataset and "museums" in old_dataset:
+            current_slugs = {m["slug"] for m in processed_museums}
+            for om in old_dataset["museums"]:
+                old_slug = om.get("slug")
+                if not old_slug:
+                    continue
+                if old_slug not in current_slugs:
+                    # Not found in this scrape — soft-delete or keep as removed
+                    removed_record = dict(om)
+                    removed_record["status"] = "removed"
+                    processed_museums.append(removed_record)
+                    if om.get("status", "active") != "removed":
+                        logger.warning(
+                            f"Museum '{old_slug}' was not found in this scrape — "
+                            f"marking as status='removed'. Data preserved."
+                        )
+
+        # Sort: active first (alphabetically), then removed
+        processed_museums.sort(key=lambda m: (m.get("status", "active") == "removed", m["slug"]))
+
 
         # 4. Save geocode cache
         self.geocoder.save_cache()

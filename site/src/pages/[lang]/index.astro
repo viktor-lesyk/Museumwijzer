@@ -15,18 +15,24 @@ export function getStaticPaths() {
   return [
     { params: { lang: 'nl' } },
     { params: { lang: 'en' } },
+    { params: { lang: 'uk' } },
   ];
 }
 
 const { lang } = Astro.params as { lang: Locale };
 const t = useTranslations(lang);
-const museums = museumsData.museums || [];
+const museums = (museumsData.museums || []).filter((m: any) => m.status !== 'removed');
 
 let formattedDate = 'onbekend';
 if (metaData?.last_checked) {
   try {
     const d = new Date(metaData.last_checked);
-    formattedDate = d.toLocaleDateString(lang === 'nl' ? 'nl-NL' : 'en-GB', {
+    const dateLocales: Record<Locale, string> = {
+      nl: 'nl-NL',
+      en: 'en-GB',
+      uk: 'uk-UA',
+    };
+    formattedDate = d.toLocaleDateString(dateLocales[lang] || 'nl-NL', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -56,9 +62,27 @@ function getCityAliases(m: any): string {
 // Collect unique provinces and cities for filter dropdowns
 const provinces = Array.from(new Set(museums.map((m) => m.province).filter(Boolean))).sort();
 const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).sort();
+
+// Pre-calculate city centroids for privacy-first distance fallback (§6.4)
+const cityCentroids: Record<string, { lat: number; lon: number }> = {};
+for (const city of cities) {
+  const cityMuseums = museums.filter((m) => m.city === city && m.lat && m.lon);
+  if (cityMuseums.length > 0) {
+    const avgLat = cityMuseums.reduce((sum, m) => sum + (m.lat || 0), 0) / cityMuseums.length;
+    const avgLon = cityMuseums.reduce((sum, m) => sum + (m.lon || 0), 0) / cityMuseums.length;
+    cityCentroids[city] = { lat: Number(avgLat.toFixed(6)), lon: Number(avgLon.toFixed(6)) };
+  }
+}
+
+const pageTitle =
+  lang === 'nl'
+    ? 'Deelnemende musea Welkom in het Museum'
+    : lang === 'uk'
+      ? 'Музеї-учасники програми «Ласкаво просимо до музею»'
+      : 'Participating museums Welcome to the Museum';
 ---
 
-<Layout title={t.siteTitle} locale={lang}>
+<Layout title={pageTitle} locale={lang}>
   <div class="container">
     <!-- Hero / Explainer section (max 3 lines per §6.1) -->
     <section class="hero-section">
@@ -102,9 +126,76 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
           </select>
         </div>
 
+        <div class="select-wrapper">
+          <label for="max-distance-select" class="sr-only">{t.maxDistance}</label>
+          <select id="max-distance-select" class="filter-select">
+            <option value="">{t.allDistances}</option>
+            <option value="10">{t.within10km}</option>
+            <option value="25">{t.within25km}</option>
+            <option value="50">{t.within50km}</option>
+            <option value="100">{t.within100km}</option>
+          </select>
+        </div>
+
+        <div class="select-wrapper">
+          <label for="sort-select" class="sr-only">{t.sortBy}</label>
+          <select id="sort-select" class="filter-select">
+            <option value="name">{t.sortByName}</option>
+            <option value="province">{t.sortByProvince}</option>
+            <option value="distance" id="distance-sort-option" disabled>{t.sortByDistance}</option>
+          </select>
+        </div>
+
+        <!-- Near Me Button (§6.4) -->
+        <button type="button" id="near-me-btn" class="btn-near-me">
+          <span aria-hidden="true">📍</span> <span id="near-me-text">{t.nearMeButton}</span>
+        </button>
+
         <button type="button" id="clear-filters-btn" class="btn-secondary" style="display: none;">
           {t.clearFilters}
         </button>
+      </div>
+
+      <!-- Location Control Bar: Manual or Detected (§6.4) -->
+      <div id="location-bar" class="location-bar">
+        <!-- Idle state: Manual place/postcode input -->
+        <div class="location-bar-idle" id="location-bar-idle">
+          <label for="manual-location-input" class="location-label">
+            <span>📍 {lang === 'nl' ? 'Locatie:' : (lang === 'uk' ? 'Локація:' : 'Location:')}</span>
+          </label>
+          <div class="manual-input-group">
+            <input
+              type="text"
+              id="manual-location-input"
+              class="manual-location-input"
+              placeholder={t.manualLocationPlaceholder}
+              aria-label={t.manualLocationPlaceholder}
+              autocomplete="off"
+            />
+            <button type="button" id="manual-location-btn" class="btn-location-apply">
+              {t.setLocationBtn}
+            </button>
+          </div>
+        </div>
+
+        <!-- Active state: displays detected GPS or manual place -->
+        <div class="location-bar-active" id="location-bar-active" style="display: none;">
+          <div class="location-active-info">
+            <span class="location-pin-icon" aria-hidden="true">📍</span>
+            <span id="location-active-text" class="location-active-text"></span>
+          </div>
+          <div class="location-active-actions">
+            <button type="button" id="change-location-btn" class="btn-location-action">
+              {t.changeLocation}
+            </button>
+            <button type="button" id="clear-location-btn" class="btn-location-action btn-location-danger">
+              {t.allDistancesReset}
+            </button>
+          </div>
+        </div>
+
+        <!-- Inline error / warning message for location -->
+        <div id="location-feedback-msg" class="location-feedback-msg" style="display: none;" role="alert"></div>
       </div>
 
       <!-- Result counter and status banner -->
@@ -140,13 +231,22 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
             data-city-aliases={getCityAliases(m)}
             data-street={m.address?.street || ''}
             data-postcode={m.address?.postcode || ''}
+            data-lat={m.lat !== null && m.lat !== undefined ? String(m.lat) : ''}
+            data-lon={m.lon !== null && m.lon !== undefined ? String(m.lon) : ''}
           >
             <div class="card-header">
-              <span class="participation-badge">
-                <span class="badge-dot" aria-hidden="true"></span>
-                {t.participatesNotice}
-              </span>
-              <span class="card-province">{m.province}</span>
+              <div class="card-header-left">
+                <span class="card-province">{m.province}</span>
+              </div>
+              <button
+                type="button"
+                class="card-list-btn"
+                data-slug={m.slug}
+                title={t.addToList}
+                aria-label={t.addToList}
+              >
+                <span class="heart-icon" aria-hidden="true">🤍</span>
+              </button>
             </div>
 
             <h2 class="card-title">
@@ -154,7 +254,10 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
             </h2>
 
             <div class="card-meta">
-              <span class="card-city">{m.city || 'Nederland'}</span>
+              <div class="card-location-line">
+                <span class="card-city">{m.city || 'Nederland'}</span>
+                <span class="card-distance" style="display: none;"></span>
+              </div>
               {m.address?.street && <span class="card-address">{m.address.street}</span>}
             </div>
 
@@ -222,47 +325,226 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
     border-radius: var(--radius);
     background-color: var(--color-surface);
     color: var(--color-text);
-    font-family: inherit;
+    transition: border-color 0.15s ease;
   }
 
   .search-input:focus {
     border-color: var(--color-accent);
+    outline: none;
   }
 
   .filter-controls {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+    align-items: center;
     margin-bottom: 1rem;
   }
 
+  .select-wrapper {
+    flex: 1;
+    min-width: 160px;
+  }
+
   .filter-select {
-    padding: 0.55rem 1rem;
+    width: 100%;
+    padding: 0.65rem 1rem;
     font-size: 0.95rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     background-color: var(--color-surface);
     color: var(--color-text);
-    font-family: inherit;
     cursor: pointer;
   }
 
+  .filter-select-sm {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .btn-near-me {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn-near-me:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+  }
+
+  .btn-near-me.active {
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    border-color: var(--color-badge-border);
+  }
+
   .btn-secondary {
-    padding: 0.55rem 1rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  /* Location Control Bar */
+  .location-bar {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+
+  .location-bar-idle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .location-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .manual-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .manual-location-input {
+    flex: 1;
+    padding: 0.45rem 0.75rem;
     font-size: 0.9rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    background-color: var(--color-surface-hover);
+    background-color: var(--color-bg);
     color: var(--color-text);
     font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .manual-location-input:focus {
+    border-color: var(--color-accent);
+    background-color: var(--color-surface);
+  }
+
+  .btn-location-apply {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
     cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+  }
+
+  .btn-location-apply:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  .location-bar-active {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .location-active-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+
+  .location-pin-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .location-active-text {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .location-active-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-location-action {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .btn-location-action:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .btn-location-danger {
+    color: var(--color-text-muted);
+  }
+
+  .btn-location-danger:hover {
+    color: var(--color-alert-text);
+    background-color: var(--color-alert-bg);
+    border-color: var(--color-alert-border);
+  }
+
+  .location-feedback-msg {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-alert-text);
+    background-color: var(--color-alert-bg);
+    border: 1px solid var(--color-alert-border);
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius);
   }
 
   .search-status {
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-text-muted);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .not-found-banner {
@@ -270,39 +552,43 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
     border: 1px solid var(--color-warn-border);
     border-radius: var(--radius);
     padding: 1.5rem;
-    margin: 1.5rem 0;
+    margin-top: 1.5rem;
   }
 
   .not-found-title {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--color-warn-text);
     margin-bottom: 0.5rem;
   }
 
   .not-found-desc {
-    color: var(--color-text);
-    font-size: 1rem;
+    font-size: 0.95rem;
+    color: var(--color-warn-text);
     margin-bottom: 1rem;
+    line-height: 1.5;
   }
 
   .btn-outline {
     display: inline-block;
     padding: 0.5rem 1rem;
-    border: 1px solid var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-warn-text);
+    border: 1px solid var(--color-warn-border);
     border-radius: var(--radius);
     text-decoration: none;
-    font-weight: 600;
-    color: var(--color-text);
+    background-color: var(--color-surface);
   }
 
   .btn-outline:hover {
-    background-color: var(--color-surface);
+    background-color: var(--color-surface-hover);
   }
 
   .museums-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
   }
 
   .museum-card {
@@ -313,47 +599,71 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
 
   .museum-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .card-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    align-items: center;
     margin-bottom: 0.75rem;
-    font-size: 0.8rem;
+    gap: 0.5rem;
   }
 
-  .participation-badge {
+  .card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .card-list-btn {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    background-color: var(--color-badge-bg);
-    color: var(--color-badge-text);
-    border: 1px solid var(--color-badge-border);
-    padding: 0.2rem 0.5rem;
-    border-radius: 9999px;
-    font-weight: 600;
-    font-size: 0.78rem;
-    white-space: nowrap;
-    flex-shrink: 0;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--color-text-muted);
+    transition: all 0.15s ease;
   }
 
-  .badge-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--color-badge-text);
-    border-radius: 50%;
+  .card-list-btn:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: scale(1.08);
+  }
+
+  .card-list-btn.in-list {
+    background-color: #fef08a;
+    border-color: #eab308;
+    color: #854d0e;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .card-list-btn.in-list {
+      background-color: #713f12;
+      border-color: #a16207;
+      color: #fef08a;
+    }
   }
 
   .card-province {
     color: var(--color-text-muted);
     font-weight: 500;
+    font-size: 0.85rem;
   }
 
   .card-title {
@@ -382,9 +692,27 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
     gap: 0.2rem;
   }
 
+  .card-location-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
   .card-city {
     font-weight: 600;
     color: var(--color-text);
+  }
+
+  .card-distance {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    border: 1px solid var(--color-badge-border);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    white-space: nowrap;
   }
 
   .card-footer {
@@ -407,20 +735,57 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
   }
 </style>
 
-<!-- Progressive enhancement client search and filter script -->
-<script is:inline define:vars={{ cityAliases: cityAliasesData, notFoundTemplate: t.notFoundText, notFoundTitleTemplate: t.notFoundTitle, formattedDate: formattedDate, resultsCountTemplate: t.resultsCount, resultsCountSingleTemplate: t.resultsCountSingle }}>
+<!-- Progressive enhancement client search, filter, geolocation, and priority list script -->
+<script is:inline define:vars={{
+  cityAliases: cityAliasesData,
+  cityCentroids: cityCentroids,
+  notFoundTemplate: t.notFoundText,
+  notFoundTitleTemplate: t.notFoundTitle,
+  formattedDate: formattedDate,
+  resultsCountTemplate: t.resultsCount,
+  resultsCountSingleTemplate: t.resultsCountSingle,
+  distanceTemplate: t.nearMeDistanceKm,
+  locatingText: t.nearMeLocating,
+  permissionDeniedText: t.nearMePermissionDenied,
+  addToListText: t.addToList,
+  inYourListText: t.inYourList,
+  detectedLocationText: t.detectedLocation,
+  chosenLocationText: t.chosenLocation,
+  locationNotFoundText: t.locationNotFound,
+  setLocationBtnText: t.setLocationBtn,
+  nearMeButtonText: t.nearMeButton,
+  distanceFilterResultsTemplate: t.distanceFilterResults
+}}>
   document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const provinceSelect = document.getElementById('province-select');
     const citySelect = document.getElementById('city-select');
+    const maxDistanceSelect = document.getElementById('max-distance-select');
+    const sortSelect = document.getElementById('sort-select');
+    const distanceSortOption = document.getElementById('distance-sort-option');
     const clearBtn = document.getElementById('clear-filters-btn');
     const resultsCountEl = document.getElementById('results-count');
     const notFoundBox = document.getElementById('not-found-box');
     const notFoundTitle = document.getElementById('not-found-title');
     const notFoundText = document.getElementById('not-found-text');
+    const museumsList = document.getElementById('museums-list');
+    const nearMeBtn = document.getElementById('near-me-btn');
+    const nearMeText = document.getElementById('near-me-text');
+    const locationBarIdle = document.getElementById('location-bar-idle');
+    const locationBarActive = document.getElementById('location-bar-active');
+    const locationActiveText = document.getElementById('location-active-text');
+    const manualLocationInput = document.getElementById('manual-location-input');
+    const manualLocationBtn = document.getElementById('manual-location-btn');
+    const changeLocationBtn = document.getElementById('change-location-btn');
+    const clearLocationBtn = document.getElementById('clear-location-btn');
+    const locationFeedbackMsg = document.getElementById('location-feedback-msg');
     const cards = Array.from(document.querySelectorAll('.museum-card'));
 
-    // Diacritic-insensitive normaliser (e.g. zypendaál -> zypendaal)
+    let userLat = null;
+    let userLon = null;
+    let cachedPlaces = null;
+
+    // Normaliser (case- and diacritic-insensitive)
     function normalize(str) {
       if (!str) return '';
       return str
@@ -430,7 +795,6 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
         .trim();
     }
 
-    // Resolve city alias if known
     function resolveAliases(term) {
       const norm = normalize(term);
       for (const [alias, canonical] of Object.entries(cityAliases || {})) {
@@ -441,13 +805,222 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
       return norm;
     }
 
-    function filterCards() {
+    // Client-side Haversine distance in km (§6.4)
+    function haversineDistance(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Earth radius in km
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    // Lazy load places dataset
+    async function loadPlaces() {
+      if (cachedPlaces) return cachedPlaces;
+      try {
+        const res = await fetch('/data/places.json');
+        if (res.ok) {
+          cachedPlaces = await res.json();
+          return cachedPlaces;
+        }
+      } catch (e) {}
+      return [];
+    }
+
+    function findNearestPlace(lat, lon, placesList) {
+      if (!placesList || placesList.length === 0) return null;
+      let closest = null;
+      let minD = Infinity;
+      for (const p of placesList) {
+        const d = haversineDistance(lat, lon, p[2], p[3]);
+        if (d < minD) {
+          minD = d;
+          closest = { name: p[0], prov: p[1], dist: d };
+        }
+      }
+      return closest;
+    }
+
+    // Geocoding: resolves town name or postal code (e.g. 8355, 1012 JS, Giethoorn)
+    async function resolveLocationQuery(query) {
+      const norm = normalize(query);
+      if (!norm) return null;
+
+      // 1. Try local places list first (fastest, 2,503 Dutch woonplaatsen)
+      const placesList = await loadPlaces();
+      const exactMatch = placesList.find((p) => normalize(p[0]) === norm);
+      if (exactMatch) {
+        return {
+          name: exactMatch[0],
+          prov: exactMatch[1],
+          lat: exactMatch[2],
+          lon: exactMatch[3],
+        };
+      }
+
+      // Check if query starts with or contains place name (for multi-word or compound names)
+      if (norm.length >= 3) {
+        const prefixMatch = placesList.find((p) => normalize(p[0]).startsWith(norm));
+        if (prefixMatch) {
+          return {
+            name: prefixMatch[0],
+            prov: prefixMatch[1],
+            lat: prefixMatch[2],
+            lon: prefixMatch[3],
+          };
+        }
+      }
+
+      // 2. Query PDOK Locatieserver (handles postal codes like 8355, 1012 JS, and spelling variations)
+      try {
+        const pdokUrl = `https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${encodeURIComponent(query)}&rows=1&fq=type:(woonplaats%20OR%20postcode%20OR%20gemeente)`;
+        const res = await fetch(pdokUrl);
+        if (res.ok) {
+          const data = await res.json();
+          const doc = data.response?.docs?.[0];
+          if (doc && doc.centroide_ll) {
+            const match = doc.centroide_ll.match(/POINT\s*\(\s*([0-9.-]+)\s+([0-9.-]+)\s*\)/i);
+            if (match) {
+              const lon = parseFloat(match[1]);
+              const lat = parseFloat(match[2]);
+              const displayName = doc.woonplaatsnaam || doc.weergavenaam || query;
+              const prov = doc.provincienaam || '';
+              return {
+                name: displayName,
+                prov: prov,
+                lat: lat,
+                lon: lon,
+              };
+            }
+          }
+        }
+      } catch (e) {}
+
+      return null;
+    }
+
+    // Priority List storage helper
+    function getPriorityList() {
+      try {
+        const raw = localStorage.getItem('museumwijzer_priority_list');
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function savePriorityList(list) {
+      try {
+        localStorage.setItem('museumwijzer_priority_list', JSON.stringify(list));
+        const badge = document.getElementById('nav-list-count');
+        if (badge) {
+          badge.textContent = String(list.length);
+          badge.style.display = list.length > 0 ? 'inline-flex' : 'none';
+        }
+      } catch (e) {}
+    }
+
+    function updateCardListButtons() {
+      const list = getPriorityList();
+      cards.forEach((card) => {
+        const slug = card.dataset.slug;
+        const btn = card.querySelector('.card-list-btn');
+        if (!btn) return;
+        const inList = list.some((item) => (typeof item === 'string' ? item : item.slug) === slug);
+        const icon = btn.querySelector('.heart-icon');
+        if (inList) {
+          btn.classList.add('in-list');
+          btn.title = inYourListText;
+          btn.setAttribute('aria-label', inYourListText);
+          if (icon) icon.textContent = '❤️';
+        } else {
+          btn.classList.remove('in-list');
+          btn.title = addToListText;
+          btn.setAttribute('aria-label', addToListText);
+          if (icon) icon.textContent = '🤍';
+        }
+      });
+    }
+
+    // Calculate and apply distances to cards
+    function updateDistances() {
+      if (userLat === null || userLon === null) {
+        cards.forEach((card) => {
+          delete card.dataset.distance;
+          const badge = card.querySelector('.card-distance');
+          if (badge) badge.style.display = 'none';
+        });
+        distanceSortOption.disabled = true;
+        if (sortSelect.value === 'distance') sortSelect.value = 'name';
+        return;
+      }
+
+      distanceSortOption.disabled = false;
+
+      cards.forEach((card) => {
+        const cLat = parseFloat(card.dataset.lat);
+        const cLon = parseFloat(card.dataset.lon);
+        const badge = card.querySelector('.card-distance');
+        if (!isNaN(cLat) && !isNaN(cLon)) {
+          const distKm = haversineDistance(userLat, userLon, cLat, cLon);
+          card.dataset.distance = String(distKm);
+          if (badge) {
+            badge.textContent = distanceTemplate.replace('{distance}', distKm.toFixed(1));
+            badge.style.display = 'inline-block';
+          }
+        } else {
+          delete card.dataset.distance;
+          if (badge) badge.style.display = 'none';
+        }
+      });
+    }
+
+    function showActiveLocation(label) {
+      locationActiveText.textContent = label;
+      locationBarIdle.style.display = 'none';
+      locationBarActive.style.display = 'flex';
+      locationFeedbackMsg.style.display = 'none';
+      nearMeBtn.classList.add('active');
+    }
+
+    function resetLocation() {
+      userLat = null;
+      userLon = null;
+      nearMeBtn.classList.remove('active');
+      nearMeText.textContent = nearMeButtonText;
+      locationBarActive.style.display = 'none';
+      locationBarIdle.style.display = 'flex';
+      manualLocationInput.value = '';
+      locationFeedbackMsg.style.display = 'none';
+      maxDistanceSelect.value = '';
+      updateDistances();
+      sortSelect.value = 'name';
+      sortAndFilterCards();
+    }
+
+    function showLocationFeedback(msg) {
+      locationFeedbackMsg.textContent = msg;
+      locationFeedbackMsg.style.display = 'block';
+    }
+
+    function hideLocationFeedback() {
+      locationFeedbackMsg.style.display = 'none';
+      locationFeedbackMsg.textContent = '';
+    }
+
+    function sortAndFilterCards() {
       const query = normalize(searchInput.value);
       const queryAlias = resolveAliases(query);
       const selectedProvince = provinceSelect.value;
       const selectedCity = citySelect.value;
+      const maxDistance = parseFloat(maxDistanceSelect.value);
+      const sortBy = sortSelect.value;
 
-      let visibleCount = 0;
+      let visibleCards = [];
 
       cards.forEach((card) => {
         const name = normalize(card.dataset.name);
@@ -475,47 +1048,205 @@ const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).s
         const matchesProvince = !selectedProvince || province === selectedProvince;
         const matchesCity = !selectedCity || card.dataset.city === selectedCity;
 
-        const isVisible = matchesQuery && matchesProvince && matchesCity;
+        const cardDist = card.dataset.distance !== undefined ? parseFloat(card.dataset.distance) : null;
+        const matchesDistance = isNaN(maxDistance) || (cardDist !== null && cardDist <= maxDistance);
+
+        const isVisible = matchesQuery && matchesProvince && matchesCity && matchesDistance;
         card.style.display = isVisible ? 'flex' : 'none';
-        if (isVisible) visibleCount++;
+        if (isVisible) {
+          visibleCards.push(card);
+        }
       });
 
-      // Update result count text
+      // Sort visible cards
+      visibleCards.sort((a, b) => {
+        if (sortBy === 'distance') {
+          const distA = a.dataset.distance ? parseFloat(a.dataset.distance) : 99999;
+          const distB = b.dataset.distance ? parseFloat(b.dataset.distance) : 99999;
+          return distA - distB;
+        } else if (sortBy === 'province') {
+          const pComp = (a.dataset.province || '').localeCompare(b.dataset.province || '');
+          if (pComp !== 0) return pComp;
+          return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+        } else {
+          return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+        }
+      });
+
+      // Reorder cards in DOM
+      visibleCards.forEach((card) => museumsList.appendChild(card));
+
+      // Update count & banners
+      const visibleCount = visibleCards.length;
       if (visibleCount === 1) {
         resultsCountEl.textContent = resultsCountSingleTemplate;
+      } else if (!isNaN(maxDistance) && userLat !== null) {
+        resultsCountEl.textContent = distanceFilterResultsTemplate
+          .replace('{count}', String(visibleCount))
+          .replace('{distance}', String(maxDistance));
       } else {
         resultsCountEl.textContent = resultsCountTemplate.replace('{count}', String(visibleCount));
       }
 
-      // Show/hide not-found banner
       if (visibleCount === 0) {
         notFoundBox.style.display = 'block';
         if (notFoundTitle) {
           notFoundTitle.textContent = notFoundTitleTemplate.replace('{date}', formattedDate);
         }
-        notFoundText.textContent = notFoundTemplate.replace('{query}', searchInput.value);
+        notFoundText.textContent = notFoundTemplate.replace('{query}', searchInput.value || (maxDistance ? `${maxDistance} km` : ''));
       } else {
         notFoundBox.style.display = 'none';
       }
 
-      // Show/hide clear filters button
-      if (query || selectedProvince || selectedCity) {
+      // Clear button visibility
+      if (query || selectedProvince || selectedCity || !isNaN(maxDistance) || userLat !== null) {
         clearBtn.style.display = 'inline-block';
       } else {
         clearBtn.style.display = 'none';
       }
     }
 
-    searchInput.addEventListener('input', filterCards);
-    provinceSelect.addEventListener('change', filterCards);
-    citySelect.addEventListener('change', filterCards);
+    // Manual location submit handler
+    async function handleManualLocation() {
+      const query = manualLocationInput.value.trim();
+      if (!query) return;
+
+      manualLocationBtn.disabled = true;
+      manualLocationBtn.textContent = locatingText;
+      hideLocationFeedback();
+
+      const result = await resolveLocationQuery(query);
+      manualLocationBtn.disabled = false;
+      manualLocationBtn.textContent = setLocationBtnText;
+
+      if (result) {
+        userLat = result.lat;
+        userLon = result.lon;
+        const placeLabel = result.prov ? `${result.name} (${result.prov})` : result.name;
+        showActiveLocation(`${chosenLocationText}: ${placeLabel}`);
+        updateDistances();
+        sortSelect.value = 'distance';
+        sortAndFilterCards();
+      } else {
+        showLocationFeedback(locationNotFoundText);
+      }
+    }
+
+    manualLocationBtn.addEventListener('click', handleManualLocation);
+    manualLocationInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleManualLocation();
+      }
+    });
+
+    changeLocationBtn.addEventListener('click', () => {
+      locationBarActive.style.display = 'none';
+      locationBarIdle.style.display = 'flex';
+      manualLocationInput.focus();
+      manualLocationInput.select();
+    });
+
+    clearLocationBtn.addEventListener('click', resetLocation);
+
+    // Geolocation trigger
+    nearMeBtn.addEventListener('click', () => {
+      if (userLat !== null && nearMeBtn.classList.contains('active')) {
+        // Toggle off if already active
+        resetLocation();
+        return;
+      }
+
+      if (!navigator.geolocation) {
+        showLocationFeedback(permissionDeniedText);
+        manualLocationInput.focus();
+        return;
+      }
+
+      nearMeText.textContent = locatingText;
+      nearMeBtn.disabled = true;
+      hideLocationFeedback();
+
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          userLat = position.coords.latitude;
+          userLon = position.coords.longitude;
+          nearMeText.textContent = nearMeButtonText;
+          nearMeBtn.disabled = false;
+
+          const placesList = await loadPlaces();
+          const nearest = findNearestPlace(userLat, userLon, placesList);
+          const coordStr = `${userLat.toFixed(2)}° N, ${userLon.toFixed(2)}° E`;
+          const nearStr = nearest ? `nabij ${nearest.name} (${coordStr})` : coordStr;
+          showActiveLocation(`${detectedLocationText}: ${nearStr}`);
+
+          updateDistances();
+          sortSelect.value = 'distance';
+          sortAndFilterCards();
+        },
+        (error) => {
+          nearMeBtn.disabled = false;
+          nearMeText.textContent = nearMeButtonText;
+          nearMeBtn.classList.remove('active');
+          showLocationFeedback(permissionDeniedText);
+          manualLocationInput.focus();
+        },
+        { timeout: 10000, enableHighAccuracy: false }
+      );
+    });
+
+    // Distance filter listener
+    maxDistanceSelect.addEventListener('change', () => {
+      if (maxDistanceSelect.value !== '' && userLat === null) {
+        showLocationFeedback(permissionDeniedText);
+        manualLocationInput.focus();
+      }
+      sortAndFilterCards();
+    });
+
+    // Priority list button listener on cards (event delegation)
+    museumsList.addEventListener('click', (e) => {
+      const btn = e.target.closest('.card-list-btn');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+
+      const slug = btn.dataset.slug;
+      let list = getPriorityList();
+      const index = list.findIndex((item) => (typeof item === 'string' ? item : item.slug) === slug);
+      if (index >= 0) {
+        list.splice(index, 1);
+      } else {
+        list.push({ slug: slug, visited: false, note: '' });
+      }
+      savePriorityList(list);
+      updateCardListButtons();
+    });
+
+    // Filter event listeners
+    searchInput.addEventListener('input', sortAndFilterCards);
+    provinceSelect.addEventListener('change', sortAndFilterCards);
+    citySelect.addEventListener('change', sortAndFilterCards);
+    sortSelect.addEventListener('change', sortAndFilterCards);
 
     clearBtn.addEventListener('click', () => {
       searchInput.value = '';
       provinceSelect.value = '';
       citySelect.value = '';
-      filterCards();
+      maxDistanceSelect.value = '';
+      sortSelect.value = 'name';
+      resetLocation();
       searchInput.focus();
     });
+
+    // Preload places on idle for instant responsiveness
+    if (typeof requestIdleCallback === 'function') {
+      requestIdleCallback(() => { loadPlaces(); });
+    } else {
+      setTimeout(loadPlaces, 2000);
+    }
+
+    // Initial setup
+    updateCardListButtons();
   });
 </script>

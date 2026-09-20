@@ -43,6 +43,8 @@ class MuseumModel(BaseModel):
     museum_website: Optional[str] = None
     source_date_raw: Optional[str] = None
     first_seen: str
+    programmes: List[str] = Field(default_factory=lambda: ["welkom-in-het-museum"])
+    status: str = "active"
 
 
 class MuseumsDataFileModel(BaseModel):
@@ -88,6 +90,11 @@ def validate_single_museum(m: Dict[str, Any]) -> List[str]:
         if not (NL_LAT_MIN <= lat <= NL_LAT_MAX and NL_LON_MIN <= lon <= NL_LON_MAX):
             errors.append(f"Coordinates ({lat}, {lon}) outside Netherlands bounds for '{slug}'")
 
+    # Validate programmes
+    programmes = m.get("programmes")
+    if not isinstance(programmes, list) or not programmes or not all(isinstance(p, str) and p for p in programmes):
+        errors.append(f"Missing or invalid programmes array for '{slug}'")
+
     return errors
 
 
@@ -103,26 +110,29 @@ def validate_dataset(
     - No more than 10% added or removed compared to previous run
     """
     errors: List[str] = []
-    count = len(museums)
+    # Validation operates only on active museums; removed ones are preserved but ignored
+    active_museums = [m for m in museums if m.get("status", "active") != "removed"]
+    count = len(active_museums)
 
     # 1. Total count checks
     if count < MIN_MUSEUM_COUNT:
-        errors.append(f"Museum count {count} is below minimum required {MIN_MUSEUM_COUNT}")
+        errors.append(f"Active museum count {count} is below minimum required {MIN_MUSEUM_COUNT}")
 
     base_count = EXPECTED_BASELINE_COUNT
     if previous_dataset and "museums" in previous_dataset:
-        prev_count = len(previous_dataset["museums"])
+        prev_active = [m for m in previous_dataset["museums"] if m.get("status", "active") != "removed"]
+        prev_count = len(prev_active)
         if prev_count > 0:
             base_count = prev_count
 
     count_diff_pct = abs(count - base_count) / base_count * 100.0
     if count_diff_pct > MAX_COUNT_CHANGE_PERCENT:
         errors.append(
-            f"Museum count changed by {count_diff_pct:.1f}% ({count} vs baseline {base_count}), "
+            f"Active museum count changed by {count_diff_pct:.1f}% ({count} vs baseline {base_count}), "
             f"exceeding max allowed {MAX_COUNT_CHANGE_PERCENT}%"
         )
 
-    # 2. Slugs uniqueness
+    # 2. Slugs uniqueness (across all museums including removed, to prevent re-use)
     slugs_seen: Set[str] = set()
     duplicate_slugs: Set[str] = set()
     for m in museums:
@@ -135,34 +145,37 @@ def validate_dataset(
     if duplicate_slugs:
         errors.append(f"Duplicate or empty slugs found: {duplicate_slugs}")
 
-    # 3. Individual record validation
-    for m in museums:
+    # 3. Individual record validation (active only)
+    for m in active_museums:
         rec_errors = validate_single_museum(m)
         errors.extend(rec_errors)
 
-    # 4. Geocoding and city completeness (≥95%)
+    # 4. Geocoding and city completeness (≥95%, active only)
     complete_geo_count = sum(
-        1 for m in museums
+        1 for m in active_museums
         if m.get("city") and m.get("lat") is not None and m.get("lon") is not None
     )
     complete_geo_pct = (complete_geo_count / count * 100.0) if count > 0 else 0.0
 
     if complete_geo_pct < MIN_COMPLETE_GEO_PERCENT:
         errors.append(
-            f"Only {complete_geo_count}/{count} ({complete_geo_pct:.1f}%) museums have valid city and coordinates "
+            f"Only {complete_geo_count}/{count} ({complete_geo_pct:.1f}%) active museums have valid city and coordinates "
             f"(minimum required: {MIN_COMPLETE_GEO_PERCENT}%)"
         )
 
-    # 5. Turnover checks (if previous dataset available)
+    # 5. Turnover checks on active slugs only (if previous dataset available)
     if previous_dataset and "museums" in previous_dataset:
-        prev_slugs = set(pm.get("slug") for pm in previous_dataset["museums"] if pm.get("slug"))
-        curr_slugs = set(m.get("slug") for m in museums if m.get("slug"))
+        prev_active_slugs = set(
+            pm.get("slug") for pm in previous_dataset["museums"]
+            if pm.get("slug") and pm.get("status", "active") != "removed"
+        )
+        curr_active_slugs = set(m.get("slug") for m in active_museums if m.get("slug"))
 
-        added = curr_slugs - prev_slugs
-        removed = prev_slugs - curr_slugs
+        added = curr_active_slugs - prev_active_slugs
+        removed = prev_active_slugs - curr_active_slugs
 
-        turnover_added_pct = (len(added) / len(prev_slugs) * 100.0) if prev_slugs else 0.0
-        turnover_removed_pct = (len(removed) / len(prev_slugs) * 100.0) if prev_slugs else 0.0
+        turnover_added_pct = (len(added) / len(prev_active_slugs) * 100.0) if prev_active_slugs else 0.0
+        turnover_removed_pct = (len(removed) / len(prev_active_slugs) * 100.0) if prev_active_slugs else 0.0
 
         if turnover_added_pct > MAX_TURNOVER_PERCENT:
             errors.append(

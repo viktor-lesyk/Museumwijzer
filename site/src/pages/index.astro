@@ -1,5 +1,5 @@
 ---
-// Redirect root to default language /nl/
+// Redirect root to preferred or browser language (/nl/, /en/, /uk/)
 ---
 <!doctype html>
 <html lang="nl">
@@ -8,15 +8,28 @@
     <meta http-equiv="refresh" content="0;url=/nl/" />
     <title>Museumwijzer</title>
     <script is:inline>
-      const lang = (navigator.language || 'nl').toLowerCase();
-      if (lang.startsWith('en')) {
-        window.location.replace('/en/');
-      } else {
-        window.location.replace('/nl/');
+      let target = '/nl/';
+      try {
+        const preferred = localStorage.getItem('preferred_locale');
+        if (preferred === 'en' || preferred === 'uk' || preferred === 'nl') {
+          target = '/' + preferred + '/';
+        } else {
+          const navLang = (navigator.language || 'nl').toLowerCase();
+          if (navLang.startsWith('en')) {
+            target = '/en/';
+          } else if (navLang.startsWith('uk')) {
+            target = '/uk/';
+          } else {
+            target = '/nl/';
+          }
+        }
+      } catch (e) {
+        // Fallback to /nl/
       }
+      window.location.replace(target);
     </script>
   </head>
   <body>
-    <p>Doorsturen naar <a href="/nl/">Nederlands</a> of <a href="/en/">English</a>...</p>
+    <p>Doorsturen naar <a href="/nl/">Nederlands</a>, <a href="/en/">English</a> of <a href="/uk/">Українська</a>...</p>
   </body>
 </html>

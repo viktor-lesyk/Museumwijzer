@@ -19,6 +19,7 @@ def make_valid_museum(slug: str, city: str = "Amsterdam", lat: float = 52.3579, 
         },
         "first_seen": "2026-09-19",
         "last_seen": "2026-09-19",
+        "programmes": ["welkom-in-het-museum"],
     }
 
 
@@ -64,3 +65,51 @@ def test_validate_invalid_official_host():
     is_valid, errors = validate_dataset(dataset)
     assert not is_valid
     assert any("Invalid official_url host" in err for err in errors)
+
+
+def test_validate_missing_programmes():
+    dataset = [make_valid_museum(f"museum-{i}") for i in range(195)]
+    dataset[0]["programmes"] = []
+    is_valid, errors = validate_dataset(dataset)
+    assert not is_valid
+    assert any("Missing or invalid programmes array" in err for err in errors)
+
+
+def test_removed_museums_excluded_from_active_count():
+    """Removed museums do not count toward the active total; 195 active + 5 removed = still valid."""
+    dataset = [make_valid_museum(f"museum-{i}") for i in range(195)]
+    for i in range(5):
+        removed = make_valid_museum(f"old-museum-{i}")
+        removed["status"] = "removed"
+        dataset.append(removed)
+    is_valid, errors = validate_dataset(dataset)
+    assert is_valid, f"Expected valid dataset, got errors: {errors}"
+
+
+def test_removed_museums_excluded_from_turnover():
+    """A museum going from active→removed does NOT trigger the turnover alarm because
+    turnover is computed on active slugs only.  The slug simply disappears from the
+    active set, which is the normal expected behaviour."""
+    prev_active = [make_valid_museum(f"museum-{i}") for i in range(195)]
+    # Simulate a new run where museum-0 is soft-deleted (removed from active set)
+    curr_active = [make_valid_museum(f"museum-{i}") for i in range(1, 195)]  # 194 active
+    removed_record = make_valid_museum("museum-0")
+    removed_record["status"] = "removed"
+    curr_full = curr_active + [removed_record]
+
+    previous_dataset = {"museums": prev_active}
+    # 1 removed out of 195 = 0.51%, well below 10% threshold
+    is_valid, errors = validate_dataset(curr_full, previous_dataset)
+    assert is_valid, f"Expected valid dataset after soft-delete, got errors: {errors}"
+
+
+def test_active_count_below_minimum_with_removed_records():
+    """If too many active museums are removed so active count < 100, validation fails."""
+    dataset = [make_valid_museum(f"museum-{i}") for i in range(90)]  # 90 active
+    for i in range(200):
+        removed = make_valid_museum(f"old-{i}")
+        removed["status"] = "removed"
+        dataset.append(removed)
+    is_valid, errors = validate_dataset(dataset)
+    assert not is_valid
+    assert any("below minimum required" in err for err in errors)

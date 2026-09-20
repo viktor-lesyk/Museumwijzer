@@ -7,9 +7,19 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   site: 'https://museumwijzer.nl',
   output: 'static',
+  server: {
+    host: '0.0.0.0',
+    port: 4321,
+    allowedHosts: true,
+  },
+  preview: {
+    host: '0.0.0.0',
+    port: 4321,
+    allowedHosts: true,
+  },
   i18n: {
     defaultLocale: 'nl',
-    locales: ['nl', 'en'],
+    locales: ['nl', 'en', 'uk'],
     routing: {
       prefixDefaultLocale: true,
       redirectToDefaultLocale: false,
@@ -20,6 +30,12 @@ export default defineConfig({
       alias: {
         '@data': path.resolve(__dirname, '../data'),
       },
+    },
+    preview: {
+      allowedHosts: true,
+    },
+    server: {
+      allowedHosts: true,
     },
   },
 });

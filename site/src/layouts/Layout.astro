@@ -2,6 +2,7 @@
 import { languages, type Locale } from '../i18n/languages';
 import { useTranslations } from '../i18n/ui';
 import metaData from '../../../data/meta.json';
+import noticeData from '../../../data/notice.json';
 
 interface Props {
   title: string;
@@ -16,14 +17,25 @@ const dir = languages[locale]?.dir || 'ltr';
 
 // Format last updated date from metaData.last_checked
 let formattedDate = 'onbekend';
+let isStale = false;
 if (metaData?.last_checked) {
   try {
     const d = new Date(metaData.last_checked);
-    formattedDate = d.toLocaleDateString(locale === 'nl' ? 'nl-NL' : 'en-GB', {
+    const dateLocales: Record<Locale, string> = {
+      nl: 'nl-NL',
+      en: 'en-GB',
+      uk: 'uk-UA',
+    };
+    formattedDate = d.toLocaleDateString(dateLocales[locale] || 'nl-NL', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
     });
+    // Stale check (§8.3): data older than 30 days
+    const ageMs = Date.now() - d.getTime();
+    if (ageMs > 30 * 24 * 60 * 60 * 1000) {
+      isStale = true;
+    }
   } catch {
     formattedDate = metaData.last_checked.slice(0, 10);
   }
@@ -31,13 +43,21 @@ if (metaData?.last_checked) {
 
 // Compute language alternate paths and canonical URLs
 const siteOrigin = Astro.site ? Astro.site.origin : 'https://museumwijzer.nl';
-const currentPathWithoutLang = Astro.url.pathname.replace(/^\/(nl|en)/, '');
+const currentPathWithoutLang = Astro.url.pathname.replace(/^\/(nl|en|uk)/, '');
 const nlPath = `/nl${currentPathWithoutLang}`;
 const enPath = `/en${currentPathWithoutLang}`;
+const ukPath = `/uk${currentPathWithoutLang}`;
+
 const nlUrl = new URL(nlPath, siteOrigin).href;
 const enUrl = new URL(enPath, siteOrigin).href;
+const ukUrl = new URL(ukPath, siteOrigin).href;
 const defaultUrl = new URL('/nl/', siteOrigin).href;
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
+
+// Notice banner configuration
+const showNotice = Boolean(noticeData && noticeData.active);
+const noticeMessage = showNotice && noticeData.message ? (noticeData.message[locale] || noticeData.message.nl) : '';
+const noticeLink = showNotice && noticeData.link ? noticeData.link : null;
 ---
 
 <!doctype html>
@@ -53,12 +73,13 @@ const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
     <!-- Self-contained CSP -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.pdok.nl; frame-ancestors 'none';"
     />
 
     <!-- Hreflang alternates -->
     <link rel="alternate" hreflang="nl" href={nlUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="uk" href={ukUrl} />
     <link rel="alternate" hreflang="x-default" href={defaultUrl} />
 
     <style is:global>
@@ -79,6 +100,9 @@ const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
         --color-warn-bg: #fffbeb;
         --color-warn-border: #fde68a;
         --color-warn-text: #92400e;
+        --color-alert-bg: #fef2f2;
+        --color-alert-border: #fecaca;
+        --color-alert-text: #991b1b;
         --max-width: 1100px;
         --radius: 8px;
         --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -102,6 +126,9 @@ const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
           --color-warn-bg: #78350f;
           --color-warn-border: #b45309;
           --color-warn-text: #fef3c7;
+          --color-alert-bg: #7f1d1d;
+          --color-alert-border: #991b1b;
+          --color-alert-text: #fee2e2;
         }
       }
 
@@ -131,7 +158,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
         color: var(--color-primary-hover);
       }
 
-      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
         outline: 3px solid var(--color-accent);
         outline-offset: 2px;
       }
@@ -141,6 +168,48 @@ const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
         max-width: var(--max-width);
         margin: 0 auto;
         padding: 0 1.25rem;
+      }
+
+      /* Site Notice Banner */
+      .site-notice-banner {
+        padding: 0.85rem 1.25rem;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        text-align: center;
+        border-bottom: 1px solid transparent;
+      }
+
+      .site-notice-banner.notice-info {
+        background-color: var(--color-surface);
+        border-color: var(--color-border);
+        color: var(--color-text);
+      }
+
+      .site-notice-banner.notice-warning {
+        background-color: var(--color-warn-bg);
+        border-color: var(--color-warn-border);
+        color: var(--color-warn-text);
+      }
+
+      .site-notice-banner.notice-alert {
+        background-color: var(--color-alert-bg);
+        border-color: var(--color-alert-border);
+        color: var(--color-alert-text);
+      }
+
+      .site-notice-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .site-notice-content a {
+        font-weight: 600;
+        color: inherit;
       }
 
       .site-header {
@@ -189,11 +258,28 @@ const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
         color: var(--color-text);
         padding: 0.25rem 0.5rem;
         border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
       }
 
       .nav-links a:hover {
         color: var(--color-primary);
         background-color: var(--color-surface-hover);
+      }
+
+      .nav-badge-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-accent);
+        color: #ffffff;
+        font-size: 0.75rem;
+        font-weight: 700;
+        min-width: 1.25rem;
+        height: 1.25rem;
+        padding: 0 0.3rem;
+        border-radius: 999px;
       }
 
       .lang-switcher {
@@ -254,9 +340,73 @@ const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
         border-top: 1px solid var(--color-border-light);
         padding-top: 1rem;
       }
+
+      @media print {
+        .site-header, .site-footer, .site-notice-banner, .btn-primary, .btn-secondary, .btn-outline {
+          display: none !important;
+        }
+        body {
+          background-color: #ffffff !important;
+          color: #000000 !important;
+        }
+        main {
+          padding: 0 !important;
+        }
+      }
     </style>
+
+    <script is:inline define:vars={{ currentLocale: locale }}>
+      // Remember preferred locale in localStorage
+      try {
+        localStorage.setItem('preferred_locale', currentLocale);
+      } catch (e) {
+        // Storage not available
+      }
+
+      // Update nav list counter if items exist in localStorage
+      document.addEventListener('DOMContentLoaded', () => {
+        try {
+          const raw = localStorage.getItem('museumwijzer_priority_list');
+          if (raw) {
+            const list = JSON.parse(raw);
+            if (Array.isArray(list) && list.length > 0) {
+              const badge = document.getElementById('nav-list-count');
+              if (badge) {
+                badge.textContent = String(list.length);
+                badge.style.display = 'inline-flex';
+              }
+            }
+          }
+        } catch (e) {}
+      });
+    </script>
   </head>
   <body>
+    <!-- Site-wide Notice Banner (controlled by data/notice.json or stale data) -->
+    {showNotice && (
+      <aside class={`site-notice-banner notice-${noticeData.level || 'info'}`} role="status">
+        <div class="site-notice-content">
+          <span>{noticeMessage}</span>
+          {noticeLink && (
+            <a href={noticeLink.url} target="_blank" rel="noopener noreferrer">
+              {noticeLink.text?.[locale] || noticeLink.text?.nl || 'Lees meer'} ↗
+            </a>
+          )}
+        </div>
+      </aside>
+    )}
+
+    {!showNotice && isStale && (
+      <aside class="site-notice-banner notice-warning" role="alert">
+        <div class="site-notice-content">
+          <span>{t.staleDataWarning}</span>
+          <a href={t.officialListUrl} target="_blank" rel="noopener noreferrer">
+            {t.checkOfficialList} ↗
+          </a>
+        </div>
+      </aside>
+    )}
+
     <header class="site-header">
       <div class="container header-content">
         <a href={`/${locale}/`} class="brand">
@@ -267,11 +417,18 @@ const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
         <nav aria-label="Main Navigation">
           <ul class="nav-links">
             <li><a href={`/${locale}/`}>{t.navFinder}</a></li>
+            <li>
+              <a href={`/${locale}/list/`}>
+                <span>{t.navMyList}</span>
+                <span id="nav-list-count" class="nav-badge-count" style="display: none;" aria-label="Aantal musea in lijst">0</span>
+              </a>
+            </li>
             <li><a href={`/${locale}/about/`}>{t.navAbout}</a></li>
             <li>
               <div class="lang-switcher" aria-label="Language selector">
                 <a href={nlPath} class={locale === 'nl' ? 'active' : ''} aria-current={locale === 'nl' ? 'true' : undefined}>NL</a>
                 <a href={enPath} class={locale === 'en' ? 'active' : ''} aria-current={locale === 'en' ? 'true' : undefined}>EN</a>
+                <a href={ukPath} class={locale === 'uk' ? 'active' : ''} aria-current={locale === 'uk' ? 'true' : undefined}>UK</a>
               </div>
             </li>
           </ul>

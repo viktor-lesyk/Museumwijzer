@@ -26,7 +26,11 @@
       "museum_website": null,
       "source_date_raw": "2025-02-09T21:20:30.779Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "Museum-Tromps-Huys",
@@ -50,7 +54,11 @@
       "museum_website": null,
       "source_date_raw": "2025-02-11T11:02:02.521Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Vlieland"
+      "pdok_woonplaats": "Vlieland",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "Museumhuis-sloetjes1",
@@ -74,7 +82,11 @@
       "museum_website": null,
       "source_date_raw": "2025-02-09T16:44:49.031Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Hilversum"
+      "pdok_woonplaats": "Hilversum",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "Textiel-museum",
@@ -98,7 +110,11 @@
       "museum_website": null,
       "source_date_raw": "2025-02-09T16:38:18.514Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Tilburg"
+      "pdok_woonplaats": "Tilburg",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "allard-pierson-museum",
@@ -122,7 +138,11 @@
       "museum_website": "https://allardpierson.nl/",
       "source_date_raw": "2022-11-14T13:19:09.491Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "anne-frank-huis",
@@ -146,7 +166,11 @@
       "museum_website": "https://www.annefrank.org/nl/",
       "source_date_raw": "2022-11-14T13:23:51.268Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "anno",
@@ -170,7 +194,11 @@
       "museum_website": "https://anno.nl/",
       "source_date_raw": "2022-11-11T09:08:08.244Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Zwolle"
+      "pdok_woonplaats": "Zwolle",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "archeon",
@@ -194,7 +222,11 @@
       "museum_website": "https://www.archeon.nl/index.html",
       "source_date_raw": "2022-11-09T13:49:57.672Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Alphen aan den Rijn"
+      "pdok_woonplaats": "Alphen aan den Rijn",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "artis-groote-museum",
@@ -218,7 +250,11 @@
       "museum_website": "https://www.grootemuseum.nl/nl",
       "source_date_raw": "2022-11-14T13:15:57.041Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "aviodrome",
@@ -242,7 +278,11 @@
       "museum_website": "https://www.aviodrome.nl/",
       "source_date_raw": "2022-11-14T19:44:45.972Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Lelystad"
+      "pdok_woonplaats": "Lelystad",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "beeld-geluid-hilversum",
@@ -266,7 +306,11 @@
       "museum_website": "https://www.beeldengeluid.nl/",
       "source_date_raw": "2022-11-14T13:33:53.000Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Hilversum"
+      "pdok_woonplaats": "Hilversum",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "bevrijdingsmuseum-zeeland",
@@ -290,7 +334,11 @@
       "museum_website": "https://bevrijdingsmuseumzeeland.nl/",
       "source_date_raw": "2025-11-04T16:27:04.096Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Nieuwdorp"
+      "pdok_woonplaats": "Nieuwdorp",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "bonnefanten",
@@ -314,7 +362,11 @@
       "museum_website": "https://www.bonnefanten.nl/nl",
       "source_date_raw": "2023-01-02T16:52:17.980Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Maastricht"
+      "pdok_woonplaats": "Maastricht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "buitenplaats-beeckestijn",
@@ -338,7 +390,11 @@
       "museum_website": "https://buitenplaatsbeeckestijn.nl/",
       "source_date_raw": "2023-02-01T16:40:07.049Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Velsen-Zuid"
+      "pdok_woonplaats": "Velsen-Zuid",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "centraal-museum",
@@ -362,7 +418,11 @@
       "museum_website": "https://www.centraalmuseum.nl/nl",
       "source_date_raw": "2023-01-02T20:01:04.903Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "cobra-museum",
@@ -386,7 +446,11 @@
       "museum_website": "https://cobra-museum.nl/",
       "source_date_raw": "2022-11-14T13:41:00.972Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amstelveen"
+      "pdok_woonplaats": "Amstelveen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "cruquiusmuseum",
@@ -410,7 +474,11 @@
       "museum_website": "https://cruquius-museum.nl/cruquius-museum",
       "source_date_raw": "2025-07-28T12:56:10.396Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Cruquius"
+      "pdok_woonplaats": "Cruquius",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "czaar-peterhuisje",
@@ -434,7 +502,11 @@
       "museum_website": null,
       "source_date_raw": "2025-07-28T13:03:55.450Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Zaandam"
+      "pdok_woonplaats": "Zaandam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "de-bastei",
@@ -458,7 +530,11 @@
       "museum_website": "https://www.debastei.nl/nl",
       "source_date_raw": "2022-11-13T11:55:02.984Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Nijmegen"
+      "pdok_woonplaats": "Nijmegen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "de-elleboogkerk",
@@ -482,7 +558,11 @@
       "museum_website": "https://www.elleboogkerk.nl/",
       "source_date_raw": "2025-10-02T09:59:38.735Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amersfoort"
+      "pdok_woonplaats": "Amersfoort",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "de-mesdag-collectie",
@@ -506,7 +586,11 @@
       "museum_website": "https://www.demesdagcollectie.nl/",
       "source_date_raw": "2022-11-09T14:23:57.846Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "de-museumfabriek",
@@ -530,7 +614,11 @@
       "museum_website": "https://www.demuseumfabriek.nl/",
       "source_date_raw": "2022-11-15T09:50:08.805Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Enschede"
+      "pdok_woonplaats": "Enschede",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "de-nieuwe-kerk",
@@ -554,7 +642,11 @@
       "museum_website": "https://www.nieuwekerk.nl/",
       "source_date_raw": "2022-11-14T13:45:33.953Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "de-oude-kerk",
@@ -578,7 +670,11 @@
       "museum_website": "https://oudekerk.nl/",
       "source_date_raw": "2022-11-14T14:09:58.602Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "depot-boijmans-van-beuningen",
@@ -602,7 +698,11 @@
       "museum_website": "https://www.boijmans.nl/",
       "source_date_raw": "2022-11-10T08:38:20.433Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Rotterdam"
+      "pdok_woonplaats": "Rotterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "design-museum-den-bosch",
@@ -626,7 +726,11 @@
       "museum_website": "https://designmuseum.nl/",
       "source_date_raw": "2023-01-31T17:13:51.337Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Hertogenbosch"
+      "pdok_woonplaats": "'s-Hertogenbosch",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "discovery-museum",
@@ -650,7 +754,11 @@
       "museum_website": "https://www.discoverymuseum.nl/",
       "source_date_raw": "2023-01-02T16:46:01.367Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Kerkrade"
+      "pdok_woonplaats": "Kerkrade",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "domunder",
@@ -674,7 +782,11 @@
       "museum_website": "https://www.domunder.nl/",
       "source_date_raw": "2026-04-24T12:12:03.475Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "dordrechts-museum",
@@ -698,7 +810,11 @@
       "museum_website": "https://www.dordrechtsmuseum.nl/",
       "source_date_raw": "2022-11-10T08:47:38.184Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Dordrecht"
+      "pdok_woonplaats": "Dordrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "drents-museum",
@@ -722,7 +838,11 @@
       "museum_website": "https://drentsmuseum.nl/nl",
       "source_date_raw": "2022-11-08T09:48:48.320Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Assen"
+      "pdok_woonplaats": "Assen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "drents-museum-de-buitenplaats",
@@ -746,7 +866,11 @@
       "museum_website": "https://dmdebuitenplaats.nl/",
       "source_date_raw": "2025-12-12T13:45:25.862Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Eelde"
+      "pdok_woonplaats": "Eelde",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "eusebiuskerk",
@@ -770,7 +894,11 @@
       "museum_website": "https://eusebius.nl/",
       "source_date_raw": "2025-10-10T09:17:20.445Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Arnhem"
+      "pdok_woonplaats": "Arnhem",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "eye-filmmuseum",
@@ -794,7 +922,11 @@
       "museum_website": "https://www.eyefilm.nl/en",
       "source_date_raw": "2022-11-14T14:18:21.716Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "foam-fotografiemuseum",
@@ -818,7 +950,11 @@
       "museum_website": "https://www.foam.org/nl",
       "source_date_raw": "2023-01-02T17:01:33.039Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "forteiland-pampus",
@@ -842,7 +978,11 @@
       "museum_website": "https://www.pampus.nl/",
       "source_date_raw": "2022-11-14T14:23:08.672Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Muiden"
+      "pdok_woonplaats": "Muiden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "fortresse-holland",
@@ -866,7 +1006,11 @@
       "museum_website": "https://fortresseholland.nl/plan-uw-bezoek/",
       "source_date_raw": "2025-08-15T08:00:26.229Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Hellevoetsluis"
+      "pdok_woonplaats": "Hellevoetsluis",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "forum-groningen",
@@ -890,7 +1034,11 @@
       "museum_website": "https://forum.nl/",
       "source_date_raw": "2022-11-14T09:47:21.646Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Groningen"
+      "pdok_woonplaats": "Groningen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "fotomuseum-aan-het-vrijthof",
@@ -914,7 +1062,11 @@
       "museum_website": "https://fotomuseumaanhetvrijthof.nl/",
       "source_date_raw": "2025-11-26T13:31:13.048Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Maastricht"
+      "pdok_woonplaats": "Maastricht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "fotomuseum-den-haag",
@@ -938,7 +1090,11 @@
       "museum_website": "https://www.fotomuseumdenhaag.nl/nl",
       "source_date_raw": "2022-11-22T11:03:12.022Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "fraeylemaborg",
@@ -962,7 +1118,11 @@
       "museum_website": "https://fraeylemaborg.nl/",
       "source_date_raw": "2022-11-14T10:03:20.583Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Slochteren"
+      "pdok_woonplaats": "Slochteren",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "frans-hals-museum",
@@ -986,7 +1146,11 @@
       "museum_website": "https://www.franshalsmuseum.nl/nl/",
       "source_date_raw": "2022-11-14T14:33:47.438Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Haarlem"
+      "pdok_woonplaats": "Haarlem",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "fries-museum",
@@ -1010,7 +1174,11 @@
       "museum_website": "https://www.friesmuseum.nl/",
       "source_date_raw": "2022-11-08T14:02:48.264Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leeuwarden"
+      "pdok_woonplaats": "Leeuwarden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "gemeenlandshuis-amsterdam",
@@ -1034,7 +1202,11 @@
       "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/gemeenlandshuis-amsterdam",
       "source_date_raw": "2022-11-14T14:38:11.246Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "gemeentemuseum-het-hannemahuis",
@@ -1058,7 +1230,11 @@
       "museum_website": "https://hannemahuis.nl/",
       "source_date_raw": "2022-11-08T14:18:12.913Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Harlingen"
+      "pdok_woonplaats": "Harlingen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "gevangenismuseum",
@@ -1082,7 +1258,11 @@
       "museum_website": "https://www.gevangenismuseum.nl/",
       "source_date_raw": "2022-10-25T12:45:01.474Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Veenhuizen"
+      "pdok_woonplaats": "Veenhuizen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "groninger-museum",
@@ -1106,7 +1286,11 @@
       "museum_website": "https://www.groningermuseum.nl/",
       "source_date_raw": "2023-01-02T16:33:55.530Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Groningen"
+      "pdok_woonplaats": "Groningen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "haags-historisch-museum",
@@ -1130,7 +1314,11 @@
       "museum_website": "https://www.haagshistorischmuseum.nl/nl",
       "source_date_raw": "2022-11-10T09:13:14.543Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "herinneringscentrum-kamp-westerbork",
@@ -1154,7 +1342,11 @@
       "museum_website": "https://kampwesterbork.nl/",
       "source_date_raw": "2025-12-12T14:07:57.063Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Hooghalen"
+      "pdok_woonplaats": "Hooghalen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "het-nieuwe-instituut",
@@ -1178,7 +1370,11 @@
       "museum_website": "https://www.gevangenismuseum.nl/",
       "source_date_raw": "2022-11-10T09:07:12.007Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Rotterdam"
+      "pdok_woonplaats": "Rotterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "het-scheepvaartmuseum",
@@ -1202,7 +1398,11 @@
       "museum_website": "https://www.hetscheepvaartmuseum.nl/",
       "source_date_raw": "2022-11-14T15:03:59.906Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "hof-van-nederland",
@@ -1226,7 +1426,11 @@
       "museum_website": "https://www.hofvannederland.nl",
       "source_date_raw": "2025-08-15T08:24:51.484Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Dordrecht"
+      "pdok_woonplaats": "Dordrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "huis-sonneveld",
@@ -1250,7 +1454,11 @@
       "museum_website": "https://www.huissonneveld.nl/",
       "source_date_raw": "2022-11-10T09:29:42.422Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Rotterdam"
+      "pdok_woonplaats": "Rotterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "huis-van-eysinga",
@@ -1274,7 +1482,11 @@
       "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-van-eysinga-leeuwarden",
       "source_date_raw": "2025-09-19T11:52:44.997Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leeuwarden"
+      "pdok_woonplaats": "Leeuwarden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "huis-van-gijn",
@@ -1298,7 +1510,11 @@
       "museum_website": "https://www.huisvangijn.nl/",
       "source_date_raw": "2025-08-15T08:37:33.965Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Dordrecht"
+      "pdok_woonplaats": "Dordrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "huis-van-meerten",
@@ -1322,7 +1538,11 @@
       "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-van-meerten-Delft",
       "source_date_raw": "2023-02-01T17:14:55.454Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Delft"
+      "pdok_woonplaats": "Delft",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "huis-verwolde",
@@ -1346,7 +1566,11 @@
       "museum_website": "https://www.glk.nl/verwolde/huis-verwolde",
       "source_date_raw": "2026-06-19T08:04:54.313Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Laren"
+      "pdok_woonplaats": "Laren",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "huis-willet-holthuysen",
@@ -1370,7 +1594,11 @@
       "museum_website": null,
       "source_date_raw": "2025-07-28T13:08:24.771Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "huis-zypendaal",
@@ -1394,7 +1622,11 @@
       "museum_website": "https://www.glk.nl/zypendaal/huis-zypendaal",
       "source_date_raw": "2026-06-19T08:30:30.104Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Arnhem"
+      "pdok_woonplaats": "Arnhem",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "hunebedcentrum",
@@ -1418,7 +1650,11 @@
       "museum_website": "https://www.hunebedcentrum.eu/",
       "source_date_raw": "2026-01-29T10:08:16.646Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Borger"
+      "pdok_woonplaats": "Borger",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "huygens-museum-hofwijck",
@@ -1442,7 +1678,11 @@
       "museum_website": "https://huygensmuseum.nl/",
       "source_date_raw": "2025-08-15T08:47:42.385Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Voorburg"
+      "pdok_woonplaats": "Voorburg",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "huygens-museum-notarishuis",
@@ -1466,7 +1706,11 @@
       "museum_website": "https://huygensmuseum.nl/",
       "source_date_raw": "2025-08-22T08:53:25.415Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Voorburg"
+      "pdok_woonplaats": "Voorburg",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "japanmuseum-sieboldhuis",
@@ -1490,7 +1734,11 @@
       "museum_website": "https://www.sieboldhuis.org/",
       "source_date_raw": "2025-10-03T13:12:33.906Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leiden"
+      "pdok_woonplaats": "Leiden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "joods-museum",
@@ -1514,7 +1762,11 @@
       "museum_website": "https://jck.nl/nl/locatie/joods-historisch-museum",
       "source_date_raw": "2022-11-14T15:25:42.851Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "jopie-huisman-museum",
@@ -1538,7 +1790,11 @@
       "museum_website": "https://www.jopiehuismanmuseum.nl/",
       "source_date_raw": "2022-11-08T14:32:14.202Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Workum"
+      "pdok_woonplaats": "Workum",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-ammersoyen",
@@ -1562,7 +1818,11 @@
       "museum_website": "https://www.glk.nl/ammersoyen/kasteel-ammersoyen",
       "source_date_raw": "2026-06-04T12:12:52.409Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Ammerzoden"
+      "pdok_woonplaats": "Ammerzoden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-cannenburch",
@@ -1586,7 +1846,11 @@
       "museum_website": "https://www.glk.nl/cannenburch/kasteel-cannenburch",
       "source_date_raw": "2026-06-17T09:40:26.477Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Vaassen"
+      "pdok_woonplaats": "Vaassen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-de-haar",
@@ -1610,7 +1874,11 @@
       "museum_website": "https://www.kasteeldehaar.nl/",
       "source_date_raw": "2022-11-10T13:23:17.790Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Haarzuilens"
+      "pdok_woonplaats": "Haarzuilens",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-doorwerth",
@@ -1634,7 +1902,11 @@
       "museum_website": "https://www.glk.nl/doorwerth/kasteel-doorwerth",
       "source_date_raw": "2026-06-17T09:56:12.668Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Doorwerth"
+      "pdok_woonplaats": "Doorwerth",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-hernen",
@@ -1658,7 +1930,11 @@
       "museum_website": "https://www.glk.nl/hernen/kasteel-hernen",
       "source_date_raw": "2026-06-18T13:03:16.010Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Hernen"
+      "pdok_woonplaats": "Hernen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-het-nijenhuis",
@@ -1682,7 +1958,11 @@
       "museum_website": "https://www.museumdefundatie.nl/nl/kasteel-het-nijenhuis-2/",
       "source_date_raw": "2022-11-11T10:28:44.988Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Wijhe"
+      "pdok_woonplaats": "Wijhe",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-hoensbroek",
@@ -1706,7 +1986,11 @@
       "museum_website": "https://www.kasteelhoensbroek.nl/",
       "source_date_raw": "2022-11-11T08:46:53.609Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Hoensbroek"
+      "pdok_woonplaats": "Hoensbroek",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-radboud",
@@ -1730,7 +2014,11 @@
       "museum_website": "https://kasteelradboud.nl/",
       "source_date_raw": "2022-11-14T11:51:04.644Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Medemblik"
+      "pdok_woonplaats": "Medemblik",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-rosendael",
@@ -1754,7 +2042,11 @@
       "museum_website": "https://www.glk.nl/rosendael/kasteel-rosendael",
       "source_date_raw": "2026-06-18T13:20:09.776Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Rozendaal"
+      "pdok_woonplaats": "Rozendaal",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kasteel-ruurlo",
@@ -1778,7 +2070,11 @@
       "museum_website": "https://www.museummore-kasteelruurlo.nl/",
       "source_date_raw": "2022-11-13T12:07:19.986Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Ruurlo"
+      "pdok_woonplaats": "Ruurlo",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "keramiekmuseum-princessehof",
@@ -1802,7 +2098,11 @@
       "museum_website": "http://www.princessehof.nl",
       "source_date_raw": "2023-01-31T17:03:51.633Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leeuwarden"
+      "pdok_woonplaats": "Leeuwarden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "km21",
@@ -1826,7 +2126,11 @@
       "museum_website": "https://www.gevangenismuseum.nl/",
       "source_date_raw": "2022-11-10T09:48:22.323Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "koepelkathedraal",
@@ -1850,7 +2154,11 @@
       "museum_website": "https://www.koepelkathedraal.nl/",
       "source_date_raw": "2022-11-15T20:25:53.601Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Haarlem"
+      "pdok_woonplaats": "Haarlem",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kroller-muller-museum",
@@ -1874,7 +2182,11 @@
       "museum_website": "https://krollermuller.nl/",
       "source_date_raw": "2022-11-13T12:15:47.368Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Otterlo"
+      "pdok_woonplaats": "Otterlo",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kunsthal-kade",
@@ -1898,7 +2210,11 @@
       "museum_website": "https://www.kunsthalkade.nl/nl/",
       "source_date_raw": "2025-10-02T10:35:17.763Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amersfoort"
+      "pdok_woonplaats": "Amersfoort",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kunsthal-rotterdam",
@@ -1922,7 +2238,11 @@
       "museum_website": "https://www.kunsthal.nl/nl/#tijdlijn-2023-03",
       "source_date_raw": "2023-02-01T17:11:17.636Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Rotterdam"
+      "pdok_woonplaats": "Rotterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kunstlinie",
@@ -1946,7 +2266,11 @@
       "museum_website": "https://kunstlinie.nl/",
       "source_date_raw": "2022-11-08T11:09:18.847Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Almere"
+      "pdok_woonplaats": "Almere",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kunstlinie-kunsthal",
@@ -1970,7 +2294,11 @@
       "museum_website": "https://kunstlinie.nl/kunsthal/",
       "source_date_raw": "2026-04-24T14:56:38.884Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Almere"
+      "pdok_woonplaats": "Almere",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "kunstmuseum-den-haag",
@@ -1994,7 +2322,11 @@
       "museum_website": "https://www.kunstmuseum.nl/nl",
       "source_date_raw": "2022-11-10T10:10:09.404Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "lalique-museum",
@@ -2018,7 +2350,11 @@
       "museum_website": "https://www.laliquemuseum.nl/",
       "source_date_raw": "2022-11-13T12:19:47.039Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Doesburg"
+      "pdok_woonplaats": "Doesburg",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "landhuis-oud-amelisweerd",
@@ -2042,7 +2378,11 @@
       "museum_website": "https://landhuisoudamelisweerd.nl/",
       "source_date_raw": "2025-10-02T11:31:50.117Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Bunnik"
+      "pdok_woonplaats": "Bunnik",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "limburgs-museum",
@@ -2066,7 +2406,11 @@
       "museum_website": "https://www.limburgsmuseum.nl/",
       "source_date_raw": "2022-11-14T10:15:15.478Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Venlo"
+      "pdok_woonplaats": "Venlo",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "louwman-museum",
@@ -2090,7 +2434,11 @@
       "museum_website": "https://www.louwmanmuseum.nl/",
       "source_date_raw": "2022-11-10T10:40:47.467Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "madurodam",
@@ -2114,7 +2462,11 @@
       "museum_website": null,
       "source_date_raw": "2022-11-10T11:00:10.626Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "marie-tak-van-poortvliet-museum-domburg",
@@ -2138,7 +2490,11 @@
       "museum_website": "https://marietakmuseum.nl/",
       "source_date_raw": "2025-11-04T16:37:34.932Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Domburg"
+      "pdok_woonplaats": "Domburg",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "marinemuseum",
@@ -2162,7 +2518,11 @@
       "museum_website": "https://www.marinemuseum.nl/nl/",
       "source_date_raw": "2022-11-14T15:32:00.780Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Den Helder"
+      "pdok_woonplaats": "Den Helder",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "mariniersmuseum",
@@ -2186,7 +2546,11 @@
       "museum_website": "https://www.mariniersmuseum.nl/nl/",
       "source_date_raw": "2022-11-10T11:36:57.169Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Rotterdam"
+      "pdok_woonplaats": "Rotterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "maritiem-museum-rotterdam",
@@ -2210,7 +2574,11 @@
       "museum_website": "https://www.maritiemmuseum.nl/",
       "source_date_raw": "2022-11-10T12:38:19.384Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Rotterdam"
+      "pdok_woonplaats": "Rotterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "marius-van-dokkum-museum",
@@ -2234,7 +2602,11 @@
       "museum_website": "https://www.mariusvandokkummuseum.nl/",
       "source_date_raw": "2022-11-13T14:02:47.352Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Harderwijk"
+      "pdok_woonplaats": "Harderwijk",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "markiezenhof",
@@ -2258,7 +2630,11 @@
       "museum_website": "https://www.markiezenhof.nl/",
       "source_date_raw": "2022-11-14T10:53:33.124Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Bergen op Zoom"
+      "pdok_woonplaats": "Bergen op Zoom",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "mauritshuis",
@@ -2282,7 +2658,11 @@
       "museum_website": "https://www.mauritshuis.nl/",
       "source_date_raw": "2023-01-02T20:07:29.963Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "micropia",
@@ -2306,7 +2686,11 @@
       "museum_website": "https://www.micropia.nl/nl/",
       "source_date_raw": "2022-11-14T15:42:46.221Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "molenmuseum",
@@ -2330,7 +2714,11 @@
       "museum_website": "https://www.zaanschemolen.nl/",
       "source_date_raw": "2022-11-22T10:40:37.671Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Zaandam"
+      "pdok_woonplaats": "Zaandam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "mondriaanhuis",
@@ -2354,7 +2742,11 @@
       "museum_website": "https://www.mondriaanhuis.nl/nl/",
       "source_date_raw": "2025-10-03T08:27:49.411Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amersfoort"
+      "pdok_woonplaats": "Amersfoort",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museon-omniversum",
@@ -2378,7 +2770,11 @@
       "museum_website": "https://www.museon-omniversum.nl/",
       "source_date_raw": "2022-11-10T11:42:05.513Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-arnhem",
@@ -2402,7 +2798,11 @@
       "museum_website": "https://www.museumarnhem.nl/nl",
       "source_date_raw": "2022-11-13T13:29:29.741Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Arnhem"
+      "pdok_woonplaats": "Arnhem",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-batavialand",
@@ -2426,7 +2826,11 @@
       "museum_website": "https://www.batavialand.nl/",
       "source_date_raw": "2025-11-28T15:38:26.027Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Lelystad"
+      "pdok_woonplaats": "Lelystad",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-beelden-aan-zee",
@@ -2450,7 +2854,11 @@
       "museum_website": "https://www.beeldenaanzee.nl/",
       "source_date_raw": "2022-11-10T12:20:39.634Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-belvedere",
@@ -2474,7 +2882,11 @@
       "museum_website": "http://www.museumbelvedere.nl",
       "source_date_raw": "2026-04-24T10:14:52.374Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Heerenveen"
+      "pdok_woonplaats": "Heerenveen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-broekerveiling",
@@ -2498,7 +2910,11 @@
       "museum_website": null,
       "source_date_raw": "2025-02-11T12:51:17.044Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Broek op Langedijk"
+      "pdok_woonplaats": "Broek op Langedijk",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-catharijneconvent",
@@ -2522,7 +2938,11 @@
       "museum_website": "https://www.catharijneconvent.nl/",
       "source_date_raw": "2023-01-02T17:26:41.137Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-de-dageraad",
@@ -2546,7 +2966,11 @@
       "museum_website": "https://www.hetschip.nl/over-het-museum/locaties/de-dageraad",
       "source_date_raw": "2022-11-14T15:49:40.262Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-de-fundatie",
@@ -2570,7 +2994,11 @@
       "museum_website": "https://www.museumdefundatie.nl/",
       "source_date_raw": "2023-01-02T17:16:46.127Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Zwolle"
+      "pdok_woonplaats": "Zwolle",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-de-lakenhal",
@@ -2594,7 +3022,11 @@
       "museum_website": "https://www.lakenhal.nl/nl",
       "source_date_raw": "2022-11-10T12:28:51.485Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leiden"
+      "pdok_woonplaats": "Leiden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-de-proefkolonie",
@@ -2618,7 +3050,11 @@
       "museum_website": "https://proefkolonie.nl/",
       "source_date_raw": "2022-11-08T12:43:14.656Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Frederiksoord"
+      "pdok_woonplaats": "Frederiksoord",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-engelandvaarders",
@@ -2642,7 +3078,11 @@
       "museum_website": "https://www.museumengelandvaarders.nl/",
       "source_date_raw": "2025-08-22T09:16:46.794Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Noordwijk"
+      "pdok_woonplaats": "Noordwijk",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-flehite",
@@ -2666,7 +3106,11 @@
       "museum_website": "https://museumflehite.nl/",
       "source_date_raw": "2025-10-03T08:38:49.810Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amersfoort"
+      "pdok_woonplaats": "Amersfoort",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-gouda",
@@ -2690,7 +3134,11 @@
       "museum_website": "https://www.museumgouda.nl/nl",
       "source_date_raw": "2022-11-10T12:32:39.957Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Gouda"
+      "pdok_woonplaats": "Gouda",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-helmond",
@@ -2714,7 +3162,11 @@
       "museum_website": "https://museumhelmond.nl/",
       "source_date_raw": "2022-11-14T10:58:32.879Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Helmond"
+      "pdok_woonplaats": "Helmond",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-henriette-polak",
@@ -2738,7 +3190,11 @@
       "museum_website": "https://museazutphen.nl/museum-henriette-polak/?gclid=Cj0KCQiAyMKbBhD1ARIsANs7rEE7acsEY3BEnHMPzDxYFsdnn-2W3ZS1KTQGV3tDBpRFgXDCIvLE6vAaAswyEALw_wcB",
       "source_date_raw": "2022-11-13T13:33:58.323Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Zutphen"
+      "pdok_woonplaats": "Zutphen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-het-rembrandthuis",
@@ -2762,7 +3218,11 @@
       "museum_website": "https://www.rembrandthuis.nl/nl/bezoek/prijzen-en-informatie/",
       "source_date_raw": "2022-11-14T15:58:47.303Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-het-schip",
@@ -2786,7 +3246,11 @@
       "museum_website": "https://www.hetschip.nl/",
       "source_date_raw": "2022-11-14T16:03:29.318Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-het-valkhof",
@@ -2810,7 +3274,11 @@
       "museum_website": "http://www.valkhofmuseum.nl/",
       "source_date_raw": "2022-11-13T13:41:29.108Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Nijmegen"
+      "pdok_woonplaats": "Nijmegen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-huis-doorn",
@@ -2834,7 +3302,11 @@
       "museum_website": "https://www.huisdoorn.nl/",
       "source_date_raw": "2025-10-03T08:49:43.274Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Doorn"
+      "pdok_woonplaats": "Doorn",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-jan-cunen",
@@ -2858,7 +3330,11 @@
       "museum_website": "https://www.museumjancunen.nl/",
       "source_date_raw": "2025-09-19T12:16:59.583Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Oss"
+      "pdok_woonplaats": "Oss",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-kaap-skil",
@@ -2882,7 +3358,11 @@
       "museum_website": null,
       "source_date_raw": "2025-07-28T13:12:39.091Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Oudeschild"
+      "pdok_woonplaats": "Oudeschild",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-klok-peel",
@@ -2906,7 +3386,11 @@
       "museum_website": "https://museumklokenpeel.nl/",
       "source_date_raw": "2026-04-24T09:59:27.828Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Asten"
+      "pdok_woonplaats": "Asten",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-martena",
@@ -2930,7 +3414,11 @@
       "museum_website": "https://www.museummartena.nl/",
       "source_date_raw": "2022-11-08T14:46:32.503Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Franeker"
+      "pdok_woonplaats": "Franeker",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-more",
@@ -2954,7 +3442,11 @@
       "museum_website": "https://www.museummore.nl/",
       "source_date_raw": "2022-11-13T13:48:33.157Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Gorssel"
+      "pdok_woonplaats": "Gorssel",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-nienoord",
@@ -2978,7 +3470,11 @@
       "museum_website": "https://museumnienoord.nl/",
       "source_date_raw": "2026-05-05T11:33:27.094Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leek"
+      "pdok_woonplaats": "Leek",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-panorama-mesdag",
@@ -3002,7 +3498,11 @@
       "museum_website": "https://panorama-mesdag.nl/",
       "source_date_raw": "2025-08-22T09:44:54.268Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-rotterdam",
@@ -3026,7 +3526,11 @@
       "museum_website": "https://museumrotterdam.nl/",
       "source_date_raw": "2022-11-10T12:48:31.813Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Rotterdam"
+      "pdok_woonplaats": "Rotterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-schokland",
@@ -3050,7 +3554,11 @@
       "museum_website": "https://www.museumschokland.nl/",
       "source_date_raw": "2022-11-08T11:15:58.120Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Schokland"
+      "pdok_woonplaats": "Schokland",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-speelklok",
@@ -3074,7 +3582,11 @@
       "museum_website": "https://www.museumspeelklok.nl/",
       "source_date_raw": "2023-01-02T19:57:52.499Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-tachtigjarige-oorlog",
@@ -3098,7 +3610,11 @@
       "museum_website": "https://www.nmto.nl/",
       "source_date_raw": "2026-05-05T12:06:20.196Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Groenlo"
+      "pdok_woonplaats": "Groenlo",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-van-bommel-van-dam",
@@ -3122,7 +3638,11 @@
       "museum_website": "https://www.vanbommelvandam.nl/",
       "source_date_raw": "2025-11-26T14:11:11.462Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Venlo"
+      "pdok_woonplaats": "Venlo",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-van-de-20e-eeuw",
@@ -3146,7 +3666,11 @@
       "museum_website": "https://www.museumhoorn.nl/",
       "source_date_raw": "2025-07-28T13:40:33.613Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Hoorn"
+      "pdok_woonplaats": "Hoorn",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-van-de-geest-dolhuys",
@@ -3170,7 +3694,11 @@
       "museum_website": "https://museumvandegeest.nl/",
       "source_date_raw": "2022-11-14T16:19:40.448Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Haarlem"
+      "pdok_woonplaats": "Haarlem",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museum-volkenkunde",
@@ -3194,7 +3722,11 @@
       "museum_website": "https://leiden.wereldmuseum.nl/",
       "source_date_raw": "2022-11-10T12:51:54.511Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leiden"
+      "pdok_woonplaats": "Leiden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museumhuis-barnaart",
@@ -3218,7 +3750,11 @@
       "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-barnaart-Haarlem",
       "source_date_raw": "2023-01-31T17:18:15.701Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Haarlem"
+      "pdok_woonplaats": "Haarlem",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museumhuis-bartolotti",
@@ -3242,7 +3778,11 @@
       "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-bartolotti-Amsterdam",
       "source_date_raw": "2023-03-17T18:54:24.780Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museumhuis-polman",
@@ -3266,7 +3806,11 @@
       "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-polman-nagele#information",
       "source_date_raw": "2025-11-28T15:55:58.502Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Nagele"
+      "pdok_woonplaats": "Nagele",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museumhuis-rams-woerthe",
@@ -3290,7 +3834,11 @@
       "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/villa-rams-woerthe-Steenwijk",
       "source_date_raw": "2023-02-01T16:49:13.224Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Steenwijk"
+      "pdok_woonplaats": "Steenwijk",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museumprinsenhofdelft",
@@ -3314,7 +3862,11 @@
       "museum_website": "https://www.museumprinsenhofdelft.nl/tentoonstellingen/naar-buiten",
       "source_date_raw": "2024-12-18T09:48:35.448Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Delft"
+      "pdok_woonplaats": "Delft",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museumstoomtram",
@@ -3338,7 +3890,11 @@
       "museum_website": "http://www.stoomtram.nl/",
       "source_date_raw": "2022-11-14T16:41:51.919Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Hoorn"
+      "pdok_woonplaats": "Hoorn",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "museumstoomtram-hoorn-medemblik",
@@ -3362,7 +3918,11 @@
       "museum_website": null,
       "source_date_raw": "2025-07-28T14:30:09.351Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Broek op Langedijk"
+      "pdok_woonplaats": "Broek op Langedijk",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nationaal-glasmuseum",
@@ -3386,7 +3946,11 @@
       "museum_website": "https://www.nationaalglasmuseum.nl/",
       "source_date_raw": "2025-10-03T09:15:54.990Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leerdam"
+      "pdok_woonplaats": "Leerdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nationaal-holocaustmuseum",
@@ -3410,7 +3974,11 @@
       "museum_website": "https://jck.nl/locatie/nationaal-holocaustmuseum",
       "source_date_raw": "2025-07-28T14:50:59.494Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nationaal-militair-museum",
@@ -3434,7 +4002,11 @@
       "museum_website": "https://www.nmm.nl/nl/",
       "source_date_raw": "2022-11-10T13:28:34.735Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Soest"
+      "pdok_woonplaats": "Soest",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nationaal-monument-kamp-amersfoort",
@@ -3458,7 +4030,11 @@
       "museum_website": "https://kampamersfoort.nl/",
       "source_date_raw": "2025-10-03T09:49:00.289Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leusden"
+      "pdok_woonplaats": "Leusden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nationaal-monument-kamp-vught",
@@ -3482,7 +4058,11 @@
       "museum_website": "https://www.nmkampvught.nl/",
       "source_date_raw": "2025-09-19T13:34:49.597Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Vught"
+      "pdok_woonplaats": "Vught",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nationaal-monument-oranjehotel",
@@ -3506,7 +4086,11 @@
       "museum_website": "https://www.oranjehotel.org/",
       "source_date_raw": "2025-08-22T09:59:07.299Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nationaal-onderduikmuseum",
@@ -3530,7 +4114,11 @@
       "museum_website": "https://nationaalonderduikmuseum.nl/",
       "source_date_raw": "2025-10-10T15:19:16.909Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Aalten"
+      "pdok_woonplaats": "Aalten",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "naturalis-biodiversity-center",
@@ -3554,7 +4142,11 @@
       "museum_website": "https://www.naturalis.nl/",
       "source_date_raw": "2022-11-08T13:48:03.591Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leiden"
+      "pdok_woonplaats": "Leiden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "natuurmuseum-brabant",
@@ -3578,7 +4170,11 @@
       "museum_website": "https://www.natuurmuseumbrabant.nl",
       "source_date_raw": "2025-09-19T13:46:01.523Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Tilburg"
+      "pdok_woonplaats": "Tilburg",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "natuurmuseum-frysian",
@@ -3602,7 +4198,11 @@
       "museum_website": "https://natuurmuseumfryslan.nl/",
       "source_date_raw": "2022-11-08T14:56:12.629Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leeuwarden"
+      "pdok_woonplaats": "Leeuwarden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nederlands-fotomuseum",
@@ -3626,7 +4226,11 @@
       "museum_website": "https://www.nederlandsfotomuseum.nl/",
       "source_date_raw": "2022-11-10T13:00:06.428Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Rotterdam"
+      "pdok_woonplaats": "Rotterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nederlands-openluchtmuseum",
@@ -3650,7 +4254,11 @@
       "museum_website": "https://www.openluchtmuseum.nl/",
       "source_date_raw": "2023-01-31T17:08:50.413Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Arnhem"
+      "pdok_woonplaats": "Arnhem",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nederlands-zilvermuseum-schoonhoven",
@@ -3674,7 +4282,11 @@
       "museum_website": null,
       "source_date_raw": "2025-02-11T14:14:37.199Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Schoonhoven"
+      "pdok_woonplaats": "Schoonhoven",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nemo-science-museum",
@@ -3698,7 +4310,11 @@
       "museum_website": "https://www.nemosciencemuseum.nl/nl/",
       "source_date_raw": "2022-11-14T17:07:21.495Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "nijntje-museum",
@@ -3722,7 +4338,11 @@
       "museum_website": "https://nijntjemuseum.nl/",
       "source_date_raw": "2023-02-01T16:55:21.953Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "noordbrabants-museum",
@@ -3746,7 +4366,11 @@
       "museum_website": "https://www.hetnoordbrabantsmuseum.nl/",
       "source_date_raw": "2022-11-11T11:44:09.272Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Hertogenbosch"
+      "pdok_woonplaats": "'s-Hertogenbosch",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "oorlogsmuseum-overloon",
@@ -3770,7 +4394,11 @@
       "museum_website": "https://www.oorlogsmuseum.nl/nl/",
       "source_date_raw": "2026-04-24T11:39:57.835Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Overloon"
+      "pdok_woonplaats": "Overloon",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "oyfo-techniekmuseum",
@@ -3794,7 +4422,11 @@
       "museum_website": "https://www.oyfotechniekmuseum.nl/",
       "source_date_raw": "2022-11-11T11:10:37.371Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Hengelo"
+      "pdok_woonplaats": "Hengelo",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "paleis-het-loo",
@@ -3818,7 +4450,11 @@
       "museum_website": "https://paleishetloo.nl/",
       "source_date_raw": "2022-11-13T13:58:41.314Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Apeldoorn"
+      "pdok_woonplaats": "Apeldoorn",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "paleis-lofen",
@@ -3842,7 +4478,11 @@
       "museum_website": "https://www.paleislofen.nl/bezoek/",
       "source_date_raw": "2026-04-24T12:27:14.723Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "portugese-synagoge",
@@ -3866,7 +4506,11 @@
       "museum_website": "https://jck.nl/nl/locatie/portugese-synagoge",
       "source_date_raw": "2022-11-14T15:17:28.572Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "rietveld-schroederhuis",
@@ -3890,7 +4534,11 @@
       "museum_website": "https://www.rietveldschroderhuis.nl/nl/nl",
       "source_date_raw": "2025-10-03T10:05:20.468Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "rijksmuseum",
@@ -3914,7 +4562,11 @@
       "museum_website": "https://www.rijksmuseum.nl/nl",
       "source_date_raw": "2022-11-14T17:18:05.385Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "rijksmuseum-boerhaave",
@@ -3938,7 +4590,11 @@
       "museum_website": "https://rijksmuseumboerhaave.nl/",
       "source_date_raw": "2023-02-01T17:08:00.302Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leiden"
+      "pdok_woonplaats": "Leiden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "rijksmuseum-de-gevangenpoort",
@@ -3962,7 +4618,11 @@
       "museum_website": "https://www.gevangenpoort.nl/",
       "source_date_raw": "2022-11-10T10:50:20.720Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "'s-Gravenhage"
+      "pdok_woonplaats": "'s-Gravenhage",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "rijksmuseum-muiderslot",
@@ -3986,7 +4646,11 @@
       "museum_website": "https://muiderslot.nl/",
       "source_date_raw": "2022-11-14T17:25:01.171Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Muiden"
+      "pdok_woonplaats": "Muiden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "rijksmuseum-twenthe",
@@ -4010,7 +4674,11 @@
       "museum_website": "https://www.rijksmuseumtwenthe.nl/",
       "source_date_raw": "2022-11-11T11:28:43.325Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Enschede"
+      "pdok_woonplaats": "Enschede",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "rijksmuseum-van-oudheden",
@@ -4034,7 +4702,11 @@
       "museum_website": "https://www.rmo.nl/",
       "source_date_raw": "2022-11-10T13:08:35.528Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leiden"
+      "pdok_woonplaats": "Leiden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "schunck",
@@ -4058,7 +4730,11 @@
       "museum_website": "https://www.schunck.nl/nl",
       "source_date_raw": "2022-11-11T08:57:14.903Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Heerlen"
+      "pdok_woonplaats": "Heerlen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "singer-laren",
@@ -4082,7 +4758,11 @@
       "museum_website": "https://www.singerlaren.nl/nl/",
       "source_date_raw": "2022-11-14T17:29:12.568Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Laren"
+      "pdok_woonplaats": "Laren",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "sint-jan-de-doper",
@@ -4106,7 +4786,11 @@
       "museum_website": "https://grotekerkbreda.nl/",
       "source_date_raw": "2022-11-15T20:02:00.199Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Breda"
+      "pdok_woonplaats": "Breda",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "sint-jan-gouda",
@@ -4130,7 +4814,11 @@
       "museum_website": "https://www.sintjan.com",
       "source_date_raw": "2023-02-01T17:18:01.187Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Gouda"
+      "pdok_woonplaats": "Gouda",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "sonnenborgh",
@@ -4154,7 +4842,11 @@
       "museum_website": "https://www.sonnenborgh.nl/",
       "source_date_raw": "2022-11-10T13:32:36.327Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "sovjet-ereveld-experience",
@@ -4178,7 +4870,11 @@
       "museum_website": "https://sovjet-ereveld.nl/",
       "source_date_raw": "2026-04-24T12:44:12.662Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Leusden"
+      "pdok_woonplaats": "Leusden",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "space-expo",
@@ -4202,7 +4898,11 @@
       "museum_website": "https://www.space-expo.nl/",
       "source_date_raw": "2023-02-01T17:21:58.886Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Noordwijk"
+      "pdok_woonplaats": "Noordwijk",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "spoorwegmuseum",
@@ -4226,7 +4926,11 @@
       "museum_website": "https://www.spoorwegmuseum.nl/?gclid=Cj0KCQiAnsqdBhCGARIsAAyjYjQ2gwhbucyvRmj3jowXaYsSPhbRUIqVejj8IB0Pw6YtxIwbElDFtNoaAv6TEALw_wcB",
       "source_date_raw": "2023-01-02T19:52:55.893Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "stadsmuseum-harderwijk",
@@ -4250,7 +4954,11 @@
       "museum_website": "https://www.stadsmuseum-harderwijk.nl/",
       "source_date_raw": "2022-11-13T14:06:24.716Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Harderwijk"
+      "pdok_woonplaats": "Harderwijk",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "stedelijk-museum-alkmaar",
@@ -4274,7 +4982,11 @@
       "museum_website": "https://stedelijkmuseumalkmaar.nl/",
       "source_date_raw": "2022-11-14T11:45:25.568Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Alkmaar"
+      "pdok_woonplaats": "Alkmaar",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "stedelijk-museum-amsterdam",
@@ -4298,7 +5010,11 @@
       "museum_website": "https://www.stedelijk.nl/nl",
       "source_date_raw": "2022-11-14T17:50:59.509Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "stedelijk-museum-breda",
@@ -4322,7 +5038,11 @@
       "museum_website": "https://www.stedelijkmuseumbreda.nl/nl/",
       "source_date_raw": "2022-11-14T11:36:13.636Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Breda"
+      "pdok_woonplaats": "Breda",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "stedelijk-museum-schiedam",
@@ -4346,7 +5066,11 @@
       "museum_website": "https://www.stedelijkmuseumschiedam.nl/",
       "source_date_raw": "2022-11-10T13:14:56.794Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Schiedam"
+      "pdok_woonplaats": "Schiedam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "stedelijk-museum-zutphen",
@@ -4370,7 +5094,11 @@
       "museum_website": "https://museazutphen.nl/",
       "source_date_raw": "2022-11-13T14:09:32.323Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Zutphen"
+      "pdok_woonplaats": "Zutphen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "storyworld",
@@ -4394,7 +5122,11 @@
       "museum_website": "https://www.storyworld.nl/",
       "source_date_raw": "2022-11-14T10:08:54.141Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Groningen"
+      "pdok_woonplaats": "Groningen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "teylers-museum",
@@ -4418,7 +5150,11 @@
       "museum_website": "https://www.teylersmuseum.nl/nl",
       "source_date_raw": "2022-11-14T17:56:40.869Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Haarlem"
+      "pdok_woonplaats": "Haarlem",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "universiteits-museum-utrecht",
@@ -4442,7 +5178,11 @@
       "museum_website": "https://umu.nl/",
       "source_date_raw": "2025-10-03T10:37:00.538Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Utrecht"
+      "pdok_woonplaats": "Utrecht",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "van-abbemuseum",
@@ -4466,7 +5206,11 @@
       "museum_website": "https://vanabbemuseum.nl/",
       "source_date_raw": "2023-01-02T16:56:42.280Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Eindhoven"
+      "pdok_woonplaats": "Eindhoven",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "van-gogh-museum",
@@ -4490,7 +5234,11 @@
       "museum_website": "https://www.vangoghmuseum.nl/nl",
       "source_date_raw": "2022-11-14T18:06:06.415Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "verzetsmuseum-amsterdam",
@@ -4514,7 +5262,11 @@
       "museum_website": "https://www.verzetsmuseum.org/",
       "source_date_raw": "2025-07-30T14:33:48.342Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "vrijheidsmuseum",
@@ -4538,7 +5290,11 @@
       "museum_website": "https://vrijheidsmuseum.nl/",
       "source_date_raw": "2025-10-31T15:49:06.148Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "watersnoodmuseum",
@@ -4562,7 +5318,11 @@
       "museum_website": "https://watersnoodmuseum.nl/",
       "source_date_raw": "2022-11-09T08:36:07.480Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Ouwerkerk"
+      "pdok_woonplaats": "Ouwerkerk",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "wereldmuseum-amsterdam",
@@ -4586,7 +5346,11 @@
       "museum_website": "https://amsterdam.wereldmuseum.nl/",
       "source_date_raw": "2022-11-14T18:00:34.124Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Amsterdam"
+      "pdok_woonplaats": "Amsterdam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "zaans-museum",
@@ -4610,7 +5374,11 @@
       "museum_website": "http://www.zaansmuseum.nl",
       "source_date_raw": "2025-08-14T09:38:48.378Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Zaandam"
+      "pdok_woonplaats": "Zaandam",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "zeeuws-maritiem-muzeeum",
@@ -4634,7 +5402,11 @@
       "museum_website": "https://www.muzeeum.nl/",
       "source_date_raw": "2022-11-09T09:23:13.401Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Vlissingen"
+      "pdok_woonplaats": "Vlissingen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "zeeuws-museum",
@@ -4658,7 +5430,11 @@
       "museum_website": "https://www.zeeuwsmuseum.nl/nl",
       "source_date_raw": "2022-11-09T09:28:51.156Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Middelburg"
+      "pdok_woonplaats": "Middelburg",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     },
     {
       "slug": "zuiderzeemuseum",
@@ -4682,7 +5458,11 @@
       "museum_website": "https://www.zuiderzeemuseum.nl/",
       "source_date_raw": "2023-02-01T16:35:46.473Z",
       "first_seen": "2026-09-19",
-      "pdok_woonplaats": "Enkhuizen"
+      "pdok_woonplaats": "Enkhuizen",
+      "programmes": [
+        "welkom-in-het-museum"
+      ],
+      "status": "active"
     }
   ]
 }

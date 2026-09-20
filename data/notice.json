@@ -1,0 +1,17 @@
+{
+  "active": false,
+  "level": "info",
+  "message": {
+    "nl": "Het programma Welkom in het Museum kan gewijzigd of beëindigd zijn. Controleer altijd de officiële website voor de actuele status.",
+    "en": "The Welcome to the Museum programme may have changed or ended. Always check the official website for current status.",
+    "uk": "Програма «Ласкаво просимо до музею» могла змінитися або завершитися. Завжди перевіряйте поточний стан на офіційному вебсайті."
+  },
+  "link": {
+    "url": "https://welkominhetmuseum.vriendenloterij.nl/",
+    "text": {
+      "nl": "Bekijk officiële website",
+      "en": "View official website",
+      "uk": "Переглянути офіційний вебсайт"
+    }
+  }
+}

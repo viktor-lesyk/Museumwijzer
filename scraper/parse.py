@@ -1,7 +1,7 @@
 import logging
 import re
 from typing import Any, Dict, List, Optional, Tuple
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 from .config import SOURCE_BASE_URL, SUPPORTED_LOCALES
 
@@ -27,6 +27,7 @@ class ParsedMuseumRaw(BaseModel):
     source_date_raw: Optional[str] = None
     official_url: str
     official_urls: Dict[str, str]
+    programmes: List[str] = Field(default_factory=lambda: ["welkom-in-het-museum"])
 
 
 def build_official_urls(slug: str) -> Tuple[str, Dict[str, str]]:
@@ -195,4 +196,5 @@ def parse_museum_story(story: Dict[str, Any]) -> ParsedMuseumRaw:
         source_date_raw=source_date_raw,
         official_url=official_url,
         official_urls=official_urls,
+        programmes=["welkom-in-het-museum"],
     )

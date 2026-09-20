@@ -33,6 +33,7 @@ def test_parse_huis_zypendaal_fixture():
     assert parsed.official_url == "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-zypendaal/"
     assert parsed.official_urls["en"] == "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huis-zypendaal/"
     assert parsed.official_urls["uk"] == "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huis-zypendaal/"
+    assert parsed.programmes == ["welkom-in-het-museum"]
 
     # Whitelist check: ensure creative fields are not present on model
     dict_repr = parsed.model_dump()

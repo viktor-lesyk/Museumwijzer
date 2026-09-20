@@ -1,0 +1,1414 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { type Locale } from '../../i18n/languages';
+import { useTranslations } from '../../i18n/ui';
+import museumsData from '../../../../data/museums.json';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'nl' } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'uk' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = useTranslations(lang);
+const allMuseums = museumsData.museums || [];
+
+// Compact lookup dictionary for client-side rendering
+const museumsLookup: Record<string, { name: string; city: string; province: string; street: string; website: string | null; status: string }> = {};
+for (const m of allMuseums) {
+  museumsLookup[m.slug] = {
+    name: m.name,
+    city: m.city || '',
+    province: m.province || '',
+    street: m.address?.street || '',
+    website: m.museum_website || null,
+    status: (m as any).status || 'active',
+  };
+}
+---
+
+<Layout title={t.myListTitle} locale={lang}>
+  <div class="container list-container">
+    <!-- Header Section -->
+    <header class="list-page-header">
+      <div class="header-main">
+        <div class="title-row">
+          <h1 class="page-title">{t.myListTitle}</h1>
+          <span id="list-stats-badge" class="stats-badge" style="display: none;"></span>
+        </div>
+        <p class="page-subtitle">{t.myListSubtitle}</p>
+      </div>
+
+      <!-- Action Toolbar -->
+      <div class="toolbar-actions" role="toolbar" aria-label="Lijst acties">
+        <button type="button" id="share-list-btn" class="btn-action btn-action-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+            <polyline points="16 6 12 2 8 6"></polyline>
+            <line x1="12" y1="2" x2="12" y2="15"></line>
+          </svg>
+          <span>{t.shareList}</span>
+        </button>
+
+        <button type="button" id="print-list-btn" class="btn-action">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>{t.printList}</span>
+        </button>
+
+        <div class="dropdown-container">
+          <button type="button" id="export-csv-btn" class="btn-action btn-action-subtle" title={t.exportCsv}>
+            <span>CSV</span>
+          </button>
+          <button type="button" id="export-json-btn" class="btn-action btn-action-subtle" title={t.exportJson}>
+            <span>JSON</span>
+          </button>
+          <label for="import-json-input" class="btn-action btn-action-subtle" title={t.importJson}>
+            <span>Import</span>
+            <input type="file" id="import-json-input" accept=".json,application/json" class="sr-only" />
+          </label>
+        </div>
+
+        <button type="button" id="clear-list-btn" class="btn-action btn-action-danger" title={t.clearList}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span class="sr-only">{t.clearList}</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Share Feedback Toast -->
+    <div id="share-toast" class="toast-message" style="display: none;" role="status">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span>{t.shareCopied}</span>
+    </div>
+
+    <!-- Shared List Notification Banner (when opened via #list=...) -->
+    <aside id="shared-list-banner" class="shared-list-card" style="display: none;" role="status">
+      <div class="shared-card-body">
+        <div class="shared-card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+          </svg>
+        </div>
+        <div class="shared-card-text">
+          <h2 class="shared-card-title">{t.sharedListBannerTitle}</h2>
+          <p class="shared-card-desc">{t.sharedListBannerText}</p>
+        </div>
+      </div>
+      <div class="shared-card-actions">
+        <button type="button" id="save-shared-list-btn" class="btn-pill-primary">
+          {t.saveToMyList}
+        </button>
+        <button type="button" id="dismiss-shared-list-btn" class="btn-pill-secondary">
+          {t.dismissSharedBanner}
+        </button>
+      </div>
+    </aside>
+
+    <!-- Empty State View -->
+    <div id="empty-list-notice" class="empty-state-box" style="display: none;">
+      <div class="empty-icon-wrap" aria-hidden="true">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+      </div>
+      <h2 class="empty-title">{lang === 'nl' ? 'Je lijst is nog leeg' : (lang === 'uk' ? 'Ваш список порожній' : 'Your list is empty')}</h2>
+      <p class="empty-desc">{t.emptyListNotice}</p>
+      <a href={`/${lang}/`} class="btn-pill-primary empty-cta">
+        {t.backToFinder} →
+      </a>
+    </div>
+
+    <!-- Active List Items -->
+    <ol id="priority-items-list" class="priority-list" aria-label="Prioriteitenlijst"></ol>
+  </div>
+</Layout>
+
+<style is:global>
+  .list-container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .list-page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .header-main {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .stats-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+  }
+
+  .page-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    line-height: 1.5;
+  }
+
+  /* Toolbar */
+  .toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2px 4px;
+  }
+
+  .btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .btn-action:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .btn-action-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+  }
+
+  .btn-action-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: #ffffff;
+  }
+
+  .btn-action-subtle {
+    border: none;
+    background: transparent;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .btn-action-subtle:hover {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
+    border-radius: 4px;
+  }
+
+  .btn-action-danger {
+    color: var(--color-text-muted);
+    padding: 0.45rem 0.65rem;
+  }
+
+  .btn-action-danger:hover {
+    color: var(--color-alert-text);
+    background-color: var(--color-alert-bg);
+    border-color: var(--color-alert-border);
+  }
+
+  /* Toast */
+  .toast-message {
+    background-color: var(--color-badge-bg);
+    border: 1px solid var(--color-badge-border);
+    color: var(--color-badge-text);
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+
+  /* Shared card */
+  .shared-list-card {
+    background-color: var(--color-warn-bg);
+    border: 1px solid var(--color-warn-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .shared-card-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .shared-card-icon {
+    color: var(--color-warn-text);
+    margin-top: 0.1rem;
+  }
+
+  .shared-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-warn-text);
+    margin-bottom: 0.2rem;
+  }
+
+  .shared-card-desc {
+    font-size: 0.9rem;
+    color: var(--color-warn-text);
+    line-height: 1.4;
+  }
+
+  .shared-card-actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-pill-primary, .btn-pill-secondary {
+    padding: 0.45rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-pill-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
+  .btn-pill-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  .btn-pill-secondary {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+
+  .btn-pill-secondary:hover {
+    background-color: var(--color-surface-hover);
+  }
+
+  /* Empty State */
+  .empty-state-box {
+    background-color: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .empty-icon-wrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .empty-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    max-width: 48ch;
+    line-height: 1.6;
+  }
+
+  .empty-cta {
+    margin-top: 0.5rem;
+    padding: 0.65rem 1.4rem;
+  }
+
+  /* Priority List Item Cards */
+  .priority-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .priority-item-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    position: relative;
+  }
+
+  .priority-item-card:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+    border-color: var(--color-border);
+  }
+
+  .priority-item-card.is-dragging {
+    opacity: 0.35;
+    border-style: dashed;
+    border-color: var(--color-accent);
+  }
+
+  .priority-item-card.is-drag-over {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 2px var(--color-accent);
+  }
+
+  .priority-item-card.is-visited {
+    background-color: var(--color-surface);
+    border-color: var(--color-border-light);
+  }
+
+  .priority-item-card.is-visited .item-title a {
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--color-border);
+  }
+
+  .card-top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .card-left-col {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .drag-grip {
+    cursor: grab;
+    color: var(--color-text-muted);
+    padding: 0.35rem 0.2rem;
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity 0.15s ease;
+    user-select: none;
+    margin-top: 0.1rem;
+  }
+
+  .drag-grip:hover {
+    opacity: 1;
+    color: var(--color-accent);
+  }
+
+  .drag-grip:active {
+    cursor: grabbing;
+  }
+
+  /* Tactile Circle Check Button for Visited */
+  .btn-check-circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    background: transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-top: 0.1rem;
+    color: transparent;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+  }
+
+  .btn-check-circle:hover {
+    border-color: var(--color-accent);
+    transform: scale(1.08);
+  }
+
+  .priority-item-card.is-visited .btn-check-circle {
+    background-color: var(--color-badge-bg);
+    border-color: var(--color-badge-border);
+    color: var(--color-badge-text);
+  }
+
+  .rank-badge {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+    margin-top: 0.25rem;
+    min-width: 1.25rem;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+  }
+
+  .item-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .item-title a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .item-title a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .item-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    font-size: 0.825rem;
+    color: var(--color-text-muted);
+  }
+
+  .city-tag {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .province-tag {
+    color: var(--color-text-muted);
+  }
+
+  .street-tag {
+    color: var(--color-text-muted);
+  }
+
+  .card-right-col {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  /* Quiet Reorder chevrons */
+  .reorder-btns {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2px;
+  }
+
+  .btn-step {
+    background: transparent;
+    border: none;
+    padding: 0.3rem 0.45rem;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+  }
+
+  .btn-step:hover:not(:disabled) {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
+  }
+
+  .btn-step:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+
+  /* Subtle Trash Button (no raw 'x'!) */
+  .btn-item-delete {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0.35rem 0.45rem;
+    border-radius: var(--radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+  }
+
+  .btn-item-delete:hover {
+    color: var(--color-alert-text);
+    background-color: var(--color-alert-bg);
+    border-color: var(--color-alert-border);
+  }
+
+  /* Note Section: Clean Memo Card vs Subtle Add Button */
+  .card-note-section {
+    padding-inline-start: 4.2rem;
+  }
+
+  @media (max-width: 600px) {
+    .card-top-row {
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .card-right-col {
+      align-self: flex-end;
+    }
+    .card-note-section {
+      padding-inline-start: 0;
+      margin-top: 0.25rem;
+    }
+    .priority-item-card {
+      padding: 0.85rem 0.9rem;
+    }
+    .card-left-col {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+
+  .btn-open-note {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 0.825rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    opacity: 0.7;
+  }
+
+  .btn-open-note:hover {
+    opacity: 1;
+    color: var(--color-accent);
+    background-color: var(--color-bg);
+  }
+
+  .note-memo-card {
+    background-color: var(--color-bg);
+    border-inline-start: 3px solid var(--color-accent);
+    padding: 0.45rem 0.75rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+  }
+
+  .note-memo-text {
+    flex: 1;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .note-memo-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .btn-note-subtle {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0.2rem 0.35rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    transition: all 0.15s ease;
+  }
+
+  .btn-note-subtle:hover {
+    color: var(--color-text);
+    background-color: var(--color-surface-hover);
+  }
+
+  .note-edit-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .note-edit-input {
+    flex: 1;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-family: inherit;
+    outline: none;
+  }
+
+  .btn-note-save {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-note-cancel {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--color-text-muted);
+    border: none;
+    cursor: pointer;
+  }
+
+  .unlisted-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background-color: var(--color-warn-bg);
+    color: var(--color-warn-text);
+    border: 1px solid var(--color-warn-border);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Print Stylesheet */
+  @media print {
+    .toolbar-actions, .shared-list-card, .toast-message, .empty-state-box, .reorder-btns, .btn-item-delete, .drag-grip, .btn-open-note, .note-memo-actions {
+      display: none !important;
+    }
+    .list-container {
+      max-width: 100% !important;
+      padding: 0 !important;
+    }
+    .list-page-header {
+      border-bottom: 2px solid #000 !important;
+      margin-bottom: 1.5rem !important;
+    }
+    .priority-item-card {
+      border: 1px solid #cbd5e1 !important;
+      box-shadow: none !important;
+      page-break-inside: avoid;
+      background: #fff !important;
+      color: #000 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .item-title a {
+      color: #000 !important;
+      text-decoration: none !important;
+    }
+    .card-note-section {
+      padding-inline-start: 0 !important;
+    }
+    .note-memo-card {
+      border-inline-start: 2px solid #000 !important;
+      background: transparent !important;
+      padding: 0.2rem 0 0 0.5rem !important;
+    }
+  }
+</style>
+
+<script is:inline define:vars={{
+  lookup: museumsLookup,
+  lang: lang,
+  emptyNoticeText: t.emptyListNotice,
+  visitedText: t.visitedCheckbox,
+  notePlaceholder: t.personalNotePlaceholder,
+  moveUpText: t.moveUp,
+  moveDownText: t.moveDown,
+  removeText: t.removeFromList,
+  noLongerListedText: t.noLongerListed,
+  clearConfirmText: t.clearListConfirm,
+  addNoteText: t.addNote,
+  saveNoteText: t.saveNote,
+  cancelNoteText: t.cancelNote,
+  deleteNoteText: t.deleteNote
+}}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const itemsListEl = document.getElementById('priority-items-list');
+    const emptyNoticeEl = document.getElementById('empty-list-notice');
+    const statsBadgeEl = document.getElementById('list-stats-badge');
+    const sharedBannerEl = document.getElementById('shared-list-banner');
+    const saveSharedBtn = document.getElementById('save-shared-list-btn');
+    const dismissSharedBtn = document.getElementById('dismiss-shared-list-btn');
+    const shareBtn = document.getElementById('share-list-btn');
+    const shareToast = document.getElementById('share-toast');
+    const exportCsvBtn = document.getElementById('export-csv-btn');
+    const exportJsonBtn = document.getElementById('export-json-btn');
+    const importInput = document.getElementById('import-json-input');
+    const printBtn = document.getElementById('print-list-btn');
+    const clearBtn = document.getElementById('clear-list-btn');
+
+    let currentList = [];
+    let sharedSlugs = null;
+
+    function loadSavedList() {
+      try {
+        const raw = localStorage.getItem('museumwijzer_priority_list');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) {
+            return parsed.map((item) => {
+              if (typeof item === 'string') {
+                return { slug: item, visited: false, note: '' };
+              }
+              return {
+                slug: item.slug || '',
+                visited: Boolean(item.visited),
+                note: item.note || '',
+              };
+            }).filter((item) => item.slug);
+          }
+        }
+      } catch (e) {}
+      return [];
+    }
+
+    function saveListToStorage(list) {
+      currentList = list;
+      try {
+        localStorage.setItem('museumwijzer_priority_list', JSON.stringify(list));
+        const badge = document.getElementById('nav-list-count');
+        if (badge) {
+          badge.textContent = String(list.length);
+          badge.style.display = list.length > 0 ? 'inline-flex' : 'none';
+        }
+      } catch (e) {}
+    }
+
+    function updateStatsBadge() {
+      if (!statsBadgeEl) return;
+      const count = currentList.length;
+      if (count === 0) {
+        statsBadgeEl.style.display = 'none';
+        return;
+      }
+      const visitedCount = currentList.filter((item) => item.visited).length;
+      if (lang === 'nl') {
+        statsBadgeEl.textContent = `${count} ${count === 1 ? 'museum' : 'musea'}${visitedCount > 0 ? ` • ${visitedCount} bezocht` : ''}`;
+      } else if (lang === 'uk') {
+        statsBadgeEl.textContent = `${count} ${count === 1 ? 'музей' : 'музеїв'}${visitedCount > 0 ? ` • ${visitedCount} відвідано` : ''}`;
+      } else {
+        statsBadgeEl.textContent = `${count} ${count === 1 ? 'museum' : 'museums'}${visitedCount > 0 ? ` • ${visitedCount} visited` : ''}`;
+      }
+      statsBadgeEl.style.display = 'inline-flex';
+    }
+
+    // Check URL hash for shared list (#list=slug1,slug2,...)
+    function checkSharedHash() {
+      const hash = window.location.hash || '';
+      if (hash.startsWith('#list=')) {
+        const rawSlugs = hash.slice(6).split(',').map((s) => decodeURIComponent(s.trim())).filter(Boolean);
+        if (rawSlugs.length > 0) {
+          const currentSlugs = currentList.map((item) => item.slug).join(',');
+          const incomingSlugs = rawSlugs.join(',');
+          if (currentSlugs !== incomingSlugs) {
+            sharedSlugs = rawSlugs;
+            sharedBannerEl.style.display = 'flex';
+            if (currentList.length === 0) {
+              currentList = sharedSlugs.map((slug) => ({ slug: slug, visited: false, note: '' }));
+            }
+          }
+        }
+      }
+    }
+
+    function renderList() {
+      itemsListEl.innerHTML = '';
+      updateStatsBadge();
+
+      if (currentList.length === 0) {
+        emptyNoticeEl.style.display = 'flex';
+        itemsListEl.style.display = 'none';
+        return;
+      }
+
+      emptyNoticeEl.style.display = 'none';
+      itemsListEl.style.display = 'flex';
+
+      currentList.forEach((item, index) => {
+        const slug = item.slug;
+        const museum = lookup[slug];
+
+        const card = document.createElement('li');
+        card.className = 'priority-item-card' + (item.visited ? ' is-visited' : '');
+        card.setAttribute('draggable', 'true');
+        card.dataset.index = String(index);
+        card.dataset.slug = slug;
+
+        // Top Row
+        const topRow = document.createElement('div');
+        topRow.className = 'card-top-row';
+
+        // Left Col: Grip, Check circle, Rank, Info
+        const leftCol = document.createElement('div');
+        leftCol.className = 'card-left-col';
+
+        // Drag grip
+        const grip = document.createElement('span');
+        grip.className = 'drag-grip';
+        grip.setAttribute('aria-hidden', 'true');
+        grip.title = 'Versleep om te herschikken';
+        grip.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <circle cx="5" cy="3" r="1.5"/><circle cx="11" cy="3" r="1.5"/>
+            <circle cx="5" cy="8" r="1.5"/><circle cx="11" cy="8" r="1.5"/>
+            <circle cx="5" cy="13" r="1.5"/><circle cx="11" cy="13" r="1.5"/>
+          </svg>
+        `;
+        leftCol.appendChild(grip);
+
+        // Circular Check Button
+        const checkBtn = document.createElement('button');
+        checkBtn.type = 'button';
+        checkBtn.className = 'btn-check-circle';
+        checkBtn.title = visitedText;
+        checkBtn.setAttribute('aria-pressed', item.visited ? 'true' : 'false');
+        checkBtn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        `;
+        checkBtn.addEventListener('click', () => {
+          item.visited = !item.visited;
+          saveListToStorage(currentList);
+          renderList();
+        });
+        leftCol.appendChild(checkBtn);
+
+        // Rank indicator
+        const rank = document.createElement('span');
+        rank.className = 'rank-badge';
+        rank.textContent = `${index + 1}`;
+        leftCol.appendChild(rank);
+
+        // Info (title, city, badges)
+        const info = document.createElement('div');
+        info.className = 'item-info';
+
+        const title = document.createElement('h2');
+        title.className = 'item-title';
+
+        if (museum && museum.status !== 'removed') {
+          const link = document.createElement('a');
+          link.href = `/${lang}/museum/${slug}/`;
+          link.textContent = museum.name;
+          title.appendChild(link);
+          info.appendChild(title);
+
+          const badges = document.createElement('div');
+          badges.className = 'item-badges';
+
+          if (museum.city) {
+            const citySpan = document.createElement('span');
+            citySpan.className = 'city-tag';
+            citySpan.textContent = museum.city;
+            badges.appendChild(citySpan);
+          }
+          if (museum.province) {
+            const provSpan = document.createElement('span');
+            provSpan.className = 'province-tag';
+            provSpan.textContent = `• ${museum.province}`;
+            badges.appendChild(provSpan);
+          }
+          if (museum.street) {
+            const streetSpan = document.createElement('span');
+            streetSpan.className = 'street-tag';
+            streetSpan.textContent = `• ${museum.street}`;
+            badges.appendChild(streetSpan);
+          }
+          info.appendChild(badges);
+        } else {
+          title.textContent = museum ? museum.name : slug;
+          info.appendChild(title);
+
+          const unlisted = document.createElement('span');
+          unlisted.className = 'unlisted-badge';
+          unlisted.textContent = `⚠️ ${noLongerListedText}`;
+          info.appendChild(unlisted);
+        }
+
+        leftCol.appendChild(info);
+        topRow.appendChild(leftCol);
+
+        // Right Col: Up/Down buttons, Delete Trash button
+        const rightCol = document.createElement('div');
+        rightCol.className = 'card-right-col';
+
+        // Reorder chevrons
+        const reorderBox = document.createElement('div');
+        reorderBox.className = 'reorder-btns';
+
+        const upBtn = document.createElement('button');
+        upBtn.type = 'button';
+        upBtn.className = 'btn-step';
+        upBtn.title = moveUpText;
+        upBtn.disabled = index === 0;
+        upBtn.innerHTML = `
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        `;
+        upBtn.addEventListener('click', () => {
+          if (index > 0) {
+            const temp = currentList[index - 1];
+            currentList[index - 1] = currentList[index];
+            currentList[index] = temp;
+            saveListToStorage(currentList);
+            renderList();
+          }
+        });
+        reorderBox.appendChild(upBtn);
+
+        const downBtn = document.createElement('button');
+        downBtn.type = 'button';
+        downBtn.className = 'btn-step';
+        downBtn.title = moveDownText;
+        downBtn.disabled = index === currentList.length - 1;
+        downBtn.innerHTML = `
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        `;
+        downBtn.addEventListener('click', () => {
+          if (index < currentList.length - 1) {
+            const temp = currentList[index + 1];
+            currentList[index + 1] = currentList[index];
+            currentList[index] = temp;
+            saveListToStorage(currentList);
+            renderList();
+          }
+        });
+        reorderBox.appendChild(downBtn);
+        rightCol.appendChild(reorderBox);
+
+        // Delete Trash Button
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'btn-item-delete';
+        delBtn.title = removeText;
+        delBtn.setAttribute('aria-label', removeText);
+        delBtn.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+        `;
+        delBtn.addEventListener('click', () => {
+          currentList.splice(index, 1);
+          saveListToStorage(currentList);
+          renderList();
+        });
+        rightCol.appendChild(delBtn);
+
+        topRow.appendChild(rightCol);
+        card.appendChild(topRow);
+
+        // Note Section: Memo card or Add Note button
+        const noteSection = document.createElement('div');
+        noteSection.className = 'card-note-section';
+
+        if (item.note) {
+          const memoCard = document.createElement('div');
+          memoCard.className = 'note-memo-card';
+
+          const textSpan = document.createElement('span');
+          textSpan.className = 'note-memo-text';
+          textSpan.textContent = `“${item.note}”`;
+          memoCard.appendChild(textSpan);
+
+          const actions = document.createElement('div');
+          actions.className = 'note-memo-actions';
+
+          const editBtn = document.createElement('button');
+          editBtn.type = 'button';
+          editBtn.className = 'btn-note-subtle';
+          editBtn.title = 'Notitie bewerken';
+          editBtn.innerHTML = `
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+          `;
+          editBtn.addEventListener('click', () => {
+            showNoteEditor(noteSection, item);
+          });
+          actions.appendChild(editBtn);
+
+          const removeNoteBtn = document.createElement('button');
+          removeNoteBtn.type = 'button';
+          removeNoteBtn.className = 'btn-note-subtle';
+          removeNoteBtn.title = deleteNoteText;
+          removeNoteBtn.innerHTML = `
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          `;
+          removeNoteBtn.addEventListener('click', () => {
+            item.note = '';
+            saveListToStorage(currentList);
+            renderList();
+          });
+          actions.appendChild(removeNoteBtn);
+
+          memoCard.appendChild(actions);
+          noteSection.appendChild(memoCard);
+        } else {
+          const addBtn = document.createElement('button');
+          addBtn.type = 'button';
+          addBtn.className = 'btn-open-note';
+          addBtn.innerHTML = `
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+            <span>${addNoteText}</span>
+          `;
+          addBtn.addEventListener('click', () => {
+            showNoteEditor(noteSection, item);
+          });
+          noteSection.appendChild(addBtn);
+        }
+
+        card.appendChild(noteSection);
+
+        // Drag and drop handlers
+        card.addEventListener('dragstart', (e) => {
+          e.dataTransfer.setData('text/plain', String(index));
+          card.classList.add('is-dragging');
+        });
+        card.addEventListener('dragend', () => {
+          card.classList.remove('is-dragging');
+          document.querySelectorAll('.priority-item-card').forEach((el) => el.classList.remove('is-drag-over'));
+        });
+        card.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          card.classList.add('is-drag-over');
+        });
+        card.addEventListener('dragleave', () => {
+          card.classList.remove('is-drag-over');
+        });
+        card.addEventListener('drop', (e) => {
+          e.preventDefault();
+          card.classList.remove('is-drag-over');
+          const fromIndex = parseInt(e.dataTransfer.getData('text/plain'), 10);
+          const toIndex = index;
+          if (!isNaN(fromIndex) && fromIndex !== toIndex) {
+            const [moved] = currentList.splice(fromIndex, 1);
+            currentList.splice(toIndex, 0, moved);
+            saveListToStorage(currentList);
+            renderList();
+          }
+        });
+
+        itemsListEl.appendChild(card);
+      });
+    }
+
+    function showNoteEditor(containerEl, item) {
+      containerEl.innerHTML = '';
+      const form = document.createElement('form');
+      form.className = 'note-edit-form';
+
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'note-edit-input';
+      input.placeholder = notePlaceholder;
+      input.value = item.note || '';
+
+      const saveBtn = document.createElement('button');
+      saveBtn.type = 'submit';
+      saveBtn.className = 'btn-note-save';
+      saveBtn.textContent = saveNoteText;
+
+      const cancelBtn = document.createElement('button');
+      cancelBtn.type = 'button';
+      cancelBtn.className = 'btn-note-cancel';
+      cancelBtn.textContent = cancelNoteText;
+
+      form.appendChild(input);
+      form.appendChild(saveBtn);
+      form.appendChild(cancelBtn);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        item.note = input.value.trim();
+        saveListToStorage(currentList);
+        renderList();
+      });
+
+      cancelBtn.addEventListener('click', () => {
+        renderList();
+      });
+
+      containerEl.appendChild(form);
+      input.focus();
+    }
+
+    // Save shared list
+    saveSharedBtn.addEventListener('click', () => {
+      if (sharedSlugs && sharedSlugs.length > 0) {
+        const savedList = loadSavedList();
+        const mergedList = sharedSlugs.map((slug) => {
+          const existing = savedList.find((item) => item.slug === slug);
+          return existing || { slug: slug, visited: false, note: '' };
+        });
+        saveListToStorage(mergedList);
+        sharedBannerEl.style.display = 'none';
+        history.replaceState(null, '', window.location.pathname);
+        renderList();
+      }
+    });
+
+    dismissSharedBtn.addEventListener('click', () => {
+      sharedBannerEl.style.display = 'none';
+      history.replaceState(null, '', window.location.pathname);
+      currentList = loadSavedList();
+      renderList();
+    });
+
+    // Share link
+    shareBtn.addEventListener('click', () => {
+      const slugs = currentList.map((item) => encodeURIComponent(item.slug)).join(',');
+      const shareUrl = `${window.location.origin}${window.location.pathname}#list=${slugs}`;
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        shareToast.style.display = 'flex';
+        setTimeout(() => {
+          shareToast.style.display = 'none';
+        }, 3000);
+      }).catch(() => {
+        prompt('Kopieer deellink:', shareUrl);
+      });
+    });
+
+    // Export CSV
+    exportCsvBtn.addEventListener('click', () => {
+      if (currentList.length === 0) return;
+      const headers = ['Rank', 'Slug', 'Name', 'City', 'Province', 'Visited', 'Note', 'Website'];
+      const rows = currentList.map((item, idx) => {
+        const m = lookup[item.slug];
+        const escapeCsv = (str) => `"${String(str || '').replace(/"/g, '""')}"`;
+        return [
+          idx + 1,
+          escapeCsv(item.slug),
+          escapeCsv(m ? m.name : item.slug),
+          escapeCsv(m ? m.city : ''),
+          escapeCsv(m ? m.province : ''),
+          item.visited ? 'Yes' : 'No',
+          escapeCsv(item.note || ''),
+          escapeCsv(m ? m.website || '' : ''),
+        ].join(',');
+      });
+      const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\r\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `museumwijzer-prioriteitenlijst-${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Export JSON
+    exportJsonBtn.addEventListener('click', () => {
+      if (currentList.length === 0) return;
+      const exportData = {
+        version: '1.0',
+        exported_at: new Date().toISOString(),
+        items: currentList.map((item) => ({
+          slug: item.slug,
+          visited: item.visited,
+          note: item.note,
+          name: lookup[item.slug]?.name || item.slug,
+        })),
+      };
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `museumwijzer-prioriteitenlijst-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Import JSON
+    importInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const parsed = JSON.parse(event.target.result);
+          let items = [];
+          if (Array.isArray(parsed)) {
+            items = parsed;
+          } else if (parsed && Array.isArray(parsed.items)) {
+            items = parsed.items;
+          }
+          if (items.length > 0) {
+            const importedList = items.map((it) => {
+              if (typeof it === 'string') return { slug: it, visited: false, note: '' };
+              return {
+                slug: it.slug || '',
+                visited: Boolean(it.visited),
+                note: it.note || '',
+              };
+            }).filter((it) => it.slug);
+
+            saveListToStorage(importedList);
+            renderList();
+          }
+        } catch (err) {
+          alert('Fout bij importeren van JSON-bestand.');
+        }
+      };
+      reader.readAsText(file);
+      importInput.value = '';
+    });
+
+    // Print
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+
+    // Clear list
+    clearBtn.addEventListener('click', () => {
+      if (confirm(clearConfirmText)) {
+        saveListToStorage([]);
+        renderList();
+      }
+    });
+
+    // Initial load
+    currentList = loadSavedList();
+    checkSharedHash();
+    renderList();
+  });
+</script>

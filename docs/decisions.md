@@ -46,3 +46,31 @@
 - **Context:** Users often save museums to personal map lists (such as Google Maps) or need direct navigation.
 - **Decision:** Provide plain outbound links for OpenStreetMap, Google Maps (`https://www.google.com/maps/search/?api=1&query=...`), and Apple Maps (`https://maps.apple.com/?q=...`) using encoded museum name, address, and city.
 - **Privacy Compliance:** No third-party map embeds, iframes, or tracking scripts are loaded; navigation occurs purely when the user clicks an external link.
+
+## ADR 009: Client-Side Priority List Architecture (LocalStorage & URL Hash Sharing)
+- **Context:** §6.3 requires personal priority list, reordering, visited status, notes, shareability, export/import, print styles without any backend server.
+- **Decision:** Use `localStorage` for offline client persistence and URL hash (`#list=slug1,slug2,...`) for serverless sharing.
+- **Rationale:** The static site remains backendless and private. The hash is processed entirely client-side and never transmitted to web servers in HTTP requests. When opening a shared hash, the app prompts "Save to my list" rather than silently overwriting existing user data.
+
+## ADR 010: Privacy-Preserving "Near Me" Geolocation & City Centroid Fallback
+- **Context:** §6.4 requires client-side distance calculation and fallback when geolocation is denied or unavailable, with zero third-party geocoding calls from the browser.
+- **Decision:** Use browser `navigator.geolocation` only on explicit user click, computing Haversine distance in browser JavaScript. Pre-calculate mean city centroids at build time in Astro for fallback reference cities.
+- **Rationale:** Strict privacy guarantee (G-7). Zero external network calls. Users can calculate distance from any city even without granting GPS permissions.
+
+## ADR 011: Ukrainian Locale (/uk/) & Translation Review Flag
+- **Context:** §6.6 requires Ukrainian support with separate path `/uk/` alongside Dutch and English.
+- **Decision:** Generate `/uk/`, `/uk/about/`, `/uk/list/`, and `/uk/museum/<slug>/` with localized UI strings, Ukrainian `hreflang`, and language switcher. Keep museum names untranslated.
+- **Review Requirement:** Machine-drafted strings are documented with `REVIEW_FLAG` in `site/src/i18n/ui.ts` for native speaker review before launch.
+
+## ADR 012: Site-Wide Notice Banner Architecture
+- **Context:** A mechanism is needed to alert visitors if the programme ends or changes, or if data is older than 30 days.
+- **Decision:** Governed by `data/notice.json` (for manual announcements) and `data/meta.json` (for automated 30-day stale data warnings rendered at build time).
+
+## ADR 013: Dutch Places Dataset & PDOK Postcode Resolution for Distance Filtering
+- **Context:** Users wanting to calculate distances without sharing GPS (or from a different town like Giethoorn that has no participating museum, or via 4-digit/6-digit postal code) need accurate coordinates.
+- **Decision:**
+  1. Ship a compact dataset of all 2,503 Dutch woonplaatsen centroids (`/data/places.json`, ~100 KB uncompressed, ~25 KB gzipped), preloaded lazily when location controls are engaged.
+  2. Provide live lookup against the official Dutch open data PDOK Locatieserver (`api.pdok.nl`, permitted by CSP) for postal codes (e.g. `8355`, `1012`) and alternate place spellings.
+  3. Reverse-geocode GPS coordinates to the nearest Dutch woonplaats to explicitly display the detected location (e.g., `Gedetecteerde locatie: nabij Delft (52.00° N, 4.36° E)`).
+  4. Allow filtering by maximum distance (10 km, 25 km, 50 km, 100 km).
+- **Rationale:** Fully offline-capable for all Dutch towns and villages, instantaneous lookup without network requests for places, open Dutch government fallback for postcodes, and total transparency on what location was detected.
