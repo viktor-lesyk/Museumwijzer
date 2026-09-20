@@ -1,0 +1,7 @@
+# Common Dutch city aliases mapping administrative, legal, or variant names to common display names
+# format: alias: display_name
+"'s-Gravenhage": "Den Haag"
+"'s Gravenhage": "Den Haag"
+"The Hague": "Den Haag"
+"'s-Hertogenbosch": "Den Bosch"
+"'s Hertogenbosch": "Den Bosch"

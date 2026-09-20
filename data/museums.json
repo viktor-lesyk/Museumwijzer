@@ -1,0 +1,4688 @@
+{
+  "source": {
+    "name": "Welkom in het Museum",
+    "url": "https://welkominhetmuseum.vriendenloterij.nl/nl/deelnemende-musea/"
+  },
+  "museums": [
+    {
+      "slug": "HaRT-Museum1",
+      "name": "H’ART Museum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": "Amsterdam",
+      "address": {
+        "street": "Amstel 51",
+        "postcode": "1018 DR",
+        "city": "Amsterdam"
+      },
+      "lat": 52.364451,
+      "lon": 4.903036,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/HaRT-Museum1/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/HaRT-Museum1/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/HaRT-Museum1/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/HaRT-Museum1/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-02-09T21:20:30.779Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "Museum-Tromps-Huys",
+      "name": "Museum Tromp’s Huys",
+      "province": "Friesland",
+      "city": "Oost-Vlieland",
+      "municipality": "Vlieland",
+      "address": {
+        "street": "Dorpsstraat 99",
+        "postcode": "8899 AD",
+        "city": "Oost-Vlieland"
+      },
+      "lat": 53.29539,
+      "lon": 5.06742,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/Museum-Tromps-Huys/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/Museum-Tromps-Huys/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/Museum-Tromps-Huys/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/Museum-Tromps-Huys/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-02-11T11:02:02.521Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Vlieland"
+    },
+    {
+      "slug": "Museumhuis-sloetjes1",
+      "name": "Museumhuis Sloëtjes",
+      "province": "Noord-Holland",
+      "city": "Hilversum",
+      "municipality": null,
+      "address": {
+        "street": "J.P. Coenstraat 80",
+        "postcode": "1215 KT",
+        "city": "Hilversum"
+      },
+      "lat": 52.211242,
+      "lon": 5.159402,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/Museumhuis-sloetjes1/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/Museumhuis-sloetjes1/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/Museumhuis-sloetjes1/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/Museumhuis-sloetjes1/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-02-09T16:44:49.031Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Hilversum"
+    },
+    {
+      "slug": "Textiel-museum",
+      "name": "Textiel museum",
+      "province": "Noord-Brabant",
+      "city": "Tilburg",
+      "municipality": null,
+      "address": {
+        "street": "Goirkestraat 96",
+        "postcode": "5046 GN",
+        "city": "Tilburg"
+      },
+      "lat": 51.570849,
+      "lon": 5.079454,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/Textiel-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/Textiel-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/Textiel-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/Textiel-museum/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-02-09T16:38:18.514Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Tilburg"
+    },
+    {
+      "slug": "allard-pierson-museum",
+      "name": "Allard Pierson Museum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Oude Turfmarkt 127",
+        "postcode": "1012 CG",
+        "city": "Amsterdam"
+      },
+      "lat": 52.372243,
+      "lon": 4.889794,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/allard-pierson-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/allard-pierson-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/allard-pierson-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/allard-pierson-museum/"
+      },
+      "museum_website": "https://allardpierson.nl/",
+      "source_date_raw": "2022-11-14T13:19:09.491Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "anne-frank-huis",
+      "name": "Anne Frank Huis",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Prinsengracht 267",
+        "postcode": "1016 GV",
+        "city": "Amsterdam"
+      },
+      "lat": 52.374936,
+      "lon": 4.884317,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/anne-frank-huis/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/anne-frank-huis/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/anne-frank-huis/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/anne-frank-huis/"
+      },
+      "museum_website": "https://www.annefrank.org/nl/",
+      "source_date_raw": "2022-11-14T13:23:51.268Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "anno",
+      "name": "ANNO",
+      "province": "Overijssel",
+      "city": "Zwolle",
+      "municipality": null,
+      "address": {
+        "street": "Melkmarkt 41",
+        "postcode": "8011 MB",
+        "city": "Zwolle"
+      },
+      "lat": 52.513028,
+      "lon": 6.09057,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/anno/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/anno/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/anno/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/anno/"
+      },
+      "museum_website": "https://anno.nl/",
+      "source_date_raw": "2022-11-11T09:08:08.244Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Zwolle"
+    },
+    {
+      "slug": "archeon",
+      "name": "Archeon",
+      "province": "Zuid-Holland",
+      "city": "Alphen aan den Rijn",
+      "municipality": null,
+      "address": {
+        "street": "Archeonlaan 1",
+        "postcode": "2408 ZB",
+        "city": "Alphen aan den Rijn"
+      },
+      "lat": 52.114315,
+      "lon": 4.651635,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/archeon/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/archeon/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/archeon/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/archeon/"
+      },
+      "museum_website": "https://www.archeon.nl/index.html",
+      "source_date_raw": "2022-11-09T13:49:57.672Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Alphen aan den Rijn"
+    },
+    {
+      "slug": "artis-groote-museum",
+      "name": "ARTIS Groote Museum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": "Amsterdam",
+      "address": {
+        "street": "Plantage Kerklaan 36",
+        "postcode": "1018 CZ",
+        "city": "Amsterdam"
+      },
+      "lat": 52.366772,
+      "lon": 4.912393,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/artis-groote-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/artis-groote-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/artis-groote-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/artis-groote-museum/"
+      },
+      "museum_website": "https://www.grootemuseum.nl/nl",
+      "source_date_raw": "2022-11-14T13:15:57.041Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "aviodrome",
+      "name": "Aviodrome",
+      "province": "Flevoland",
+      "city": "Lelystad",
+      "municipality": null,
+      "address": {
+        "street": "Pelikaanweg 50",
+        "postcode": "8218 PG",
+        "city": "Lelystad"
+      },
+      "lat": 52.457296,
+      "lon": 5.529689,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/aviodrome/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/aviodrome/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/aviodrome/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/aviodrome/"
+      },
+      "museum_website": "https://www.aviodrome.nl/",
+      "source_date_raw": "2022-11-14T19:44:45.972Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Lelystad"
+    },
+    {
+      "slug": "beeld-geluid-hilversum",
+      "name": "Beeld & Geluid Hilversum",
+      "province": "Noord-Holland",
+      "city": "Hilversum",
+      "municipality": null,
+      "address": {
+        "street": "Media Parkboulevard",
+        "postcode": "1217 WE",
+        "city": "Hilversum"
+      },
+      "lat": 52.235764,
+      "lon": 5.172571,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/beeld-geluid-hilversum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/beeld-geluid-hilversum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/beeld-geluid-hilversum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/beeld-geluid-hilversum/"
+      },
+      "museum_website": "https://www.beeldengeluid.nl/",
+      "source_date_raw": "2022-11-14T13:33:53.000Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Hilversum"
+    },
+    {
+      "slug": "bevrijdingsmuseum-zeeland",
+      "name": "Bevrijdingsmuseum Zeeland",
+      "province": "Zeeland",
+      "city": "Nieuwdorp",
+      "municipality": null,
+      "address": {
+        "street": "Coudorp 41",
+        "postcode": "4455 AH",
+        "city": "Nieuwdorp"
+      },
+      "lat": 51.467809,
+      "lon": 3.744011,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/bevrijdingsmuseum-zeeland/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/bevrijdingsmuseum-zeeland/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/bevrijdingsmuseum-zeeland/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/bevrijdingsmuseum-zeeland/"
+      },
+      "museum_website": "https://bevrijdingsmuseumzeeland.nl/",
+      "source_date_raw": "2025-11-04T16:27:04.096Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Nieuwdorp"
+    },
+    {
+      "slug": "bonnefanten",
+      "name": "Bonnefanten",
+      "province": "Limburg",
+      "city": "Maastricht",
+      "municipality": null,
+      "address": {
+        "street": "Avenue Ceramique 250",
+        "postcode": "6221 KX",
+        "city": "Maastricht"
+      },
+      "lat": 50.842525,
+      "lon": 5.702028,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/bonnefanten/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/bonnefanten/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/bonnefanten/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/bonnefanten/"
+      },
+      "museum_website": "https://www.bonnefanten.nl/nl",
+      "source_date_raw": "2023-01-02T16:52:17.980Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Maastricht"
+    },
+    {
+      "slug": "buitenplaats-beeckestijn",
+      "name": "Buitenplaats Beeckestijn",
+      "province": "Noord-Holland",
+      "city": "Velzen-Zuid",
+      "municipality": null,
+      "address": {
+        "street": "Rijksweg 134",
+        "postcode": "1981 LD",
+        "city": "Velzen-Zuid"
+      },
+      "lat": 52.452546,
+      "lon": 4.652053,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/buitenplaats-beeckestijn/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/buitenplaats-beeckestijn/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/buitenplaats-beeckestijn/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/buitenplaats-beeckestijn/"
+      },
+      "museum_website": "https://buitenplaatsbeeckestijn.nl/",
+      "source_date_raw": "2023-02-01T16:40:07.049Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Velsen-Zuid"
+    },
+    {
+      "slug": "centraal-museum",
+      "name": "Centraal Museum",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Agnietenstraat 1",
+        "postcode": "3512 XA",
+        "city": "Utrecht"
+      },
+      "lat": 52.08381,
+      "lon": 5.125957,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/centraal-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/centraal-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/centraal-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/centraal-museum/"
+      },
+      "museum_website": "https://www.centraalmuseum.nl/nl",
+      "source_date_raw": "2023-01-02T20:01:04.903Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "cobra-museum",
+      "name": "Cobra Museum",
+      "province": "Noord-Holland",
+      "city": "Amstelveen",
+      "municipality": null,
+      "address": {
+        "street": "Sandbergplein 1",
+        "postcode": "1181 ZX",
+        "city": "Amstelveen"
+      },
+      "lat": 52.303798,
+      "lon": 4.857981,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/cobra-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/cobra-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/cobra-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/cobra-museum/"
+      },
+      "museum_website": "https://cobra-museum.nl/",
+      "source_date_raw": "2022-11-14T13:41:00.972Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amstelveen"
+    },
+    {
+      "slug": "cruquiusmuseum",
+      "name": "CruquiusMuseum",
+      "province": "Noord-Holland",
+      "city": "Cruquius",
+      "municipality": null,
+      "address": {
+        "street": "Cruquiusdijk 27",
+        "postcode": "2142 ER",
+        "city": "Cruquius"
+      },
+      "lat": 52.338199,
+      "lon": 4.638092,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/cruquiusmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/cruquiusmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/cruquiusmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/cruquiusmuseum/"
+      },
+      "museum_website": "https://cruquius-museum.nl/cruquius-museum",
+      "source_date_raw": "2025-07-28T12:56:10.396Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Cruquius"
+    },
+    {
+      "slug": "czaar-peterhuisje",
+      "name": "Czaar Peterhuisje",
+      "province": "Noord-Holland",
+      "city": "Zaandam",
+      "municipality": "Zaanstad",
+      "address": {
+        "street": "Krimp 23",
+        "postcode": "1506 AA",
+        "city": "Zaandam"
+      },
+      "lat": 52.437322,
+      "lon": 4.823489,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/czaar-peterhuisje/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/czaar-peterhuisje/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/czaar-peterhuisje/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/czaar-peterhuisje/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-07-28T13:03:55.450Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Zaandam"
+    },
+    {
+      "slug": "de-bastei",
+      "name": "De Bastei",
+      "province": "Gelderland",
+      "city": "Nijmegen",
+      "municipality": null,
+      "address": {
+        "street": "Waalkade 83",
+        "postcode": "6511 XR",
+        "city": "Nijmegen"
+      },
+      "lat": 51.848631,
+      "lon": 5.869429,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-bastei/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-bastei/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/de-bastei/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/de-bastei/"
+      },
+      "museum_website": "https://www.debastei.nl/nl",
+      "source_date_raw": "2022-11-13T11:55:02.984Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Nijmegen"
+    },
+    {
+      "slug": "de-elleboogkerk",
+      "name": "De Elleboogkerk",
+      "province": "Utrecht",
+      "city": "Amersfoort",
+      "municipality": null,
+      "address": {
+        "street": "Langegracht 36",
+        "postcode": "3811 BW",
+        "city": "Amersfoort"
+      },
+      "lat": 52.157331,
+      "lon": 5.387037,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-elleboogkerk/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-elleboogkerk/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/de-elleboogkerk/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/de-elleboogkerk/"
+      },
+      "museum_website": "https://www.elleboogkerk.nl/",
+      "source_date_raw": "2025-10-02T09:59:38.735Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amersfoort"
+    },
+    {
+      "slug": "de-mesdag-collectie",
+      "name": "De Mesdag Collectie",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "Laan van Meerdervoort 7-F",
+        "postcode": "2517 AB",
+        "city": "Den Haag"
+      },
+      "lat": 52.086015,
+      "lon": 4.297737,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-mesdag-collectie/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-mesdag-collectie/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/de-mesdag-collectie/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/de-mesdag-collectie/"
+      },
+      "museum_website": "https://www.demesdagcollectie.nl/",
+      "source_date_raw": "2022-11-09T14:23:57.846Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "de-museumfabriek",
+      "name": "De Museumfabriek",
+      "province": "Overijssel",
+      "city": "Enschede",
+      "municipality": null,
+      "address": {
+        "street": "Het Rozendaal 11",
+        "postcode": "7523 GX",
+        "city": "Enschede"
+      },
+      "lat": 52.240722,
+      "lon": 6.885181,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-museumfabriek/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-museumfabriek/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/de-museumfabriek/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/de-museumfabriek/"
+      },
+      "museum_website": "https://www.demuseumfabriek.nl/",
+      "source_date_raw": "2022-11-15T09:50:08.805Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Enschede"
+    },
+    {
+      "slug": "de-nieuwe-kerk",
+      "name": "De Nieuwe Kerk",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Dam",
+        "postcode": "1012 NP",
+        "city": "Amsterdam"
+      },
+      "lat": 52.372971,
+      "lon": 4.893044,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-nieuwe-kerk/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-nieuwe-kerk/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/de-nieuwe-kerk/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/de-nieuwe-kerk/"
+      },
+      "museum_website": "https://www.nieuwekerk.nl/",
+      "source_date_raw": "2022-11-14T13:45:33.953Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "de-oude-kerk",
+      "name": "De Oude Kerk",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Oudekerksplein 23",
+        "postcode": "1012 GX",
+        "city": "Amsterdam"
+      },
+      "lat": 52.374118,
+      "lon": 4.897761,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-oude-kerk/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/de-oude-kerk/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/de-oude-kerk/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/de-oude-kerk/"
+      },
+      "museum_website": "https://oudekerk.nl/",
+      "source_date_raw": "2022-11-14T14:09:58.602Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "depot-boijmans-van-beuningen",
+      "name": "Depot Boijmans Van Beuningen",
+      "province": "Zuid-Holland",
+      "city": "Rotterdam",
+      "municipality": null,
+      "address": {
+        "street": "Museumpark 24",
+        "postcode": "3015 CX",
+        "city": "Rotterdam"
+      },
+      "lat": 51.913966,
+      "lon": 4.471108,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/depot-boijmans-van-beuningen/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/depot-boijmans-van-beuningen/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/depot-boijmans-van-beuningen/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/depot-boijmans-van-beuningen/"
+      },
+      "museum_website": "https://www.boijmans.nl/",
+      "source_date_raw": "2022-11-10T08:38:20.433Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Rotterdam"
+    },
+    {
+      "slug": "design-museum-den-bosch",
+      "name": "Design Museum Den Bosch",
+      "province": "Noord-Brabant",
+      "city": "Den Bosch",
+      "municipality": null,
+      "address": {
+        "street": "De Mortel 4",
+        "postcode": "5211 HV",
+        "city": "Den Bosch"
+      },
+      "lat": 51.685743,
+      "lon": 5.30417,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/design-museum-den-bosch/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/design-museum-den-bosch/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/design-museum-den-bosch/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/design-museum-den-bosch/"
+      },
+      "museum_website": "https://designmuseum.nl/",
+      "source_date_raw": "2023-01-31T17:13:51.337Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Hertogenbosch"
+    },
+    {
+      "slug": "discovery-museum",
+      "name": "Discovery Museum",
+      "province": "Limburg",
+      "city": "Kerkrade",
+      "municipality": null,
+      "address": {
+        "street": "Museumplein 2",
+        "postcode": "6461 MA",
+        "city": "Kerkrade"
+      },
+      "lat": 50.861131,
+      "lon": 6.058463,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/discovery-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/discovery-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/discovery-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/discovery-museum/"
+      },
+      "museum_website": "https://www.discoverymuseum.nl/",
+      "source_date_raw": "2023-01-02T16:46:01.367Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Kerkrade"
+    },
+    {
+      "slug": "domunder",
+      "name": "DOMunder",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Domplein 9",
+        "postcode": "3512 JC",
+        "city": "Utrecht"
+      },
+      "lat": 52.090953,
+      "lon": 5.121057,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/domunder/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/domunder/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/domunder/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/domunder/"
+      },
+      "museum_website": "https://www.domunder.nl/",
+      "source_date_raw": "2026-04-24T12:12:03.475Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "dordrechts-museum",
+      "name": "Dordrechts Museum",
+      "province": "Zuid-Holland",
+      "city": "Dordrecht",
+      "municipality": null,
+      "address": {
+        "street": "Museumstraat 40",
+        "postcode": "3311 XP",
+        "city": "Dordrecht"
+      },
+      "lat": 51.813993,
+      "lon": 4.672041,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/dordrechts-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/dordrechts-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/dordrechts-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/dordrechts-museum/"
+      },
+      "museum_website": "https://www.dordrechtsmuseum.nl/",
+      "source_date_raw": "2022-11-10T08:47:38.184Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Dordrecht"
+    },
+    {
+      "slug": "drents-museum",
+      "name": "Drents Museum",
+      "province": "Drenthe",
+      "city": "Assen",
+      "municipality": null,
+      "address": {
+        "street": "Brink 1",
+        "postcode": "9401 HS",
+        "city": "Assen"
+      },
+      "lat": 52.992901,
+      "lon": 6.564276,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/drents-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/drents-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/drents-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/drents-museum/"
+      },
+      "museum_website": "https://drentsmuseum.nl/nl",
+      "source_date_raw": "2022-11-08T09:48:48.320Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Assen"
+    },
+    {
+      "slug": "drents-museum-de-buitenplaats",
+      "name": "Drents Museum de Buitenplaats",
+      "province": "Drenthe",
+      "city": "Eelde",
+      "municipality": null,
+      "address": {
+        "street": "Hoofdweg 76",
+        "postcode": "9761 EK",
+        "city": "Eelde"
+      },
+      "lat": 53.133391,
+      "lon": 6.563544,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/drents-museum-de-buitenplaats/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/drents-museum-de-buitenplaats/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/drents-museum-de-buitenplaats/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/drents-museum-de-buitenplaats/"
+      },
+      "museum_website": "https://dmdebuitenplaats.nl/",
+      "source_date_raw": "2025-12-12T13:45:25.862Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Eelde"
+    },
+    {
+      "slug": "eusebiuskerk",
+      "name": "Eusebiuskerk",
+      "province": "Gelderland",
+      "city": "Arnhem",
+      "municipality": null,
+      "address": {
+        "street": "Kerkplein 1",
+        "postcode": "6811 EB",
+        "city": "Arnhem"
+      },
+      "lat": 51.979058,
+      "lon": 5.909649,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/eusebiuskerk/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/eusebiuskerk/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/eusebiuskerk/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/eusebiuskerk/"
+      },
+      "museum_website": "https://eusebius.nl/",
+      "source_date_raw": "2025-10-10T09:17:20.445Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Arnhem"
+    },
+    {
+      "slug": "eye-filmmuseum",
+      "name": "Eye Filmmuseum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "IJpromenade 1",
+        "postcode": "1031 KT",
+        "city": "Amsterdam"
+      },
+      "lat": 52.384136,
+      "lon": 4.901293,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/eye-filmmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/eye-filmmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/eye-filmmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/eye-filmmuseum/"
+      },
+      "museum_website": "https://www.eyefilm.nl/en",
+      "source_date_raw": "2022-11-14T14:18:21.716Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "foam-fotografiemuseum",
+      "name": "Foam Fotografiemuseum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Keizersgracht 609",
+        "postcode": "1017 DS",
+        "city": "Amsterdam"
+      },
+      "lat": 52.363988,
+      "lon": 4.893263,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/foam-fotografiemuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/foam-fotografiemuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/foam-fotografiemuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/foam-fotografiemuseum/"
+      },
+      "museum_website": "https://www.foam.org/nl",
+      "source_date_raw": "2023-01-02T17:01:33.039Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "forteiland-pampus",
+      "name": "Forteiland Pampus",
+      "province": "Noord-Holland",
+      "city": "Muiden",
+      "municipality": null,
+      "address": {
+        "street": "Herengracht 33 (Opstapplaats Veerdienst)",
+        "postcode": "1398 AB",
+        "city": "Muiden"
+      },
+      "lat": 52.331593,
+      "lon": 5.070876,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/forteiland-pampus/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/forteiland-pampus/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/forteiland-pampus/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/forteiland-pampus/"
+      },
+      "museum_website": "https://www.pampus.nl/",
+      "source_date_raw": "2022-11-14T14:23:08.672Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Muiden"
+    },
+    {
+      "slug": "fortresse-holland",
+      "name": "Fortresse Holland",
+      "province": "Zuid-Holland",
+      "city": "Hellevoetssluis",
+      "municipality": null,
+      "address": {
+        "street": "Dokweg 5",
+        "postcode": "3221 AE",
+        "city": "Hellevoetssluis"
+      },
+      "lat": 51.828836,
+      "lon": 4.128196,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fortresse-holland/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fortresse-holland/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/fortresse-holland/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/fortresse-holland/"
+      },
+      "museum_website": "https://fortresseholland.nl/plan-uw-bezoek/",
+      "source_date_raw": "2025-08-15T08:00:26.229Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Hellevoetsluis"
+    },
+    {
+      "slug": "forum-groningen",
+      "name": "Forum Groningen",
+      "province": "Groningen",
+      "city": "Groningen",
+      "municipality": null,
+      "address": {
+        "street": "Nieuwe Markt 1",
+        "postcode": "9712 KN",
+        "city": "Groningen"
+      },
+      "lat": 53.218893,
+      "lon": 6.56983,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/forum-groningen/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/forum-groningen/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/forum-groningen/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/forum-groningen/"
+      },
+      "museum_website": "https://forum.nl/",
+      "source_date_raw": "2022-11-14T09:47:21.646Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Groningen"
+    },
+    {
+      "slug": "fotomuseum-aan-het-vrijthof",
+      "name": "Fotomuseum aan het Vrijthof",
+      "province": "Limburg",
+      "city": "Maastricht",
+      "municipality": null,
+      "address": {
+        "street": "Vrijthof 18",
+        "postcode": "6211 LD",
+        "city": "Maastricht"
+      },
+      "lat": 50.848354,
+      "lon": 5.688755,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fotomuseum-aan-het-vrijthof/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fotomuseum-aan-het-vrijthof/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/fotomuseum-aan-het-vrijthof/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/fotomuseum-aan-het-vrijthof/"
+      },
+      "museum_website": "https://fotomuseumaanhetvrijthof.nl/",
+      "source_date_raw": "2025-11-26T13:31:13.048Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Maastricht"
+    },
+    {
+      "slug": "fotomuseum-den-haag",
+      "name": "Fotomuseum Den Haag",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "Stadhouderslaan 43",
+        "postcode": "2517 HV",
+        "city": "Den Haag"
+      },
+      "lat": 52.089202,
+      "lon": 4.279849,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fotomuseum-den-haag/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fotomuseum-den-haag/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/fotomuseum-den-haag/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/fotomuseum-den-haag/"
+      },
+      "museum_website": "https://www.fotomuseumdenhaag.nl/nl",
+      "source_date_raw": "2022-11-22T11:03:12.022Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "fraeylemaborg",
+      "name": "Fraeylemaborg",
+      "province": "Groningen",
+      "city": "Slochteren",
+      "municipality": null,
+      "address": {
+        "street": "Hoofdweg 30",
+        "postcode": "9621 AL",
+        "city": "Slochteren"
+      },
+      "lat": 53.215461,
+      "lon": 6.80957,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fraeylemaborg/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fraeylemaborg/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/fraeylemaborg/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/fraeylemaborg/"
+      },
+      "museum_website": "https://fraeylemaborg.nl/",
+      "source_date_raw": "2022-11-14T10:03:20.583Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Slochteren"
+    },
+    {
+      "slug": "frans-hals-museum",
+      "name": "Frans Hals Museum",
+      "province": "Noord-Holland",
+      "city": "Haarlem",
+      "municipality": null,
+      "address": {
+        "street": "Groot Heiligland 62",
+        "postcode": "2011 ES",
+        "city": "Haarlem"
+      },
+      "lat": 52.376606,
+      "lon": 4.63369,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/frans-hals-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/frans-hals-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/frans-hals-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/frans-hals-museum/"
+      },
+      "museum_website": "https://www.franshalsmuseum.nl/nl/",
+      "source_date_raw": "2022-11-14T14:33:47.438Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Haarlem"
+    },
+    {
+      "slug": "fries-museum",
+      "name": "Fries Museum",
+      "province": "Friesland",
+      "city": "Leeuwarden",
+      "municipality": null,
+      "address": {
+        "street": "Wilhelminaplein 92",
+        "postcode": "8911 BS",
+        "city": "Leeuwarden"
+      },
+      "lat": 53.199569,
+      "lon": 5.79425,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fries-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/fries-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/fries-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/fries-museum/"
+      },
+      "museum_website": "https://www.friesmuseum.nl/",
+      "source_date_raw": "2022-11-08T14:02:48.264Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leeuwarden"
+    },
+    {
+      "slug": "gemeenlandshuis-amsterdam",
+      "name": "Gemeenlandshuis Amsterdam",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Diemerzeedijk 27",
+        "postcode": "1095 KK",
+        "city": "Amsterdam"
+      },
+      "lat": 52.361259,
+      "lon": 4.966388,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/gemeenlandshuis-amsterdam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/gemeenlandshuis-amsterdam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/gemeenlandshuis-amsterdam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/gemeenlandshuis-amsterdam/"
+      },
+      "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/gemeenlandshuis-amsterdam",
+      "source_date_raw": "2022-11-14T14:38:11.246Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "gemeentemuseum-het-hannemahuis",
+      "name": "Gemeentemuseum het Hannemahuis",
+      "province": "Friesland",
+      "city": "Harlingen",
+      "municipality": null,
+      "address": {
+        "street": "Voorstraat 56",
+        "postcode": "8861 BM",
+        "city": "Harlingen"
+      },
+      "lat": 53.174581,
+      "lon": 5.419242,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/gemeentemuseum-het-hannemahuis/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/gemeentemuseum-het-hannemahuis/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/gemeentemuseum-het-hannemahuis/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/gemeentemuseum-het-hannemahuis/"
+      },
+      "museum_website": "https://hannemahuis.nl/",
+      "source_date_raw": "2022-11-08T14:18:12.913Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Harlingen"
+    },
+    {
+      "slug": "gevangenismuseum",
+      "name": "Gevangenismuseum",
+      "province": "Drenthe",
+      "city": "Veenhuizen",
+      "municipality": null,
+      "address": {
+        "street": "Oude Gracht 1",
+        "postcode": "9341 AA",
+        "city": "Veenhuizen"
+      },
+      "lat": 53.041533,
+      "lon": 6.391751,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/gevangenismuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/gevangenismuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/gevangenismuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/gevangenismuseum/"
+      },
+      "museum_website": "https://www.gevangenismuseum.nl/",
+      "source_date_raw": "2022-10-25T12:45:01.474Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Veenhuizen"
+    },
+    {
+      "slug": "groninger-museum",
+      "name": "Groninger Museum",
+      "province": "Groningen",
+      "city": "Groningen",
+      "municipality": null,
+      "address": {
+        "street": "Museumeiland 1",
+        "postcode": "9711 ME",
+        "city": "Groningen"
+      },
+      "lat": 53.212474,
+      "lon": 6.566075,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/groninger-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/groninger-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/groninger-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/groninger-museum/"
+      },
+      "museum_website": "https://www.groningermuseum.nl/",
+      "source_date_raw": "2023-01-02T16:33:55.530Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Groningen"
+    },
+    {
+      "slug": "haags-historisch-museum",
+      "name": "Haags Historisch Museum",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": "'s-Gravenhage",
+      "address": {
+        "street": "Korte Vijverberg 7",
+        "postcode": "2513 AB",
+        "city": "Den Haag"
+      },
+      "lat": 52.08123,
+      "lon": 4.313961,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/haags-historisch-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/haags-historisch-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/haags-historisch-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/haags-historisch-museum/"
+      },
+      "museum_website": "https://www.haagshistorischmuseum.nl/nl",
+      "source_date_raw": "2022-11-10T09:13:14.543Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "herinneringscentrum-kamp-westerbork",
+      "name": "Herinneringscentrum Kamp Westerbork",
+      "province": "Drenthe",
+      "city": "Hooghalen",
+      "municipality": null,
+      "address": {
+        "street": "Oosthalen 8",
+        "postcode": "9414 TG",
+        "city": "Hooghalen"
+      },
+      "lat": 52.92138,
+      "lon": 6.569834,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/herinneringscentrum-kamp-westerbork/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/herinneringscentrum-kamp-westerbork/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/herinneringscentrum-kamp-westerbork/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/herinneringscentrum-kamp-westerbork/"
+      },
+      "museum_website": "https://kampwesterbork.nl/",
+      "source_date_raw": "2025-12-12T14:07:57.063Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Hooghalen"
+    },
+    {
+      "slug": "het-nieuwe-instituut",
+      "name": "Het Nieuwe Instituut",
+      "province": "Zuid-Holland",
+      "city": "Rotterdam",
+      "municipality": "Rotterdam",
+      "address": {
+        "street": "Museumpark 25",
+        "postcode": "3015 CB",
+        "city": "Rotterdam"
+      },
+      "lat": 51.914488,
+      "lon": 4.470987,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/het-nieuwe-instituut/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/het-nieuwe-instituut/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/het-nieuwe-instituut/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/het-nieuwe-instituut/"
+      },
+      "museum_website": "https://www.gevangenismuseum.nl/",
+      "source_date_raw": "2022-11-10T09:07:12.007Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Rotterdam"
+    },
+    {
+      "slug": "het-scheepvaartmuseum",
+      "name": "Het Scheepvaartmuseum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Kattenburgerplein 1",
+        "postcode": "1018 KK",
+        "city": "Amsterdam"
+      },
+      "lat": 52.371492,
+      "lon": 4.915,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/het-scheepvaartmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/het-scheepvaartmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/het-scheepvaartmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/het-scheepvaartmuseum/"
+      },
+      "museum_website": "https://www.hetscheepvaartmuseum.nl/",
+      "source_date_raw": "2022-11-14T15:03:59.906Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "hof-van-nederland",
+      "name": "Hof van Nederland",
+      "province": "Zuid-Holland",
+      "city": "Dordrecht",
+      "municipality": null,
+      "address": {
+        "street": "Hof 6",
+        "postcode": "3311 XG",
+        "city": "Dordrecht"
+      },
+      "lat": 51.815636,
+      "lon": 4.670111,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/hof-van-nederland/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/hof-van-nederland/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/hof-van-nederland/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/hof-van-nederland/"
+      },
+      "museum_website": "https://www.hofvannederland.nl",
+      "source_date_raw": "2025-08-15T08:24:51.484Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Dordrecht"
+    },
+    {
+      "slug": "huis-sonneveld",
+      "name": "Huis Sonneveld",
+      "province": "Zuid-Holland",
+      "city": "Rotterdam",
+      "municipality": null,
+      "address": {
+        "street": "Jongkindstraat 12",
+        "postcode": "3015 CG",
+        "city": "Rotterdam"
+      },
+      "lat": 51.915603,
+      "lon": 4.472328,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-sonneveld/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-sonneveld/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huis-sonneveld/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huis-sonneveld/"
+      },
+      "museum_website": "https://www.huissonneveld.nl/",
+      "source_date_raw": "2022-11-10T09:29:42.422Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Rotterdam"
+    },
+    {
+      "slug": "huis-van-eysinga",
+      "name": "Huis Van Eysinga",
+      "province": "Friesland",
+      "city": "Leeuwarden",
+      "municipality": null,
+      "address": {
+        "street": "Koningsstraat 25",
+        "postcode": "8911 KV",
+        "city": "Leeuwarden"
+      },
+      "lat": 53.202618,
+      "lon": 5.800826,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-van-eysinga/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-van-eysinga/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huis-van-eysinga/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huis-van-eysinga/"
+      },
+      "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-van-eysinga-leeuwarden",
+      "source_date_raw": "2025-09-19T11:52:44.997Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leeuwarden"
+    },
+    {
+      "slug": "huis-van-gijn",
+      "name": "Huis Van Gijn",
+      "province": "Zuid-Holland",
+      "city": "Dordrecht",
+      "municipality": null,
+      "address": {
+        "street": "Nieuwe Haven 30",
+        "postcode": "3311 AP",
+        "city": "Dordrecht"
+      },
+      "lat": 51.816305,
+      "lon": 4.663562,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-van-gijn/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-van-gijn/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huis-van-gijn/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huis-van-gijn/"
+      },
+      "museum_website": "https://www.huisvangijn.nl/",
+      "source_date_raw": "2025-08-15T08:37:33.965Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Dordrecht"
+    },
+    {
+      "slug": "huis-van-meerten",
+      "name": "Huis van Meerten",
+      "province": "Zuid-Holland",
+      "city": "Delft",
+      "municipality": null,
+      "address": {
+        "street": "Oude Delft 199",
+        "postcode": "2611 HD",
+        "city": "Delft"
+      },
+      "lat": 52.013076,
+      "lon": 4.354744,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-van-meerten/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-van-meerten/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huis-van-meerten/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huis-van-meerten/"
+      },
+      "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-van-meerten-Delft",
+      "source_date_raw": "2023-02-01T17:14:55.454Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Delft"
+    },
+    {
+      "slug": "huis-verwolde",
+      "name": "Huis Verwolde",
+      "province": "Gelderland",
+      "city": "Laren",
+      "municipality": null,
+      "address": {
+        "street": "Jonker Emilelaan 4",
+        "postcode": "7245 TL",
+        "city": "Laren"
+      },
+      "lat": 52.200491,
+      "lon": 6.391985,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-verwolde/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-verwolde/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huis-verwolde/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huis-verwolde/"
+      },
+      "museum_website": "https://www.glk.nl/verwolde/huis-verwolde",
+      "source_date_raw": "2026-06-19T08:04:54.313Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Laren"
+    },
+    {
+      "slug": "huis-willet-holthuysen",
+      "name": "Huis Willet-Holthuysen",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": "Amsterdam",
+      "address": {
+        "street": "Herengracht 605",
+        "postcode": "1017 CE",
+        "city": "Amsterdam"
+      },
+      "lat": 52.365603,
+      "lon": 4.899015,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-willet-holthuysen/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-willet-holthuysen/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huis-willet-holthuysen/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huis-willet-holthuysen/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-07-28T13:08:24.771Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "huis-zypendaal",
+      "name": "Huis Zypendaal",
+      "province": "Gelderland",
+      "city": "Arnhem",
+      "municipality": null,
+      "address": {
+        "street": "Zijpendaalseweg 44",
+        "postcode": "6814 CL",
+        "city": "Arnhem"
+      },
+      "lat": 51.999238,
+      "lon": 5.893023,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-zypendaal/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huis-zypendaal/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huis-zypendaal/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huis-zypendaal/"
+      },
+      "museum_website": "https://www.glk.nl/zypendaal/huis-zypendaal",
+      "source_date_raw": "2026-06-19T08:30:30.104Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Arnhem"
+    },
+    {
+      "slug": "hunebedcentrum",
+      "name": "Hunebedcentrum",
+      "province": "Drenthe",
+      "city": "Borger",
+      "municipality": null,
+      "address": {
+        "street": "Hunebedstraat 27",
+        "postcode": "9531 JT",
+        "city": "Borger"
+      },
+      "lat": 52.930676,
+      "lon": 6.798667,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/hunebedcentrum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/hunebedcentrum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/hunebedcentrum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/hunebedcentrum/"
+      },
+      "museum_website": "https://www.hunebedcentrum.eu/",
+      "source_date_raw": "2026-01-29T10:08:16.646Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Borger"
+    },
+    {
+      "slug": "huygens-museum-hofwijck",
+      "name": "Huygens Museum Hofwijck",
+      "province": "Zuid-Holland",
+      "city": "Voorburg",
+      "municipality": "Leidschendam-Voorburg",
+      "address": {
+        "street": "Westeinde 2A",
+        "postcode": "2275 AD",
+        "city": "Voorburg"
+      },
+      "lat": 52.064865,
+      "lon": 4.362618,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huygens-museum-hofwijck/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huygens-museum-hofwijck/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huygens-museum-hofwijck/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huygens-museum-hofwijck/"
+      },
+      "museum_website": "https://huygensmuseum.nl/",
+      "source_date_raw": "2025-08-15T08:47:42.385Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Voorburg"
+    },
+    {
+      "slug": "huygens-museum-notarishuis",
+      "name": "Huygens Museum Notarishuis",
+      "province": "Zuid-Holland",
+      "city": "Voorburg",
+      "municipality": null,
+      "address": {
+        "street": "Herenstraat 101",
+        "postcode": "2271 CC",
+        "city": "Voorburg"
+      },
+      "lat": 52.067286,
+      "lon": 4.363686,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huygens-museum-notarishuis/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/huygens-museum-notarishuis/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huygens-museum-notarishuis/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huygens-museum-notarishuis/"
+      },
+      "museum_website": "https://huygensmuseum.nl/",
+      "source_date_raw": "2025-08-22T08:53:25.415Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Voorburg"
+    },
+    {
+      "slug": "japanmuseum-sieboldhuis",
+      "name": "Japanmuseum Sieboldhuis",
+      "province": "Zuid-Holland",
+      "city": "Leiden",
+      "municipality": null,
+      "address": {
+        "street": "Rapenburg 19",
+        "postcode": "2311 GE",
+        "city": "Leiden"
+      },
+      "lat": 52.159641,
+      "lon": 4.484616,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/japanmuseum-sieboldhuis/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/japanmuseum-sieboldhuis/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/japanmuseum-sieboldhuis/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/japanmuseum-sieboldhuis/"
+      },
+      "museum_website": "https://www.sieboldhuis.org/",
+      "source_date_raw": "2025-10-03T13:12:33.906Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leiden"
+    },
+    {
+      "slug": "joods-museum",
+      "name": "Joods Museum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Nieuwe Amstelstraat 1",
+        "postcode": "1011 PL",
+        "city": "Amsterdam"
+      },
+      "lat": 52.367367,
+      "lon": 4.903914,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/joods-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/joods-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/joods-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/joods-museum/"
+      },
+      "museum_website": "https://jck.nl/nl/locatie/joods-historisch-museum",
+      "source_date_raw": "2022-11-14T15:25:42.851Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "jopie-huisman-museum",
+      "name": "Jopie Huisman Museum",
+      "province": "Friesland",
+      "city": "Workum",
+      "municipality": null,
+      "address": {
+        "street": "Noard 6",
+        "postcode": "8711 AH",
+        "city": "Workum"
+      },
+      "lat": 52.979839,
+      "lon": 5.443626,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/jopie-huisman-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/jopie-huisman-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/jopie-huisman-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/jopie-huisman-museum/"
+      },
+      "museum_website": "https://www.jopiehuismanmuseum.nl/",
+      "source_date_raw": "2022-11-08T14:32:14.202Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Workum"
+    },
+    {
+      "slug": "kasteel-ammersoyen",
+      "name": "Kasteel Ammersoyen",
+      "province": "Gelderland",
+      "city": "Ammerzoden",
+      "municipality": null,
+      "address": {
+        "street": "Kasteellaan 1",
+        "postcode": "5324 JR",
+        "city": "Ammerzoden"
+      },
+      "lat": 51.751578,
+      "lon": 5.229429,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-ammersoyen/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-ammersoyen/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-ammersoyen/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-ammersoyen/"
+      },
+      "museum_website": "https://www.glk.nl/ammersoyen/kasteel-ammersoyen",
+      "source_date_raw": "2026-06-04T12:12:52.409Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Ammerzoden"
+    },
+    {
+      "slug": "kasteel-cannenburch",
+      "name": "Kasteel Cannenburch",
+      "province": "Gelderland",
+      "city": "Vaassen",
+      "municipality": null,
+      "address": {
+        "street": "Maarten van Rossumplein 4",
+        "postcode": "8171 EB",
+        "city": "Vaassen"
+      },
+      "lat": 52.291717,
+      "lon": 5.964747,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-cannenburch/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-cannenburch/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-cannenburch/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-cannenburch/"
+      },
+      "museum_website": "https://www.glk.nl/cannenburch/kasteel-cannenburch",
+      "source_date_raw": "2026-06-17T09:40:26.477Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Vaassen"
+    },
+    {
+      "slug": "kasteel-de-haar",
+      "name": "Kasteel de Haar",
+      "province": "Utrecht",
+      "city": "Haarzuilens",
+      "municipality": null,
+      "address": {
+        "street": "Kasteellaan 1",
+        "postcode": "3455 RR",
+        "city": "Haarzuilens"
+      },
+      "lat": 52.120076,
+      "lon": 4.984137,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-de-haar/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-de-haar/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-de-haar/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-de-haar/"
+      },
+      "museum_website": "https://www.kasteeldehaar.nl/",
+      "source_date_raw": "2022-11-10T13:23:17.790Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Haarzuilens"
+    },
+    {
+      "slug": "kasteel-doorwerth",
+      "name": "Kasteel Doorwerth",
+      "province": "Gelderland",
+      "city": "Doorwerth",
+      "municipality": null,
+      "address": {
+        "street": "Fonteinallee 2b",
+        "postcode": "6865 ND",
+        "city": "Doorwerth"
+      },
+      "lat": 51.966704,
+      "lon": 5.788797,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-doorwerth/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-doorwerth/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-doorwerth/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-doorwerth/"
+      },
+      "museum_website": "https://www.glk.nl/doorwerth/kasteel-doorwerth",
+      "source_date_raw": "2026-06-17T09:56:12.668Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Doorwerth"
+    },
+    {
+      "slug": "kasteel-hernen",
+      "name": "Kasteel Hernen",
+      "province": "Gelderland",
+      "city": "Hernen",
+      "municipality": null,
+      "address": {
+        "street": "Dorpsstraat 40",
+        "postcode": "6616 AH",
+        "city": "Hernen"
+      },
+      "lat": 51.834573,
+      "lon": 5.676474,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-hernen/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-hernen/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-hernen/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-hernen/"
+      },
+      "museum_website": "https://www.glk.nl/hernen/kasteel-hernen",
+      "source_date_raw": "2026-06-18T13:03:16.010Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Hernen"
+    },
+    {
+      "slug": "kasteel-het-nijenhuis",
+      "name": "Kasteel het Nijenhuis",
+      "province": "Overijssel",
+      "city": "Wijhe",
+      "municipality": null,
+      "address": {
+        "street": "'t Nijenhuis 10",
+        "postcode": "8131 RD",
+        "city": "Wijhe"
+      },
+      "lat": 52.416462,
+      "lon": 6.213569,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-het-nijenhuis/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-het-nijenhuis/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-het-nijenhuis/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-het-nijenhuis/"
+      },
+      "museum_website": "https://www.museumdefundatie.nl/nl/kasteel-het-nijenhuis-2/",
+      "source_date_raw": "2022-11-11T10:28:44.988Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Wijhe"
+    },
+    {
+      "slug": "kasteel-hoensbroek",
+      "name": "Kasteel Hoensbroek",
+      "province": "Limburg",
+      "city": "Hoensbroek",
+      "municipality": null,
+      "address": {
+        "street": "Klinkertstraat 118",
+        "postcode": "6433 PB",
+        "city": "Hoensbroek"
+      },
+      "lat": 50.916564,
+      "lon": 5.918411,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-hoensbroek/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-hoensbroek/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-hoensbroek/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-hoensbroek/"
+      },
+      "museum_website": "https://www.kasteelhoensbroek.nl/",
+      "source_date_raw": "2022-11-11T08:46:53.609Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Hoensbroek"
+    },
+    {
+      "slug": "kasteel-radboud",
+      "name": "Kasteel Radboud",
+      "province": "Noord-Holland",
+      "city": "Medemblik",
+      "municipality": null,
+      "address": {
+        "street": "Oudevaartsgat 8",
+        "postcode": "1671 HM",
+        "city": "Medemblik"
+      },
+      "lat": 52.772427,
+      "lon": 5.113077,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-radboud/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-radboud/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-radboud/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-radboud/"
+      },
+      "museum_website": "https://kasteelradboud.nl/",
+      "source_date_raw": "2022-11-14T11:51:04.644Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Medemblik"
+    },
+    {
+      "slug": "kasteel-rosendael",
+      "name": "Kasteel Rosendael",
+      "province": "Gelderland",
+      "city": "Rozendaal",
+      "municipality": null,
+      "address": {
+        "street": "Rosendael 1",
+        "postcode": "6891 DA",
+        "city": "Rozendaal"
+      },
+      "lat": 52.010061,
+      "lon": 5.965142,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-rosendael/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-rosendael/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-rosendael/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-rosendael/"
+      },
+      "museum_website": "https://www.glk.nl/rosendael/kasteel-rosendael",
+      "source_date_raw": "2026-06-18T13:20:09.776Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Rozendaal"
+    },
+    {
+      "slug": "kasteel-ruurlo",
+      "name": "Kasteel Ruurlo",
+      "province": "Gelderland",
+      "city": "Ruurlo",
+      "municipality": null,
+      "address": {
+        "street": "Vordenseweg 2",
+        "postcode": "7261 LZ",
+        "city": "Ruurlo"
+      },
+      "lat": 52.078667,
+      "lon": 6.444464,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-ruurlo/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kasteel-ruurlo/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kasteel-ruurlo/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kasteel-ruurlo/"
+      },
+      "museum_website": "https://www.museummore-kasteelruurlo.nl/",
+      "source_date_raw": "2022-11-13T12:07:19.986Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Ruurlo"
+    },
+    {
+      "slug": "keramiekmuseum-princessehof",
+      "name": "Keramiekmuseum Princessehof",
+      "province": "Friesland",
+      "city": "Leeuwarden",
+      "municipality": null,
+      "address": {
+        "street": "Grote Kerkstraat 9",
+        "postcode": "8911 DZ",
+        "city": "Leeuwarden"
+      },
+      "lat": 53.203114,
+      "lon": 5.793297,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/keramiekmuseum-princessehof/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/keramiekmuseum-princessehof/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/keramiekmuseum-princessehof/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/keramiekmuseum-princessehof/"
+      },
+      "museum_website": "http://www.princessehof.nl",
+      "source_date_raw": "2023-01-31T17:03:51.633Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leeuwarden"
+    },
+    {
+      "slug": "km21",
+      "name": "KM21",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "Stadhouderslaan 43",
+        "postcode": "2517 HV",
+        "city": "Den Haag"
+      },
+      "lat": 52.089202,
+      "lon": 4.279849,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/km21/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/km21/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/km21/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/km21/"
+      },
+      "museum_website": "https://www.gevangenismuseum.nl/",
+      "source_date_raw": "2022-11-10T09:48:22.323Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "koepelkathedraal",
+      "name": "Koepelkathedraal",
+      "province": "Noord-Holland",
+      "city": "Haarlem",
+      "municipality": "Haarlem",
+      "address": {
+        "street": "Leidsevaart 146",
+        "postcode": "2014 HE",
+        "city": "Haarlem"
+      },
+      "lat": 52.37625,
+      "lon": 4.622721,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/koepelkathedraal/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/koepelkathedraal/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/koepelkathedraal/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/koepelkathedraal/"
+      },
+      "museum_website": "https://www.koepelkathedraal.nl/",
+      "source_date_raw": "2022-11-15T20:25:53.601Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Haarlem"
+    },
+    {
+      "slug": "kroller-muller-museum",
+      "name": "Kröller-Müller Museum",
+      "province": "Gelderland",
+      "city": "Otterlo",
+      "municipality": null,
+      "address": {
+        "street": "Houtkampweg 6",
+        "postcode": "6731 AW",
+        "city": "Otterlo"
+      },
+      "lat": 52.096224,
+      "lon": 5.817664,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kroller-muller-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kroller-muller-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kroller-muller-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kroller-muller-museum/"
+      },
+      "museum_website": "https://krollermuller.nl/",
+      "source_date_raw": "2022-11-13T12:15:47.368Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Otterlo"
+    },
+    {
+      "slug": "kunsthal-kade",
+      "name": "Kunsthal KAdE",
+      "province": "Utrecht",
+      "city": "Amersfoort",
+      "municipality": null,
+      "address": {
+        "street": "Eemplein 77",
+        "postcode": "3812 EA",
+        "city": "Amersfoort"
+      },
+      "lat": 52.159009,
+      "lon": 5.382721,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunsthal-kade/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunsthal-kade/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kunsthal-kade/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kunsthal-kade/"
+      },
+      "museum_website": "https://www.kunsthalkade.nl/nl/",
+      "source_date_raw": "2025-10-02T10:35:17.763Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amersfoort"
+    },
+    {
+      "slug": "kunsthal-rotterdam",
+      "name": "Kunsthal Rotterdam",
+      "province": "Zuid-Holland",
+      "city": "Rotterdam",
+      "municipality": null,
+      "address": {
+        "street": "Westzeedijk 341",
+        "postcode": "3015 AA",
+        "city": "Rotterdam"
+      },
+      "lat": 51.910673,
+      "lon": 4.473386,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunsthal-rotterdam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunsthal-rotterdam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kunsthal-rotterdam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kunsthal-rotterdam/"
+      },
+      "museum_website": "https://www.kunsthal.nl/nl/#tijdlijn-2023-03",
+      "source_date_raw": "2023-02-01T17:11:17.636Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Rotterdam"
+    },
+    {
+      "slug": "kunstlinie",
+      "name": "Kunstlinie",
+      "province": "Flevoland",
+      "city": "Almere",
+      "municipality": null,
+      "address": {
+        "street": "Esplanade 10",
+        "postcode": "1315 TA",
+        "city": "Almere"
+      },
+      "lat": 52.367105,
+      "lon": 5.218819,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunstlinie/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunstlinie/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kunstlinie/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kunstlinie/"
+      },
+      "museum_website": "https://kunstlinie.nl/",
+      "source_date_raw": "2022-11-08T11:09:18.847Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Almere"
+    },
+    {
+      "slug": "kunstlinie-kunsthal",
+      "name": "Kunstlinie - Kunsthal",
+      "province": "Flevoland",
+      "city": "Almere",
+      "municipality": null,
+      "address": {
+        "street": "Esplanade 10",
+        "postcode": "1315 TA",
+        "city": "Almere"
+      },
+      "lat": 52.367105,
+      "lon": 5.218819,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunstlinie-kunsthal/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunstlinie-kunsthal/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kunstlinie-kunsthal/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kunstlinie-kunsthal/"
+      },
+      "museum_website": "https://kunstlinie.nl/kunsthal/",
+      "source_date_raw": "2026-04-24T14:56:38.884Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Almere"
+    },
+    {
+      "slug": "kunstmuseum-den-haag",
+      "name": "Kunstmuseum Den Haag",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": "'s-Gravenhage",
+      "address": {
+        "street": "Stadhouderslaan 41",
+        "postcode": "2517 HV",
+        "city": "Den Haag"
+      },
+      "lat": 52.089202,
+      "lon": 4.279849,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunstmuseum-den-haag/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/kunstmuseum-den-haag/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/kunstmuseum-den-haag/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/kunstmuseum-den-haag/"
+      },
+      "museum_website": "https://www.kunstmuseum.nl/nl",
+      "source_date_raw": "2022-11-10T10:10:09.404Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "lalique-museum",
+      "name": "Lalique Museum",
+      "province": "Gelderland",
+      "city": "Doesburg",
+      "municipality": null,
+      "address": {
+        "street": "Gasthuisstraat 1",
+        "postcode": "6981 CP",
+        "city": "Doesburg"
+      },
+      "lat": 52.015227,
+      "lon": 6.134685,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/lalique-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/lalique-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/lalique-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/lalique-museum/"
+      },
+      "museum_website": "https://www.laliquemuseum.nl/",
+      "source_date_raw": "2022-11-13T12:19:47.039Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Doesburg"
+    },
+    {
+      "slug": "landhuis-oud-amelisweerd",
+      "name": "Landhuis Oud Amelisweerd",
+      "province": "Utrecht",
+      "city": "Bunnik",
+      "municipality": null,
+      "address": {
+        "street": "Koningslaan 9",
+        "postcode": "3981 HD",
+        "city": "Bunnik"
+      },
+      "lat": 52.067447,
+      "lon": 5.169655,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/landhuis-oud-amelisweerd/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/landhuis-oud-amelisweerd/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/landhuis-oud-amelisweerd/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/landhuis-oud-amelisweerd/"
+      },
+      "museum_website": "https://landhuisoudamelisweerd.nl/",
+      "source_date_raw": "2025-10-02T11:31:50.117Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Bunnik"
+    },
+    {
+      "slug": "limburgs-museum",
+      "name": "Limburgs Museum",
+      "province": "Limburg",
+      "city": "Venlo",
+      "municipality": null,
+      "address": {
+        "street": "Keulsepoort 5",
+        "postcode": "5911 BX",
+        "city": "Venlo"
+      },
+      "lat": 51.366733,
+      "lon": 6.171899,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/limburgs-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/limburgs-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/limburgs-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/limburgs-museum/"
+      },
+      "museum_website": "https://www.limburgsmuseum.nl/",
+      "source_date_raw": "2022-11-14T10:15:15.478Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Venlo"
+    },
+    {
+      "slug": "louwman-museum",
+      "name": "Louwman Museum",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "Leidsestraatweg 57",
+        "postcode": "2594 BB",
+        "city": "Den Haag"
+      },
+      "lat": 52.099615,
+      "lon": 4.348588,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/louwman-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/louwman-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/louwman-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/louwman-museum/"
+      },
+      "museum_website": "https://www.louwmanmuseum.nl/",
+      "source_date_raw": "2022-11-10T10:40:47.467Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "madurodam",
+      "name": "Madurodam",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "George Maduroplein 1",
+        "postcode": "2584 RZ",
+        "city": "Den Haag"
+      },
+      "lat": 52.099097,
+      "lon": 4.299043,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/madurodam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/madurodam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/madurodam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/madurodam/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2022-11-10T11:00:10.626Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "marie-tak-van-poortvliet-museum-domburg",
+      "name": "Marie Tak van Poortvliet Museum Domburg",
+      "province": "Zeeland",
+      "city": "Domburg",
+      "municipality": null,
+      "address": {
+        "street": "Ooststraat 10a",
+        "postcode": "4357 BE",
+        "city": "Domburg"
+      },
+      "lat": 51.563399,
+      "lon": 3.498273,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/marie-tak-van-poortvliet-museum-domburg/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/marie-tak-van-poortvliet-museum-domburg/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/marie-tak-van-poortvliet-museum-domburg/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/marie-tak-van-poortvliet-museum-domburg/"
+      },
+      "museum_website": "https://marietakmuseum.nl/",
+      "source_date_raw": "2025-11-04T16:37:34.932Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Domburg"
+    },
+    {
+      "slug": "marinemuseum",
+      "name": "Marinemuseum",
+      "province": "Noord-Holland",
+      "city": "Den Helder",
+      "municipality": "Den Helder",
+      "address": {
+        "street": "Hoofdgracht 3",
+        "postcode": "1781 AA",
+        "city": "Den Helder"
+      },
+      "lat": 52.963811,
+      "lon": 4.772207,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/marinemuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/marinemuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/marinemuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/marinemuseum/"
+      },
+      "museum_website": "https://www.marinemuseum.nl/nl/",
+      "source_date_raw": "2022-11-14T15:32:00.780Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Den Helder"
+    },
+    {
+      "slug": "mariniersmuseum",
+      "name": "Mariniersmuseum",
+      "province": "Zuid-Holland",
+      "city": "Rotterdam",
+      "municipality": null,
+      "address": {
+        "street": "Wijnhaven 7",
+        "postcode": "3011 WH",
+        "city": "Rotterdam"
+      },
+      "lat": 51.918489,
+      "lon": 4.490361,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/mariniersmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/mariniersmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/mariniersmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/mariniersmuseum/"
+      },
+      "museum_website": "https://www.mariniersmuseum.nl/nl/",
+      "source_date_raw": "2022-11-10T11:36:57.169Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Rotterdam"
+    },
+    {
+      "slug": "maritiem-museum-rotterdam",
+      "name": "Maritiem Museum Rotterdam",
+      "province": "Zuid-Holland",
+      "city": "Rotterdam",
+      "municipality": null,
+      "address": {
+        "street": "Leuvehaven 1",
+        "postcode": "3011 EA",
+        "city": "Rotterdam"
+      },
+      "lat": 51.9175,
+      "lon": 4.482442,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/maritiem-museum-rotterdam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/maritiem-museum-rotterdam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/maritiem-museum-rotterdam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/maritiem-museum-rotterdam/"
+      },
+      "museum_website": "https://www.maritiemmuseum.nl/",
+      "source_date_raw": "2022-11-10T12:38:19.384Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Rotterdam"
+    },
+    {
+      "slug": "marius-van-dokkum-museum",
+      "name": "Marius van Dokkum Museum",
+      "province": "Gelderland",
+      "city": "Harderwijk",
+      "municipality": null,
+      "address": {
+        "street": "Academiestraat 7",
+        "postcode": "3841 ES",
+        "city": "Harderwijk"
+      },
+      "lat": 52.348389,
+      "lon": 5.618736,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/marius-van-dokkum-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/marius-van-dokkum-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/marius-van-dokkum-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/marius-van-dokkum-museum/"
+      },
+      "museum_website": "https://www.mariusvandokkummuseum.nl/",
+      "source_date_raw": "2022-11-13T14:02:47.352Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Harderwijk"
+    },
+    {
+      "slug": "markiezenhof",
+      "name": "Markiezenhof",
+      "province": "Noord-Brabant",
+      "city": "Bergen op Zoom",
+      "municipality": null,
+      "address": {
+        "street": "Steenbergsestraat 8",
+        "postcode": "4611 TE",
+        "city": "Bergen op Zoom"
+      },
+      "lat": 51.495721,
+      "lon": 4.284808,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/markiezenhof/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/markiezenhof/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/markiezenhof/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/markiezenhof/"
+      },
+      "museum_website": "https://www.markiezenhof.nl/",
+      "source_date_raw": "2022-11-14T10:53:33.124Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Bergen op Zoom"
+    },
+    {
+      "slug": "mauritshuis",
+      "name": "Mauritshuis",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "Plein 29",
+        "postcode": "2511 CS",
+        "city": "Den Haag"
+      },
+      "lat": 52.080345,
+      "lon": 4.314388,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/mauritshuis/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/mauritshuis/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/mauritshuis/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/mauritshuis/"
+      },
+      "museum_website": "https://www.mauritshuis.nl/",
+      "source_date_raw": "2023-01-02T20:07:29.963Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "micropia",
+      "name": "Micropia",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Plantage Kerklaan 38-40",
+        "postcode": "1018 CZ",
+        "city": "Amsterdam"
+      },
+      "lat": 52.366961,
+      "lon": 4.912582,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/micropia/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/micropia/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/micropia/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/micropia/"
+      },
+      "museum_website": "https://www.micropia.nl/nl/",
+      "source_date_raw": "2022-11-14T15:42:46.221Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "molenmuseum",
+      "name": "Molenmuseum",
+      "province": "Noord-Holland",
+      "city": "Zaandam",
+      "municipality": null,
+      "address": {
+        "street": "Kalverringdijk 30",
+        "postcode": "1509 BT",
+        "city": "Zaandam"
+      },
+      "lat": 52.478816,
+      "lon": 4.813834,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/molenmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/molenmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/molenmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/molenmuseum/"
+      },
+      "museum_website": "https://www.zaanschemolen.nl/",
+      "source_date_raw": "2022-11-22T10:40:37.671Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Zaandam"
+    },
+    {
+      "slug": "mondriaanhuis",
+      "name": "Mondriaanhuis",
+      "province": "Utrecht",
+      "city": "Amersfoort",
+      "municipality": null,
+      "address": {
+        "street": "Kortegracht 11",
+        "postcode": "3811 KG",
+        "city": "Amersfoort"
+      },
+      "lat": 52.154748,
+      "lon": 5.39038,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/mondriaanhuis/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/mondriaanhuis/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/mondriaanhuis/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/mondriaanhuis/"
+      },
+      "museum_website": "https://www.mondriaanhuis.nl/nl/",
+      "source_date_raw": "2025-10-03T08:27:49.411Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amersfoort"
+    },
+    {
+      "slug": "museon-omniversum",
+      "name": "Museon-Omniversum",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "Stadhouderslaan 37",
+        "postcode": "2517 HV",
+        "city": "Den Haag"
+      },
+      "lat": 52.089056,
+      "lon": 4.280718,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museon-omniversum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museon-omniversum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museon-omniversum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museon-omniversum/"
+      },
+      "museum_website": "https://www.museon-omniversum.nl/",
+      "source_date_raw": "2022-11-10T11:42:05.513Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "museum-arnhem",
+      "name": "Museum Arnhem",
+      "province": "Gelderland",
+      "city": "Arnhem",
+      "municipality": null,
+      "address": {
+        "street": "Utrechtseweg 87",
+        "postcode": "6812 AA",
+        "city": "Arnhem"
+      },
+      "lat": 51.985491,
+      "lon": 5.8922,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-arnhem/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-arnhem/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-arnhem/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-arnhem/"
+      },
+      "museum_website": "https://www.museumarnhem.nl/nl",
+      "source_date_raw": "2022-11-13T13:29:29.741Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Arnhem"
+    },
+    {
+      "slug": "museum-batavialand",
+      "name": "Museum Batavialand",
+      "province": "Flevoland",
+      "city": "Lelystad",
+      "municipality": null,
+      "address": {
+        "street": "Oostvaardersdijk 01-13",
+        "postcode": "8242 PA",
+        "city": "Lelystad"
+      },
+      "lat": 52.521364,
+      "lon": 5.436977,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-batavialand/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-batavialand/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-batavialand/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-batavialand/"
+      },
+      "museum_website": "https://www.batavialand.nl/",
+      "source_date_raw": "2025-11-28T15:38:26.027Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Lelystad"
+    },
+    {
+      "slug": "museum-beelden-aan-zee",
+      "name": "Museum Beelden aan Zee",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "Harteveltstraat 1",
+        "postcode": "2586 EL",
+        "city": "Den Haag"
+      },
+      "lat": 52.110936,
+      "lon": 4.278401,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-beelden-aan-zee/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-beelden-aan-zee/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-beelden-aan-zee/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-beelden-aan-zee/"
+      },
+      "museum_website": "https://www.beeldenaanzee.nl/",
+      "source_date_raw": "2022-11-10T12:20:39.634Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "museum-belvedere",
+      "name": "Museum Belvédère",
+      "province": "Friesland",
+      "city": "Heerenveen",
+      "municipality": null,
+      "address": {
+        "street": "Oranje Nassaulaan 12",
+        "postcode": "8448 MT",
+        "city": "Heerenveen"
+      },
+      "lat": 52.95367,
+      "lon": 5.941913,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-belvedere/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-belvedere/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-belvedere/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-belvedere/"
+      },
+      "museum_website": "http://www.museumbelvedere.nl",
+      "source_date_raw": "2026-04-24T10:14:52.374Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Heerenveen"
+    },
+    {
+      "slug": "museum-broekerveiling",
+      "name": "Museum BroekerVeiling",
+      "province": "Noord-Holland",
+      "city": "Broek op Langedijk",
+      "municipality": "Dijk en Waard",
+      "address": {
+        "street": "Museumweg 2",
+        "postcode": "1721 BW",
+        "city": "Broek op Langedijk"
+      },
+      "lat": 52.679873,
+      "lon": 4.806555,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-broekerveiling/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-broekerveiling/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-broekerveiling/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-broekerveiling/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-02-11T12:51:17.044Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Broek op Langedijk"
+    },
+    {
+      "slug": "museum-catharijneconvent",
+      "name": "Museum Catharijneconvent",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Lange Nieuwstraat 38",
+        "postcode": "3512 PH",
+        "city": "Utrecht"
+      },
+      "lat": 52.087289,
+      "lon": 5.123924,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-catharijneconvent/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-catharijneconvent/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-catharijneconvent/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-catharijneconvent/"
+      },
+      "museum_website": "https://www.catharijneconvent.nl/",
+      "source_date_raw": "2023-01-02T17:26:41.137Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "museum-de-dageraad",
+      "name": "Museum de Dageraad",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Burgemeester Tellegenstraat 128",
+        "postcode": "1073 KG",
+        "city": "Amsterdam"
+      },
+      "lat": 52.349874,
+      "lon": 4.898983,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-de-dageraad/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-de-dageraad/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-de-dageraad/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-de-dageraad/"
+      },
+      "museum_website": "https://www.hetschip.nl/over-het-museum/locaties/de-dageraad",
+      "source_date_raw": "2022-11-14T15:49:40.262Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "museum-de-fundatie",
+      "name": "Museum De Fundatie",
+      "province": "Overijssel",
+      "city": "Zwolle",
+      "municipality": null,
+      "address": {
+        "street": "Blijmarkt 20",
+        "postcode": "8011 NE",
+        "city": "Zwolle"
+      },
+      "lat": 52.510239,
+      "lon": 6.091502,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-de-fundatie/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-de-fundatie/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-de-fundatie/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-de-fundatie/"
+      },
+      "museum_website": "https://www.museumdefundatie.nl/",
+      "source_date_raw": "2023-01-02T17:16:46.127Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Zwolle"
+    },
+    {
+      "slug": "museum-de-lakenhal",
+      "name": "Museum de Lakenhal",
+      "province": "Zuid-Holland",
+      "city": "Leiden",
+      "municipality": null,
+      "address": {
+        "street": "Oude Singel 32",
+        "postcode": "2312 RA",
+        "city": "Leiden"
+      },
+      "lat": 52.162957,
+      "lon": 4.487485,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-de-lakenhal/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-de-lakenhal/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-de-lakenhal/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-de-lakenhal/"
+      },
+      "museum_website": "https://www.lakenhal.nl/nl",
+      "source_date_raw": "2022-11-10T12:28:51.485Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leiden"
+    },
+    {
+      "slug": "museum-de-proefkolonie",
+      "name": "Museum de Proefkolonie",
+      "province": "Drenthe",
+      "city": "Frederiksoord",
+      "municipality": null,
+      "address": {
+        "street": "Majoor van Swietenlaan 1A",
+        "postcode": "8382 CE",
+        "city": "Frederiksoord"
+      },
+      "lat": 52.844695,
+      "lon": 6.188978,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-de-proefkolonie/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-de-proefkolonie/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-de-proefkolonie/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-de-proefkolonie/"
+      },
+      "museum_website": "https://proefkolonie.nl/",
+      "source_date_raw": "2022-11-08T12:43:14.656Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Frederiksoord"
+    },
+    {
+      "slug": "museum-engelandvaarders",
+      "name": "Museum Engelandvaarders",
+      "province": "Zuid-Holland",
+      "city": "Noordwijk aan Zee",
+      "municipality": null,
+      "address": {
+        "street": "Bosweg 15",
+        "postcode": "2202 NX",
+        "city": "Noordwijk aan Zee"
+      },
+      "lat": 52.251705,
+      "lon": 4.436989,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-engelandvaarders/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-engelandvaarders/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-engelandvaarders/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-engelandvaarders/"
+      },
+      "museum_website": "https://www.museumengelandvaarders.nl/",
+      "source_date_raw": "2025-08-22T09:16:46.794Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Noordwijk"
+    },
+    {
+      "slug": "museum-flehite",
+      "name": "Museum Flehite",
+      "province": "Utrecht",
+      "city": "Amersfoort",
+      "municipality": null,
+      "address": {
+        "street": "Westsingel 50",
+        "postcode": "3811 BC",
+        "city": "Amersfoort"
+      },
+      "lat": 52.157632,
+      "lon": 5.386593,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-flehite/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-flehite/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-flehite/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-flehite/"
+      },
+      "museum_website": "https://museumflehite.nl/",
+      "source_date_raw": "2025-10-03T08:38:49.810Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amersfoort"
+    },
+    {
+      "slug": "museum-gouda",
+      "name": "Museum Gouda",
+      "province": "Zuid-Holland",
+      "city": "Gouda",
+      "municipality": null,
+      "address": {
+        "street": "Achter de kerk 14",
+        "postcode": "2801 JX",
+        "city": "Gouda"
+      },
+      "lat": 52.010239,
+      "lon": 4.71185,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-gouda/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-gouda/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-gouda/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-gouda/"
+      },
+      "museum_website": "https://www.museumgouda.nl/nl",
+      "source_date_raw": "2022-11-10T12:32:39.957Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Gouda"
+    },
+    {
+      "slug": "museum-helmond",
+      "name": "Museum Helmond",
+      "province": "Noord-Brabant",
+      "city": "Helmond",
+      "municipality": null,
+      "address": {
+        "street": "F.J. van Thielpark 7",
+        "postcode": "5707 BX",
+        "city": "Helmond"
+      },
+      "lat": 51.477946,
+      "lon": 5.650235,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-helmond/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-helmond/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-helmond/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-helmond/"
+      },
+      "museum_website": "https://museumhelmond.nl/",
+      "source_date_raw": "2022-11-14T10:58:32.879Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Helmond"
+    },
+    {
+      "slug": "museum-henriette-polak",
+      "name": "Museum Henriette Polak",
+      "province": "Gelderland",
+      "city": "Zutphen",
+      "municipality": null,
+      "address": {
+        "street": "'s-Gravenhof 4",
+        "postcode": "7201 DN",
+        "city": "Zutphen"
+      },
+      "lat": 52.139982,
+      "lon": 6.194533,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-henriette-polak/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-henriette-polak/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-henriette-polak/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-henriette-polak/"
+      },
+      "museum_website": "https://museazutphen.nl/museum-henriette-polak/?gclid=Cj0KCQiAyMKbBhD1ARIsANs7rEE7acsEY3BEnHMPzDxYFsdnn-2W3ZS1KTQGV3tDBpRFgXDCIvLE6vAaAswyEALw_wcB",
+      "source_date_raw": "2022-11-13T13:33:58.323Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Zutphen"
+    },
+    {
+      "slug": "museum-het-rembrandthuis",
+      "name": "Museum het Rembrandthuis",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Jodenbreestraat 4",
+        "postcode": "1011 NK",
+        "city": "Amsterdam"
+      },
+      "lat": 52.369369,
+      "lon": 4.90125,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-het-rembrandthuis/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-het-rembrandthuis/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-het-rembrandthuis/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-het-rembrandthuis/"
+      },
+      "museum_website": "https://www.rembrandthuis.nl/nl/bezoek/prijzen-en-informatie/",
+      "source_date_raw": "2022-11-14T15:58:47.303Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "museum-het-schip",
+      "name": "Museum Het Schip",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Oostzaanstraat 45",
+        "postcode": "1013 WG",
+        "city": "Amsterdam"
+      },
+      "lat": 52.390312,
+      "lon": 4.873902,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-het-schip/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-het-schip/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-het-schip/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-het-schip/"
+      },
+      "museum_website": "https://www.hetschip.nl/",
+      "source_date_raw": "2022-11-14T16:03:29.318Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "museum-het-valkhof",
+      "name": "Museum het Valkhof",
+      "province": "Gelderland",
+      "city": "Nijmegen",
+      "municipality": null,
+      "address": {
+        "street": "Kelfkensbos 59",
+        "postcode": "6511 TB",
+        "city": "Nijmegen"
+      },
+      "lat": 51.846395,
+      "lon": 5.871275,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-het-valkhof/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-het-valkhof/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-het-valkhof/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-het-valkhof/"
+      },
+      "museum_website": "http://www.valkhofmuseum.nl/",
+      "source_date_raw": "2022-11-13T13:41:29.108Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Nijmegen"
+    },
+    {
+      "slug": "museum-huis-doorn",
+      "name": "Museum Huis Doorn",
+      "province": "Utrecht",
+      "city": "Doorn",
+      "municipality": null,
+      "address": {
+        "street": "Langbroekerweg 10",
+        "postcode": "3941 MT",
+        "city": "Doorn"
+      },
+      "lat": 52.03143,
+      "lon": 5.338566,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-huis-doorn/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-huis-doorn/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-huis-doorn/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-huis-doorn/"
+      },
+      "museum_website": "https://www.huisdoorn.nl/",
+      "source_date_raw": "2025-10-03T08:49:43.274Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Doorn"
+    },
+    {
+      "slug": "museum-jan-cunen",
+      "name": "Museum Jan Cunen",
+      "province": "Noord-Brabant",
+      "city": "Oss",
+      "municipality": null,
+      "address": {
+        "street": "Molenstraat 65",
+        "postcode": "5341 GC",
+        "city": "Oss"
+      },
+      "lat": 51.765448,
+      "lon": 5.526545,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-jan-cunen/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-jan-cunen/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-jan-cunen/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-jan-cunen/"
+      },
+      "museum_website": "https://www.museumjancunen.nl/",
+      "source_date_raw": "2025-09-19T12:16:59.583Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Oss"
+    },
+    {
+      "slug": "museum-kaap-skil",
+      "name": "Museum Kaap Skil",
+      "province": "Noord-Holland",
+      "city": "Oudeschild",
+      "municipality": "Texel",
+      "address": {
+        "street": "Heemskerckstraat 9",
+        "postcode": "1792 AA",
+        "city": "Oudeschild"
+      },
+      "lat": 53.039215,
+      "lon": 4.848042,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-kaap-skil/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-kaap-skil/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-kaap-skil/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-kaap-skil/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-07-28T13:12:39.091Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Oudeschild"
+    },
+    {
+      "slug": "museum-klok-peel",
+      "name": "Museum Klok & Peel",
+      "province": "Noord-Brabant",
+      "city": "Asten",
+      "municipality": null,
+      "address": {
+        "street": "Ostaderstraat 23",
+        "postcode": "5721 WC",
+        "city": "Asten"
+      },
+      "lat": 51.403553,
+      "lon": 5.733475,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-klok-peel/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-klok-peel/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-klok-peel/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-klok-peel/"
+      },
+      "museum_website": "https://museumklokenpeel.nl/",
+      "source_date_raw": "2026-04-24T09:59:27.828Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Asten"
+    },
+    {
+      "slug": "museum-martena",
+      "name": "Museum Martena",
+      "province": "Friesland",
+      "city": "Franeker",
+      "municipality": null,
+      "address": {
+        "street": "Voorstraat 35",
+        "postcode": "8801 LA",
+        "city": "Franeker"
+      },
+      "lat": 53.186417,
+      "lon": 5.542203,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-martena/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-martena/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-martena/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-martena/"
+      },
+      "museum_website": "https://www.museummartena.nl/",
+      "source_date_raw": "2022-11-08T14:46:32.503Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Franeker"
+    },
+    {
+      "slug": "museum-more",
+      "name": "Museum MORE",
+      "province": "Gelderland",
+      "city": "Gorssel",
+      "municipality": null,
+      "address": {
+        "street": "Hoofdstraat 28",
+        "postcode": "7213 CW",
+        "city": "Gorssel"
+      },
+      "lat": 52.199463,
+      "lon": 6.200584,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-more/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-more/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-more/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-more/"
+      },
+      "museum_website": "https://www.museummore.nl/",
+      "source_date_raw": "2022-11-13T13:48:33.157Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Gorssel"
+    },
+    {
+      "slug": "museum-nienoord",
+      "name": "Museum Nienoord",
+      "province": "Groningen",
+      "city": "Leek",
+      "municipality": null,
+      "address": {
+        "street": "Nienoord 1",
+        "postcode": "9351 AC",
+        "city": "Leek"
+      },
+      "lat": 53.167983,
+      "lon": 6.394235,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-nienoord/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-nienoord/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-nienoord/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-nienoord/"
+      },
+      "museum_website": "https://museumnienoord.nl/",
+      "source_date_raw": "2026-05-05T11:33:27.094Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leek"
+    },
+    {
+      "slug": "museum-panorama-mesdag",
+      "name": "Museum Panorama Mesdag",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "Zeestraat 65",
+        "postcode": "2518 AA",
+        "city": "Den Haag"
+      },
+      "lat": 52.084794,
+      "lon": 4.303302,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-panorama-mesdag/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-panorama-mesdag/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-panorama-mesdag/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-panorama-mesdag/"
+      },
+      "museum_website": "https://panorama-mesdag.nl/",
+      "source_date_raw": "2025-08-22T09:44:54.268Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "museum-rotterdam",
+      "name": "Museum Rotterdam",
+      "province": "Zuid-Holland",
+      "city": "Rotterdam",
+      "municipality": null,
+      "address": {
+        "street": "Coolhaven 375",
+        "postcode": "3015 CG",
+        "city": "Rotterdam"
+      },
+      "lat": 51.908749,
+      "lon": 4.458083,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-rotterdam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-rotterdam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-rotterdam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-rotterdam/"
+      },
+      "museum_website": "https://museumrotterdam.nl/",
+      "source_date_raw": "2022-11-10T12:48:31.813Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Rotterdam"
+    },
+    {
+      "slug": "museum-schokland",
+      "name": "Museum Schokland",
+      "province": "Flevoland",
+      "city": "Schokland",
+      "municipality": null,
+      "address": {
+        "street": "Middelbuurt 3",
+        "postcode": "8319 AB",
+        "city": "Schokland"
+      },
+      "lat": 52.634571,
+      "lon": 5.777633,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-schokland/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-schokland/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-schokland/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-schokland/"
+      },
+      "museum_website": "https://www.museumschokland.nl/",
+      "source_date_raw": "2022-11-08T11:15:58.120Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Schokland"
+    },
+    {
+      "slug": "museum-speelklok",
+      "name": "Museum Speelklok",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Steenweg 6",
+        "postcode": "3511 JP",
+        "city": "Utrecht"
+      },
+      "lat": 52.090508,
+      "lon": 5.11891,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-speelklok/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-speelklok/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-speelklok/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-speelklok/"
+      },
+      "museum_website": "https://www.museumspeelklok.nl/",
+      "source_date_raw": "2023-01-02T19:57:52.499Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "museum-tachtigjarige-oorlog",
+      "name": "Museum Tachtigjarige Oorlog",
+      "province": "Gelderland",
+      "city": "Groenlo",
+      "municipality": "Oost Gelre",
+      "address": {
+        "street": "Mattelierstraat 5",
+        "postcode": "7141 BP",
+        "city": "Groenlo"
+      },
+      "lat": 52.042346,
+      "lon": 6.617773,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-tachtigjarige-oorlog/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-tachtigjarige-oorlog/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-tachtigjarige-oorlog/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-tachtigjarige-oorlog/"
+      },
+      "museum_website": "https://www.nmto.nl/",
+      "source_date_raw": "2026-05-05T12:06:20.196Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Groenlo"
+    },
+    {
+      "slug": "museum-van-bommel-van-dam",
+      "name": "Museum van Bommel van Dam",
+      "province": "Limburg",
+      "city": "Venlo",
+      "municipality": null,
+      "address": {
+        "street": "Keulsepoort 1",
+        "postcode": "5911 BX",
+        "city": "Venlo"
+      },
+      "lat": 51.367454,
+      "lon": 6.171215,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-van-bommel-van-dam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-van-bommel-van-dam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-van-bommel-van-dam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-van-bommel-van-dam/"
+      },
+      "museum_website": "https://www.vanbommelvandam.nl/",
+      "source_date_raw": "2025-11-26T14:11:11.462Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Venlo"
+    },
+    {
+      "slug": "museum-van-de-20e-eeuw",
+      "name": "Museum van de 20e eeuw",
+      "province": "Noord-Holland",
+      "city": "HOORN NH",
+      "municipality": null,
+      "address": {
+        "street": "Krententuin 24 (Oostereiland)",
+        "postcode": "1621 DG",
+        "city": "HOORN NH"
+      },
+      "lat": 52.63508,
+      "lon": 5.062423,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-van-de-20e-eeuw/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-van-de-20e-eeuw/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-van-de-20e-eeuw/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-van-de-20e-eeuw/"
+      },
+      "museum_website": "https://www.museumhoorn.nl/",
+      "source_date_raw": "2025-07-28T13:40:33.613Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Hoorn"
+    },
+    {
+      "slug": "museum-van-de-geest-dolhuys",
+      "name": "Museum van de Geest | Dolhuys",
+      "province": "Noord-Holland",
+      "city": "Haarlem",
+      "municipality": null,
+      "address": {
+        "street": "Schotersingel 2",
+        "postcode": "2021 GE",
+        "city": "Haarlem"
+      },
+      "lat": 52.390229,
+      "lon": 4.637811,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-van-de-geest-dolhuys/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-van-de-geest-dolhuys/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-van-de-geest-dolhuys/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-van-de-geest-dolhuys/"
+      },
+      "museum_website": "https://museumvandegeest.nl/",
+      "source_date_raw": "2022-11-14T16:19:40.448Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Haarlem"
+    },
+    {
+      "slug": "museum-volkenkunde",
+      "name": "Museum Volkenkunde",
+      "province": "Zuid-Holland",
+      "city": "Leiden",
+      "municipality": "Leiden",
+      "address": {
+        "street": "Steenstraat 1",
+        "postcode": "2312 BS",
+        "city": "Leiden"
+      },
+      "lat": 52.163568,
+      "lon": 4.484061,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-volkenkunde/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museum-volkenkunde/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-volkenkunde/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-volkenkunde/"
+      },
+      "museum_website": "https://leiden.wereldmuseum.nl/",
+      "source_date_raw": "2022-11-10T12:51:54.511Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leiden"
+    },
+    {
+      "slug": "museumhuis-barnaart",
+      "name": "Museumhuis Barnaart",
+      "province": "Noord-Holland",
+      "city": "Haarlem",
+      "municipality": null,
+      "address": {
+        "street": "Nieuwe Gracht 7",
+        "postcode": "2011 NB",
+        "city": "Haarlem"
+      },
+      "lat": 52.384658,
+      "lon": 4.637364,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumhuis-barnaart/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumhuis-barnaart/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museumhuis-barnaart/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museumhuis-barnaart/"
+      },
+      "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-barnaart-Haarlem",
+      "source_date_raw": "2023-01-31T17:18:15.701Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Haarlem"
+    },
+    {
+      "slug": "museumhuis-bartolotti",
+      "name": "Museumhuis Bartolotti",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Herengracht 170",
+        "postcode": "1016 BP",
+        "city": "Amsterdam"
+      },
+      "lat": 52.372596,
+      "lon": 4.875663,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumhuis-bartolotti/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumhuis-bartolotti/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museumhuis-bartolotti/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museumhuis-bartolotti/"
+      },
+      "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-bartolotti-Amsterdam",
+      "source_date_raw": "2023-03-17T18:54:24.780Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "museumhuis-polman",
+      "name": "Museumhuis Polman",
+      "province": "Flevoland",
+      "city": "Nagele",
+      "municipality": null,
+      "address": {
+        "street": "Karwijhof 20",
+        "postcode": "8308 AK",
+        "city": "Nagele"
+      },
+      "lat": 52.642194,
+      "lon": 5.724129,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumhuis-polman/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumhuis-polman/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museumhuis-polman/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museumhuis-polman/"
+      },
+      "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-polman-nagele#information",
+      "source_date_raw": "2025-11-28T15:55:58.502Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Nagele"
+    },
+    {
+      "slug": "museumhuis-rams-woerthe",
+      "name": "Museumhuis Rams Woerthe",
+      "province": "Overijssel",
+      "city": "Steenwijk",
+      "municipality": null,
+      "address": {
+        "street": "Gasthuislaan 2",
+        "postcode": "8331 MX",
+        "city": "Steenwijk"
+      },
+      "lat": 52.785207,
+      "lon": 6.112336,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumhuis-rams-woerthe/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumhuis-rams-woerthe/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museumhuis-rams-woerthe/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museumhuis-rams-woerthe/"
+      },
+      "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/villa-rams-woerthe-Steenwijk",
+      "source_date_raw": "2023-02-01T16:49:13.224Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Steenwijk"
+    },
+    {
+      "slug": "museumprinsenhofdelft",
+      "name": "museumprinsenhofdelft",
+      "province": "Zuid-Holland",
+      "city": "Delft",
+      "municipality": "Delft",
+      "address": {
+        "street": "Sint Agathaplein 1",
+        "postcode": "2611 HR",
+        "city": "Delft"
+      },
+      "lat": 52.012144,
+      "lon": 4.354486,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumprinsenhofdelft/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumprinsenhofdelft/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museumprinsenhofdelft/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museumprinsenhofdelft/"
+      },
+      "museum_website": "https://www.museumprinsenhofdelft.nl/tentoonstellingen/naar-buiten",
+      "source_date_raw": "2024-12-18T09:48:35.448Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Delft"
+    },
+    {
+      "slug": "museumstoomtram",
+      "name": "Museumstoomtram",
+      "province": "Noord-Holland",
+      "city": "Hoorn",
+      "municipality": null,
+      "address": {
+        "street": "Van Dedemstraat 8",
+        "postcode": "1624 NN",
+        "city": "Hoorn"
+      },
+      "lat": 52.645633,
+      "lon": 5.054515,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumstoomtram/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumstoomtram/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museumstoomtram/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museumstoomtram/"
+      },
+      "museum_website": "http://www.stoomtram.nl/",
+      "source_date_raw": "2022-11-14T16:41:51.919Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Hoorn"
+    },
+    {
+      "slug": "museumstoomtram-hoorn-medemblik",
+      "name": "Museumstoomtram Hoorn-Medemblik",
+      "province": "Noord-Holland",
+      "city": "Broek op Langedijk",
+      "municipality": "Dijk en Waard",
+      "address": {
+        "street": "Museumweg 2",
+        "postcode": "1721 BW",
+        "city": "Broek op Langedijk"
+      },
+      "lat": 52.679873,
+      "lon": 4.806555,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumstoomtram-hoorn-medemblik/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumstoomtram-hoorn-medemblik/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museumstoomtram-hoorn-medemblik/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museumstoomtram-hoorn-medemblik/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-07-28T14:30:09.351Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Broek op Langedijk"
+    },
+    {
+      "slug": "nationaal-glasmuseum",
+      "name": "Nationaal Glasmuseum",
+      "province": "Utrecht",
+      "city": "Leerdam)",
+      "municipality": "Vijfheerenlanden",
+      "address": {
+        "street": "",
+        "postcode": "4141 BE",
+        "city": "Leerdam)"
+      },
+      "lat": 51.890196,
+      "lon": 5.093885,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-glasmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-glasmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nationaal-glasmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nationaal-glasmuseum/"
+      },
+      "museum_website": "https://www.nationaalglasmuseum.nl/",
+      "source_date_raw": "2025-10-03T09:15:54.990Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leerdam"
+    },
+    {
+      "slug": "nationaal-holocaustmuseum",
+      "name": "Nationaal Holocaustmuseum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Plantage Middenlaan 27",
+        "postcode": "1018 DB",
+        "city": "Amsterdam"
+      },
+      "lat": 52.366883,
+      "lon": 4.910953,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-holocaustmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-holocaustmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nationaal-holocaustmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nationaal-holocaustmuseum/"
+      },
+      "museum_website": "https://jck.nl/locatie/nationaal-holocaustmuseum",
+      "source_date_raw": "2025-07-28T14:50:59.494Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "nationaal-militair-museum",
+      "name": "Nationaal Militair Museum",
+      "province": "Utrecht",
+      "city": "Soest",
+      "municipality": null,
+      "address": {
+        "street": "Verlengde Paltzerweg 1",
+        "postcode": "3768 MX",
+        "city": "Soest"
+      },
+      "lat": 52.131679,
+      "lon": 5.280573,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-militair-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-militair-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nationaal-militair-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nationaal-militair-museum/"
+      },
+      "museum_website": "https://www.nmm.nl/nl/",
+      "source_date_raw": "2022-11-10T13:28:34.735Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Soest"
+    },
+    {
+      "slug": "nationaal-monument-kamp-amersfoort",
+      "name": "Nationaal Monument Kamp Amersfoort",
+      "province": "Utrecht",
+      "city": "Leusden",
+      "municipality": null,
+      "address": {
+        "street": "Loes van Overeemlaan 19",
+        "postcode": "3832 RZ",
+        "city": "Leusden"
+      },
+      "lat": 52.132332,
+      "lon": 5.36531,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-monument-kamp-amersfoort/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-monument-kamp-amersfoort/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nationaal-monument-kamp-amersfoort/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nationaal-monument-kamp-amersfoort/"
+      },
+      "museum_website": "https://kampamersfoort.nl/",
+      "source_date_raw": "2025-10-03T09:49:00.289Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leusden"
+    },
+    {
+      "slug": "nationaal-monument-kamp-vught",
+      "name": "Nationaal Monument Kamp Vught",
+      "province": "Noord-Brabant",
+      "city": "Vught",
+      "municipality": null,
+      "address": {
+        "street": "Lunettenlaan 600",
+        "postcode": "5263 NT",
+        "city": "Vught"
+      },
+      "lat": 51.665516,
+      "lon": 5.258919,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-monument-kamp-vught/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-monument-kamp-vught/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nationaal-monument-kamp-vught/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nationaal-monument-kamp-vught/"
+      },
+      "museum_website": "https://www.nmkampvught.nl/",
+      "source_date_raw": "2025-09-19T13:34:49.597Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Vught"
+    },
+    {
+      "slug": "nationaal-monument-oranjehotel",
+      "name": "Nationaal monument Oranjehotel",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": "'s-Gravenhage",
+      "address": {
+        "street": "Van Alkemadelaan 1258",
+        "postcode": "2597 BP",
+        "city": "Den Haag"
+      },
+      "lat": 52.111253,
+      "lon": 4.300817,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-monument-oranjehotel/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-monument-oranjehotel/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nationaal-monument-oranjehotel/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nationaal-monument-oranjehotel/"
+      },
+      "museum_website": "https://www.oranjehotel.org/",
+      "source_date_raw": "2025-08-22T09:59:07.299Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "nationaal-onderduikmuseum",
+      "name": "Nationaal Onderduikmuseum",
+      "province": "Gelderland",
+      "city": "Aalten",
+      "municipality": null,
+      "address": {
+        "street": "Markt 12-16",
+        "postcode": "7121 CS",
+        "city": "Aalten"
+      },
+      "lat": 51.927877,
+      "lon": 6.581468,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-onderduikmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nationaal-onderduikmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nationaal-onderduikmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nationaal-onderduikmuseum/"
+      },
+      "museum_website": "https://nationaalonderduikmuseum.nl/",
+      "source_date_raw": "2025-10-10T15:19:16.909Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Aalten"
+    },
+    {
+      "slug": "naturalis-biodiversity-center",
+      "name": "Naturalis Biodiversity Center",
+      "province": "Zuid-Holland",
+      "city": "Leiden",
+      "municipality": null,
+      "address": {
+        "street": "Darwinweg 2",
+        "postcode": "2333 CR",
+        "city": "Leiden"
+      },
+      "lat": 52.164899,
+      "lon": 4.473367,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/naturalis-biodiversity-center/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/naturalis-biodiversity-center/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/naturalis-biodiversity-center/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/naturalis-biodiversity-center/"
+      },
+      "museum_website": "https://www.naturalis.nl/",
+      "source_date_raw": "2022-11-08T13:48:03.591Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leiden"
+    },
+    {
+      "slug": "natuurmuseum-brabant",
+      "name": "Natuurmuseum Brabant",
+      "province": "Noord-Brabant",
+      "city": "Tilburg",
+      "municipality": null,
+      "address": {
+        "street": "Spoorlaan 434",
+        "postcode": "5038 CH",
+        "city": "Tilburg"
+      },
+      "lat": 51.559928,
+      "lon": 5.081359,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/natuurmuseum-brabant/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/natuurmuseum-brabant/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/natuurmuseum-brabant/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/natuurmuseum-brabant/"
+      },
+      "museum_website": "https://www.natuurmuseumbrabant.nl",
+      "source_date_raw": "2025-09-19T13:46:01.523Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Tilburg"
+    },
+    {
+      "slug": "natuurmuseum-frysian",
+      "name": "Natuurmuseum FrysIân",
+      "province": "Friesland",
+      "city": "Leeuwarden",
+      "municipality": null,
+      "address": {
+        "street": "Schoenmakersperk 2",
+        "postcode": "8911 EM",
+        "city": "Leeuwarden"
+      },
+      "lat": 53.204064,
+      "lon": 5.795696,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/natuurmuseum-frysian/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/natuurmuseum-frysian/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/natuurmuseum-frysian/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/natuurmuseum-frysian/"
+      },
+      "museum_website": "https://natuurmuseumfryslan.nl/",
+      "source_date_raw": "2022-11-08T14:56:12.629Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leeuwarden"
+    },
+    {
+      "slug": "nederlands-fotomuseum",
+      "name": "Nederlands Fotomuseum",
+      "province": "Zuid-Holland",
+      "city": "Rotterdam",
+      "municipality": null,
+      "address": {
+        "street": "Wilhelminakade 332",
+        "postcode": "3072 AR",
+        "city": "Rotterdam"
+      },
+      "lat": 51.90541,
+      "lon": 4.486875,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nederlands-fotomuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nederlands-fotomuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nederlands-fotomuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nederlands-fotomuseum/"
+      },
+      "museum_website": "https://www.nederlandsfotomuseum.nl/",
+      "source_date_raw": "2022-11-10T13:00:06.428Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Rotterdam"
+    },
+    {
+      "slug": "nederlands-openluchtmuseum",
+      "name": "Nederlands Openluchtmuseum",
+      "province": "Gelderland",
+      "city": "Arnhem",
+      "municipality": null,
+      "address": {
+        "street": "Hoeferlaan 4",
+        "postcode": "6816 SG",
+        "city": "Arnhem"
+      },
+      "lat": 52.00809,
+      "lon": 5.907217,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nederlands-openluchtmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nederlands-openluchtmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nederlands-openluchtmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nederlands-openluchtmuseum/"
+      },
+      "museum_website": "https://www.openluchtmuseum.nl/",
+      "source_date_raw": "2023-01-31T17:08:50.413Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Arnhem"
+    },
+    {
+      "slug": "nederlands-zilvermuseum-schoonhoven",
+      "name": "Nederlands Zilvermuseum Schoonhoven",
+      "province": "Zuid-Holland",
+      "city": "Schoonhoven",
+      "municipality": null,
+      "address": {
+        "street": "Kazerneplein 4",
+        "postcode": "2871 CZ",
+        "city": "Schoonhoven"
+      },
+      "lat": 51.947165,
+      "lon": 4.852309,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nederlands-zilvermuseum-schoonhoven/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nederlands-zilvermuseum-schoonhoven/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nederlands-zilvermuseum-schoonhoven/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nederlands-zilvermuseum-schoonhoven/"
+      },
+      "museum_website": null,
+      "source_date_raw": "2025-02-11T14:14:37.199Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Schoonhoven"
+    },
+    {
+      "slug": "nemo-science-museum",
+      "name": "NEMO Science Museum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Oosterdok 2",
+        "postcode": "1011 VX",
+        "city": "Amsterdam"
+      },
+      "lat": 52.373853,
+      "lon": 4.912111,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nemo-science-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nemo-science-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nemo-science-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nemo-science-museum/"
+      },
+      "museum_website": "https://www.nemosciencemuseum.nl/nl/",
+      "source_date_raw": "2022-11-14T17:07:21.495Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "nijntje-museum",
+      "name": "Nijntje Museum",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Oudegracht 167",
+        "postcode": "3511 AL",
+        "city": "Utrecht"
+      },
+      "lat": 52.09151,
+      "lon": 5.119074,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nijntje-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/nijntje-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nijntje-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nijntje-museum/"
+      },
+      "museum_website": "https://nijntjemuseum.nl/",
+      "source_date_raw": "2023-02-01T16:55:21.953Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "noordbrabants-museum",
+      "name": "Noordbrabants Museum",
+      "province": "Noord-Brabant",
+      "city": "Den Bosch",
+      "municipality": null,
+      "address": {
+        "street": "Verwersstraat 41",
+        "postcode": "5211 HT",
+        "city": "Den Bosch"
+      },
+      "lat": 51.68658,
+      "lon": 5.304685,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/noordbrabants-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/noordbrabants-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/noordbrabants-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/noordbrabants-museum/"
+      },
+      "museum_website": "https://www.hetnoordbrabantsmuseum.nl/",
+      "source_date_raw": "2022-11-11T11:44:09.272Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Hertogenbosch"
+    },
+    {
+      "slug": "oorlogsmuseum-overloon",
+      "name": "Oorlogsmuseum Overloon",
+      "province": "Noord-Brabant",
+      "city": "Overloon",
+      "municipality": null,
+      "address": {
+        "street": "Museumpark 1",
+        "postcode": "5825 AM",
+        "city": "Overloon"
+      },
+      "lat": 51.570366,
+      "lon": 5.9568,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/oorlogsmuseum-overloon/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/oorlogsmuseum-overloon/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/oorlogsmuseum-overloon/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/oorlogsmuseum-overloon/"
+      },
+      "museum_website": "https://www.oorlogsmuseum.nl/nl/",
+      "source_date_raw": "2026-04-24T11:39:57.835Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Overloon"
+    },
+    {
+      "slug": "oyfo-techniekmuseum",
+      "name": "Oyfo Techniekmuseum",
+      "province": "Overijssel",
+      "city": "Hengelo",
+      "municipality": null,
+      "address": {
+        "street": "Floris Hazemeijerstraat 300",
+        "postcode": "7555 RJ",
+        "city": "Hengelo"
+      },
+      "lat": 52.26255,
+      "lon": 6.783162,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/oyfo-techniekmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/oyfo-techniekmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/oyfo-techniekmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/oyfo-techniekmuseum/"
+      },
+      "museum_website": "https://www.oyfotechniekmuseum.nl/",
+      "source_date_raw": "2022-11-11T11:10:37.371Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Hengelo"
+    },
+    {
+      "slug": "paleis-het-loo",
+      "name": "Paleis Het Loo",
+      "province": "Gelderland",
+      "city": "Apeldoorn",
+      "municipality": null,
+      "address": {
+        "street": "Koninklijk Park 1",
+        "postcode": "7315 JA",
+        "city": "Apeldoorn"
+      },
+      "lat": 52.233299,
+      "lon": 5.945177,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/paleis-het-loo/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/paleis-het-loo/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/paleis-het-loo/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/paleis-het-loo/"
+      },
+      "museum_website": "https://paleishetloo.nl/",
+      "source_date_raw": "2022-11-13T13:58:41.314Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Apeldoorn"
+    },
+    {
+      "slug": "paleis-lofen",
+      "name": "Paleis Lofen",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Domplein 9",
+        "postcode": "3512 JC",
+        "city": "Utrecht"
+      },
+      "lat": 52.090953,
+      "lon": 5.121057,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/paleis-lofen/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/paleis-lofen/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/paleis-lofen/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/paleis-lofen/"
+      },
+      "museum_website": "https://www.paleislofen.nl/bezoek/",
+      "source_date_raw": "2026-04-24T12:27:14.723Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "portugese-synagoge",
+      "name": "Portugese Synagoge",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Mr. Visserplein 3",
+        "postcode": "1011 RD",
+        "city": "Amsterdam"
+      },
+      "lat": 52.367605,
+      "lon": 4.905131,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/portugese-synagoge/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/portugese-synagoge/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/portugese-synagoge/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/portugese-synagoge/"
+      },
+      "museum_website": "https://jck.nl/nl/locatie/portugese-synagoge",
+      "source_date_raw": "2022-11-14T15:17:28.572Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "rietveld-schroederhuis",
+      "name": "Rietveld Schröderhuis",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Prins Hendriklaan 50",
+        "postcode": "3583 EP",
+        "city": "Utrecht"
+      },
+      "lat": 52.085323,
+      "lon": 5.147519,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rietveld-schroederhuis/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rietveld-schroederhuis/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/rietveld-schroederhuis/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/rietveld-schroederhuis/"
+      },
+      "museum_website": "https://www.rietveldschroderhuis.nl/nl/nl",
+      "source_date_raw": "2025-10-03T10:05:20.468Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "rijksmuseum",
+      "name": "Rijksmuseum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Museumstraat 1",
+        "postcode": "1071 XX",
+        "city": "Amsterdam"
+      },
+      "lat": 52.359942,
+      "lon": 4.885386,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/rijksmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/rijksmuseum/"
+      },
+      "museum_website": "https://www.rijksmuseum.nl/nl",
+      "source_date_raw": "2022-11-14T17:18:05.385Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "rijksmuseum-boerhaave",
+      "name": "Rijksmuseum Boerhaave",
+      "province": "Zuid-Holland",
+      "city": "Leiden",
+      "municipality": null,
+      "address": {
+        "street": "Lange St. Agnietenstraat 10",
+        "postcode": "2312 WC",
+        "city": "Leiden"
+      },
+      "lat": 52.161342,
+      "lon": 4.489178,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-boerhaave/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-boerhaave/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/rijksmuseum-boerhaave/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/rijksmuseum-boerhaave/"
+      },
+      "museum_website": "https://rijksmuseumboerhaave.nl/",
+      "source_date_raw": "2023-02-01T17:08:00.302Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leiden"
+    },
+    {
+      "slug": "rijksmuseum-de-gevangenpoort",
+      "name": "Rijksmuseum de Gevangenpoort",
+      "province": "Zuid-Holland",
+      "city": "Den Haag",
+      "municipality": null,
+      "address": {
+        "street": "Buitenhof 33",
+        "postcode": "2513 AH",
+        "city": "Den Haag"
+      },
+      "lat": 52.079596,
+      "lon": 4.310279,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-de-gevangenpoort/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-de-gevangenpoort/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/rijksmuseum-de-gevangenpoort/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/rijksmuseum-de-gevangenpoort/"
+      },
+      "museum_website": "https://www.gevangenpoort.nl/",
+      "source_date_raw": "2022-11-10T10:50:20.720Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "'s-Gravenhage"
+    },
+    {
+      "slug": "rijksmuseum-muiderslot",
+      "name": "Rijksmuseum Muiderslot",
+      "province": "Noord-Holland",
+      "city": "Muiden",
+      "municipality": null,
+      "address": {
+        "street": "Herengracht 1",
+        "postcode": "1398 AA",
+        "city": "Muiden"
+      },
+      "lat": 52.333401,
+      "lon": 5.07127,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-muiderslot/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-muiderslot/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/rijksmuseum-muiderslot/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/rijksmuseum-muiderslot/"
+      },
+      "museum_website": "https://muiderslot.nl/",
+      "source_date_raw": "2022-11-14T17:25:01.171Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Muiden"
+    },
+    {
+      "slug": "rijksmuseum-twenthe",
+      "name": "Rijksmuseum Twenthe",
+      "province": "Overijssel",
+      "city": "Enschede",
+      "municipality": null,
+      "address": {
+        "street": "Lasondersingel 129",
+        "postcode": "7514 BP",
+        "city": "Enschede"
+      },
+      "lat": 52.227699,
+      "lon": 6.897013,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-twenthe/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-twenthe/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/rijksmuseum-twenthe/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/rijksmuseum-twenthe/"
+      },
+      "museum_website": "https://www.rijksmuseumtwenthe.nl/",
+      "source_date_raw": "2022-11-11T11:28:43.325Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Enschede"
+    },
+    {
+      "slug": "rijksmuseum-van-oudheden",
+      "name": "Rijksmuseum van Oudheden",
+      "province": "Zuid-Holland",
+      "city": "Leiden",
+      "municipality": null,
+      "address": {
+        "street": "Rapenburg 28",
+        "postcode": "2311 EW",
+        "city": "Leiden"
+      },
+      "lat": 52.158545,
+      "lon": 4.485518,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-van-oudheden/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/rijksmuseum-van-oudheden/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/rijksmuseum-van-oudheden/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/rijksmuseum-van-oudheden/"
+      },
+      "museum_website": "https://www.rmo.nl/",
+      "source_date_raw": "2022-11-10T13:08:35.528Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leiden"
+    },
+    {
+      "slug": "schunck",
+      "name": "SCHUNCK",
+      "province": "Limburg",
+      "city": "Heerlen",
+      "municipality": null,
+      "address": {
+        "street": "Bongerd 18",
+        "postcode": "6411 JM",
+        "city": "Heerlen"
+      },
+      "lat": 50.887944,
+      "lon": 5.979259,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/schunck/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/schunck/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/schunck/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/schunck/"
+      },
+      "museum_website": "https://www.schunck.nl/nl",
+      "source_date_raw": "2022-11-11T08:57:14.903Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Heerlen"
+    },
+    {
+      "slug": "singer-laren",
+      "name": "Singer Laren",
+      "province": "Noord-Holland",
+      "city": "Laren",
+      "municipality": null,
+      "address": {
+        "street": "Oude Drift 1",
+        "postcode": "1251 BS",
+        "city": "Laren"
+      },
+      "lat": 52.259422,
+      "lon": 5.221568,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/singer-laren/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/singer-laren/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/singer-laren/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/singer-laren/"
+      },
+      "museum_website": "https://www.singerlaren.nl/nl/",
+      "source_date_raw": "2022-11-14T17:29:12.568Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Laren"
+    },
+    {
+      "slug": "sint-jan-de-doper",
+      "name": "Sint Jan de Doper",
+      "province": "Noord-Brabant",
+      "city": "Breda",
+      "municipality": null,
+      "address": {
+        "street": "Kerkplein 2",
+        "postcode": "4811 XT",
+        "city": "Breda"
+      },
+      "lat": 51.588906,
+      "lon": 4.775337,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/sint-jan-de-doper/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/sint-jan-de-doper/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/sint-jan-de-doper/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/sint-jan-de-doper/"
+      },
+      "museum_website": "https://grotekerkbreda.nl/",
+      "source_date_raw": "2022-11-15T20:02:00.199Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Breda"
+    },
+    {
+      "slug": "sint-jan-gouda",
+      "name": "Sint-Jan Gouda",
+      "province": "Zuid-Holland",
+      "city": "Gouda",
+      "municipality": null,
+      "address": {
+        "street": "Achter de Kerk 2",
+        "postcode": "2801 JW",
+        "city": "Gouda"
+      },
+      "lat": 52.011014,
+      "lon": 4.712086,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/sint-jan-gouda/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/sint-jan-gouda/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/sint-jan-gouda/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/sint-jan-gouda/"
+      },
+      "museum_website": "https://www.sintjan.com",
+      "source_date_raw": "2023-02-01T17:18:01.187Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Gouda"
+    },
+    {
+      "slug": "sonnenborgh",
+      "name": "Sonnenborgh",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Zonnenburg 2",
+        "postcode": "3512 NL",
+        "city": "Utrecht"
+      },
+      "lat": 52.085415,
+      "lon": 5.129283,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/sonnenborgh/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/sonnenborgh/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/sonnenborgh/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/sonnenborgh/"
+      },
+      "museum_website": "https://www.sonnenborgh.nl/",
+      "source_date_raw": "2022-11-10T13:32:36.327Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "sovjet-ereveld-experience",
+      "name": "Sovjet Ereveld Experience",
+      "province": "Utrecht",
+      "city": "Leusden",
+      "municipality": null,
+      "address": {
+        "street": "Vlooswijkseweg 1b",
+        "postcode": "3832 RG",
+        "city": "Leusden"
+      },
+      "lat": 52.130962,
+      "lon": 5.373207,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/sovjet-ereveld-experience/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/sovjet-ereveld-experience/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/sovjet-ereveld-experience/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/sovjet-ereveld-experience/"
+      },
+      "museum_website": "https://sovjet-ereveld.nl/",
+      "source_date_raw": "2026-04-24T12:44:12.662Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Leusden"
+    },
+    {
+      "slug": "space-expo",
+      "name": "Space Expo",
+      "province": "Zuid-Holland",
+      "city": "Noordwijk",
+      "municipality": null,
+      "address": {
+        "street": "Keplerlaan 3",
+        "postcode": "2201 AZ",
+        "city": "Noordwijk"
+      },
+      "lat": 52.215276,
+      "lon": 4.420897,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/space-expo/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/space-expo/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/space-expo/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/space-expo/"
+      },
+      "museum_website": "https://www.space-expo.nl/",
+      "source_date_raw": "2023-02-01T17:21:58.886Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Noordwijk"
+    },
+    {
+      "slug": "spoorwegmuseum",
+      "name": "Spoorwegmuseum",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Maliebaanstation 16",
+        "postcode": "3581 XW",
+        "city": "Utrecht"
+      },
+      "lat": 52.087959,
+      "lon": 5.131077,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/spoorwegmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/spoorwegmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/spoorwegmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/spoorwegmuseum/"
+      },
+      "museum_website": "https://www.spoorwegmuseum.nl/?gclid=Cj0KCQiAnsqdBhCGARIsAAyjYjQ2gwhbucyvRmj3jowXaYsSPhbRUIqVejj8IB0Pw6YtxIwbElDFtNoaAv6TEALw_wcB",
+      "source_date_raw": "2023-01-02T19:52:55.893Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "stadsmuseum-harderwijk",
+      "name": "Stadsmuseum Harderwijk",
+      "province": "Gelderland",
+      "city": "Harderwijk",
+      "municipality": null,
+      "address": {
+        "street": "Donkerstraat 4",
+        "postcode": "3841 CC",
+        "city": "Harderwijk"
+      },
+      "lat": 52.34786,
+      "lon": 5.616239,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stadsmuseum-harderwijk/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stadsmuseum-harderwijk/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/stadsmuseum-harderwijk/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/stadsmuseum-harderwijk/"
+      },
+      "museum_website": "https://www.stadsmuseum-harderwijk.nl/",
+      "source_date_raw": "2022-11-13T14:06:24.716Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Harderwijk"
+    },
+    {
+      "slug": "stedelijk-museum-alkmaar",
+      "name": "Stedelijk Museum Alkmaar",
+      "province": "Noord-Holland",
+      "city": "Alkmaar",
+      "municipality": null,
+      "address": {
+        "street": "Canadaplein 2",
+        "postcode": "1811 KE",
+        "city": "Alkmaar"
+      },
+      "lat": 52.633636,
+      "lon": 4.743962,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-alkmaar/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-alkmaar/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/stedelijk-museum-alkmaar/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/stedelijk-museum-alkmaar/"
+      },
+      "museum_website": "https://stedelijkmuseumalkmaar.nl/",
+      "source_date_raw": "2022-11-14T11:45:25.568Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Alkmaar"
+    },
+    {
+      "slug": "stedelijk-museum-amsterdam",
+      "name": "Stedelijk Museum Amsterdam",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Museumplein 10",
+        "postcode": "1071 DJ",
+        "city": "Amsterdam"
+      },
+      "lat": 52.35791,
+      "lon": 4.879855,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-amsterdam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-amsterdam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/stedelijk-museum-amsterdam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/stedelijk-museum-amsterdam/"
+      },
+      "museum_website": "https://www.stedelijk.nl/nl",
+      "source_date_raw": "2022-11-14T17:50:59.509Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "stedelijk-museum-breda",
+      "name": "Stedelijk Museum Breda",
+      "province": "Noord-Brabant",
+      "city": "Breda",
+      "municipality": null,
+      "address": {
+        "street": "Boschstraat 22",
+        "postcode": "4811 GH",
+        "city": "Breda"
+      },
+      "lat": 51.589639,
+      "lon": 4.78101,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-breda/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-breda/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/stedelijk-museum-breda/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/stedelijk-museum-breda/"
+      },
+      "museum_website": "https://www.stedelijkmuseumbreda.nl/nl/",
+      "source_date_raw": "2022-11-14T11:36:13.636Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Breda"
+    },
+    {
+      "slug": "stedelijk-museum-schiedam",
+      "name": "Stedelijk Museum Schiedam",
+      "province": "Zuid-Holland",
+      "city": "Schiedam",
+      "municipality": null,
+      "address": {
+        "street": "Hoogstraat 112",
+        "postcode": "3111 HL",
+        "city": "Schiedam"
+      },
+      "lat": 51.915792,
+      "lon": 4.397873,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-schiedam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-schiedam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/stedelijk-museum-schiedam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/stedelijk-museum-schiedam/"
+      },
+      "museum_website": "https://www.stedelijkmuseumschiedam.nl/",
+      "source_date_raw": "2022-11-10T13:14:56.794Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Schiedam"
+    },
+    {
+      "slug": "stedelijk-museum-zutphen",
+      "name": "Stedelijk Museum Zutphen",
+      "province": "Gelderland",
+      "city": "Zutphen",
+      "municipality": null,
+      "address": {
+        "street": "'s-Gravenhof 4",
+        "postcode": "7201 DN",
+        "city": "Zutphen"
+      },
+      "lat": 52.139982,
+      "lon": 6.194533,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-zutphen/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/stedelijk-museum-zutphen/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/stedelijk-museum-zutphen/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/stedelijk-museum-zutphen/"
+      },
+      "museum_website": "https://museazutphen.nl/",
+      "source_date_raw": "2022-11-13T14:09:32.323Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Zutphen"
+    },
+    {
+      "slug": "storyworld",
+      "name": "Storyworld",
+      "province": "Groningen",
+      "city": "Groningen",
+      "municipality": null,
+      "address": {
+        "street": "Nieuwe Markt 1",
+        "postcode": "9712 KN",
+        "city": "Groningen"
+      },
+      "lat": 53.218893,
+      "lon": 6.56983,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/storyworld/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/storyworld/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/storyworld/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/storyworld/"
+      },
+      "museum_website": "https://www.storyworld.nl/",
+      "source_date_raw": "2022-11-14T10:08:54.141Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Groningen"
+    },
+    {
+      "slug": "teylers-museum",
+      "name": "Teylers Museum",
+      "province": "Noord-Holland",
+      "city": "Haarlem",
+      "municipality": null,
+      "address": {
+        "street": "Spaarne 16",
+        "postcode": "2011 CH",
+        "city": "Haarlem"
+      },
+      "lat": 52.380345,
+      "lon": 4.640349,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/teylers-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/teylers-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/teylers-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/teylers-museum/"
+      },
+      "museum_website": "https://www.teylersmuseum.nl/nl",
+      "source_date_raw": "2022-11-14T17:56:40.869Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Haarlem"
+    },
+    {
+      "slug": "universiteits-museum-utrecht",
+      "name": "Universiteits Museum Utrecht",
+      "province": "Utrecht",
+      "city": "Utrecht",
+      "municipality": null,
+      "address": {
+        "street": "Lange Nieuwstraat 106",
+        "postcode": "3512 PN",
+        "city": "Utrecht"
+      },
+      "lat": 52.084827,
+      "lon": 5.125724,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/universiteits-museum-utrecht/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/universiteits-museum-utrecht/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/universiteits-museum-utrecht/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/universiteits-museum-utrecht/"
+      },
+      "museum_website": "https://umu.nl/",
+      "source_date_raw": "2025-10-03T10:37:00.538Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Utrecht"
+    },
+    {
+      "slug": "van-abbemuseum",
+      "name": "Van Abbemuseum",
+      "province": "Noord-Brabant",
+      "city": "Eindhoven",
+      "municipality": null,
+      "address": {
+        "street": "Stratumsedijk 2",
+        "postcode": "5611 ND",
+        "city": "Eindhoven"
+      },
+      "lat": 51.434415,
+      "lon": 5.481914,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/van-abbemuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/van-abbemuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/van-abbemuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/van-abbemuseum/"
+      },
+      "museum_website": "https://vanabbemuseum.nl/",
+      "source_date_raw": "2023-01-02T16:56:42.280Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Eindhoven"
+    },
+    {
+      "slug": "van-gogh-museum",
+      "name": "Van Gogh Museum",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Museumplein 6",
+        "postcode": "1071 DJ",
+        "city": "Amsterdam"
+      },
+      "lat": 52.357925,
+      "lon": 4.881323,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/van-gogh-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/van-gogh-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/van-gogh-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/van-gogh-museum/"
+      },
+      "museum_website": "https://www.vangoghmuseum.nl/nl",
+      "source_date_raw": "2022-11-14T18:06:06.415Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "verzetsmuseum-amsterdam",
+      "name": "Verzetsmuseum Amsterdam",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Plantage Kerklaan 61",
+        "postcode": "1018 CX",
+        "city": "Amsterdam"
+      },
+      "lat": 52.367821,
+      "lon": 4.912796,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/verzetsmuseum-amsterdam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/verzetsmuseum-amsterdam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/verzetsmuseum-amsterdam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/verzetsmuseum-amsterdam/"
+      },
+      "museum_website": "https://www.verzetsmuseum.org/",
+      "source_date_raw": "2025-07-30T14:33:48.342Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "vrijheidsmuseum",
+      "name": "Vrijheidsmuseum",
+      "province": "Gelderland",
+      "city": "Groesbeek",
+      "municipality": null,
+      "address": {
+        "street": "Wylerbaan 4",
+        "postcode": "6461 KR",
+        "city": "Groesbeek"
+      },
+      "lat": 52.347098,
+      "lon": 4.90801,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/vrijheidsmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/vrijheidsmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/vrijheidsmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/vrijheidsmuseum/"
+      },
+      "museum_website": "https://vrijheidsmuseum.nl/",
+      "source_date_raw": "2025-10-31T15:49:06.148Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "watersnoodmuseum",
+      "name": "Watersnoodmuseum",
+      "province": "Zeeland",
+      "city": "Ouwerkerk",
+      "municipality": null,
+      "address": {
+        "street": "Weg van de Buitenlandse Pers 5",
+        "postcode": "4305 RJ",
+        "city": "Ouwerkerk"
+      },
+      "lat": 51.617423,
+      "lon": 3.982822,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/watersnoodmuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/watersnoodmuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/watersnoodmuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/watersnoodmuseum/"
+      },
+      "museum_website": "https://watersnoodmuseum.nl/",
+      "source_date_raw": "2022-11-09T08:36:07.480Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Ouwerkerk"
+    },
+    {
+      "slug": "wereldmuseum-amsterdam",
+      "name": "Wereldmuseum Amsterdam",
+      "province": "Noord-Holland",
+      "city": "Amsterdam",
+      "municipality": null,
+      "address": {
+        "street": "Linnaeusstraat 2",
+        "postcode": "1092 CK",
+        "city": "Amsterdam"
+      },
+      "lat": 52.362768,
+      "lon": 4.922683,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/wereldmuseum-amsterdam/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/wereldmuseum-amsterdam/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/wereldmuseum-amsterdam/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/wereldmuseum-amsterdam/"
+      },
+      "museum_website": "https://amsterdam.wereldmuseum.nl/",
+      "source_date_raw": "2022-11-14T18:00:34.124Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Amsterdam"
+    },
+    {
+      "slug": "zaans-museum",
+      "name": "Zaans Museum",
+      "province": "Noord-Holland",
+      "city": "Zaandam",
+      "municipality": "Zaanstad",
+      "address": {
+        "street": "Schansend 7",
+        "postcode": "1509 AW",
+        "city": "Zaandam"
+      },
+      "lat": 52.473633,
+      "lon": 4.822324,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/zaans-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/zaans-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/zaans-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/zaans-museum/"
+      },
+      "museum_website": "http://www.zaansmuseum.nl",
+      "source_date_raw": "2025-08-14T09:38:48.378Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Zaandam"
+    },
+    {
+      "slug": "zeeuws-maritiem-muzeeum",
+      "name": "Zeeuws maritiem muZEEum",
+      "province": "Zeeland",
+      "city": "Vlissingen",
+      "municipality": null,
+      "address": {
+        "street": "Nieuwendijk 11",
+        "postcode": "4381 BV",
+        "city": "Vlissingen"
+      },
+      "lat": 51.441342,
+      "lon": 3.57541,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/zeeuws-maritiem-muzeeum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/zeeuws-maritiem-muzeeum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/zeeuws-maritiem-muzeeum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/zeeuws-maritiem-muzeeum/"
+      },
+      "museum_website": "https://www.muzeeum.nl/",
+      "source_date_raw": "2022-11-09T09:23:13.401Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Vlissingen"
+    },
+    {
+      "slug": "zeeuws-museum",
+      "name": "Zeeuws Museum",
+      "province": "Zeeland",
+      "city": "Middelburg",
+      "municipality": null,
+      "address": {
+        "street": "Abdij (Plein)",
+        "postcode": "4331 BK",
+        "city": "Middelburg"
+      },
+      "lat": 51.500801,
+      "lon": 3.615136,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/zeeuws-museum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/zeeuws-museum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/zeeuws-museum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/zeeuws-museum/"
+      },
+      "museum_website": "https://www.zeeuwsmuseum.nl/nl",
+      "source_date_raw": "2022-11-09T09:28:51.156Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Middelburg"
+    },
+    {
+      "slug": "zuiderzeemuseum",
+      "name": "Zuiderzeemuseum",
+      "province": "Noord-Holland",
+      "city": "Enkhuizen",
+      "municipality": null,
+      "address": {
+        "street": "Sluisweg 1",
+        "postcode": "1601 MB",
+        "city": "Enkhuizen"
+      },
+      "lat": 52.694961,
+      "lon": 5.278828,
+      "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/zuiderzeemuseum/",
+      "official_urls": {
+        "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/zuiderzeemuseum/",
+        "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/zuiderzeemuseum/",
+        "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/zuiderzeemuseum/"
+      },
+      "museum_website": "https://www.zuiderzeemuseum.nl/",
+      "source_date_raw": "2023-02-01T16:35:46.473Z",
+      "first_seen": "2026-09-19",
+      "pdok_woonplaats": "Enkhuizen"
+    }
+  ]
+}

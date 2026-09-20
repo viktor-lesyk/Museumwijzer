@@ -1,0 +1,136 @@
+# Manual overrides for museum records when the source website contains data or typographical errors.
+# Each entry requires an evidence_url (verifiable from the museum's own website), exact_text_read (literal quote), and date.
+# Applied during the pipeline; a warning is logged if the source site resolves the difference.
+
+nationaal-monument-oranjehotel:
+  date: "2026-09-20"
+  evidence_url: "https://www.oranjehotel.org/nl/contact/"
+  exact_text_read: "Nationaal Monument Oranjehotel | Van Alkemadelaan 1258 | 2597 BP Den Haag"
+  note: "Source website displays typo '297 BP' (missing digit 5). Verified correct postcode is '2597 BP'."
+  override:
+    address:
+      street: "Van Alkemadelaan 1258"
+      postcode: "2597 BP"
+      city: "Den Haag"
+
+forum-groningen:
+  date: "2026-09-20"
+  evidence_url: "https://forum.nl/nl/contact"
+  exact_text_read: "Bezoekadres | Forum Groningen | Nieuwe Markt 1 | 9712 KN Groningen"
+  note: "Source website displays typo '99712 KN' (duplicate digit 9). Verified correct postcode is '9712 KN'."
+  override:
+    address:
+      street: "Nieuwe Markt 1"
+      postcode: "9712 KN"
+      city: "Groningen"
+
+museumprinsenhofdelft:
+  date: "2026-09-20"
+  evidence_url: "https://museumprinsenhofdelft.nl/contact/"
+  exact_text_read: >-
+    "Infopunt & kantoor: Sint Agathaplein 4" and "Museum Prinsenhof Delft is tijdelijk gesloten voor verbouwing en vernieuwing."
+    Google Maps route link destination: "Museum+Prinsenhof+Delft,+Sint+Agathaplein+1,+2611+HR+Delft,+Netherlands"
+  note: >-
+    Source website omitted postal code and had house number 4 (the temporary info point).
+    The museum building itself is at Sint Agathaplein 1, 2611 HR Delft, and is currently closed for renovation.
+  override:
+    address:
+      street: "Sint Agathaplein 1"
+      postcode: "2611 HR"
+      city: "Delft"
+
+kunstmuseum-den-haag:
+  date: "2026-09-20"
+  evidence_url: "https://www.kunstmuseum.nl/nl/bezoek"
+  exact_text_read: "Kunstmuseum Den Haag | Stadhouderslaan 41 | 2517 HV, Den Haag"
+  note: "Source website displays typo '2717 HV'. Verified correct postcode is '2517 HV Den Haag'."
+  override:
+    address:
+      street: "Stadhouderslaan 41"
+      postcode: "2517 HV"
+      city: "Den Haag"
+
+museum-tachtigjarige-oorlog:
+  date: "2026-09-20"
+  evidence_url: "https://www.nmto.nl/contact"
+  exact_text_read: "Bezoekadres: Oude Calixtuskerk Mattelierstraat 5 7141 BP Groenlo"
+  note: "Source website tagged with province 'Groningen', but Groenlo is in Gelderland."
+  override:
+    province: "Gelderland"
+
+czaar-peterhuisje:
+  date: "2026-09-20"
+  evidence_url: "https://zaansmuseum.nl/czaar-peterhuisje/"
+  exact_text_read: "Adres Czaar Peterhuisje Krimp 23 1506 AA Zaandam"
+  note: "Source website CMS entry inadvertently duplicated body/contact of Nederlands Zilvermuseum Schoonhoven."
+  override:
+    address:
+      street: "Krimp 23"
+      postcode: "1506 AA"
+      city: "Zaandam"
+
+museum-kaap-skil:
+  date: "2026-09-20"
+  evidence_url: "https://kaapskil.nl/contact/"
+  exact_text_read: "Het adres van Museum Kaap Skil is Heemskerckstraat 9, 1792 AA Oudeschild, Texel."
+  note: "Source website CMS entry inadvertently duplicated body/contact of Nederlands Zilvermuseum Schoonhoven."
+  override:
+    address:
+      street: "Heemskerckstraat 9"
+      postcode: "1792 AA"
+      city: "Oudeschild"
+
+huis-willet-holthuysen:
+  date: "2026-09-20"
+  evidence_url: "https://www.amsterdammuseum.nl/contact"
+  exact_text_read: "Adres locaties: Huis Willet-Holthuysen, Herengracht 605, 1017 CE Amsterdam"
+  note: "Source website CMS entry inadvertently duplicated body/contact of Nederlands Zilvermuseum Schoonhoven."
+  override:
+    address:
+      street: "Herengracht 605"
+      postcode: "1017 CE"
+      city: "Amsterdam"
+
+artis-groote-museum:
+  date: "2026-09-20"
+  evidence_url: "https://www.artis.nl/nl/plan-je-bezoek/bereikbaarheid-parkeren"
+  exact_text_read: "ARTIS-Micropia en het ARTIS-Groote Museum vind je aan het openbaar toegankelijke Artisplein, op de Plantage Kerklaan 36."
+  note: "Source contact block lacked city name; located on Plantage Kerklaan 36 in Amsterdam."
+  override:
+    address:
+      street: "Plantage Kerklaan 36"
+      postcode: "1018 CZ"
+      city: "Amsterdam"
+
+het-nieuwe-instituut:
+  date: "2026-09-20"
+  evidence_url: "https://nieuweinstituut.nl/"
+  exact_text_read: "Contact Nieuwe Instituut Museumpark 25 3015 CB Rotterdam"
+  note: "Source website CMS entry duplicated Gevangenismuseum Veenhuizen address."
+  override:
+    address:
+      street: "Museumpark 25"
+      postcode: "3015 CB"
+      city: "Rotterdam"
+
+koepelkathedraal:
+  date: "2026-09-20"
+  evidence_url: "https://koepelkathedraal.nl/"
+  exact_text_read: "Leidsevaart 146 2014 HE Haarlem"
+  note: "Source website CMS entry omitted street/postcode. Verified Haarlem address on official site."
+  override:
+    address:
+      street: "Leidsevaart 146"
+      postcode: "2014 HE"
+      city: "Haarlem"
+
+museum-volkenkunde:
+  date: "2026-09-20"
+  evidence_url: "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact"
+  exact_text_read: "Bezoekadres: Steenstraat 1, 2312 BS Leiden"
+  note: "Wereldmuseum Leiden (Museum Volkenkunde) is located at Steenstraat 1, 2312 BS Leiden."
+  override:
+    address:
+      street: "Steenstraat 1"
+      postcode: "2312 BS"
+      city: "Leiden"

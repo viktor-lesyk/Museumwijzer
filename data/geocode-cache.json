@@ -1,0 +1,1817 @@
+{
+  "HaRT-Museum1": {
+    "address_sig": "1018 DR|Amstel 51|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:27:04.542912+00:00",
+    "lat": 52.364451,
+    "lon": 4.903036,
+    "municipality": "Amsterdam",
+    "province": "Noord-Holland",
+    "query": "1018 DR 51",
+    "weergavenaam": "Nieuwe Keizersgracht 2A-1, 1018DR Amsterdam",
+    "woonplaats": "Amsterdam"
+  },
+  "Museum-Tromps-Huys": {
+    "address_sig": "8899 AD|Dorpsstraat 99|Oost-Vlieland",
+    "city": "Vlieland",
+    "geocoded_at": "2026-09-19T19:27:03.400353+00:00",
+    "lat": 53.29539,
+    "lon": 5.06742,
+    "municipality": "Vlieland",
+    "province": "Fryslân",
+    "query": "8899 AD 99",
+    "weergavenaam": "Dorpsstraat 99, 8899AD Vlieland",
+    "woonplaats": "Vlieland"
+  },
+  "Museumhuis-sloetjes1": {
+    "address_sig": "1215 KT|J.P. Coenstraat 80|Hilversum",
+    "city": "Hilversum",
+    "geocoded_at": "2026-09-19T19:10:26.296543+00:00",
+    "lat": 52.211242,
+    "lon": 5.159402,
+    "query": "1215 KT 80",
+    "weergavenaam": "J.P. Coenstraat 80, 1215KT Hilversum"
+  },
+  "Textiel-museum": {
+    "address_sig": "5046 GN|Goirkestraat 96|Tilburg",
+    "city": "Tilburg",
+    "geocoded_at": "2026-09-19T19:10:27.296536+00:00",
+    "lat": 51.570849,
+    "lon": 5.079454,
+    "query": "5046 GN 96",
+    "weergavenaam": "Goirkestraat 96, 5046GN Tilburg"
+  },
+  "allard-pierson-museum": {
+    "address_sig": "1012 CG|Oude Turfmarkt 127|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:27.339976+00:00",
+    "lat": 52.372243,
+    "lon": 4.889794,
+    "query": "1012 CG 127",
+    "weergavenaam": "Paleisstraat 127, 1012ZL Amsterdam"
+  },
+  "anne-frank-huis": {
+    "address_sig": "1016 GV|Prinsengracht 267|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:26.334677+00:00",
+    "lat": 52.374936,
+    "lon": 4.884317,
+    "query": "1016 GV 267",
+    "weergavenaam": "Prinsengracht 267, 1016GV Amsterdam"
+  },
+  "anno": {
+    "address_sig": "8011 MB|Melkmarkt 41|Zwolle",
+    "city": "Zwolle",
+    "geocoded_at": "2026-09-19T19:11:54.286250+00:00",
+    "lat": 52.513028,
+    "lon": 6.09057,
+    "query": "8011 MB 41",
+    "weergavenaam": "Melkmarkt 41, 8011MB Zwolle"
+  },
+  "archeon": {
+    "address_sig": "2408 ZB|Archeonlaan 1|Alphen aan den Rijn",
+    "city": "Alphen aan den Rijn",
+    "geocoded_at": "2026-09-19T19:12:22.441076+00:00",
+    "lat": 52.114315,
+    "lon": 4.651635,
+    "query": "2408 ZB 1",
+    "weergavenaam": "Archeonlaan 1, 2408ZB Alphen aan den Rijn"
+  },
+  "artis-groote-museum": {
+    "address_sig": "1018 CZ|Plantage Kerklaan 36|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-20T12:57:40.132367+00:00",
+    "lat": 52.366772,
+    "lon": 4.912393,
+    "municipality": "Amsterdam",
+    "province": "Noord-Holland",
+    "query": "1018 CZ 36",
+    "weergavenaam": "Plantage Kerklaan 36, 1018CZ Amsterdam",
+    "woonplaats": "Amsterdam"
+  },
+  "aviodrome": {
+    "address_sig": "8218 PG|Pelikaanweg 50|Lelystad",
+    "city": "Lelystad",
+    "geocoded_at": "2026-09-19T19:10:59.325290+00:00",
+    "lat": 52.457296,
+    "lon": 5.529689,
+    "query": "8218 PG 50",
+    "weergavenaam": "Pelikaanweg 50, 8218PG Lelystad"
+  },
+  "beeld-geluid-hilversum": {
+    "address_sig": "1217 WE|Media Parkboulevard|Hilversum",
+    "city": "Hilversum",
+    "geocoded_at": "2026-09-19T19:11:25.332237+00:00",
+    "lat": 52.235764,
+    "lon": 5.172571,
+    "query": "Media Parkboulevard, Hilversum",
+    "weergavenaam": "Media Parkboulevard, Hilversum"
+  },
+  "bevrijdingsmuseum-zeeland": {
+    "address_sig": "4455 AH|Coudorp 41|Nieuwdorp",
+    "city": "Nieuwdorp",
+    "geocoded_at": "2026-09-19T19:09:46.205905+00:00",
+    "lat": 51.467809,
+    "lon": 3.744011,
+    "query": "4455 AH 41",
+    "weergavenaam": "Coudorp 41, 4455AH Nieuwdorp"
+  },
+  "bonnefanten": {
+    "address_sig": "6221 KX|Avenue Ceramique 250|Maastricht",
+    "city": "Maastricht",
+    "geocoded_at": "2026-09-19T19:10:51.334083+00:00",
+    "lat": 50.842525,
+    "lon": 5.702028,
+    "query": "6221 KX 250",
+    "weergavenaam": "Avenue Ceramique 250, 6221KX Maastricht"
+  },
+  "buitenplaats-beeckestijn": {
+    "address_sig": "1981 LD|Rijksweg 134|Velzen-Zuid",
+    "city": "Velsen-Zuid",
+    "geocoded_at": "2026-09-19T19:10:37.218071+00:00",
+    "lat": 52.452546,
+    "lon": 4.652053,
+    "query": "1981 LD 134",
+    "weergavenaam": "Rijksweg 134, 1981LD Velsen-Zuid"
+  },
+  "centraal-museum": {
+    "address_sig": "3512 XA|Agnietenstraat 1|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:10:44.281983+00:00",
+    "lat": 52.08381,
+    "lon": 5.125957,
+    "query": "3512 XA 1",
+    "weergavenaam": "Agnietenstraat 1, 3512XA Utrecht"
+  },
+  "cobra-museum": {
+    "address_sig": "1181 ZX|Sandbergplein 1|Amstelveen",
+    "city": "Amstelveen",
+    "geocoded_at": "2026-09-19T19:11:24.388137+00:00",
+    "lat": 52.303798,
+    "lon": 4.857981,
+    "query": "1181 ZX 1",
+    "weergavenaam": "Sandbergplein 1, 1181ZX Amstelveen"
+  },
+  "cruquiusmuseum": {
+    "address_sig": "2142 ER|Cruquiusdijk 27|Cruquius",
+    "city": "Cruquius",
+    "geocoded_at": "2026-09-19T19:10:21.295717+00:00",
+    "lat": 52.338199,
+    "lon": 4.638092,
+    "query": "2142 ER 27",
+    "weergavenaam": "Cruquiusdijk 27, 2142ER Cruquius"
+  },
+  "czaar-peterhuisje": {
+    "address_sig": "1506 AA|Krimp 23|Zaandam",
+    "city": "Zaandam",
+    "geocoded_at": "2026-09-19T19:30:48.861345+00:00",
+    "lat": 52.437322,
+    "lon": 4.823489,
+    "municipality": "Zaanstad",
+    "province": "Noord-Holland",
+    "query": "1506 AA 23",
+    "weergavenaam": "Krimp 23, 1506AA Zaandam",
+    "woonplaats": "Zaandam"
+  },
+  "de-bastei": {
+    "address_sig": "6511 XR|Waalkade 83|Nijmegen",
+    "city": "Nijmegen",
+    "geocoded_at": "2026-09-19T19:11:49.247099+00:00",
+    "lat": 51.848631,
+    "lon": 5.869429,
+    "query": "6511 XR 83",
+    "weergavenaam": "Waalkade 83, 6511XR Nijmegen"
+  },
+  "de-elleboogkerk": {
+    "address_sig": "3811 BW|Langegracht 36|Amersfoort",
+    "city": "Amersfoort",
+    "geocoded_at": "2026-09-19T19:10:00.206250+00:00",
+    "lat": 52.157331,
+    "lon": 5.387037,
+    "query": "3811 BW 36",
+    "weergavenaam": "Langegracht 36, 3811BW Amersfoort"
+  },
+  "de-mesdag-collectie": {
+    "address_sig": "2517 AB|Laan van Meerdervoort 7-F|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:12:21.440483+00:00",
+    "lat": 52.086015,
+    "lon": 4.297737,
+    "query": "2517 AB 7-F",
+    "weergavenaam": "Laan van Meerdervoort 7F, 2517AB 's-Gravenhage"
+  },
+  "de-museumfabriek": {
+    "address_sig": "7523 GX|Het Rozendaal 11|Enschede",
+    "city": "Enschede",
+    "geocoded_at": "2026-09-19T19:10:58.336907+00:00",
+    "lat": 52.240722,
+    "lon": 6.885181,
+    "query": "7523 GX 11",
+    "weergavenaam": "Jan van Zutphenstraat 11, 7523GX Enschede"
+  },
+  "de-nieuwe-kerk": {
+    "address_sig": "1012 NP|Dam|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:23.376351+00:00",
+    "lat": 52.372971,
+    "lon": 4.893044,
+    "query": "Dam, Amsterdam",
+    "weergavenaam": "Dam, Amsterdam"
+  },
+  "de-oude-kerk": {
+    "address_sig": "1012 GX|Oudekerksplein 23|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:22.340178+00:00",
+    "lat": 52.374118,
+    "lon": 4.897761,
+    "query": "1012 GX 23",
+    "weergavenaam": "Oudekerksplein 23, 1012GX Amsterdam"
+  },
+  "depot-boijmans-van-beuningen": {
+    "address_sig": "3015 CX|Museumpark 24|Rotterdam",
+    "city": "Rotterdam",
+    "geocoded_at": "2026-09-19T19:12:20.427811+00:00",
+    "lat": 51.913966,
+    "lon": 4.471108,
+    "query": "3015 CX 24",
+    "weergavenaam": "Museumpark 24, 3015CX Rotterdam"
+  },
+  "design-museum-den-bosch": {
+    "address_sig": "5211 HV|De Mortel 4|Den Bosch",
+    "city": "'s-Hertogenbosch",
+    "geocoded_at": "2026-09-19T19:10:40.222118+00:00",
+    "lat": 51.685743,
+    "lon": 5.30417,
+    "query": "5211 HV 4",
+    "weergavenaam": "De Mortel 4, 5211HV 's-Hertogenbosch"
+  },
+  "discovery-museum": {
+    "address_sig": "6461 MA|Museumplein 2|Kerkrade",
+    "city": "Kerkrade",
+    "geocoded_at": "2026-09-19T19:10:52.356947+00:00",
+    "lat": 50.861131,
+    "lon": 6.058463,
+    "query": "6461 MA 2",
+    "weergavenaam": "Museumplein 2, 6461MA Kerkrade"
+  },
+  "domunder": {
+    "address_sig": "3512 JC|Domplein 9|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:09:34.244461+00:00",
+    "lat": 52.090953,
+    "lon": 5.121057,
+    "query": "3512 JC 9",
+    "weergavenaam": "Domplein 9, 3512JC Utrecht"
+  },
+  "dordrechts-museum": {
+    "address_sig": "3311 XP|Museumstraat 40|Dordrecht",
+    "city": "Dordrecht",
+    "geocoded_at": "2026-09-19T19:12:19.418566+00:00",
+    "lat": 51.813993,
+    "lon": 4.672041,
+    "query": "3311 XP 40",
+    "weergavenaam": "Museumstraat 40, 3311XP Dordrecht"
+  },
+  "drents-museum": {
+    "address_sig": "9401 HS|Brink 1|Assen",
+    "city": "Assen",
+    "geocoded_at": "2026-09-19T19:12:35.452484+00:00",
+    "lat": 52.992901,
+    "lon": 6.564276,
+    "query": "9401 HS 1",
+    "weergavenaam": "Brink 1, 9401HS Assen"
+  },
+  "drents-museum-de-buitenplaats": {
+    "address_sig": "9761 EK|Hoofdweg 76|Eelde",
+    "city": "Eelde",
+    "geocoded_at": "2026-09-19T19:09:40.187905+00:00",
+    "lat": 53.133391,
+    "lon": 6.563544,
+    "query": "9761 EK 76",
+    "weergavenaam": "Hoofdweg 76, 9761EK Eelde"
+  },
+  "eusebiuskerk": {
+    "address_sig": "6811 EB|Kerkplein 1|Arnhem",
+    "city": "Arnhem",
+    "geocoded_at": "2026-09-19T19:09:49.227859+00:00",
+    "lat": 51.979058,
+    "lon": 5.909649,
+    "query": "6811 EB 1",
+    "weergavenaam": "Kerkplein 1, 6811EB Arnhem"
+  },
+  "eye-filmmuseum": {
+    "address_sig": "1031 KT|IJpromenade 1|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:21.379053+00:00",
+    "lat": 52.384136,
+    "lon": 4.901293,
+    "query": "1031 KT 1",
+    "weergavenaam": "IJpromenade 1, 1031KT Amsterdam"
+  },
+  "foam-fotografiemuseum": {
+    "address_sig": "1017 DS|Keizersgracht 609|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:10:49.320736+00:00",
+    "lat": 52.363988,
+    "lon": 4.893263,
+    "query": "1017 DS 609",
+    "weergavenaam": "Keizersgracht 609, 1017DS Amsterdam"
+  },
+  "forteiland-pampus": {
+    "address_sig": "1398 AB|Herengracht 33 (Opstapplaats Veerdienst)|Muiden",
+    "city": "Muiden",
+    "geocoded_at": "2026-09-19T19:11:20.355623+00:00",
+    "lat": 52.331593,
+    "lon": 5.070876,
+    "query": "1398 AB 33",
+    "weergavenaam": "Herengracht 33, 1398AB Muiden"
+  },
+  "fortresse-holland": {
+    "address_sig": "3221 AE|Dokweg 5|Hellevoetssluis",
+    "city": "Hellevoetsluis",
+    "geocoded_at": "2026-09-19T19:10:12.296262+00:00",
+    "lat": 51.828836,
+    "lon": 4.128196,
+    "query": "3221 AE 5",
+    "weergavenaam": "Dokweg 5, 3221AE Hellevoetsluis"
+  },
+  "forum-groningen": {
+    "address_sig": "9712 KN|Nieuwe Markt 1|Groningen",
+    "city": "Groningen",
+    "geocoded_at": "2026-09-19T19:15:39.903382+00:00",
+    "lat": 53.218893,
+    "lon": 6.56983,
+    "query": "9712 KN 1",
+    "weergavenaam": "Nieuwe Markt 1, 9712KN Groningen"
+  },
+  "fotomuseum-aan-het-vrijthof": {
+    "address_sig": "6211 LD|Vrijthof 18|Maastricht",
+    "city": "Maastricht",
+    "geocoded_at": "2026-09-19T19:09:44.218767+00:00",
+    "lat": 50.848354,
+    "lon": 5.688755,
+    "query": "6211 LD 18",
+    "weergavenaam": "Vrijthof 18, 6211LD Maastricht"
+  },
+  "fotomuseum-den-haag": {
+    "address_sig": "2517 HV|Stadhouderslaan 43|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:10:54.324757+00:00",
+    "lat": 52.089202,
+    "lon": 4.279849,
+    "query": "2517 HV 43",
+    "weergavenaam": "Stadhouderslaan 43, 2517HV 's-Gravenhage"
+  },
+  "fraeylemaborg": {
+    "address_sig": "9621 AL|Hoofdweg 30|Slochteren",
+    "city": "Slochteren",
+    "geocoded_at": "2026-09-19T19:11:36.339454+00:00",
+    "lat": 53.215461,
+    "lon": 6.80957,
+    "query": "9621 AL 30",
+    "weergavenaam": "Hoofdweg 30, 9621AL Slochteren"
+  },
+  "frans-hals-museum": {
+    "address_sig": "2011 ES|Groot Heiligland 62|Haarlem",
+    "city": "Haarlem",
+    "geocoded_at": "2026-09-19T19:11:19.335042+00:00",
+    "lat": 52.376606,
+    "lon": 4.63369,
+    "query": "2011 ES 62",
+    "weergavenaam": "Groot Heiligland 62, 2011ES Haarlem"
+  },
+  "fries-museum": {
+    "address_sig": "8911 BS|Wilhelminaplein 92|Leeuwarden",
+    "city": "Leeuwarden",
+    "geocoded_at": "2026-09-19T19:12:30.422127+00:00",
+    "lat": 53.199569,
+    "lon": 5.79425,
+    "query": "8911 BS 92",
+    "weergavenaam": "Wilhelminaplein 92, 8911BS Leeuwarden"
+  },
+  "gemeenlandshuis-amsterdam": {
+    "address_sig": "1095 KK|Diemerzeedijk 27|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:18.343150+00:00",
+    "lat": 52.361259,
+    "lon": 4.966388,
+    "query": "1095 KK 27",
+    "weergavenaam": "Diemerzeedijk 27A, 1095KK Amsterdam"
+  },
+  "gemeentemuseum-het-hannemahuis": {
+    "address_sig": "8861 BM|Voorstraat 56|Harlingen",
+    "city": "Harlingen",
+    "geocoded_at": "2026-09-19T19:12:29.434811+00:00",
+    "lat": 53.174581,
+    "lon": 5.419242,
+    "query": "8861 BM 56",
+    "weergavenaam": "Voorstraat 56, 8861BM Harlingen"
+  },
+  "gevangenismuseum": {
+    "address_sig": "9341 AA|Oude Gracht 1|Veenhuizen",
+    "city": "Veenhuizen",
+    "geocoded_at": "2026-09-19T19:12:36.453407+00:00",
+    "lat": 53.041533,
+    "lon": 6.391751,
+    "query": "9341 AA 1",
+    "weergavenaam": "Oude Gracht 1A, 9341AA Veenhuizen"
+  },
+  "groninger-museum": {
+    "address_sig": "9711 ME|Museumeiland 1|Groningen",
+    "city": "Groningen",
+    "geocoded_at": "2026-09-19T19:10:53.350256+00:00",
+    "lat": 53.212474,
+    "lon": 6.566075,
+    "query": "9711 ME 1",
+    "weergavenaam": "Museumeiland 1, 9711ME Groningen"
+  },
+  "haags-historisch-museum": {
+    "address_sig": "2513 AB|Korte Vijverberg 7|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:28:56.443203+00:00",
+    "lat": 52.08123,
+    "lon": 4.313961,
+    "municipality": "'s-Gravenhage",
+    "province": "Zuid-Holland",
+    "query": "2513 AB 7",
+    "weergavenaam": "Korte Vijverberg 7, 2513AB 's-Gravenhage",
+    "woonplaats": "'s-Gravenhage"
+  },
+  "herinneringscentrum-kamp-westerbork": {
+    "address_sig": "9414 TG|Oosthalen 8|Hooghalen",
+    "city": "Hooghalen",
+    "geocoded_at": "2026-09-19T19:09:39.206690+00:00",
+    "lat": 52.92138,
+    "lon": 6.569834,
+    "query": "9414 TG 8",
+    "weergavenaam": "Oosthalen 8T-1, 9414TG Hooghalen"
+  },
+  "het-nieuwe-instituut": {
+    "address_sig": "3015 CB|Museumpark 25|Rotterdam",
+    "city": "Rotterdam",
+    "geocoded_at": "2026-09-19T19:32:46.849561+00:00",
+    "lat": 51.914488,
+    "lon": 4.470987,
+    "municipality": "Rotterdam",
+    "province": "Zuid-Holland",
+    "query": "3015 CB 25",
+    "weergavenaam": "Museumpark 25, 3015CB Rotterdam",
+    "woonplaats": "Rotterdam"
+  },
+  "het-scheepvaartmuseum": {
+    "address_sig": "1018 KK|Kattenburgerplein 1|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:17.361594+00:00",
+    "lat": 52.371492,
+    "lon": 4.915,
+    "query": "1018 KK 1",
+    "weergavenaam": "Kattenburgerplein 1, 1018KK Amsterdam"
+  },
+  "hof-van-nederland": {
+    "address_sig": "3311 XG|Hof 6|Dordrecht",
+    "city": "Dordrecht",
+    "geocoded_at": "2026-09-19T19:10:11.297073+00:00",
+    "lat": 51.815636,
+    "lon": 4.670111,
+    "query": "3311 XG 6",
+    "weergavenaam": "Hof 6, 3311XG Dordrecht"
+  },
+  "huis-sonneveld": {
+    "address_sig": "3015 CG|Jongkindstraat 12|Rotterdam",
+    "city": "Rotterdam",
+    "geocoded_at": "2026-09-19T19:12:16.426822+00:00",
+    "lat": 51.915603,
+    "lon": 4.472328,
+    "query": "3015 CG 12",
+    "weergavenaam": "Jongkindstraat 12, 3015CG Rotterdam"
+  },
+  "huis-van-eysinga": {
+    "address_sig": "8911 KV|Koningsstraat 25|Leeuwarden",
+    "city": "Leeuwarden",
+    "geocoded_at": "2026-09-19T19:10:04.211302+00:00",
+    "lat": 53.202618,
+    "lon": 5.800826,
+    "query": "8911 KV 25",
+    "weergavenaam": "Koningsstraat 25, 8911KV Leeuwarden"
+  },
+  "huis-van-gijn": {
+    "address_sig": "3311 AP|Nieuwe Haven 30|Dordrecht",
+    "city": "Dordrecht",
+    "geocoded_at": "2026-09-19T19:10:10.239449+00:00",
+    "lat": 51.816305,
+    "lon": 4.663562,
+    "query": "3311 AP 30",
+    "weergavenaam": "Nieuwe Haven 30, 3311AP Dordrecht"
+  },
+  "huis-van-meerten": {
+    "address_sig": "2611 HD|Oude Delft 199|Delft",
+    "city": "Delft",
+    "geocoded_at": "2026-09-19T19:10:32.190120+00:00",
+    "lat": 52.013076,
+    "lon": 4.354744,
+    "query": "2611 HD 199",
+    "weergavenaam": "Oude Delft 199, 2611HD Delft"
+  },
+  "huis-verwolde": {
+    "address_sig": "7245 TL|Jonker Emilelaan 4|Laren",
+    "city": "Laren",
+    "geocoded_at": "2026-09-19T19:09:23.205600+00:00",
+    "lat": 52.200491,
+    "lon": 6.391985,
+    "query": "7245 TL 4",
+    "weergavenaam": "Jonker Emile Laan 4, 7245TL Laren"
+  },
+  "huis-willet-holthuysen": {
+    "address_sig": "1017 CE|Herengracht 605|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:30:47.821258+00:00",
+    "lat": 52.365603,
+    "lon": 4.899015,
+    "municipality": "Amsterdam",
+    "province": "Noord-Holland",
+    "query": "1017 CE 605",
+    "weergavenaam": "Herengracht 605, 1017CE Amsterdam",
+    "woonplaats": "Amsterdam"
+  },
+  "huis-zypendaal": {
+    "address_sig": "6814 CL|Zijpendaalseweg 44|Arnhem",
+    "city": "Arnhem",
+    "geocoded_at": "2026-09-19T19:09:22.259065+00:00",
+    "lat": 51.999238,
+    "lon": 5.893023,
+    "query": "6814 CL 44",
+    "weergavenaam": "Zijpendaalseweg 44, 6814CL Arnhem"
+  },
+  "hunebedcentrum": {
+    "address_sig": "9531 JT|Hunebedstraat 27|Borger",
+    "city": "Borger",
+    "geocoded_at": "2026-09-19T19:09:38.204687+00:00",
+    "lat": 52.930676,
+    "lon": 6.798667,
+    "query": "9531 JT 27",
+    "weergavenaam": "Hunebedstraat 27, 9531JT Borger"
+  },
+  "huygens-museum-hofwijck": {
+    "address_sig": "2275 AD|Westeinde 2A|Voorburg",
+    "city": "Voorburg",
+    "geocoded_at": "2026-09-19T19:26:48.379839+00:00",
+    "lat": 52.064865,
+    "lon": 4.362618,
+    "municipality": "Leidschendam-Voorburg",
+    "province": "Zuid-Holland",
+    "query": "2275 AD 2A",
+    "weergavenaam": "Westeinde 2A, 2275AD Voorburg",
+    "woonplaats": "Voorburg"
+  },
+  "huygens-museum-notarishuis": {
+    "address_sig": "2271 CC|Herenstraat 101|Voorburg",
+    "city": "Voorburg",
+    "geocoded_at": "2026-09-19T19:10:08.235985+00:00",
+    "lat": 52.067286,
+    "lon": 4.363686,
+    "query": "2271 CC 101",
+    "weergavenaam": "Herenstraat 101, 2271CC Voorburg"
+  },
+  "japanmuseum-sieboldhuis": {
+    "address_sig": "2311 GE|Rapenburg 19|Leiden",
+    "city": "Leiden",
+    "geocoded_at": "2026-09-19T19:09:50.211851+00:00",
+    "lat": 52.159641,
+    "lon": 4.484616,
+    "query": "2311 GE 19",
+    "weergavenaam": "Rapenburg 19, 2311GE Leiden"
+  },
+  "joods-museum": {
+    "address_sig": "1011 PL|Nieuwe Amstelstraat 1|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:15.371773+00:00",
+    "lat": 52.367367,
+    "lon": 4.903914,
+    "query": "1011 PL 1",
+    "weergavenaam": "Nieuwe Amstelstraat 1, 1011PL Amsterdam"
+  },
+  "jopie-huisman-museum": {
+    "address_sig": "8711 AH|Noard 6|Workum",
+    "city": "Workum",
+    "geocoded_at": "2026-09-19T19:12:28.435810+00:00",
+    "lat": 52.979839,
+    "lon": 5.443626,
+    "query": "8711 AH 6",
+    "weergavenaam": "Noard 6, 8711AH Workum"
+  },
+  "kasteel-ammersoyen": {
+    "address_sig": "5324 JR|Kasteellaan 1|",
+    "city": "Ammerzoden",
+    "geocoded_at": "2026-09-19T19:09:28.242799+00:00",
+    "lat": 51.751578,
+    "lon": 5.229429,
+    "query": "5324 JR 1",
+    "weergavenaam": "Kasteellaan 1, 5324JR Ammerzoden"
+  },
+  "kasteel-cannenburch": {
+    "address_sig": "8171 EB|Maarten van Rossumplein 4|Vaassen",
+    "city": "Vaassen",
+    "geocoded_at": "2026-09-19T19:09:27.237616+00:00",
+    "lat": 52.291717,
+    "lon": 5.964747,
+    "query": "8171 EB 4",
+    "weergavenaam": "Maarten van Rossumplein 4, 8171EB Vaassen"
+  },
+  "kasteel-de-haar": {
+    "address_sig": "3455 RR|Kasteellaan 1|Haarzuilens",
+    "city": "Haarzuilens",
+    "geocoded_at": "2026-09-19T19:11:59.450849+00:00",
+    "lat": 52.120076,
+    "lon": 4.984137,
+    "query": "3455 RR 1",
+    "weergavenaam": "Kasteellaan 1, 3455RR Haarzuilens"
+  },
+  "kasteel-doorwerth": {
+    "address_sig": "6865 ND|Fonteinallee 2b|Doorwerth",
+    "city": "Doorwerth",
+    "geocoded_at": "2026-09-19T19:09:26.213724+00:00",
+    "lat": 51.966704,
+    "lon": 5.788797,
+    "query": "6865 ND 2b",
+    "weergavenaam": "Fonteinallee 2B, 6865ND Doorwerth"
+  },
+  "kasteel-hernen": {
+    "address_sig": "6616 AH|Dorpsstraat 40|Hernen",
+    "city": "Hernen",
+    "geocoded_at": "2026-09-19T19:09:25.224453+00:00",
+    "lat": 51.834573,
+    "lon": 5.676474,
+    "query": "6616 AH 40",
+    "weergavenaam": "Dorpsstraat 40, 6616AH Hernen"
+  },
+  "kasteel-het-nijenhuis": {
+    "address_sig": "8131 RD|'t Nijenhuis 10|Wijhe",
+    "city": "Wijhe",
+    "geocoded_at": "2026-09-19T19:11:53.305608+00:00",
+    "lat": 52.416462,
+    "lon": 6.213569,
+    "query": "8131 RD 10",
+    "weergavenaam": "'t Nijenhuis 10, 8131RD Wijhe"
+  },
+  "kasteel-hoensbroek": {
+    "address_sig": "6433 PB|Klinkertstraat 118|Hoensbroek",
+    "city": "Hoensbroek",
+    "geocoded_at": "2026-09-19T19:11:56.358121+00:00",
+    "lat": 50.916564,
+    "lon": 5.918411,
+    "query": "6433 PB 118",
+    "weergavenaam": "Klinkertstraat 118, 6433PB Hoensbroek"
+  },
+  "kasteel-radboud": {
+    "address_sig": "1671 HM|Oudevaartsgat 8|Medemblik",
+    "city": "Medemblik",
+    "geocoded_at": "2026-09-19T19:11:29.356563+00:00",
+    "lat": 52.772427,
+    "lon": 5.113077,
+    "query": "1671 HM 8",
+    "weergavenaam": "Oudevaartsgat 8, 1671HM Medemblik"
+  },
+  "kasteel-rosendael": {
+    "address_sig": "6891 DA|Rosendael 1|Rozendaal",
+    "city": "Rozendaal",
+    "geocoded_at": "2026-09-19T19:09:24.239815+00:00",
+    "lat": 52.010061,
+    "lon": 5.965142,
+    "query": "6891 DA 1",
+    "weergavenaam": "Rosendael 1a, 6891DA Rozendaal"
+  },
+  "kasteel-ruurlo": {
+    "address_sig": "7261 LZ|Vordenseweg 2|Ruurlo",
+    "city": "Ruurlo",
+    "geocoded_at": "2026-09-19T19:11:48.272766+00:00",
+    "lat": 52.078667,
+    "lon": 6.444464,
+    "query": "7261 LZ 2",
+    "weergavenaam": "Vordenseweg 2a, 7261LZ Ruurlo"
+  },
+  "keramiekmuseum-princessehof": {
+    "address_sig": "8911 DZ|Grote Kerkstraat 9|Leeuwarden",
+    "city": "Leeuwarden",
+    "geocoded_at": "2026-09-19T19:10:42.266505+00:00",
+    "lat": 53.203114,
+    "lon": 5.793297,
+    "query": "8911 DZ 9",
+    "weergavenaam": "Grote Kerkstraat, 8911DZ Leeuwarden"
+  },
+  "km21": {
+    "address_sig": "2517 HV|Stadhouderslaan 43|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:12:15.416562+00:00",
+    "lat": 52.089202,
+    "lon": 4.279849,
+    "query": "2517 HV 43",
+    "weergavenaam": "Stadhouderslaan 43, 2517HV 's-Gravenhage"
+  },
+  "koepelkathedraal": {
+    "address_sig": "2014 HE|Leidsevaart 146|Haarlem",
+    "city": "Haarlem",
+    "geocoded_at": "2026-09-19T19:31:24.809191+00:00",
+    "lat": 52.37625,
+    "lon": 4.622721,
+    "municipality": "Haarlem",
+    "province": "Noord-Holland",
+    "query": "2014 HE 146",
+    "weergavenaam": "Leidsevaart 146, 2014HE Haarlem",
+    "woonplaats": "Haarlem"
+  },
+  "kroller-muller-museum": {
+    "address_sig": "6731 AW|Houtkampweg 6|Otterlo",
+    "city": "Otterlo",
+    "geocoded_at": "2026-09-19T19:11:47.268057+00:00",
+    "lat": 52.096224,
+    "lon": 5.817664,
+    "query": "6731 AW 6",
+    "weergavenaam": "Houtkampweg 6, 6731AW Otterlo"
+  },
+  "kunsthal-kade": {
+    "address_sig": "3812 EA|Eemplein 77|Amersfoort",
+    "city": "Amersfoort",
+    "geocoded_at": "2026-09-19T19:09:59.212776+00:00",
+    "lat": 52.159009,
+    "lon": 5.382721,
+    "query": "3812 EA 77",
+    "weergavenaam": "Eemplein 77, 3812EA Amersfoort"
+  },
+  "kunsthal-rotterdam": {
+    "address_sig": "3015 AA|Westzeedijk 341|Rotterdam",
+    "city": "Rotterdam",
+    "geocoded_at": "2026-09-19T19:10:33.213674+00:00",
+    "lat": 51.910673,
+    "lon": 4.473386,
+    "query": "3015 AA 341",
+    "weergavenaam": "Westzeedijk 341, 3015AA Rotterdam"
+  },
+  "kunstlinie": {
+    "address_sig": "1315 TA|Esplanade 10|Almere",
+    "city": "Almere",
+    "geocoded_at": "2026-09-19T19:12:34.449789+00:00",
+    "lat": 52.367105,
+    "lon": 5.218819,
+    "query": "1315 TA 10",
+    "weergavenaam": "Esplanade 10, 1315TA Almere"
+  },
+  "kunstlinie-kunsthal": {
+    "address_sig": "1315 TA|Esplanade 10|Almere",
+    "city": "Almere",
+    "geocoded_at": "2026-09-19T19:09:31.233151+00:00",
+    "lat": 52.367105,
+    "lon": 5.218819,
+    "query": "1315 TA 10",
+    "weergavenaam": "Esplanade 10, 1315TA Almere"
+  },
+  "kunstmuseum-den-haag": {
+    "address_sig": "2517 HV|Stadhouderslaan 41|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:28:53.391296+00:00",
+    "lat": 52.089202,
+    "lon": 4.279849,
+    "municipality": "'s-Gravenhage",
+    "province": "Zuid-Holland",
+    "query": "2517 HV 41",
+    "weergavenaam": "Stadhouderslaan 41, 2517HV 's-Gravenhage",
+    "woonplaats": "'s-Gravenhage"
+  },
+  "lalique-museum": {
+    "address_sig": "6981 CP|Gasthuisstraat 1|Doesburg",
+    "city": "Doesburg",
+    "geocoded_at": "2026-09-19T19:11:46.271771+00:00",
+    "lat": 52.015227,
+    "lon": 6.134685,
+    "query": "6981 CP 1",
+    "weergavenaam": "Gasthuisstraat 1, 6981CP Doesburg"
+  },
+  "landhuis-oud-amelisweerd": {
+    "address_sig": "3981 HD|Koningslaan 9|Bunnik",
+    "city": "Bunnik",
+    "geocoded_at": "2026-09-19T19:09:58.229205+00:00",
+    "lat": 52.067447,
+    "lon": 5.169655,
+    "query": "3981 HD 9",
+    "weergavenaam": "Koningslaan 9, 3981HD Bunnik"
+  },
+  "limburgs-museum": {
+    "address_sig": "5911 BX|Keulsepoort 5|Venlo",
+    "city": "Venlo",
+    "geocoded_at": "2026-09-19T19:11:34.364356+00:00",
+    "lat": 51.366733,
+    "lon": 6.171899,
+    "query": "5911 BX 5",
+    "weergavenaam": "Keulsepoort 5, 5911BX Venlo"
+  },
+  "louwman-museum": {
+    "address_sig": "2594 BB|Leidsestraatweg 57|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:12:13.426565+00:00",
+    "lat": 52.099615,
+    "lon": 4.348588,
+    "query": "2594 BB 57",
+    "weergavenaam": "Leidsestraatweg 57, 2594BB 's-Gravenhage"
+  },
+  "madurodam": {
+    "address_sig": "2584 RZ|George Maduroplein 1|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:12:11.449212+00:00",
+    "lat": 52.099097,
+    "lon": 4.299043,
+    "query": "2584 RZ 1",
+    "weergavenaam": "George Maduroplein 1, 2584RZ 's-Gravenhage"
+  },
+  "marie-tak-van-poortvliet-museum-domburg": {
+    "address_sig": "4357 BE|Ooststraat 10a|Domburg",
+    "city": "Domburg",
+    "geocoded_at": "2026-09-19T19:09:45.204915+00:00",
+    "lat": 51.563399,
+    "lon": 3.498273,
+    "query": "4357 BE 10a",
+    "weergavenaam": "Ooststraat 10A, 4357BE Domburg"
+  },
+  "marinemuseum": {
+    "address_sig": "1781 AA|Hoofdgracht 3|Den Helder",
+    "city": "Den Helder",
+    "geocoded_at": "2026-09-19T19:27:53.418002+00:00",
+    "lat": 52.963811,
+    "lon": 4.772207,
+    "municipality": "Den Helder",
+    "province": "Noord-Holland",
+    "query": "1781 AA 3",
+    "weergavenaam": "Hoofdgracht 3, 1781AA Den Helder",
+    "woonplaats": "Den Helder"
+  },
+  "mariniersmuseum": {
+    "address_sig": "3011 WH|Wijnhaven 7|Rotterdam",
+    "city": "Rotterdam",
+    "geocoded_at": "2026-09-19T19:12:10.443832+00:00",
+    "lat": 51.918489,
+    "lon": 4.490361,
+    "query": "3011 WH 7",
+    "weergavenaam": "Wijnhaven, 3011WH Rotterdam"
+  },
+  "maritiem-museum-rotterdam": {
+    "address_sig": "3011 EA|Leuvehaven 1|Rotterdam",
+    "city": "Rotterdam",
+    "geocoded_at": "2026-09-19T19:12:05.449032+00:00",
+    "lat": 51.9175,
+    "lon": 4.482442,
+    "query": "3011 EA 1",
+    "weergavenaam": "Leuvehaven 1, 3011EA Rotterdam"
+  },
+  "marius-van-dokkum-museum": {
+    "address_sig": "3841 ES|Academiestraat 7|Harderwijk",
+    "city": "Harderwijk",
+    "geocoded_at": "2026-09-19T19:11:40.240577+00:00",
+    "lat": 52.348389,
+    "lon": 5.618736,
+    "query": "3841 ES 7",
+    "weergavenaam": "Academiestraat 7, 3841ES Harderwijk"
+  },
+  "markiezenhof": {
+    "address_sig": "4611 TE|Steenbergsestraat 8|Bergen op Zoom",
+    "city": "Bergen op Zoom",
+    "geocoded_at": "2026-09-19T19:11:33.350608+00:00",
+    "lat": 51.495721,
+    "lon": 4.284808,
+    "query": "4611 TE 8",
+    "weergavenaam": "Steenbergsestraat 8, 4611TE Bergen op Zoom"
+  },
+  "mauritshuis": {
+    "address_sig": "2511 CS|Plein 29|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:10:43.255644+00:00",
+    "lat": 52.080345,
+    "lon": 4.314388,
+    "query": "2511 CS 29",
+    "weergavenaam": "Plein 29, 2511CS 's-Gravenhage"
+  },
+  "micropia": {
+    "address_sig": "1018 CZ|Plantage Kerklaan 38-40|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:13.333809+00:00",
+    "lat": 52.366961,
+    "lon": 4.912582,
+    "query": "1018 CZ 38-40",
+    "weergavenaam": "Plantage Kerklaan 38, 1018CZ Amsterdam"
+  },
+  "molenmuseum": {
+    "address_sig": "1509 BT|Kalverringdijk 30|Zaandam",
+    "city": "Zaandam",
+    "geocoded_at": "2026-09-19T19:10:55.339610+00:00",
+    "lat": 52.478816,
+    "lon": 4.813834,
+    "query": "1509 BT 30",
+    "weergavenaam": "Kalverringdijk 30, 1509BT Zaandam"
+  },
+  "mondriaanhuis": {
+    "address_sig": "3811 KG|Kortegracht 11|Amersfoort",
+    "city": "Amersfoort",
+    "geocoded_at": "2026-09-19T19:09:57.232437+00:00",
+    "lat": 52.154748,
+    "lon": 5.39038,
+    "query": "3811 KG 11",
+    "weergavenaam": "Kortegracht 11, 3811KG Amersfoort"
+  },
+  "museon-omniversum": {
+    "address_sig": "2517 HV|Stadhouderslaan 37|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:12:09.413025+00:00",
+    "lat": 52.089056,
+    "lon": 4.280718,
+    "query": "2517 HV 37",
+    "weergavenaam": "Stadhouderslaan 37, 2517HV 's-Gravenhage"
+  },
+  "museum-arnhem": {
+    "address_sig": "6812 AA|Utrechtseweg 87|Arnhem",
+    "city": "Arnhem",
+    "geocoded_at": "2026-09-19T19:11:45.261800+00:00",
+    "lat": 51.985491,
+    "lon": 5.8922,
+    "query": "6812 AA 87",
+    "weergavenaam": "Utrechtseweg 87, 6812AA Arnhem"
+  },
+  "museum-batavialand": {
+    "address_sig": "8242 PA|Oostvaardersdijk 01-13|Lelystad",
+    "city": "Lelystad",
+    "geocoded_at": "2026-09-19T19:09:42.206149+00:00",
+    "lat": 52.521364,
+    "lon": 5.436977,
+    "query": "8242 PA 01-13",
+    "weergavenaam": "Oostvaardersdijk 01 13, 8242PA Lelystad"
+  },
+  "museum-beelden-aan-zee": {
+    "address_sig": "2586 EL|Harteveltstraat 1|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:12:08.453322+00:00",
+    "lat": 52.110936,
+    "lon": 4.278401,
+    "query": "2586 EL 1",
+    "weergavenaam": "Harteveltstraat 1, 2586EL 's-Gravenhage"
+  },
+  "museum-belvedere": {
+    "address_sig": "8448 MT|Oranje Nassaulaan 12|",
+    "city": "Heerenveen",
+    "geocoded_at": "2026-09-19T19:13:38.895388+00:00",
+    "lat": 52.95367,
+    "lon": 5.941913,
+    "query": "8448 MT 12",
+    "weergavenaam": "Oranje Nassaulaan, 8448MT Heerenveen"
+  },
+  "museum-broekerveiling": {
+    "address_sig": "1721 BW|Museumweg 2|Broek op Langedijk",
+    "city": "Broek op Langedijk",
+    "geocoded_at": "2026-09-19T19:27:02.406422+00:00",
+    "lat": 52.679873,
+    "lon": 4.806555,
+    "municipality": "Dijk en Waard",
+    "province": "Noord-Holland",
+    "query": "1721 BW 2",
+    "weergavenaam": "Museumweg 2, 1721BW Broek op Langedijk",
+    "woonplaats": "Broek op Langedijk"
+  },
+  "museum-catharijneconvent": {
+    "address_sig": "3512 PH|Lange Nieuwstraat 38|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:10:47.335700+00:00",
+    "lat": 52.087289,
+    "lon": 5.123924,
+    "query": "3512 PH 38",
+    "weergavenaam": "Lange Nieuwstraat 38, 3512PH Utrecht"
+  },
+  "museum-de-dageraad": {
+    "address_sig": "1073 KG|Burgemeester Tellegenstraat 128|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:12.331217+00:00",
+    "lat": 52.349874,
+    "lon": 4.898983,
+    "query": "1073 KG 128",
+    "weergavenaam": "Burgemeester Tellegenstraat 128, 1073KG Amsterdam"
+  },
+  "museum-de-fundatie": {
+    "address_sig": "8011 NE|Blijmarkt 20|Zwolle",
+    "city": "Zwolle",
+    "geocoded_at": "2026-09-19T19:10:48.335447+00:00",
+    "lat": 52.510239,
+    "lon": 6.091502,
+    "query": "8011 NE 20",
+    "weergavenaam": "Blijmarkt 20, 8011NE Zwolle"
+  },
+  "museum-de-lakenhal": {
+    "address_sig": "2312 RA|Oude Singel 32|Leiden",
+    "city": "Leiden",
+    "geocoded_at": "2026-09-19T19:12:07.441884+00:00",
+    "lat": 52.162957,
+    "lon": 4.487485,
+    "query": "2312 RA 32",
+    "weergavenaam": "Oude Singel 32, 2312RA Leiden"
+  },
+  "museum-de-proefkolonie": {
+    "address_sig": "8382 CE|Majoor van Swietenlaan 1A|Frederiksoord",
+    "city": "Frederiksoord",
+    "geocoded_at": "2026-09-19T19:12:32.433632+00:00",
+    "lat": 52.844695,
+    "lon": 6.188978,
+    "query": "8382 CE 1A",
+    "weergavenaam": "Majoor van Swietenlaan 1a, 8382CE Frederiksoord"
+  },
+  "museum-engelandvaarders": {
+    "address_sig": "2202 NX|Bosweg 15|Noordwijk aan Zee",
+    "city": "Noordwijk",
+    "geocoded_at": "2026-09-19T19:10:07.245016+00:00",
+    "lat": 52.251705,
+    "lon": 4.436989,
+    "query": "2202 NX 15",
+    "weergavenaam": "Bosweg 15, 2202NX Noordwijk"
+  },
+  "museum-flehite": {
+    "address_sig": "3811 BC|Westsingel 50|Amersfoort",
+    "city": "Amersfoort",
+    "geocoded_at": "2026-09-19T19:09:56.207233+00:00",
+    "lat": 52.157632,
+    "lon": 5.386593,
+    "query": "3811 BC 50",
+    "weergavenaam": "Westsingel 50, 3811BC Amersfoort"
+  },
+  "museum-gouda": {
+    "address_sig": "2801 JX|Achter de kerk 14|Gouda",
+    "city": "Gouda",
+    "geocoded_at": "2026-09-19T19:12:06.432217+00:00",
+    "lat": 52.010239,
+    "lon": 4.71185,
+    "query": "2801 JX 14",
+    "weergavenaam": "Achter de Kerk 14, 2801JX Gouda"
+  },
+  "museum-helmond": {
+    "address_sig": "5707 BX|F.J. van Thielpark 7|Helmond",
+    "city": "Helmond",
+    "geocoded_at": "2026-09-19T19:11:32.348186+00:00",
+    "lat": 51.477946,
+    "lon": 5.650235,
+    "query": "5707 BX 7",
+    "weergavenaam": "Frans Joseph van Thielpark 7, 5707BX Helmond"
+  },
+  "museum-henriette-polak": {
+    "address_sig": "7201 DN|'s-Gravenhof 4|Zutphen",
+    "city": "Zutphen",
+    "geocoded_at": "2026-09-19T19:11:44.231084+00:00",
+    "lat": 52.139982,
+    "lon": 6.194533,
+    "query": "7201 DN 4",
+    "weergavenaam": "'s Gravenhof 4, 7201DN Zutphen"
+  },
+  "museum-het-rembrandthuis": {
+    "address_sig": "1011 NK|Jodenbreestraat 4|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:11.340815+00:00",
+    "lat": 52.369369,
+    "lon": 4.90125,
+    "query": "1011 NK 4",
+    "weergavenaam": "Jodenbreestraat 4, 1011NK Amsterdam"
+  },
+  "museum-het-schip": {
+    "address_sig": "1013 WG|Oostzaanstraat 45|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:10.385253+00:00",
+    "lat": 52.390312,
+    "lon": 4.873902,
+    "query": "1013 WG 45",
+    "weergavenaam": "Oostzaanstraat 45, 1013WG Amsterdam"
+  },
+  "museum-het-valkhof": {
+    "address_sig": "6511 TB|Kelfkensbos 59|Nijmegen",
+    "city": "Nijmegen",
+    "geocoded_at": "2026-09-19T19:11:43.228073+00:00",
+    "lat": 51.846395,
+    "lon": 5.871275,
+    "query": "6511 TB 59",
+    "weergavenaam": "Kelfkensbos 59, 6511TB Nijmegen"
+  },
+  "museum-huis-doorn": {
+    "address_sig": "3941 MT|Langbroekerweg 10|Doorn",
+    "city": "Doorn",
+    "geocoded_at": "2026-09-19T19:09:55.241521+00:00",
+    "lat": 52.03143,
+    "lon": 5.338566,
+    "query": "3941 MT 10",
+    "weergavenaam": "Langbroekerweg 10, 3941MT Doorn"
+  },
+  "museum-jan-cunen": {
+    "address_sig": "5341 GC|Molenstraat 65|Oss",
+    "city": "Oss",
+    "geocoded_at": "2026-09-19T19:10:03.229747+00:00",
+    "lat": 51.765448,
+    "lon": 5.526545,
+    "query": "5341 GC 65",
+    "weergavenaam": "Molenstraat 65, 5341GC Oss"
+  },
+  "museum-kaap-skil": {
+    "address_sig": "1792 AA|Heemskerckstraat 9|Oudeschild",
+    "city": "Oudeschild",
+    "geocoded_at": "2026-09-20T12:56:30.294013+00:00",
+    "lat": 53.039215,
+    "lon": 4.848042,
+    "municipality": "Texel",
+    "province": "Noord-Holland",
+    "query": "1792 AA 9",
+    "weergavenaam": "Heemskerckstraat 9, 1792AA Oudeschild",
+    "woonplaats": "Oudeschild"
+  },
+  "museum-klok-peel": {
+    "address_sig": "5721 WC|Ostaderstraat 23|Asten",
+    "city": "Asten",
+    "geocoded_at": "2026-09-19T19:09:37.192498+00:00",
+    "lat": 51.403553,
+    "lon": 5.733475,
+    "query": "5721 WC 23",
+    "weergavenaam": "Ostaderstraat 23, 5721WC Asten"
+  },
+  "museum-martena": {
+    "address_sig": "8801 LA|Voorstraat 35|Franeker",
+    "city": "Franeker",
+    "geocoded_at": "2026-09-19T19:12:27.426079+00:00",
+    "lat": 53.186417,
+    "lon": 5.542203,
+    "query": "8801 LA 35",
+    "weergavenaam": "Voorstraat 35, 8801LA Franeker"
+  },
+  "museum-more": {
+    "address_sig": "7213 CW|Hoofdstraat 28|Gorssel",
+    "city": "Gorssel",
+    "geocoded_at": "2026-09-19T19:11:42.259369+00:00",
+    "lat": 52.199463,
+    "lon": 6.200584,
+    "query": "7213 CW 28",
+    "weergavenaam": "Hoofdstraat 28, 7213CW Gorssel"
+  },
+  "museum-nienoord": {
+    "address_sig": "9351 AC|Nienoord 1|Leek",
+    "city": "Leek",
+    "geocoded_at": "2026-09-19T19:09:30.244124+00:00",
+    "lat": 53.167983,
+    "lon": 6.394235,
+    "query": "9351 AC 1",
+    "weergavenaam": "Nienoord 1, 9351AC Leek"
+  },
+  "museum-panorama-mesdag": {
+    "address_sig": "2518 AA|Zeestraat 65|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:10:06.248121+00:00",
+    "lat": 52.084794,
+    "lon": 4.303302,
+    "query": "2518 AA 65",
+    "weergavenaam": "Zeestraat 65D-2, 2518AA 's-Gravenhage"
+  },
+  "museum-rotterdam": {
+    "address_sig": "3015 CG|Coolhaven 375|Rotterdam",
+    "city": "Rotterdam",
+    "geocoded_at": "2026-09-19T19:12:04.423895+00:00",
+    "lat": 51.908749,
+    "lon": 4.458083,
+    "query": "3015 CG 375",
+    "weergavenaam": "Coolhaven 375, 3015GC Rotterdam"
+  },
+  "museum-schokland": {
+    "address_sig": "8319 AB|Middelbuurt 3|Schokland",
+    "city": "Schokland",
+    "geocoded_at": "2026-09-19T19:12:33.443793+00:00",
+    "lat": 52.634571,
+    "lon": 5.777633,
+    "query": "8319 AB 3",
+    "weergavenaam": "Middelbuurt 3, 8319AB Schokland"
+  },
+  "museum-speelklok": {
+    "address_sig": "3511 JP|Steenweg 6|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:10:45.300097+00:00",
+    "lat": 52.090508,
+    "lon": 5.11891,
+    "query": "3511 JP 6",
+    "weergavenaam": "Steenweg 6, 3511JP Utrecht"
+  },
+  "museum-tachtigjarige-oorlog": {
+    "address_sig": "7141 BP|Mattelierstraat 5|Groenlo",
+    "city": "Groenlo",
+    "geocoded_at": "2026-09-19T19:26:08.448829+00:00",
+    "lat": 52.042346,
+    "lon": 6.617773,
+    "municipality": "Oost Gelre",
+    "province": "Gelderland",
+    "query": "7141 BP 5",
+    "weergavenaam": "Mattelierstraat 5, 7141BP Groenlo",
+    "woonplaats": "Groenlo"
+  },
+  "museum-van-bommel-van-dam": {
+    "address_sig": "5911 BX|Keulsepoort 1|Venlo",
+    "city": "Venlo",
+    "geocoded_at": "2026-09-19T19:09:43.235774+00:00",
+    "lat": 51.367454,
+    "lon": 6.171215,
+    "query": "5911 BX 1",
+    "weergavenaam": "Keulsepoort 1, 5911BX Venlo"
+  },
+  "museum-van-de-20e-eeuw": {
+    "address_sig": "1621 DG|Krententuin 24 (Oostereiland)|HOORN NH",
+    "city": "Hoorn",
+    "geocoded_at": "2026-09-19T19:10:17.301573+00:00",
+    "lat": 52.63508,
+    "lon": 5.062423,
+    "query": "1621 DG 24",
+    "weergavenaam": "Krententuin 24, 1621DG Hoorn"
+  },
+  "museum-van-de-geest-dolhuys": {
+    "address_sig": "2021 GE|Schotersingel 2|Haarlem",
+    "city": "Haarlem",
+    "geocoded_at": "2026-09-19T19:11:09.349508+00:00",
+    "lat": 52.390229,
+    "lon": 4.637811,
+    "query": "2021 GE 2",
+    "weergavenaam": "Schotersingel 2, 2021GE Haarlem"
+  },
+  "museum-volkenkunde": {
+    "address_sig": "2312 BS|Steenstraat 1|Leiden",
+    "city": "Leiden",
+    "geocoded_at": "2026-09-19T19:32:31.854412+00:00",
+    "lat": 52.163568,
+    "lon": 4.484061,
+    "municipality": "Leiden",
+    "province": "Zuid-Holland",
+    "query": "2312 BS 1",
+    "weergavenaam": "Steenstraat 1, 2312BS Leiden",
+    "woonplaats": "Leiden"
+  },
+  "museumhuis-barnaart": {
+    "address_sig": "2011 NB|Nieuwe Gracht 7|Haarlem",
+    "city": "Haarlem",
+    "geocoded_at": "2026-09-19T19:10:39.224128+00:00",
+    "lat": 52.384658,
+    "lon": 4.637364,
+    "query": "2011 NB 7",
+    "weergavenaam": "Nieuwe Gracht 7, 2011NB Haarlem"
+  },
+  "museumhuis-bartolotti": {
+    "address_sig": "1016 BP|Herengracht 170|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:10:29.196369+00:00",
+    "lat": 52.372596,
+    "lon": 4.875663,
+    "query": "1016 BP 170",
+    "weergavenaam": "Marnixstraat 170, 1016TG Amsterdam"
+  },
+  "museumhuis-polman": {
+    "address_sig": "8308 AK|Karwijhof 20|Nagele",
+    "city": "Nagele",
+    "geocoded_at": "2026-09-19T19:09:41.201609+00:00",
+    "lat": 52.642194,
+    "lon": 5.724129,
+    "query": "8308 AK 20",
+    "weergavenaam": "Karwijhof 20, 8308AK Nagele"
+  },
+  "museumhuis-rams-woerthe": {
+    "address_sig": "8331 MX|Gasthuislaan 2|Steenwijk",
+    "city": "Steenwijk",
+    "geocoded_at": "2026-09-19T19:10:36.244666+00:00",
+    "lat": 52.785207,
+    "lon": 6.112336,
+    "query": "8331 MX 2",
+    "weergavenaam": "Gasthuislaan 2, 8331MX Steenwijk"
+  },
+  "museumprinsenhofdelft": {
+    "address_sig": "2611 HR|Sint Agathaplein 1|Delft",
+    "city": "Delft",
+    "geocoded_at": "2026-09-20T12:47:48.267310+00:00",
+    "lat": 52.012144,
+    "lon": 4.354486,
+    "municipality": "Delft",
+    "province": "Zuid-Holland",
+    "query": "2611 HR 1",
+    "weergavenaam": "Sint Agathaplein 1, 2611HR Delft",
+    "woonplaats": "Delft"
+  },
+  "museumstoomtram": {
+    "address_sig": "1624 NN|Van Dedemstraat 8|Hoorn",
+    "city": "Hoorn",
+    "geocoded_at": "2026-09-19T19:11:08.338458+00:00",
+    "lat": 52.645633,
+    "lon": 5.054515,
+    "query": "1624 NN 8",
+    "weergavenaam": "van Dedemstraat 8, 1624NN Hoorn"
+  },
+  "museumstoomtram-hoorn-medemblik": {
+    "address_sig": "1721 BW|Museumweg 2|Broek op Langedijk",
+    "city": "Broek op Langedijk",
+    "geocoded_at": "2026-09-19T19:26:55.394361+00:00",
+    "lat": 52.679873,
+    "lon": 4.806555,
+    "municipality": "Dijk en Waard",
+    "province": "Noord-Holland",
+    "query": "1721 BW 2",
+    "weergavenaam": "Museumweg 2, 1721BW Broek op Langedijk",
+    "woonplaats": "Broek op Langedijk"
+  },
+  "nationaal-glasmuseum": {
+    "address_sig": "4141 BE||Leerdam)",
+    "city": "Leerdam",
+    "geocoded_at": "2026-09-19T19:26:33.374412+00:00",
+    "lat": 51.890196,
+    "lon": 5.093885,
+    "municipality": "Vijfheerenlanden",
+    "province": "Utrecht",
+    "query": "4141 BE Leerdam)",
+    "weergavenaam": "Zuidwal 3a, 4141BE Leerdam",
+    "woonplaats": "Leerdam"
+  },
+  "nationaal-holocaustmuseum": {
+    "address_sig": "1018 DB|Plantage Middenlaan 27|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:10:15.294853+00:00",
+    "lat": 52.366883,
+    "lon": 4.910953,
+    "query": "1018 DB 27",
+    "weergavenaam": "Plantage Middenlaan 27, 1018DB Amsterdam"
+  },
+  "nationaal-militair-museum": {
+    "address_sig": "3768 MX|Verlengde Paltzerweg 1|Soest",
+    "city": "Soest",
+    "geocoded_at": "2026-09-19T19:11:58.437711+00:00",
+    "lat": 52.131679,
+    "lon": 5.280573,
+    "query": "3768 MX 1",
+    "weergavenaam": "Verlengde Paltzerweg 1, 3768MX Soest"
+  },
+  "nationaal-monument-kamp-amersfoort": {
+    "address_sig": "3832 RZ|Loes van Overeemlaan 19|Leusden",
+    "city": "Leusden",
+    "geocoded_at": "2026-09-19T19:09:53.210410+00:00",
+    "lat": 52.132332,
+    "lon": 5.36531,
+    "query": "3832 RZ 19",
+    "weergavenaam": "Loes van Overeemlaan 19, 3832RZ Leusden"
+  },
+  "nationaal-monument-kamp-vught": {
+    "address_sig": "5263 NT|Lunettenlaan 600|Vught",
+    "city": "Vught",
+    "geocoded_at": "2026-09-19T19:10:02.199666+00:00",
+    "lat": 51.665516,
+    "lon": 5.258919,
+    "query": "5263 NT 600",
+    "weergavenaam": "Lunettenlaan 600, 5263NT Vught"
+  },
+  "nationaal-monument-oranjehotel": {
+    "address_sig": "2597 BP|Van Alkemadelaan 1258|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:22:57.157879+00:00",
+    "lat": 52.111253,
+    "lon": 4.300817,
+    "municipality": "'s-Gravenhage",
+    "province": "Zuid-Holland",
+    "query": "2597 BP 1258",
+    "weergavenaam": "Van Alkemadelaan 1258, 2597BP 's-Gravenhage",
+    "woonplaats": "'s-Gravenhage"
+  },
+  "nationaal-onderduikmuseum": {
+    "address_sig": "7121 CS|Markt 12-16|Aalten",
+    "city": "Aalten",
+    "geocoded_at": "2026-09-19T19:09:48.231824+00:00",
+    "lat": 51.927877,
+    "lon": 6.581468,
+    "query": "7121 CS 12-16",
+    "weergavenaam": "Markt 16, 7121CS Aalten"
+  },
+  "naturalis-biodiversity-center": {
+    "address_sig": "2333 CR|Darwinweg 2|Leiden",
+    "city": "Leiden",
+    "geocoded_at": "2026-09-19T19:12:31.436880+00:00",
+    "lat": 52.164899,
+    "lon": 4.473367,
+    "query": "2333 CR 2",
+    "weergavenaam": "Darwinweg 2, 2333CR Leiden"
+  },
+  "natuurmuseum-brabant": {
+    "address_sig": "5038 CH|Spoorlaan 434|Tilburg",
+    "city": "Tilburg",
+    "geocoded_at": "2026-09-19T19:10:01.199434+00:00",
+    "lat": 51.559928,
+    "lon": 5.081359,
+    "query": "5038 CH 434",
+    "weergavenaam": "Spoorlaan 434, 5038CH Tilburg"
+  },
+  "natuurmuseum-frysian": {
+    "address_sig": "8911 EM|Schoenmakersperk 2|Leeuwarden",
+    "city": "Leeuwarden",
+    "geocoded_at": "2026-09-19T19:12:26.449985+00:00",
+    "lat": 53.204064,
+    "lon": 5.795696,
+    "query": "8911 EM 2",
+    "weergavenaam": "Schoenmakersperk 2, 8911EM Leeuwarden"
+  },
+  "nederlands-fotomuseum": {
+    "address_sig": "3072 AR|Wilhelminakade 332|Rotterdam",
+    "city": "Rotterdam",
+    "geocoded_at": "2026-09-19T19:12:02.409299+00:00",
+    "lat": 51.90541,
+    "lon": 4.486875,
+    "query": "3072 AR 332",
+    "weergavenaam": "Wilhelminakade 332, 3072AR Rotterdam"
+  },
+  "nederlands-openluchtmuseum": {
+    "address_sig": "6816 SG|Hoeferlaan 4|Arnhem",
+    "city": "Arnhem",
+    "geocoded_at": "2026-09-19T19:10:41.239769+00:00",
+    "lat": 52.00809,
+    "lon": 5.907217,
+    "query": "6816 SG 4",
+    "weergavenaam": "Hoeferlaan 4, 6816SG Arnhem"
+  },
+  "nederlands-zilvermuseum-schoonhoven": {
+    "address_sig": "2871 CZ|Kazerneplein 4|Schoonhoven",
+    "city": "Schoonhoven",
+    "geocoded_at": "2026-09-19T19:10:22.284700+00:00",
+    "lat": 51.947165,
+    "lon": 4.852309,
+    "query": "2871 CZ 4",
+    "weergavenaam": "Kazerneplein 4, 2871CZ Schoonhoven"
+  },
+  "nemo-science-museum": {
+    "address_sig": "1011 VX|Oosterdok 2|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:07.357126+00:00",
+    "lat": 52.373853,
+    "lon": 4.912111,
+    "query": "1011 VX 2",
+    "weergavenaam": "Oosterdok 2, 1011VX Amsterdam"
+  },
+  "nijntje-museum": {
+    "address_sig": "3511 AL|Oudegracht 167|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:10:35.227502+00:00",
+    "lat": 52.09151,
+    "lon": 5.119074,
+    "query": "3511 AL 167",
+    "weergavenaam": "Oudegracht 167, 3511AL Utrecht"
+  },
+  "noordbrabants-museum": {
+    "address_sig": "5211 HT|Verwersstraat 41|'s Hertogenbosch",
+    "city": "'s-Hertogenbosch",
+    "geocoded_at": "2026-09-19T19:11:50.332456+00:00",
+    "lat": 51.68658,
+    "lon": 5.304685,
+    "query": "5211 HT 41",
+    "weergavenaam": "Verwersstraat 41, 5211HT 's-Hertogenbosch"
+  },
+  "oorlogsmuseum-overloon": {
+    "address_sig": "5825 AM|Museumpark 1|Overloon",
+    "city": "Overloon",
+    "geocoded_at": "2026-09-19T19:09:35.279183+00:00",
+    "lat": 51.570366,
+    "lon": 5.9568,
+    "query": "5825 AM 1",
+    "weergavenaam": "Museumpark 1, 5825AM Overloon"
+  },
+  "oyfo-techniekmuseum": {
+    "address_sig": "7555 RJ|Floris Hazemeijerstraat 300|Hengelo",
+    "city": "Hengelo",
+    "geocoded_at": "2026-09-19T19:11:52.285212+00:00",
+    "lat": 52.26255,
+    "lon": 6.783162,
+    "query": "7555 RJ 300",
+    "weergavenaam": "F. Hazemeijerstraat 300, 7555RJ Hengelo"
+  },
+  "paleis-het-loo": {
+    "address_sig": "7315 JA|Koninklijk Park 1|Apeldoorn",
+    "city": "Apeldoorn",
+    "geocoded_at": "2026-09-19T19:11:41.254325+00:00",
+    "lat": 52.233299,
+    "lon": 5.945177,
+    "query": "7315 JA 1",
+    "weergavenaam": "Koninklijk Park 1A, 7315JA Apeldoorn"
+  },
+  "paleis-lofen": {
+    "address_sig": "3512 JC|Domplein 9|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:09:33.248078+00:00",
+    "lat": 52.090953,
+    "lon": 5.121057,
+    "query": "3512 JC 9",
+    "weergavenaam": "Domplein 9, 3512JC Utrecht"
+  },
+  "portugese-synagoge": {
+    "address_sig": "1011 RD|Mr. Visserplein 3|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:16.352691+00:00",
+    "lat": 52.367605,
+    "lon": 4.905131,
+    "query": "1011 RD 3",
+    "weergavenaam": "Mr. Visserplein 3, 1011RD Amsterdam"
+  },
+  "rietveld-schroederhuis": {
+    "address_sig": "3583 EP|Prins Hendriklaan 50|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:09:52.205297+00:00",
+    "lat": 52.085323,
+    "lon": 5.147519,
+    "query": "3583 EP 50",
+    "weergavenaam": "Prins Hendriklaan 50, 3583EP Utrecht"
+  },
+  "rijksmuseum": {
+    "address_sig": "1071 XX|Museumstraat 1|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:06.380929+00:00",
+    "lat": 52.359942,
+    "lon": 4.885386,
+    "query": "1071 XX 1",
+    "weergavenaam": "Museumstraat 1, 1071XX Amsterdam"
+  },
+  "rijksmuseum-boerhaave": {
+    "address_sig": "2312 WC|Lange St. Agnietenstraat 10|Leiden",
+    "city": "Leiden",
+    "geocoded_at": "2026-09-19T19:10:34.221240+00:00",
+    "lat": 52.161342,
+    "lon": 4.489178,
+    "query": "2312 WC 10",
+    "weergavenaam": "Lange Sint Agnietenstraat 10, 2312WC Leiden"
+  },
+  "rijksmuseum-de-gevangenpoort": {
+    "address_sig": "2513 AH|Buitenhof 33|Den Haag",
+    "city": "'s-Gravenhage",
+    "geocoded_at": "2026-09-19T19:12:12.431911+00:00",
+    "lat": 52.079596,
+    "lon": 4.310279,
+    "query": "2513 AH 33",
+    "weergavenaam": "Buitenhof 33, 2513AH 's-Gravenhage"
+  },
+  "rijksmuseum-muiderslot": {
+    "address_sig": "1398 AA|Herengracht 1|Muiden",
+    "city": "Muiden",
+    "geocoded_at": "2026-09-19T19:11:05.359444+00:00",
+    "lat": 52.333401,
+    "lon": 5.07127,
+    "query": "1398 AA 1",
+    "weergavenaam": "Herengracht 1A, 1398AA Muiden"
+  },
+  "rijksmuseum-twenthe": {
+    "address_sig": "7514 BP|Lasondersingel 129|Enschede",
+    "city": "Enschede",
+    "geocoded_at": "2026-09-19T19:11:51.285675+00:00",
+    "lat": 52.227699,
+    "lon": 6.897013,
+    "query": "7514 BP 129",
+    "weergavenaam": "Lasondersingel 129, 7514BP Enschede"
+  },
+  "rijksmuseum-van-oudheden": {
+    "address_sig": "2311 EW|Rapenburg 28|Leiden",
+    "city": "Leiden",
+    "geocoded_at": "2026-09-19T19:12:01.437180+00:00",
+    "lat": 52.158545,
+    "lon": 4.485518,
+    "query": "2311 EW 28",
+    "weergavenaam": "Rapenburg 28, 2311EW Leiden"
+  },
+  "schunck": {
+    "address_sig": "6411 JM|Bongerd 18|Heerlen",
+    "city": "Heerlen",
+    "geocoded_at": "2026-09-19T19:11:55.354256+00:00",
+    "lat": 50.887944,
+    "lon": 5.979259,
+    "query": "6411 JM 18",
+    "weergavenaam": "Bongerd 18, 6411JM Heerlen"
+  },
+  "singer-laren": {
+    "address_sig": "1251 BS|Oude Drift 1|Laren",
+    "city": "Laren",
+    "geocoded_at": "2026-09-19T19:11:04.354780+00:00",
+    "lat": 52.259422,
+    "lon": 5.221568,
+    "query": "1251 BS 1",
+    "weergavenaam": "Oude Drift 1, 1251BS Laren"
+  },
+  "sint-jan-de-doper": {
+    "address_sig": "4811 XT|Kerkplein 2|Breda",
+    "city": "Breda",
+    "geocoded_at": "2026-09-19T19:10:57.376550+00:00",
+    "lat": 51.588906,
+    "lon": 4.775337,
+    "query": "4811 XT 2",
+    "weergavenaam": "Kerkplein 2, 4811XT Breda"
+  },
+  "sint-jan-gouda": {
+    "address_sig": "2801 JW|Achter de Kerk 2|Gouda",
+    "city": "Gouda",
+    "geocoded_at": "2026-09-19T19:10:31.245932+00:00",
+    "lat": 52.011014,
+    "lon": 4.712086,
+    "query": "2801 JW 2",
+    "weergavenaam": "Achter de Kerk 2-2, 2801JW Gouda"
+  },
+  "sonnenborgh": {
+    "address_sig": "3512 NL|Zonnenburg 2|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:11:57.407880+00:00",
+    "lat": 52.085415,
+    "lon": 5.129283,
+    "query": "3512 NL 2",
+    "weergavenaam": "Zonnenburg 2, 3512NL Utrecht"
+  },
+  "sovjet-ereveld-experience": {
+    "address_sig": "3832 RG|Vlooswijkseweg 1b|Leusden",
+    "city": "Leusden",
+    "geocoded_at": "2026-09-19T19:09:32.211934+00:00",
+    "lat": 52.130962,
+    "lon": 5.373207,
+    "query": "3832 RG 1b",
+    "weergavenaam": "Vlooswijkseweg 1b, 3832RG Leusden"
+  },
+  "space-expo": {
+    "address_sig": "2201 AZ|Keplerlaan 3|Noordwijk",
+    "city": "Noordwijk",
+    "geocoded_at": "2026-09-19T19:10:30.248477+00:00",
+    "lat": 52.215276,
+    "lon": 4.420897,
+    "query": "2201 AZ 3",
+    "weergavenaam": "Keplerlaan 3, 2201AZ Noordwijk"
+  },
+  "spoorwegmuseum": {
+    "address_sig": "3581 XW|Maliebaanstation 16|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:10:46.262284+00:00",
+    "lat": 52.087959,
+    "lon": 5.131077,
+    "query": "3581 XW 16",
+    "weergavenaam": "Maliebaanstation 16, 3581XW Utrecht"
+  },
+  "stadsmuseum-harderwijk": {
+    "address_sig": "3841 CC|Donkerstraat 4|Harderwijk",
+    "city": "Harderwijk",
+    "geocoded_at": "2026-09-19T19:11:39.233157+00:00",
+    "lat": 52.34786,
+    "lon": 5.616239,
+    "query": "3841 CC 4",
+    "weergavenaam": "Donkerstraat 4, 3841CC Harderwijk"
+  },
+  "stedelijk-museum-alkmaar": {
+    "address_sig": "1811 KE|Canadaplein 2|Alkmaar",
+    "city": "Alkmaar",
+    "geocoded_at": "2026-09-19T19:11:30.367103+00:00",
+    "lat": 52.633636,
+    "lon": 4.743962,
+    "query": "1811 KE 2",
+    "weergavenaam": "Canadaplein 2, 1811KE Alkmaar"
+  },
+  "stedelijk-museum-amsterdam": {
+    "address_sig": "1071 DJ|Museumplein 10|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:03.347313+00:00",
+    "lat": 52.35791,
+    "lon": 4.879855,
+    "query": "1071 DJ 10",
+    "weergavenaam": "Museumplein 10, 1071DJ Amsterdam"
+  },
+  "stedelijk-museum-breda": {
+    "address_sig": "4811 GH|Boschstraat 22|Breda",
+    "city": "Breda",
+    "geocoded_at": "2026-09-19T19:11:31.346940+00:00",
+    "lat": 51.589639,
+    "lon": 4.78101,
+    "query": "4811 GH 22",
+    "weergavenaam": "Boschstraat 22, 4811GH Breda"
+  },
+  "stedelijk-museum-schiedam": {
+    "address_sig": "3111 HL|Hoogstraat 112|Schiedam",
+    "city": "Schiedam",
+    "geocoded_at": "2026-09-19T19:12:00.412878+00:00",
+    "lat": 51.915792,
+    "lon": 4.397873,
+    "query": "3111 HL 112",
+    "weergavenaam": "Hoogstraat 112, 3111HL Schiedam"
+  },
+  "stedelijk-museum-zutphen": {
+    "address_sig": "7201 DN|'s-Gravenhof 4|Zutphen",
+    "city": "Zutphen",
+    "geocoded_at": "2026-09-19T19:11:38.216510+00:00",
+    "lat": 52.139982,
+    "lon": 6.194533,
+    "query": "7201 DN 4",
+    "weergavenaam": "'s Gravenhof 4, 7201DN Zutphen"
+  },
+  "storyworld": {
+    "address_sig": "9712 KN|Nieuwe Markt 1|Groningen",
+    "city": "Groningen",
+    "geocoded_at": "2026-09-19T19:11:35.359548+00:00",
+    "lat": 53.218893,
+    "lon": 6.56983,
+    "query": "9712 KN 1",
+    "weergavenaam": "Nieuwe Markt 1, 9712KN Groningen"
+  },
+  "teylers-museum": {
+    "address_sig": "2011 CH|Spaarne 16|Haarlem",
+    "city": "Haarlem",
+    "geocoded_at": "2026-09-19T19:11:02.344852+00:00",
+    "lat": 52.380345,
+    "lon": 4.640349,
+    "query": "2011 CH 16",
+    "weergavenaam": "Spaarne 16, 2011CH Haarlem"
+  },
+  "universiteits-museum-utrecht": {
+    "address_sig": "3512 PN|Lange Nieuwstraat 106|Utrecht",
+    "city": "Utrecht",
+    "geocoded_at": "2026-09-19T19:09:51.197332+00:00",
+    "lat": 52.084827,
+    "lon": 5.125724,
+    "query": "3512 PN 106",
+    "weergavenaam": "Lange Nieuwstraat 106, 3512PN Utrecht"
+  },
+  "van-abbemuseum": {
+    "address_sig": "5611 ND|Stratumsedijk 2|Eindhoven",
+    "city": "Eindhoven",
+    "geocoded_at": "2026-09-19T19:10:50.362961+00:00",
+    "lat": 51.434415,
+    "lon": 5.481914,
+    "query": "5611 ND 2",
+    "weergavenaam": "Stratumsedijk 2, 5611ND Eindhoven"
+  },
+  "van-gogh-museum": {
+    "address_sig": "1071 DJ|Museumplein 6|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:00.340827+00:00",
+    "lat": 52.357925,
+    "lon": 4.881323,
+    "query": "1071 DJ 6",
+    "weergavenaam": "Museumplein 6, 1071DJ Amsterdam"
+  },
+  "verzetsmuseum-amsterdam": {
+    "address_sig": "1018 CX|Plantage Kerklaan 61|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:10:14.279560+00:00",
+    "lat": 52.367821,
+    "lon": 4.912796,
+    "query": "1018 CX 61",
+    "weergavenaam": "Plantage Kerklaan 61C-1, 1018CX Amsterdam"
+  },
+  "vrijheidsmuseum": {
+    "address_sig": "6461 KR|Wylerbaan 4|Groesbeek",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:09:47.221731+00:00",
+    "lat": 52.347098,
+    "lon": 4.90801,
+    "query": "6461 KR 4",
+    "weergavenaam": "Kromme-Mijdrechtstraat 4-4, 1078RN Amsterdam"
+  },
+  "watersnoodmuseum": {
+    "address_sig": "4305 RJ|Weg van de Buitenlandse Pers 5|Ouwerkerk",
+    "city": "Ouwerkerk",
+    "geocoded_at": "2026-09-19T19:12:25.442923+00:00",
+    "lat": 51.617423,
+    "lon": 3.982822,
+    "query": "4305 RJ 5",
+    "weergavenaam": "Weg vd Buitenlandse Pers 5, 4305RJ Ouwerkerk"
+  },
+  "wereldmuseum-amsterdam": {
+    "address_sig": "1092 CK|Linnaeusstraat 2|Amsterdam",
+    "city": "Amsterdam",
+    "geocoded_at": "2026-09-19T19:11:01.369723+00:00",
+    "lat": 52.362768,
+    "lon": 4.922683,
+    "query": "1092 CK 2",
+    "weergavenaam": "Linnaeusstraat 2, 1092CK Amsterdam"
+  },
+  "zaans-museum": {
+    "address_sig": "1509 AW|Schansend 7|Zaandam",
+    "city": "Zaandam",
+    "geocoded_at": "2026-09-19T19:26:52.387172+00:00",
+    "lat": 52.473633,
+    "lon": 4.822324,
+    "municipality": "Zaanstad",
+    "province": "Noord-Holland",
+    "query": "1509 AW 7",
+    "weergavenaam": "Schansend 7, 1509AW Zaandam",
+    "woonplaats": "Zaandam"
+  },
+  "zeeuws-maritiem-muzeeum": {
+    "address_sig": "4381 BV|Nieuwendijk 11|Vlissingen",
+    "city": "Vlissingen",
+    "geocoded_at": "2026-09-19T19:12:24.427730+00:00",
+    "lat": 51.441342,
+    "lon": 3.57541,
+    "query": "4381 BV 11",
+    "weergavenaam": "Nieuwendijk 11, 4381BV Vlissingen"
+  },
+  "zeeuws-museum": {
+    "address_sig": "4331 BK|Abdij (Plein)|Middelburg",
+    "city": "Middelburg",
+    "geocoded_at": "2026-09-19T19:12:23.419250+00:00",
+    "lat": 51.500801,
+    "lon": 3.615136,
+    "query": "Abdij (Plein), Middelburg",
+    "weergavenaam": "Abdij, Middelburg"
+  },
+  "zuiderzeemuseum": {
+    "address_sig": "1601 MB|Sluisweg 1|Enkhuizen",
+    "city": "Enkhuizen",
+    "geocoded_at": "2026-09-19T19:10:38.236382+00:00",
+    "lat": 52.694961,
+    "lon": 5.278828,
+    "query": "1601 MB 1",
+    "weergavenaam": "Zijlweg 1, 1601MB Enkhuizen"
+  }
+}
