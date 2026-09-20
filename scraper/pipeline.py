@@ -21,7 +21,7 @@ from .normalise import (
 )
 from .overrides import apply_overrides, load_overrides
 from .parse import parse_museum_story
-from .validate import validate_dataset
+from .validate import check_shared_resources, validate_dataset
 
 logging.basicConfig(
     level=logging.INFO,
@@ -350,6 +350,10 @@ class Pipeline:
             "overrides_status": {
                 "source_matches_count": len(override_matches),
                 "source_matches": override_matches,
+            },
+            "shared_resources_audit": {
+                "warnings_count": len(check_shared_resources(processed_museums)),
+                "warnings": check_shared_resources(processed_museums),
             },
         }
 

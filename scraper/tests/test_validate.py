@@ -113,3 +113,39 @@ def test_active_count_below_minimum_with_removed_records():
     is_valid, errors = validate_dataset(dataset)
     assert not is_valid
     assert any("below minimum required" in err for err in errors)
+
+
+def test_shared_resources_audit_whitelist():
+    from scraper.validate import check_shared_resources
+
+    # Whitelisted shared site
+    m1 = make_valid_museum("huygens-museum-hofwijck")
+    m1["museum_website"] = "https://huygensmuseum.nl/"
+    m1["address"] = {"street": "Westeinde 2", "postcode": "2275 AD", "city": "Voorburg"}
+    m2 = make_valid_museum("huygens-museum-notarishuis")
+    m2["museum_website"] = "https://huygensmuseum.nl/"
+    m2["address"] = {"street": "Herenstraat 101", "postcode": "2271 CA", "city": "Voorburg"}
+
+    # Whitelisted shared address
+    m3 = make_valid_museum("domunder")
+    m3["address"] = {"street": "Domplein 9", "postcode": "3512 JC", "city": "Utrecht"}
+    m4 = make_valid_museum("paleis-lofen")
+    m4["address"] = {"street": "Domplein 9", "postcode": "3512 JC", "city": "Utrecht"}
+
+    warnings = check_shared_resources([m1, m2, m3, m4])
+    assert len(warnings) == 0, f"Expected zero warnings for whitelisted cases, got {warnings}"
+
+
+def test_shared_resources_audit_unexpected():
+    from scraper.validate import check_shared_resources
+
+    m1 = make_valid_museum("museum-a")
+    m1["museum_website"] = "https://example.com/site"
+    m2 = make_valid_museum("museum-b")
+    m2["museum_website"] = "https://example.com/site"
+    m2["address"] = m1["address"]  # duplicate address
+
+    warnings = check_shared_resources([m1, m2])
+    assert len(warnings) == 2
+    assert any("Unexpected shared museum_website" in w for w in warnings)
+    assert any("Unexpected shared address" in w for w in warnings)

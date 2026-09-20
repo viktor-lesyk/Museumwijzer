@@ -19,6 +19,64 @@ from .config import (
 
 logger = logging.getLogger(__name__)
 
+WHITELISTED_SHARED_WEBSITES = {
+    frozenset(["huygens-museum-hofwijck", "huygens-museum-notarishuis"]),
+}
+
+WHITELISTED_SHARED_ADDRESSES = {
+    frozenset(["domunder", "paleis-lofen"]),
+    frozenset(["forum-groningen", "storyworld"]),
+    frozenset(["fotomuseum-den-haag", "km21"]),
+    frozenset(["kunstlinie", "kunstlinie-kunsthal"]),
+    frozenset(["museum-henriette-polak", "stedelijk-museum-zutphen"]),
+}
+
+
+def check_shared_resources(museums: List[Dict[str, Any]]) -> List[str]:
+    """
+    Audit museum dataset for shared websites or physical addresses across different slugs.
+    Logs and returns warnings for any unexpected duplicate resources outside documented whitelists.
+    """
+    warnings: List[str] = []
+    by_site: Dict[str, List[str]] = {}
+    by_addr: Dict[Tuple[str, str, str], List[str]] = {}
+
+    for m in museums:
+        if m.get("status", "active") == "removed":
+            continue
+        slug = m.get("slug", "")
+        site = m.get("museum_website")
+        if site:
+            p = urlparse(site)
+            norm_site = (p.netloc + p.path).rstrip("/").lower()
+            if norm_site:
+                by_site.setdefault(norm_site, []).append(slug)
+
+        addr = m.get("address", {})
+        street = (addr.get("street") or "").strip().lower()
+        postcode = (addr.get("postcode") or "").replace(" ", "").upper()
+        city = (addr.get("city") or "").strip().lower()
+        if street and postcode:
+            by_addr.setdefault((street, postcode, city), []).append(slug)
+
+    for site, slugs in by_site.items():
+        if len(slugs) > 1:
+            slug_set = frozenset(slugs)
+            if slug_set not in WHITELISTED_SHARED_WEBSITES:
+                msg = f"Unexpected shared museum_website '{site}' across slugs: {sorted(slugs)}"
+                logger.warning(msg)
+                warnings.append(msg)
+
+    for (street, postcode, city), slugs in by_addr.items():
+        if len(slugs) > 1:
+            slug_set = frozenset(slugs)
+            if slug_set not in WHITELISTED_SHARED_ADDRESSES:
+                msg = f"Unexpected shared address '{street}, {postcode} {city}' across slugs: {sorted(slugs)}"
+                logger.warning(msg)
+                warnings.append(msg)
+
+    return warnings
+
 
 class AddressModel(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -186,6 +244,9 @@ def validate_dataset(
             errors.append(
                 f"Turnover: {len(removed)} museums removed ({turnover_removed_pct:.1f}%), exceeding {MAX_TURNOVER_PERCENT}% limit"
             )
+
+    # 6. Shared resources audit (warnings only, non-blocking)
+    check_shared_resources(museums)
 
     is_valid = len(errors) == 0
     return is_valid, errors
