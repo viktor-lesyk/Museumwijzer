@@ -134,3 +134,15 @@ museum-volkenkunde:
       street: "Steenstraat 1"
       postcode: "2312 BS"
       city: "Leiden"
+
+sint-jan-de-doper:
+  date: "2026-09-20"
+  evidence_url: "https://www.vriendensintjanwaalwijk.nl/"
+  exact_text_read: "Kerkadres: Sint Jansplein 2, 5141 GR, Waalwijk"
+  note: "Source website CMS entry inadvertently duplicated body/contact and website of Grote Kerk Breda. The Sint Jan de Doper in the programme is in Waalwijk."
+  override:
+    address:
+      street: "Sint Jansplein 2"
+      postcode: "5141 GR"
+      city: "Waalwijk"
+    museum_website: "https://www.vriendensintjanwaalwijk.nl/"

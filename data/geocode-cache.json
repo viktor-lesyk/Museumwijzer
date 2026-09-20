@@ -1587,13 +1587,16 @@
     "weergavenaam": "Oude Drift 1, 1251BS Laren"
   },
   "sint-jan-de-doper": {
-    "address_sig": "4811 XT|Kerkplein 2|Breda",
-    "city": "Breda",
-    "geocoded_at": "2026-09-19T19:10:57.376550+00:00",
-    "lat": 51.588906,
-    "lon": 4.775337,
-    "query": "4811 XT 2",
-    "weergavenaam": "Kerkplein 2, 4811XT Breda"
+    "address_sig": "5141 GR|Sint Jansplein 2|Waalwijk",
+    "city": "Waalwijk",
+    "geocoded_at": "2026-09-20T19:09:20.085623+00:00",
+    "lat": 51.690081,
+    "lon": 5.067675,
+    "municipality": "Waalwijk",
+    "province": "Noord-Brabant",
+    "query": "5141 GR 2",
+    "weergavenaam": "St. Jansplein 2, 5141GR Waalwijk",
+    "woonplaats": "Waalwijk"
   },
   "sint-jan-gouda": {
     "address_sig": "2801 JW|Achter de Kerk 2|Gouda",
