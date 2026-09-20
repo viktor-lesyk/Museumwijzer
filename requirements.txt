@@ -1,0 +1,10 @@
+# Core dependencies for Museumwijzer data scraper & validation
+# Justification:
+# - requests: polite HTTP client supporting headers, timeouts, and sessions (1 req/sec rate limit)
+# - pydantic: robust schema validation and type coercion for scraped data
+# - pyyaml: parsing configuration and manual overrides (overrides.yaml, city-aliases.yaml)
+# - pytest: offline unit testing against sanitized fixtures without network calls
+requests>=2.31.0
+pydantic>=2.0.0
+pyyaml>=6.0
+pytest>=8.0.0

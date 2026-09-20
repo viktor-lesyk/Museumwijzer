@@ -1,0 +1,39 @@
+{
+  "pageProps": {
+    "story": {
+      "slug": "huis-zypendaal",
+      "name": "Huis Zypendaal",
+      "first_published_at": "2026-06-19T08:09:43.000Z",
+      "content": {
+        "tags": [
+          {
+            "name": "Gelderland"
+          }
+        ],
+        "blocks": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Zijpendaalseweg 44\n6814 CL Arnhem\n"
+              },
+              {
+                "type": "text",
+                "text": "Website",
+                "marks": [
+                  {
+                    "type": "link",
+                    "attrs": {
+                      "href": "https://www.glk.nl/zypendaal/huis-zypendaal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

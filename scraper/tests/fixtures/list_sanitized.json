@@ -1,0 +1,49 @@
+{
+  "buildId": "mock-build-id",
+  "pageProps": {
+    "story": {
+      "name": "Deelnemende musea",
+      "content": {
+        "body": [
+          {
+            "contentAreas": [
+              {
+                "content": [
+                  {
+                    "component": "all-articles",
+                    "articles": [
+                      {
+                        "slug": "huis-zypendaal",
+                        "name": "Huis Zypendaal",
+                        "created_at": "2026-06-19T08:09:43.000Z",
+                        "content": {
+                          "tags": [
+                            {
+                              "name": "Gelderland"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "slug": "van-gogh-museum",
+                        "name": "Van Gogh Museum",
+                        "created_at": "2026-06-19T08:09:43.000Z",
+                        "content": {
+                          "tags": [
+                            {
+                              "name": "Noord-Holland"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "pageProps": {
+    "story": {
+      "slug": "van-gogh-museum",
+      "name": "Van Gogh Museum",
+      "first_published_at": "2026-06-19T08:09:43.000Z",
+      "content": {
+        "tags": [
+          {
+            "name": "Noord-Holland"
+          }
+        ],
+        "blocks": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Museumplein 6\n1071 DJ Amsterdam\n"
+              },
+              {
+                "type": "text",
+                "text": "Website",
+                "marks": [
+                  {
+                    "type": "link",
+                    "attrs": {
+                      "href": "https://www.vangoghmuseum.nl/nl"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

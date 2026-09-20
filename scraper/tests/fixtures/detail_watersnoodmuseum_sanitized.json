@@ -1,0 +1,39 @@
+{
+  "pageProps": {
+    "story": {
+      "slug": "watersnoodmuseum",
+      "name": "Watersnoodmuseum",
+      "first_published_at": "2026-06-19T08:09:43.000Z",
+      "content": {
+        "tags": [
+          {
+            "name": "Zeeland"
+          }
+        ],
+        "blocks": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Weg van de Buitenlandse Pers 5\n4305 RJ Ouwerkerk\n"
+              },
+              {
+                "type": "text",
+                "text": "Website",
+                "marks": [
+                  {
+                    "type": "link",
+                    "attrs": {
+                      "href": "https://watersnoodmuseum.nl/"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
