@@ -1,0 +1,16 @@
+{
+  "name": "museumwijzer-site",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.3.3",
+    "yaml": "^2.9.1"
+  }
+}

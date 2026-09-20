@@ -1,0 +1,22 @@
+---
+// Redirect root to default language /nl/
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/nl/" />
+    <title>Museumwijzer</title>
+    <script is:inline>
+      const lang = (navigator.language || 'nl').toLowerCase();
+      if (lang.startsWith('en')) {
+        window.location.replace('/en/');
+      } else {
+        window.location.replace('/nl/');
+      }
+    </script>
+  </head>
+  <body>
+    <p>Doorsturen naar <a href="/nl/">Nederlands</a> of <a href="/en/">English</a>...</p>
+  </body>
+</html>

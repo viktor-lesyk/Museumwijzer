@@ -1,0 +1,299 @@
+---
+import { languages, type Locale } from '../i18n/languages';
+import { useTranslations } from '../i18n/ui';
+import metaData from '../../../data/meta.json';
+
+interface Props {
+  title: string;
+  description?: string;
+  locale: Locale;
+  canonicalPath?: string;
+}
+
+const { title, description, locale, canonicalPath = '' } = Astro.props;
+const t = useTranslations(locale);
+const dir = languages[locale]?.dir || 'ltr';
+
+// Format last updated date from metaData.last_checked
+let formattedDate = 'onbekend';
+if (metaData?.last_checked) {
+  try {
+    const d = new Date(metaData.last_checked);
+    formattedDate = d.toLocaleDateString(locale === 'nl' ? 'nl-NL' : 'en-GB', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  } catch {
+    formattedDate = metaData.last_checked.slice(0, 10);
+  }
+}
+
+// Compute language alternate paths and canonical URLs
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://museumwijzer.nl';
+const currentPathWithoutLang = Astro.url.pathname.replace(/^\/(nl|en)/, '');
+const nlPath = `/nl${currentPathWithoutLang}`;
+const enPath = `/en${currentPathWithoutLang}`;
+const nlUrl = new URL(nlPath, siteOrigin).href;
+const enUrl = new URL(enPath, siteOrigin).href;
+const defaultUrl = new URL('/nl/', siteOrigin).href;
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
+---
+
+<!doctype html>
+<html lang={locale} dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>{title} — {t.siteTitle}</title>
+    <meta name="description" content={description || t.explainer} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Self-contained CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';"
+    />
+
+    <!-- Hreflang alternates -->
+    <link rel="alternate" hreflang="nl" href={nlUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={defaultUrl} />
+
+    <style is:global>
+      :root {
+        --color-bg: #f8fafc;
+        --color-surface: #ffffff;
+        --color-surface-hover: #f1f5f9;
+        --color-text: #0f172a;
+        --color-text-muted: #475569;
+        --color-border: #cbd5e1;
+        --color-border-light: #e2e8f0;
+        --color-primary: #1e3a5f;
+        --color-primary-hover: #0f233d;
+        --color-accent: #2563eb;
+        --color-badge-bg: #f0fdf4;
+        --color-badge-text: #166534;
+        --color-badge-border: #bbf7d0;
+        --color-warn-bg: #fffbeb;
+        --color-warn-border: #fde68a;
+        --color-warn-text: #92400e;
+        --max-width: 1100px;
+        --radius: 8px;
+        --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-bg: #0f172a;
+          --color-surface: #1e293b;
+          --color-surface-hover: #334155;
+          --color-text: #f8fafc;
+          --color-text-muted: #94a3b8;
+          --color-border: #334155;
+          --color-border-light: #1e293b;
+          --color-primary: #3b82f6;
+          --color-primary-hover: #60a5fa;
+          --color-accent: #60a5fa;
+          --color-badge-bg: #14532d;
+          --color-badge-text: #dcfce7;
+          --color-badge-border: #166534;
+          --color-warn-bg: #78350f;
+          --color-warn-border: #b45309;
+          --color-warn-text: #fef3c7;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      a {
+        color: var(--color-accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      a:hover {
+        color: var(--color-primary-hover);
+      }
+
+      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+        outline: 3px solid var(--color-accent);
+        outline-offset: 2px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 1.25rem;
+      }
+
+      .site-header {
+        background-color: var(--color-surface);
+        border-bottom: 1px solid var(--color-border);
+        padding: 1rem 0;
+      }
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: var(--color-text);
+      }
+
+      .brand-name {
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--color-primary);
+      }
+
+      .brand-tagline {
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--color-text);
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+      }
+
+      .nav-links a:hover {
+        color: var(--color-primary);
+        background-color: var(--color-surface-hover);
+      }
+
+      .lang-switcher {
+        display: flex;
+        gap: 0.25rem;
+        background-color: var(--color-bg);
+        padding: 0.25rem;
+        border-radius: var(--radius);
+        border: 1px solid var(--color-border);
+      }
+
+      .lang-switcher a {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 4px;
+        color: var(--color-text-muted);
+      }
+
+      .lang-switcher a.active {
+        background-color: var(--color-surface);
+        color: var(--color-text);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      }
+
+      main {
+        flex: 1;
+        padding: 2rem 0 4rem;
+      }
+
+      .site-footer {
+        background-color: var(--color-surface);
+        border-top: 1px solid var(--color-border);
+        padding: 2.5rem 0;
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-disclaimer {
+        padding: 1rem;
+        background-color: var(--color-bg);
+        border-radius: var(--radius);
+        border-inline-start: 4px solid var(--color-accent);
+      }
+
+      .footer-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+        font-size: 0.8rem;
+        border-top: 1px solid var(--color-border-light);
+        padding-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a href={`/${locale}/`} class="brand">
+          <span class="brand-name">{t.siteTitle}</span>
+          <span class="brand-tagline">{t.siteTagline}</span>
+        </a>
+
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links">
+            <li><a href={`/${locale}/`}>{t.navFinder}</a></li>
+            <li><a href={`/${locale}/about/`}>{t.navAbout}</a></li>
+            <li>
+              <div class="lang-switcher" aria-label="Language selector">
+                <a href={nlPath} class={locale === 'nl' ? 'active' : ''} aria-current={locale === 'nl' ? 'true' : undefined}>NL</a>
+                <a href={enPath} class={locale === 'en' ? 'active' : ''} aria-current={locale === 'en' ? 'true' : undefined}>EN</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-disclaimer">
+          <p><strong>{t.footerDisclaimer}</strong></p>
+        </div>
+        <div class="footer-meta">
+          <span><a href={t.officialListUrl} target="_blank" rel="noopener noreferrer">{t.footerDataSource}</a></span>
+          <span>{t.footerLastUpdated.replace('{date}', formattedDate)}</span>
+          <span>{t.footerGeodata}</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

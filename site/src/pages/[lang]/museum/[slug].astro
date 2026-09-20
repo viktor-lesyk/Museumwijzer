@@ -1,0 +1,355 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { type Locale } from '../../../i18n/languages';
+import { useTranslations } from '../../../i18n/ui';
+import museumsData from '../../../../../data/museums.json';
+
+export function getStaticPaths() {
+  const locales: Locale[] = ['nl', 'en'];
+  const paths = [];
+  for (const lang of locales) {
+    for (const museum of museumsData.museums) {
+      paths.push({
+        params: { lang, slug: museum.slug },
+        props: { museum },
+      });
+      // Also generate lowercase route alias for slugs with uppercase letters (e.g. Museum-Tromps-Huys)
+      const lowerSlug = museum.slug.toLowerCase();
+      if (lowerSlug !== museum.slug) {
+        paths.push({
+          params: { lang, slug: lowerSlug },
+          props: { museum },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+interface Props {
+  museum: (typeof museumsData.museums)[0];
+}
+
+const { lang, slug } = Astro.params as { lang: Locale; slug: string };
+const { museum } = Astro.props;
+const t = useTranslations(lang);
+
+// Localized official URL
+const officialUrl = museum.official_urls?.[lang] || museum.official_url;
+
+// Directions and map links
+const googleMapsQuery = encodeURIComponent(
+  `${museum.name}, ${museum.address?.street ? museum.address.street + ', ' : ''}${museum.city || ''}`
+);
+const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${googleMapsQuery}`;
+const appleMapsUrl = `https://maps.apple.com/?q=${googleMapsQuery}${museum.lat && museum.lon ? `&ll=${museum.lat},${museum.lon}` : ''}`;
+
+const osmUrl =
+  museum.lat && museum.lon
+    ? `https://www.openstreetmap.org/?mlat=${museum.lat}&mlon=${museum.lon}#map=16/${museum.lat}/${museum.lon}`
+    : null;
+---
+
+<Layout title={`${museum.name} — ${museum.city || 'Nederland'}`} locale={lang}>
+  <div class="container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <a href={`/${lang}/`} class="back-link">{t.backToFinder}</a>
+    </nav>
+
+    <article class="museum-detail-card">
+      <header class="detail-header">
+        <div class="detail-badges">
+          <span class="participation-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            {t.participatesNotice}
+          </span>
+          <span class="detail-province">{museum.province}</span>
+        </div>
+        <h1 class="detail-title">{museum.name}</h1>
+      </header>
+
+      <!-- Factual closure / opening hours advisory -->
+      <div class="closure-notice">
+        <span class="notice-icon" aria-hidden="true">ℹ️</span>
+        <p class="notice-text">{t.checkOpeningHours}</p>
+      </div>
+
+      <section class="detail-info-grid">
+        <div class="info-card">
+          <h2 class="info-heading">{t.address}</h2>
+          <div class="address-details">
+            {museum.address?.street && <p class="street-line">{museum.address.street}</p>}
+            <p class="city-line">
+              {museum.address?.postcode && <span class="postcode">{museum.address.postcode} </span>}
+              <span class="city-name">{museum.city}</span>
+            </p>
+            {museum.province && <p class="province-line">{t.province}: {museum.province}</p>}
+            {museum.municipality && museum.municipality !== museum.city && (
+              <p class="municipality-line">{t.municipality}: {museum.municipality}</p>
+            )}
+          </div>
+
+          <div class="map-links-container">
+            <a href={googleMapsUrl} class="btn-map" target="_blank" rel="noopener noreferrer">
+              📍 {t.openInGoogleMaps} ↗
+            </a>
+            <a href={appleMapsUrl} class="btn-map" target="_blank" rel="noopener noreferrer">
+              🧭 {t.openInAppleMaps} ↗
+            </a>
+            {osmUrl && (
+              <a href={osmUrl} class="btn-map" target="_blank" rel="noopener noreferrer">
+                🗺️ {t.openInOsm} ↗
+              </a>
+            )}
+          </div>
+        </div>
+
+        <div class="info-card links-card">
+          <h2 class="info-heading">Links & Tickets</h2>
+          <ul class="action-links">
+            <li>
+              <a href={officialUrl} class="link-item primary-link" target="_blank" rel="noopener noreferrer">
+                <span>{t.officialCampaignPage}</span>
+                <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+
+            {museum.museum_website && (
+              <li>
+                <a href={museum.museum_website} class="link-item secondary-link" target="_blank" rel="noopener noreferrer">
+                  <span>{t.museumWebsite}</span>
+                  <span class="arrow" aria-hidden="true">↗</span>
+                </a>
+              </li>
+            )}
+
+            <li>
+              <a href={t.requestTicketsUrl} class="link-item ticket-link" target="_blank" rel="noopener noreferrer">
+                <span>{t.requestTickets}</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </div>
+</Layout>
+
+<style>
+  .breadcrumb-nav {
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-text-muted);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .back-link:hover {
+    color: var(--color-text);
+    background-color: var(--color-surface-hover);
+  }
+
+  .museum-detail-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .detail-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 1.5rem;
+  }
+
+  .detail-badges {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .participation-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    border: 1px solid var(--color-badge-border);
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-badge-text);
+    border-radius: 50%;
+  }
+
+  .detail-province {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .detail-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-text);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .closure-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background-color: var(--color-warn-bg);
+    border: 1px solid var(--color-warn-border);
+    border-radius: var(--radius);
+    padding: 0.85rem 1.15rem;
+    margin: 1.25rem 0 2rem;
+    font-size: 0.95rem;
+    color: var(--color-warn-text);
+  }
+
+  .notice-icon {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  .notice-text {
+    line-height: 1.5;
+  }
+
+  .detail-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .info-heading {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-border-light);
+    padding-bottom: 0.5rem;
+  }
+
+  .address-details {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .street-line {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .city-name {
+    font-weight: 600;
+  }
+
+  .province-line, .municipality-line {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+
+  .map-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+  }
+
+  .btn-map {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .btn-map:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+  }
+
+  .action-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.1rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    transition: background-color 0.1s ease, border-color 0.1s ease;
+  }
+
+  .primary-link {
+    background-color: var(--color-surface);
+    color: var(--color-accent);
+  }
+
+  .primary-link:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+  }
+
+  .secondary-link {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .secondary-link:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-text);
+  }
+
+  .ticket-link {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+  }
+
+  .ticket-link:hover {
+    background-color: var(--color-primary-hover);
+    color: #ffffff;
+  }
+</style>

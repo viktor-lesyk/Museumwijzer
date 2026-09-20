@@ -1,0 +1,521 @@
+---
+import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import yaml from 'yaml';
+import Layout from '../../layouts/Layout.astro';
+import { languages, type Locale } from '../../i18n/languages';
+import { useTranslations } from '../../i18n/ui';
+import museumsData from '../../../../data/museums.json';
+import metaData from '../../../../data/meta.json';
+
+const aliasesPath = fileURLToPath(new URL('../../../../data/city-aliases.yaml', import.meta.url));
+const cityAliasesData = yaml.parse(fs.readFileSync(aliasesPath, 'utf-8')) || {};
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'nl' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = useTranslations(lang);
+const museums = museumsData.museums || [];
+
+let formattedDate = 'onbekend';
+if (metaData?.last_checked) {
+  try {
+    const d = new Date(metaData.last_checked);
+    formattedDate = d.toLocaleDateString(lang === 'nl' ? 'nl-NL' : 'en-GB', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  } catch {
+    formattedDate = metaData.last_checked.slice(0, 10);
+  }
+}
+
+function getCityAliases(m: any): string {
+  const aliases: string[] = [];
+  if (m.pdok_woonplaats && m.pdok_woonplaats !== m.city) {
+    aliases.push(m.pdok_woonplaats);
+  }
+  const normCity = (m.city || '').toLowerCase().trim();
+  for (const [alias, canonical] of Object.entries(cityAliasesData as Record<string, string>)) {
+    if (canonical.toLowerCase().trim() === normCity) {
+      aliases.push(alias);
+    }
+    if (alias.toLowerCase().trim() === normCity) {
+      aliases.push(canonical);
+    }
+  }
+  return aliases.join(', ');
+}
+
+// Collect unique provinces and cities for filter dropdowns
+const provinces = Array.from(new Set(museums.map((m) => m.province).filter(Boolean))).sort();
+const cities = Array.from(new Set(museums.map((m) => m.city).filter(Boolean))).sort();
+---
+
+<Layout title={t.siteTitle} locale={lang}>
+  <div class="container">
+    <!-- Hero / Explainer section (max 3 lines per §6.1) -->
+    <section class="hero-section">
+      <p class="hero-explainer">{t.explainer}</p>
+      <div class="hero-cta">
+        <a href={t.requestTicketsUrl} class="btn-primary" target="_blank" rel="noopener noreferrer">
+          {t.requestTickets} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Search & Filter Controls -->
+    <section class="search-section" aria-label="Museum search and filters">
+      <div class="search-box">
+        <label for="search-input" class="sr-only">{t.searchPlaceholder}</label>
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder={t.searchPlaceholder}
+          autocomplete="off"
+          autocapitalize="none"
+          spellcheck="false"
+        />
+      </div>
+
+      <div class="filter-controls">
+        <div class="select-wrapper">
+          <label for="province-select" class="sr-only">{t.filterByProvince}</label>
+          <select id="province-select" class="filter-select">
+            <option value="">{t.allProvinces}</option>
+            {provinces.map((p) => <option value={p}>{p}</option>)}
+          </select>
+        </div>
+
+        <div class="select-wrapper">
+          <label for="city-select" class="sr-only">{t.filterByCity}</label>
+          <select id="city-select" class="filter-select">
+            <option value="">{t.allCities}</option>
+            {cities.map((c) => <option value={c}>{c}</option>)}
+          </select>
+        </div>
+
+        <button type="button" id="clear-filters-btn" class="btn-secondary" style="display: none;">
+          {t.clearFilters}
+        </button>
+      </div>
+
+      <!-- Result counter and status banner -->
+      <div class="search-status" aria-live="polite">
+        <span id="results-count" class="results-count">
+          {t.resultsCount.replace('{count}', String(museums.length))}
+        </span>
+      </div>
+
+      <!-- "Does X participate?" not found message box -->
+      <div id="not-found-box" class="not-found-banner" style="display: none;">
+        <h3 id="not-found-title" class="not-found-title">{t.notFoundTitle.replace('{date}', formattedDate)}</h3>
+        <p id="not-found-text" class="not-found-desc">{t.notFoundText}</p>
+        <div class="not-found-cta">
+          <a href={t.officialListUrl} class="btn-outline" target="_blank" rel="noopener noreferrer">
+            {t.checkOfficialList} ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pre-rendered Museum Cards List (Progressive Enhancement) -->
+    <section class="museums-grid" id="museums-list" aria-label="Participating museums">
+      {
+        museums.map((m) => (
+          <article
+            class="museum-card"
+            data-slug={m.slug}
+            data-name={m.name}
+            data-province={m.province}
+            data-city={m.city || ''}
+            data-pdok-woonplaats={m.pdok_woonplaats || ''}
+            data-city-aliases={getCityAliases(m)}
+            data-street={m.address?.street || ''}
+            data-postcode={m.address?.postcode || ''}
+          >
+            <div class="card-header">
+              <span class="participation-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                {t.participatesNotice}
+              </span>
+              <span class="card-province">{m.province}</span>
+            </div>
+
+            <h2 class="card-title">
+              <a href={`/${lang}/museum/${m.slug}/`}>{m.name}</a>
+            </h2>
+
+            <div class="card-meta">
+              <span class="card-city">{m.city || 'Nederland'}</span>
+              {m.address?.street && <span class="card-address">{m.address.street}</span>}
+            </div>
+
+            <div class="card-footer">
+              <a href={`/${lang}/museum/${m.slug}/`} class="card-link">
+                {t.viewDetails} →
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .hero-section {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-explainer {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin-bottom: 1.25rem;
+    max-width: 75ch;
+  }
+
+  .hero-cta .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .hero-cta .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    color: #ffffff;
+  }
+
+  .search-section {
+    margin-bottom: 2rem;
+  }
+
+  .search-box {
+    margin-bottom: 1rem;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 0.85rem 1.25rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-family: inherit;
+  }
+
+  .search-input:focus {
+    border-color: var(--color-accent);
+  }
+
+  .filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .filter-select {
+    padding: 0.55rem 1rem;
+    font-size: 0.95rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .btn-secondary {
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .search-status {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .not-found-banner {
+    background-color: var(--color-warn-bg);
+    border: 1px solid var(--color-warn-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .not-found-title {
+    font-size: 1.25rem;
+    color: var(--color-warn-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .not-found-desc {
+    color: var(--color-text);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-text);
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-surface);
+  }
+
+  .museums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .museum-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+
+  .museum-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .participation-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    border: 1px solid var(--color-badge-border);
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-badge-text);
+    border-radius: 50%;
+  }
+
+  .card-province {
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-title a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .card-title a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .card-meta {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .card-city {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--color-border-light);
+    padding-top: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<!-- Progressive enhancement client search and filter script -->
+<script is:inline define:vars={{ cityAliases: cityAliasesData, notFoundTemplate: t.notFoundText, notFoundTitleTemplate: t.notFoundTitle, formattedDate: formattedDate, resultsCountTemplate: t.resultsCount, resultsCountSingleTemplate: t.resultsCountSingle }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    const provinceSelect = document.getElementById('province-select');
+    const citySelect = document.getElementById('city-select');
+    const clearBtn = document.getElementById('clear-filters-btn');
+    const resultsCountEl = document.getElementById('results-count');
+    const notFoundBox = document.getElementById('not-found-box');
+    const notFoundTitle = document.getElementById('not-found-title');
+    const notFoundText = document.getElementById('not-found-text');
+    const cards = Array.from(document.querySelectorAll('.museum-card'));
+
+    // Diacritic-insensitive normaliser (e.g. zypendaál -> zypendaal)
+    function normalize(str) {
+      if (!str) return '';
+      return str
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+    }
+
+    // Resolve city alias if known
+    function resolveAliases(term) {
+      const norm = normalize(term);
+      for (const [alias, canonical] of Object.entries(cityAliases || {})) {
+        if (normalize(alias) === norm) {
+          return normalize(canonical);
+        }
+      }
+      return norm;
+    }
+
+    function filterCards() {
+      const query = normalize(searchInput.value);
+      const queryAlias = resolveAliases(query);
+      const selectedProvince = provinceSelect.value;
+      const selectedCity = citySelect.value;
+
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const name = normalize(card.dataset.name);
+        const city = normalize(card.dataset.city);
+        const pdokCity = normalize(card.dataset.pdokWoonplaats);
+        const aliases = normalize(card.dataset.cityAliases);
+        const province = card.dataset.province;
+        const street = normalize(card.dataset.street);
+        const postcode = normalize(card.dataset.postcode);
+
+        const matchesQuery =
+          !query ||
+          name.includes(query) ||
+          name.includes(queryAlias) ||
+          city.includes(query) ||
+          city.includes(queryAlias) ||
+          pdokCity.includes(query) ||
+          pdokCity.includes(queryAlias) ||
+          aliases.includes(query) ||
+          aliases.includes(queryAlias) ||
+          province.toLowerCase().includes(query) ||
+          street.includes(query) ||
+          postcode.includes(query);
+
+        const matchesProvince = !selectedProvince || province === selectedProvince;
+        const matchesCity = !selectedCity || card.dataset.city === selectedCity;
+
+        const isVisible = matchesQuery && matchesProvince && matchesCity;
+        card.style.display = isVisible ? 'flex' : 'none';
+        if (isVisible) visibleCount++;
+      });
+
+      // Update result count text
+      if (visibleCount === 1) {
+        resultsCountEl.textContent = resultsCountSingleTemplate;
+      } else {
+        resultsCountEl.textContent = resultsCountTemplate.replace('{count}', String(visibleCount));
+      }
+
+      // Show/hide not-found banner
+      if (visibleCount === 0) {
+        notFoundBox.style.display = 'block';
+        if (notFoundTitle) {
+          notFoundTitle.textContent = notFoundTitleTemplate.replace('{date}', formattedDate);
+        }
+        notFoundText.textContent = notFoundTemplate.replace('{query}', searchInput.value);
+      } else {
+        notFoundBox.style.display = 'none';
+      }
+
+      // Show/hide clear filters button
+      if (query || selectedProvince || selectedCity) {
+        clearBtn.style.display = 'inline-block';
+      } else {
+        clearBtn.style.display = 'none';
+      }
+    }
+
+    searchInput.addEventListener('input', filterCards);
+    provinceSelect.addEventListener('change', filterCards);
+    citySelect.addEventListener('change', filterCards);
+
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      provinceSelect.value = '';
+      citySelect.value = '';
+      filterCards();
+      searchInput.focus();
+    });
+  });
+</script>

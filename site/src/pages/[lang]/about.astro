@@ -1,0 +1,189 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { type Locale } from '../../i18n/languages';
+import { useTranslations } from '../../i18n/ui';
+import metaData from '../../../../data/meta.json';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'nl' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = useTranslations(lang);
+
+let formattedDate = 'onbekend';
+if (metaData?.last_checked) {
+  try {
+    const d = new Date(metaData.last_checked);
+    formattedDate = d.toLocaleDateString(lang === 'nl' ? 'nl-NL' : 'en-GB', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  } catch {
+    formattedDate = metaData.last_checked.slice(0, 10);
+  }
+}
+---
+
+<Layout title={t.aboutTitle} locale={lang}>
+  <div class="container about-container">
+    <article class="about-article">
+      <header class="about-header">
+        <h1 class="about-main-title">{t.aboutTitle}</h1>
+        <div class="unofficial-badge">
+          <span>{lang === 'nl' ? 'Onafhankelijk & Onofficieel' : 'Independent & Unofficial'}</span>
+        </div>
+      </header>
+
+      <section class="about-section">
+        <h2>{t.aboutMission}</h2>
+        <p>{t.aboutMissionText}</p>
+      </section>
+
+      <section class="about-section">
+        <h2>{t.aboutTickets}</h2>
+        <p>{t.aboutTicketsText}</p>
+        <p>
+          <a href={t.requestTicketsUrl} class="btn-primary" target="_blank" rel="noopener noreferrer">
+            {t.requestTickets} →
+          </a>
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>{t.aboutPrivacy}</h2>
+        <p>{t.aboutPrivacyText}</p>
+      </section>
+
+      <section class="about-section">
+        <h2>{t.aboutSource}</h2>
+        <p>{t.aboutSourceText}</p>
+        <ul>
+          <li><strong>{t.footerDataSource}:</strong> <a href={t.officialListUrl} target="_blank" rel="noopener noreferrer">{t.officialListUrl}</a></li>
+          <li><strong>{t.footerLastUpdated.replace('{date}', formattedDate)}</strong></li>
+          <li><strong>{t.footerGeodata}</strong></li>
+        </ul>
+      </section>
+
+      <section class="about-section contact-section">
+        <h2>{lang === 'nl' ? 'Contact & Open Source' : 'Contact & Open Source'}</h2>
+        <p>
+          {lang === 'nl'
+            ? 'Museumwijzer is een open-source project onder de MIT-licentie. Voor correcties, vragen of opmerkingen kun je een melding openen op GitHub:'
+            : 'Museumwijzer is an open-source project under the MIT licence. To report data errors, corrections, or inquiries, please open an issue on GitHub:'}
+        </p>
+        <p>
+          <a href="https://github.com/museumwijzer/museumwijzer" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+            {t.githubLinkText} ↗
+          </a>
+        </p>
+      </section>
+    </article>
+  </div>
+</Layout>
+
+<style>
+  .about-container {
+    max-width: 800px;
+  }
+
+  .about-article {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .about-header {
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .about-main-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-text);
+  }
+
+  .unofficial-badge {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .about-section {
+    margin-bottom: 2rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .about-section p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .about-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    color: #ffffff;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-surface-hover);
+  }
+</style>
