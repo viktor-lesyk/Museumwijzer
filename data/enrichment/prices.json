@@ -1,0 +1,318 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-09-20T19:26:27.577949+00:00",
+  "total_museums": 20,
+  "museums": [
+    {
+      "slug": "anno",
+      "name": "ANNO",
+      "categories": [
+        "history"
+      ],
+      "price": {
+        "adult_eur": 12.5,
+        "note": "Online en aan kassa; begane grond en tuin vrij toegankelijk, museumzalen € 12,50.",
+        "source_url": "https://tickets.anno.nl/nl/tickets",
+        "quote": "Volwassenen € 12,50",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "discovery-museum",
+      "name": "Discovery Museum",
+      "categories": [
+        "science-technology"
+      ],
+      "price": {
+        "adult_eur": 18.0,
+        "note": "Regulier entreetarief vanaf 18 jaar.",
+        "source_url": "https://www.discoverymuseum.nl/plan-je-bezoek/openingstijden-prijzen/",
+        "quote": "Entree vanaf 18 jaar € 18,00",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "dordrechts-museum",
+      "name": "Dordrechts Museum",
+      "categories": [
+        "art",
+        "history"
+      ],
+      "price": {
+        "adult_eur": 17.0,
+        "note": "Reguliere toegangsprijs volwassenen; jeugd t/m 18 jaar gratis.",
+        "source_url": "https://www.dordrechtsmuseum.nl/praktische-informatie/",
+        "quote": "Toegangsprijzen Volwassenen € 17",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "fortresse-holland",
+      "name": "Fortresse Holland",
+      "categories": [
+        "heritage-site",
+        "history"
+      ],
+      "price": {
+        "adult_eur": 9.5,
+        "note": "Museumticket zonder rondleiding € 9,50; incl. rondleiding Droogdok Jan Blanken € 15,00.",
+        "source_url": "https://fortresseholland.nl/plan-uw-bezoek/",
+        "quote": "Museumticket zonder rondleiding 16 jaar en ouder – € 9,50",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "huis-zypendaal",
+      "name": "Huis Zypendaal",
+      "categories": [
+        "heritage-site",
+        "history"
+      ],
+      "price": {
+        "adult_eur": 13.5,
+        "note": "Reguliere entreeprijs inclusief rondleiding; park Zypendaal is vrij toegankelijk.",
+        "source_url": "https://www.glk.nl/zypendaal/huis-zypendaal/plan-je-bezoek",
+        "quote": "Entreeprijzen Volwassenen € 13,50",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "joods-museum",
+      "name": "Joods Museum",
+      "categories": [
+        "history",
+        "world-cultures"
+      ],
+      "price": {
+        "adult_eur": 20.0,
+        "note": "Online duoticket Joods Museum & Portugese Synagoge € 20; combiticket alle 4 locaties € 30 (+€ 2 aan kassa).",
+        "source_url": "https://jck.nl/plan-je-bezoek",
+        "quote": "Duoticket Joods Museum + junior en Portugese Synagoge Volwassenen € 20",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "kasteel-de-haar",
+      "name": "Kasteel de Haar",
+      "categories": [
+        "heritage-site",
+        "history"
+      ],
+      "price": {
+        "adult_eur": 21.5,
+        "note": "Volwassenentarief kasteel incl. toegang tuinen; los tuinticket kost € 8,00 - € 12,50.",
+        "source_url": "https://www.kasteeldehaar.nl/plan-je-bezoek/praktische-informatie/toegangsprijzen-kasteel-de-haar/",
+        "quote": "KASTEEL incl. toegang tuinen Volwassenen € 21,50",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "kasteel-radboud",
+      "name": "Kasteel Radboud",
+      "categories": [
+        "heritage-site",
+        "history"
+      ],
+      "price": {
+        "adult_eur": 10.5,
+        "note": "Regulier entreetarief vanaf 13 jaar; online boeking via WooCommerce winkel.",
+        "source_url": "https://kasteelradboud.nl/plan-je-bezoek/openingstijden/",
+        "quote": "Vanaf 13 jaar € 10,50",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "mauritshuis",
+      "name": "Mauritshuis",
+      "categories": [
+        "art"
+      ],
+      "price": {
+        "adult_eur": null,
+        "note": "Crawler geblokkeerd door robots.txt / Cloudflare (HTTP 403).",
+        "source_url": "https://www.mauritshuis.nl/",
+        "quote": null,
+        "checked_on": "2026-09-20",
+        "confidence": "blocked_by_robots"
+      }
+    },
+    {
+      "slug": "museum-martena",
+      "name": "Museum Martena",
+      "categories": [
+        "history",
+        "art"
+      ],
+      "price": {
+        "adult_eur": 6.0,
+        "note": "Regulier volwassenentarief; combikaarten met Planetarium of Keatsmuseum beschikbaar voor € 10,00.",
+        "source_url": "https://www.museummartena.nl/bezoekinformatie-museum/tickets-en-tarieven",
+        "quote": "Volwassenen : € 6,-",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museumprinsenhofdelft",
+      "name": "Museum Prinsenhof Delft",
+      "categories": [
+        "history",
+        "art"
+      ],
+      "price": {
+        "adult_eur": null,
+        "note": "Tijdelijk gesloten wegens renovatie t/m eind 2026; geen reguliere kaartverkoop.",
+        "source_url": "https://www.museumprinsenhofdelft.nl/",
+        "quote": "Museum Prinsenhof Delft is tijdelijk gesloten voor verbouwing en vernieuwing.",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "nationaal-monument-kamp-amersfoort",
+      "name": "Nationaal Monument Kamp Amersfoort",
+      "categories": [
+        "history"
+      ],
+      "price": {
+        "adult_eur": 14.0,
+        "note": "Regulier volwassenentarief voor het herinneringscentrum; buitenterrein vrij toegankelijk.",
+        "source_url": "https://kampamersfoort.nl/bezoek/",
+        "quote": "TOEGANGSPRIJZEN Volwassenen € 14",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "nationaal-monument-kamp-vught",
+      "name": "Nationaal Monument Kamp Vught",
+      "categories": [
+        "history"
+      ],
+      "price": {
+        "adult_eur": 12.0,
+        "note": "Combikaartje voor hoofdgebouw en Barak 1B inclusief plattegrond en audiotour; betaling aan de balie.",
+        "source_url": "https://www.nmkampvught.nl/museumbezoek/",
+        "quote": "Volwassenen : € 12,00",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "nemo-science-museum",
+      "name": "NEMO Science Museum",
+      "categories": [
+        "science-technology"
+      ],
+      "price": {
+        "adult_eur": 21.5,
+        "note": "Online ticket met starttijd; gelijk tarief voor alle bezoekers vanaf 4 jaar.",
+        "source_url": "https://tickets.nemosciencemuseum.nl/nl/tickets",
+        "quote": "Ticket 18 jaar en ouder € 21,50",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "rijksmuseum",
+      "name": "Rijksmuseum",
+      "categories": [
+        "art",
+        "history"
+      ],
+      "price": {
+        "adult_eur": 25.0,
+        "note": "Online ticket met starttijd; reguliere volwassenenprijs (jeugd t/m 18 jaar gratis).",
+        "source_url": "https://www.rijksmuseum.nl/nl/tickets",
+        "quote": "Volwassenen € 25,00",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "sint-jan-de-doper",
+      "name": "Sint Jan de Doper",
+      "price": {
+        "admission": "free",
+        "status": "free",
+        "adult_eur": 0.0,
+        "quote": "Toegang is gratis, een vrijwillige bijdrage wordt erg op prijs gesteld.",
+        "source_url": "https://www.vriendensintjanwaalwijk.nl/grootstemuseum",
+        "reason": "The website explicitly states that access to the church/museum is free, though donations are welcome.",
+        "confidence": "high",
+        "entered_by": "agent",
+        "checked_on": "2026-09-20"
+      }
+    },
+    {
+      "slug": "spoorwegmuseum",
+      "name": "Het Spoorwegmuseum",
+      "categories": [
+        "history",
+        "science-technology"
+      ],
+      "price": {
+        "adult_eur": 19.5,
+        "note": "Regulier entreetarief per persoon (vanaf 4 jaar).",
+        "source_url": "https://www.spoorwegmuseum.nl/bezoek/bezoekersinformatie/",
+        "quote": "Toegangsprijzen per persoon Entree € 19,50",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "stedelijk-museum-zutphen",
+      "name": "Stedelijk Museum Zutphen",
+      "categories": [
+        "history",
+        "art"
+      ],
+      "price": {
+        "adult_eur": 11.0,
+        "note": "Los ticket Stedelijk Museum Zutphen € 11; combiticket met Museum Henriette Polak € 19.",
+        "source_url": "https://museazutphen.nl/stedelijk-museum-zutphen/plan-je-bezoek/",
+        "quote": "Stedelijk Museum Zutphen Entree vanaf 13 jaar € 11",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "van-gogh-museum",
+      "name": "Van Gogh Museum",
+      "categories": [
+        "art"
+      ],
+      "price": {
+        "adult_eur": 25.0,
+        "note": "Verplicht online ticket met starttijd; jeugd onder 18 jaar gratis.",
+        "source_url": "https://www.vangoghmuseum.nl/nl/bezoek/tickets-en-toegangsprijzen",
+        "quote": "Volwassenen: € 25.",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "watersnoodmuseum",
+      "name": "Watersnoodmuseum",
+      "categories": [
+        "history"
+      ],
+      "price": {
+        "adult_eur": 16.0,
+        "note": "Online ticket voor volwassenen (vanaf 12 jaar).",
+        "source_url": "https://ticket.watersnoodmuseum.nl/",
+        "quote": "Volwassenen (vanaf 12 jaar) € 16,00",
+        "checked_on": "2026-09-20",
+        "confidence": "high"
+      }
+    }
+  ]
+}

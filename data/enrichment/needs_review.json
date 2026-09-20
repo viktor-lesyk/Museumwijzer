@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-09-20T19:26:27.578661+00:00",
+  "total_needs_review": 1,
+  "records": [
+    {
+      "slug": "joods-museum",
+      "name": "Joods Museum",
+      "price": {
+        "admission": "unknown",
+        "status": "combo_only",
+        "adult_eur": null,
+        "quote": "Combiticket Bezoek alle vier locaties Volwassenen € 30",
+        "source_url": "https://jck.nl/plan-je-bezoek",
+        "reason": "The website only lists 'Combiticket' (all 4 locations), 'Duoticket' (2 locations), and 'Los ticket' for the Nationaal Holocaustmuseum. No individual single-entry ticket for the Joods Museum is listed.",
+        "confidence": "medium",
+        "entered_by": "agent",
+        "checked_on": "2026-09-20"
+      },
+      "gate_failures": [
+        "Combo rejection gate: Quote contains forbidden combo/duo keyword 'combiticket': 'Combiticket Bezoek alle vier locaties Volwassenen € 30'"
+      ],
+      "verifier_verdict": "skipped",
+      "verifier_justification": "Gates failed",
+      "timestamp": "2026-09-20T19:26:27.577938+00:00"
+    }
+  ]
+}
