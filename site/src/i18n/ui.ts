@@ -83,6 +83,7 @@ export const ui = {
     saveNote: 'Opslaan',
     cancelNote: 'Annuleren',
     deleteNote: 'Wissen',
+    listStorageNotice: 'Je lijst wordt alleen op dit apparaat bewaard. Gebruik de deellink of exporteer om een back-up te maken.',
 
     // Near Me Geolocation strings
     nearMeButton: 'In mijn buurt',
@@ -192,6 +193,7 @@ export const ui = {
     saveNote: 'Save',
     cancelNote: 'Cancel',
     deleteNote: 'Delete',
+    listStorageNotice: 'Your list is stored only on this device. Use the share link or export to back it up.',
 
     // Near Me Geolocation strings
     nearMeButton: 'Near me',
@@ -302,6 +304,7 @@ export const ui = {
     saveNote: 'Зберегти',
     cancelNote: 'Скасувати',
     deleteNote: 'Видалити',
+    listStorageNotice: 'Ваш список зберігається лише на цьому пристрої. Використовуйте посилання або експорт, щоб створити резервну копію.',
 
     // Near Me Geolocation strings
     nearMeButton: 'Поруч зі мною',

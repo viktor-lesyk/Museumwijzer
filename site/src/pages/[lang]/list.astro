@@ -40,6 +40,10 @@ for (const m of allMuseums) {
           <span id="list-stats-badge" class="stats-badge" style="display: none;"></span>
         </div>
         <p class="page-subtitle">{t.myListSubtitle}</p>
+        <p class="storage-notice">
+          <span class="storage-notice-icon" aria-hidden="true">💾</span>
+          {t.listStorageNotice}
+        </p>
       </div>
 
       <!-- Action Toolbar -->
@@ -190,6 +194,25 @@ for (const m of allMuseums) {
     color: var(--color-text-muted);
     max-width: 60ch;
     line-height: 1.5;
+  }
+
+  .storage-notice {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .storage-notice-icon {
+    font-size: 0.95rem;
+    flex-shrink: 0;
   }
 
   /* Toolbar */

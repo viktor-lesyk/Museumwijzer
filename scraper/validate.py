@@ -45,6 +45,7 @@ class MuseumModel(BaseModel):
     first_seen: str
     programmes: List[str] = Field(default_factory=lambda: ["welkom-in-het-museum"])
     status: str = "active"
+    consecutive_missing: int = 0
 
 
 class MuseumsDataFileModel(BaseModel):

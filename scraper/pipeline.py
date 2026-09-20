@@ -30,6 +30,51 @@ logging.basicConfig(
 logger = logging.getLogger("scraper.pipeline")
 
 
+def merge_soft_deleted_museums(
+    processed_museums: List[Dict[str, Any]],
+    old_dataset: Optional[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """
+    Merge newly-scraped museums with previous dataset records.
+    - Freshly-scraped museums get status='active' and consecutive_missing=0.
+    - If a museum is missing for 1 scrape run, it retains status='active' with consecutive_missing=1.
+    - If a museum is missing for 2+ consecutive runs, its status transitions to 'removed'.
+    - If a museum was already 'removed', it remains 'removed'.
+    - Returns sorted list (active first, then removed, alphabetically by slug).
+    """
+    result = list(processed_museums)
+    for m in result:
+        m.setdefault("status", "active")
+        m["consecutive_missing"] = 0
+
+    if old_dataset and "museums" in old_dataset:
+        current_slugs = {m["slug"] for m in result if m.get("slug")}
+        for om in old_dataset["museums"]:
+            old_slug = om.get("slug")
+            if not old_slug:
+                continue
+            if old_slug not in current_slugs:
+                preserved_record = dict(om)
+                consecutive = om.get("consecutive_missing", 0) + 1
+                preserved_record["consecutive_missing"] = consecutive
+                if consecutive >= 2 or om.get("status") == "removed":
+                    preserved_record["status"] = "removed"
+                    logger.warning(
+                        f"Museum '{old_slug}' was absent in {consecutive} consecutive runs — "
+                        f"marking as status='removed'. Data preserved."
+                    )
+                else:
+                    preserved_record["status"] = "active"
+                    logger.warning(
+                        f"Museum '{old_slug}' was absent in this scrape (run 1/2) — "
+                        f"retaining status='active' (consecutive_missing=1) until 2nd consecutive absence."
+                    )
+                result.append(preserved_record)
+
+    result.sort(key=lambda m: (m.get("status", "active") == "removed", m.get("slug", "")))
+    return result
+
+
 class Pipeline:
     """End-to-end data pipeline: fetch -> parse -> normalise -> geocode -> overrides -> validate -> write."""
 
@@ -199,32 +244,8 @@ class Pipeline:
 
             processed_museums.append(museum_record)
 
-        # Mark all freshly-scraped museums as active
-        for m in processed_museums:
-            m.setdefault("status", "active")
-
-        # Soft-delete: carry forward any museum that was previously active but is
-        # absent from this scrape, marking it as "removed" (data preserved, not deleted).
-        # Also re-include previously-removed museums so they stay in the file.
-        if old_dataset and "museums" in old_dataset:
-            current_slugs = {m["slug"] for m in processed_museums}
-            for om in old_dataset["museums"]:
-                old_slug = om.get("slug")
-                if not old_slug:
-                    continue
-                if old_slug not in current_slugs:
-                    # Not found in this scrape — soft-delete or keep as removed
-                    removed_record = dict(om)
-                    removed_record["status"] = "removed"
-                    processed_museums.append(removed_record)
-                    if om.get("status", "active") != "removed":
-                        logger.warning(
-                            f"Museum '{old_slug}' was not found in this scrape — "
-                            f"marking as status='removed'. Data preserved."
-                        )
-
-        # Sort: active first (alphabetically), then removed
-        processed_museums.sort(key=lambda m: (m.get("status", "active") == "removed", m["slug"]))
+        # Soft-delete merge: handles 2-consecutive-runs requirement and sorting
+        processed_museums = merge_soft_deleted_museums(processed_museums, old_dataset)
 
 
         # 4. Save geocode cache

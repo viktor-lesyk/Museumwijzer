@@ -244,8 +244,10 @@ const pageTitle =
                 data-slug={m.slug}
                 title={t.addToList}
                 aria-label={t.addToList}
+                aria-pressed="false"
               >
                 <span class="heart-icon" aria-hidden="true">🤍</span>
+                <span class="sr-only card-list-btn-text">{t.addToList}</span>
               </button>
             </div>
 
@@ -932,16 +934,20 @@ const pageTitle =
         if (!btn) return;
         const inList = list.some((item) => (typeof item === 'string' ? item : item.slug) === slug);
         const icon = btn.querySelector('.heart-icon');
+        const textSpan = btn.querySelector('.card-list-btn-text');
+        btn.setAttribute('aria-pressed', inList ? 'true' : 'false');
         if (inList) {
           btn.classList.add('in-list');
           btn.title = inYourListText;
           btn.setAttribute('aria-label', inYourListText);
           if (icon) icon.textContent = '❤️';
+          if (textSpan) textSpan.textContent = inYourListText;
         } else {
           btn.classList.remove('in-list');
           btn.title = addToListText;
           btn.setAttribute('aria-label', addToListText);
           if (icon) icon.textContent = '🤍';
+          if (textSpan) textSpan.textContent = addToListText;
         }
       });
     }

@@ -30,7 +30,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "Museum-Tromps-Huys",
@@ -58,7 +59,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "Museumhuis-sloetjes1",
@@ -86,7 +88,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "Textiel-museum",
@@ -114,7 +117,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "allard-pierson-museum",
@@ -142,7 +146,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "anne-frank-huis",
@@ -170,7 +175,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "anno",
@@ -198,7 +204,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "archeon",
@@ -226,7 +233,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "artis-groote-museum",
@@ -254,7 +262,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "aviodrome",
@@ -282,7 +291,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "beeld-geluid-hilversum",
@@ -310,7 +320,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "bevrijdingsmuseum-zeeland",
@@ -338,7 +349,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "bonnefanten",
@@ -366,7 +378,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "buitenplaats-beeckestijn",
@@ -394,7 +407,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "centraal-museum",
@@ -422,7 +436,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "cobra-museum",
@@ -450,7 +465,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "cruquiusmuseum",
@@ -478,7 +494,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "czaar-peterhuisje",
@@ -506,7 +523,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "de-bastei",
@@ -534,7 +552,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "de-elleboogkerk",
@@ -562,7 +581,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "de-mesdag-collectie",
@@ -590,7 +610,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "de-museumfabriek",
@@ -618,7 +639,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "de-nieuwe-kerk",
@@ -646,7 +668,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "de-oude-kerk",
@@ -674,7 +697,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "depot-boijmans-van-beuningen",
@@ -702,7 +726,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "design-museum-den-bosch",
@@ -730,7 +755,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "discovery-museum",
@@ -758,7 +784,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "domunder",
@@ -786,7 +813,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "dordrechts-museum",
@@ -814,7 +842,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "drents-museum",
@@ -842,7 +871,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "drents-museum-de-buitenplaats",
@@ -870,7 +900,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "eusebiuskerk",
@@ -898,7 +929,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "eye-filmmuseum",
@@ -926,7 +958,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "foam-fotografiemuseum",
@@ -954,7 +987,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "forteiland-pampus",
@@ -982,7 +1016,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "fortresse-holland",
@@ -1010,7 +1045,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "forum-groningen",
@@ -1038,7 +1074,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "fotomuseum-aan-het-vrijthof",
@@ -1066,7 +1103,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "fotomuseum-den-haag",
@@ -1094,7 +1132,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "fraeylemaborg",
@@ -1122,7 +1161,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "frans-hals-museum",
@@ -1150,7 +1190,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "fries-museum",
@@ -1178,7 +1219,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "gemeenlandshuis-amsterdam",
@@ -1206,7 +1248,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "gemeentemuseum-het-hannemahuis",
@@ -1234,7 +1277,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "gevangenismuseum",
@@ -1262,7 +1306,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "groninger-museum",
@@ -1290,7 +1335,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "haags-historisch-museum",
@@ -1318,7 +1364,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "herinneringscentrum-kamp-westerbork",
@@ -1346,7 +1393,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "het-nieuwe-instituut",
@@ -1374,7 +1422,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "het-scheepvaartmuseum",
@@ -1402,7 +1451,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "hof-van-nederland",
@@ -1430,7 +1480,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "huis-sonneveld",
@@ -1458,7 +1509,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "huis-van-eysinga",
@@ -1486,7 +1538,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "huis-van-gijn",
@@ -1514,7 +1567,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "huis-van-meerten",
@@ -1542,7 +1596,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "huis-verwolde",
@@ -1570,7 +1625,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "huis-willet-holthuysen",
@@ -1598,7 +1654,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "huis-zypendaal",
@@ -1626,7 +1683,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "hunebedcentrum",
@@ -1654,7 +1712,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "huygens-museum-hofwijck",
@@ -1682,7 +1741,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "huygens-museum-notarishuis",
@@ -1710,7 +1770,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "japanmuseum-sieboldhuis",
@@ -1738,7 +1799,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "joods-museum",
@@ -1766,7 +1828,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "jopie-huisman-museum",
@@ -1794,7 +1857,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-ammersoyen",
@@ -1822,7 +1886,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-cannenburch",
@@ -1850,7 +1915,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-de-haar",
@@ -1878,7 +1944,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-doorwerth",
@@ -1906,7 +1973,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-hernen",
@@ -1934,7 +2002,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-het-nijenhuis",
@@ -1962,7 +2031,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-hoensbroek",
@@ -1990,7 +2060,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-radboud",
@@ -2018,7 +2089,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-rosendael",
@@ -2046,7 +2118,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kasteel-ruurlo",
@@ -2074,7 +2147,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "keramiekmuseum-princessehof",
@@ -2102,7 +2176,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "km21",
@@ -2130,7 +2205,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "koepelkathedraal",
@@ -2158,7 +2234,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kroller-muller-museum",
@@ -2186,7 +2263,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kunsthal-kade",
@@ -2214,7 +2292,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kunsthal-rotterdam",
@@ -2242,7 +2321,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kunstlinie",
@@ -2270,7 +2350,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kunstlinie-kunsthal",
@@ -2298,7 +2379,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "kunstmuseum-den-haag",
@@ -2326,7 +2408,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "lalique-museum",
@@ -2354,7 +2437,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "landhuis-oud-amelisweerd",
@@ -2382,7 +2466,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "limburgs-museum",
@@ -2410,7 +2495,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "louwman-museum",
@@ -2438,7 +2524,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "madurodam",
@@ -2466,7 +2553,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "marie-tak-van-poortvliet-museum-domburg",
@@ -2494,7 +2582,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "marinemuseum",
@@ -2522,7 +2611,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "mariniersmuseum",
@@ -2550,7 +2640,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "maritiem-museum-rotterdam",
@@ -2578,7 +2669,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "marius-van-dokkum-museum",
@@ -2606,7 +2698,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "markiezenhof",
@@ -2634,7 +2727,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "mauritshuis",
@@ -2662,7 +2756,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "micropia",
@@ -2690,7 +2785,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "molenmuseum",
@@ -2718,7 +2814,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "mondriaanhuis",
@@ -2746,7 +2843,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museon-omniversum",
@@ -2774,7 +2872,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-arnhem",
@@ -2802,7 +2901,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-batavialand",
@@ -2830,7 +2930,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-beelden-aan-zee",
@@ -2858,7 +2959,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-belvedere",
@@ -2886,7 +2988,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-broekerveiling",
@@ -2914,7 +3017,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-catharijneconvent",
@@ -2942,7 +3046,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-de-dageraad",
@@ -2970,7 +3075,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-de-fundatie",
@@ -2998,7 +3104,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-de-lakenhal",
@@ -3026,7 +3133,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-de-proefkolonie",
@@ -3054,7 +3162,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-engelandvaarders",
@@ -3082,7 +3191,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-flehite",
@@ -3110,7 +3220,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-gouda",
@@ -3138,7 +3249,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-helmond",
@@ -3166,7 +3278,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-henriette-polak",
@@ -3194,7 +3307,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-het-rembrandthuis",
@@ -3222,7 +3336,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-het-schip",
@@ -3250,7 +3365,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-het-valkhof",
@@ -3278,7 +3394,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-huis-doorn",
@@ -3306,7 +3423,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-jan-cunen",
@@ -3334,7 +3452,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-kaap-skil",
@@ -3362,7 +3481,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-klok-peel",
@@ -3390,7 +3510,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-martena",
@@ -3418,7 +3539,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-more",
@@ -3446,7 +3568,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-nienoord",
@@ -3474,7 +3597,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-panorama-mesdag",
@@ -3502,7 +3626,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-rotterdam",
@@ -3530,7 +3655,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-schokland",
@@ -3558,7 +3684,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-speelklok",
@@ -3586,7 +3713,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-tachtigjarige-oorlog",
@@ -3614,7 +3742,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-van-bommel-van-dam",
@@ -3642,7 +3771,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-van-de-20e-eeuw",
@@ -3670,7 +3800,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-van-de-geest-dolhuys",
@@ -3698,7 +3829,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museum-volkenkunde",
@@ -3726,7 +3858,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museumhuis-barnaart",
@@ -3754,7 +3887,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museumhuis-bartolotti",
@@ -3782,7 +3916,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museumhuis-polman",
@@ -3810,7 +3945,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museumhuis-rams-woerthe",
@@ -3838,7 +3974,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museumprinsenhofdelft",
@@ -3866,7 +4003,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museumstoomtram",
@@ -3894,7 +4032,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "museumstoomtram-hoorn-medemblik",
@@ -3922,7 +4061,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nationaal-glasmuseum",
@@ -3950,7 +4090,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nationaal-holocaustmuseum",
@@ -3978,7 +4119,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nationaal-militair-museum",
@@ -4006,7 +4148,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nationaal-monument-kamp-amersfoort",
@@ -4034,7 +4177,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nationaal-monument-kamp-vught",
@@ -4062,7 +4206,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nationaal-monument-oranjehotel",
@@ -4090,7 +4235,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nationaal-onderduikmuseum",
@@ -4118,7 +4264,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "naturalis-biodiversity-center",
@@ -4146,7 +4293,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "natuurmuseum-brabant",
@@ -4174,7 +4322,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "natuurmuseum-frysian",
@@ -4202,7 +4351,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nederlands-fotomuseum",
@@ -4230,7 +4380,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nederlands-openluchtmuseum",
@@ -4258,7 +4409,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nederlands-zilvermuseum-schoonhoven",
@@ -4286,7 +4438,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nemo-science-museum",
@@ -4314,7 +4467,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "nijntje-museum",
@@ -4342,7 +4496,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "noordbrabants-museum",
@@ -4370,7 +4525,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "oorlogsmuseum-overloon",
@@ -4398,7 +4554,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "oyfo-techniekmuseum",
@@ -4426,7 +4583,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "paleis-het-loo",
@@ -4454,7 +4612,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "paleis-lofen",
@@ -4482,7 +4641,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "portugese-synagoge",
@@ -4510,7 +4670,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "rietveld-schroederhuis",
@@ -4538,7 +4699,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "rijksmuseum",
@@ -4566,7 +4728,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "rijksmuseum-boerhaave",
@@ -4594,7 +4757,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "rijksmuseum-de-gevangenpoort",
@@ -4622,7 +4786,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "rijksmuseum-muiderslot",
@@ -4650,7 +4815,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "rijksmuseum-twenthe",
@@ -4678,7 +4844,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "rijksmuseum-van-oudheden",
@@ -4706,7 +4873,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "schunck",
@@ -4734,7 +4902,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "singer-laren",
@@ -4762,7 +4931,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "sint-jan-de-doper",
@@ -4790,7 +4960,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "sint-jan-gouda",
@@ -4818,7 +4989,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "sonnenborgh",
@@ -4846,7 +5018,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "sovjet-ereveld-experience",
@@ -4874,7 +5047,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "space-expo",
@@ -4902,7 +5076,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "spoorwegmuseum",
@@ -4930,7 +5105,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "stadsmuseum-harderwijk",
@@ -4958,7 +5134,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "stedelijk-museum-alkmaar",
@@ -4986,7 +5163,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "stedelijk-museum-amsterdam",
@@ -5014,7 +5192,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "stedelijk-museum-breda",
@@ -5042,7 +5221,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "stedelijk-museum-schiedam",
@@ -5070,7 +5250,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "stedelijk-museum-zutphen",
@@ -5098,7 +5279,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "storyworld",
@@ -5126,7 +5308,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "teylers-museum",
@@ -5154,7 +5337,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "universiteits-museum-utrecht",
@@ -5182,7 +5366,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "van-abbemuseum",
@@ -5210,7 +5395,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "van-gogh-museum",
@@ -5238,7 +5424,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "verzetsmuseum-amsterdam",
@@ -5266,7 +5453,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "vrijheidsmuseum",
@@ -5294,7 +5482,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "watersnoodmuseum",
@@ -5322,7 +5511,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "wereldmuseum-amsterdam",
@@ -5350,7 +5540,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "zaans-museum",
@@ -5378,7 +5569,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "zeeuws-maritiem-muzeeum",
@@ -5406,7 +5598,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "zeeuws-museum",
@@ -5434,7 +5627,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     },
     {
       "slug": "zuiderzeemuseum",
@@ -5462,7 +5656,8 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "status": "active"
+      "status": "active",
+      "consecutive_missing": 0
     }
   ]
 }
