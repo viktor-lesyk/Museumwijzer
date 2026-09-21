@@ -74,81 +74,157 @@ Enrichment operates independently from the weekly scraping pipeline:
 
 ---
 
-## 3. Deterministic Code Gates
+## 2.1 Expanded Price Schema
 
-Before invoking the verifier model, code gates validate the extraction:
-1. **Domain & Link Provenance:** `source_url` domain must match `museum_website` domain or subdomain, or be reached by following internal links from the root website.
-2. **Literal Verbatim Presence:** The claimed numerical price and supporting quote (≤ 15 words) must appear verbatim in the page text.
-3. **Admission Validity:**
-   - Paid: `adult_eur` between €1.00 and €45.00; `admission: "paid"`.
-   - Free: Requires an explicit quote proving free general admission for all adults (free-for-children does not qualify); `adult_eur: 0.0`.
-4. **Combo / Duo Rejection:** Quotes containing `"combo"`, `"combi"`, `"duo"`, or `"gezamenlijk"` are rejected to `needs_review`.
-5. **YoY Change Check:** If a price changes by >30% compared to the previous run, it is flagged for human review.
+The admission price schema (`enrich/jobs/price_adult.yaml`) captures admission pricing with sorting and filtering capabilities:
+
+```yaml
+status: "paid" | "free" | "closed" | "combo_only" | "blocked_by_bot_protection" | "not_found" | "unknown"
+primary_adult_eur: number | null  # Standard single-entry adult ticket in EUR (1.00 - 45.00 for paid, 0.0 for free, null otherwise)
+free_for:                         # Audiences with free admission (controlled vocabulary)
+  - children_under_4
+  - children_under_12
+  - children_under_18
+  - youth
+  - students
+  - seniors
+  - museumkaart
+  - vriendenloterij_vip_kaart
+  - icom
+  - rembrandtkaart
+  - everyone
+  - other
+combo_available: boolean | null   # Whether combination tickets are sold alongside single entry
+offerings:                        # Full ticket offering list (Phase 2)
+  - audience: "adult" | "youth" | "child" | "student" | "senior" | "family" | "group" | "other"
+    amount_eur: number | null
+    label: string                 # Up to 8 words as on the page
+    conditions: string | null     # e.g. '18-25 years'
+quote: string | null              # Literal supporting quote from page (maximum 15 words)
+source_url: string | null         # Exact URL where price and quote were found
+reason: string
+confidence: "high" | "medium" | "low" | "blocked_by_bot_protection" | "blocked_by_robots"
+entered_by: "agent" | "manual"
+mode: "agentic" | "fallback"
+extractor_model: string
+verifier_model: string
+checked_on: string                # YYYY-MM-DD
+```
+
+### Confidence Calibration:
+- **High:** A single clearly labelled adult ticket price found directly on the official primary or ticketing subpage.
+- **Medium:** Multi-tier pricing (e.g. peak vs off-peak, castle vs gardens, online vs door), secondary subpage, or complex options.
+- **Low / Needs Review:** Inferred or ambiguous prices.
 
 ---
 
-## 4. How to Add a New Enrichment Job
+## 2.2 Escalation Ladder & Retry Architecture
 
-Jobs are defined declaratively in YAML under `enrich/jobs/<job_name>.yaml`.
+Extraction runs with an automatic two-step recovery ladder before routing to `needs_review.json`:
 
-### Example Job Definition (`enrich/jobs/closure_status.yaml`):
-```yaml
-field: closure_status
-title: "Museum Closure and Renovation Status"
-description_en: >-
-  Determine whether the museum is currently open to visitors, temporarily closed
-  for renovation/rebuilding, or permanently closed.
-output_schema:
-  type: object
-  properties:
-    is_open:
-      type: boolean
-    closure_reason:
-      type: ["string", "null"]
-    expected_reopening:
-      type: ["string", "null"]
-    quote:
-      type: ["string", "null"]
-    source_url:
-      type: ["string", "null"]
-  required: ["is_open"]
-plausibility:
-  forbidden_quote_keywords: []
-refresh_interval_days: 90
-```
+1. **Quote Length Immediate Retry:**
+   If the extraction is valid and all gates pass except that the supporting quote exceeds 15 words, the orchestrator initiates an immediate single-turn retry instructing the model to trim the quote to ≤ 15 words while preserving literal page wording.
+2. **Model Escalation Ladder:**
+   If the primary extractor model fails gates, an optional stronger escalation model (`ENRICH_ESCALATION_MODEL`, e.g. `meta-llama/llama-3.3-70b-instruct`) is invoked for a secondary extraction attempt.
+   - Guardrail: The escalation model is checked at initialization to ensure it belongs to a **different model family** from the independent verifier.
 
-Future jobs such as `opening_days`, `closure_status`, or `categories` can be added simply by creating a YAML specification in `enrich/jobs/` and implementing any job-specific deterministic gate checks.
+---
+
+## 3. Deterministic Code Gates
+
+Before invoking the verifier model, code gates validate the extraction deterministically (no LLM):
+1. **Domain & Link Provenance:** `source_url` domain must match `museum_website` domain or subdomain, or be reached by following internal links from the root website.
+2. **Literal Verbatim Presence:** The claimed numerical price and supporting quote (≤ 15 words) must appear verbatim in the page text.
+3. **Admission Validity:**
+   - Paid: `primary_adult_eur` between €1.00 and €45.00; `status: "paid"`.
+   - Free: Requires an explicit quote proving free general admission for all adults (free-for-children does not qualify); `primary_adult_eur: 0.0`.
+4. **Combo / Duo Rejection:** Quotes containing `"combo"`, `"combi"`, `"duo"`, `"gezamenlijk"`, or `"combiticket"` are rejected to `needs_review`.
+5. **Year-over-Year (YoY) Change Flag:** If a price changes by >30% compared to the previous run, it is flagged for human review.
+
+---
+
+## 3.1 Independent Verifier Methodology & Statistical Evaluation
+
+### Isolation Guarantees:
+1. **Zero Contamination:** The verifier receives strictly `{museum_name, museum_website, source_url, claimed_value, status}` and sanitized page text inside `<untrusted_web_content>` tags.
+2. **No Extractor Reasoning:** The verifier never sees the extractor's thoughts, intermediate steps, or rationale.
+3. **Deterministic Sampling:** Verified at `temperature: 0.0`.
+4. **Strict Cross-Family Requirement:** Evaluated by `assert_different_model_families`.
+
+### Adversarial Evaluation Suite:
+The verifier is benchmarked against **30 test cases** partitioned into a 20-case baseline suite and a 10-case hold-out suite from completely new museum pages. Metrics are statistically grounded using **two-sided 95% Wilson score confidence intervals**:
+
+| Suite Cohort | Total Cases | Wrong Claims Rejected (95% CI) | Positive Controls Confirmed (95% CI) | Verifier-Only Semantic Catch Rate (95% CI) |
+|---|---|---|---|---|
+| **Baseline Suite** | 20 (12 wrong, 8 correct) | **100.0%** (12/12) `[75.8% – 100.0%]` | **100.0%** (8/8) `[67.6% – 100.0%]` | **100.0%** (8/8) `[67.6% – 100.0%]` |
+| **Hold-Out Suite** | 10 (5 wrong, 5 correct) | **100.0%** (5/5) `[56.6% – 100.0%]` | **100.0%** (5/5) `[56.6% – 100.0%]` | **100.0%** (5/5) `[56.6% – 100.0%]` |
+| **Combined Overall** | **30 (17 wrong, 13 correct)** | **100.0%** (17/17) `[81.6% – 100.0%]` | **100.0%** (13/13) `[77.2% – 100.0%]` | **100.0%** (13/13) `[77.2% – 100.0%]` |
+
+#### Gate Catches vs Semantic Verifier Catches:
+- **Deterministic Gate Catches (4 cases):** Invented prices not on page (`W5`), combi keywords (`W3`), prices out of bounds (`W11`), and foreign museum domains (`W12`).
+- **Verifier-Only Semantic Catches (13 cases):** Real, validly formatted prices on live pages that belong to other audiences: child free entry claimed as adult (`W1`, `H_W4`, `H_W5`), student discounts (`W9`, `H_W1`, `H_W2`), youth tariffs (`H_W3`), member/Museumkaart passes (`W8`), group discounts (`W7`), audio tour bundles (`W10`), and stale historical prices (`W4`). These pass all deterministic gates and require LLM semantic reasoning.
+
+---
+
+## 4. Identity Discovery & Address Verification Jobs
+
+Identity jobs operate under a strict governance model: **they NEVER modify `data/overrides.yaml` directly**. All candidate updates are written strictly to `data/enrichment/proposals.json` for human inspection and bulk approval.
+
+### Jobs:
+1. **`website` (`enrich/jobs/website.yaml`):**
+   - Discovers official homepages for museums missing `museum_website` (10 active venues).
+   - **Aggregator Blacklist:** Rejects TripAdvisor, Wikipedia, Museum.nl, WhichMuseum, Facebook, Instagram, TikTok, VVV, municipal news portals, and booking engines.
+   - **Identity Proof:** Requires candidate page to match the museum's distinctive name and city tokens.
+2. **`address_check` (`enrich/jobs/address_check.yaml`):**
+   - Visits official contact/route pages (`/contact`, `/route`, `/bereikbaarheid`).
+   - Extracts Dutch postal codes and street addresses.
+   - Detects discrepancies against `data/museums.json` and proposes corrections to `proposals.json`.
 
 ---
 
 ## 5. CLI Usage & Commands
 
-The enrichment framework provides three primary commands via `python -m enrich`:
+The enrichment CLI (`python -m enrich`) provides commands for extraction, identity audits, and proposals management:
 
-### Run Enrichment Job
+### Run Enrichment Jobs
 ```bash
-# Run adult ticket enrichment on all museums in agentic mode
+# Run adult ticket enrichment on all museums in agentic mode (default)
 python -m enrich run --job price_adult --mode agentic
 
-# Run on a specific museum in fallback mode
-python -m enrich run --slug van-gogh-museum --mode fallback
+# Run website discovery on museums lacking websites
+python -m enrich run --job website
 
-# Resume an interrupted run (skipping museums already in prices.json)
+# Run address discrepancy check against official contact pages
+python -m enrich run --job address_check
+
+# Target a specific museum slug
+python -m enrich run --job price_adult --slug van-gogh-museum
+
+# Resume an interrupted run
 python -m enrich run --job price_adult --resume
 
 # Process only records requiring refresh (>540 days old)
 python -m enrich run --job price_adult --only-stale
 ```
 
-### Identity Audit (`audit-identity`)
-Audits all active museum records by fetching each museum's homepage, extracting `<title>` and `<h1>`, and confirming that distinctive tokens from the museum name and city match:
+### Review Proposals
 ```bash
-python -m enrich audit-identity
+# List all pending proposals awaiting bulk approval
+python -m enrich proposals
 ```
 
-### Spot Check Audit (`audit`)
-Randomly samples accepted rows from `data/enrichment/prices.json` for human inspection:
+### Generate Detailed Reports
 ```bash
+# Print summary breakdown of accepted records vs needs_review categories
+python -m enrich report
+```
+
+### Auditing
+```bash
+# Audit all museum homepages for title/H1 identity mismatches
+python -m enrich audit-identity
+
+# Spot check 10 randomly sampled accepted records
 python -m enrich audit --sample 10
 ```
 
