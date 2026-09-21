@@ -125,27 +125,39 @@ def main():
     job = JobDefinition.load("price_adult")
     museums = load_pilot_records()
 
-    # Run Fallback mode
-    fallback_report = run_mode(
-        mode="fallback",
-        museums=museums,
-        base_url=base_url,
-        api_key=api_key,
-        extractor_model=extractor_model,
-        verifier_model=verifier_model,
-        job=job,
-    )
+    import argparse
+    parser = argparse.ArgumentParser(description="Run pilot comparison or single mode across 20 museums")
+    parser.add_argument("--mode", choices=["agentic", "fallback", "both"], default="agentic", help="Execution mode (default: agentic)")
+    parser.add_argument("--record", action="store_true", default=True, help="Record results to prices.json and needs_review.json")
+    args = parser.parse_args()
 
-    # Run Agentic mode
-    agentic_report = run_mode(
-        mode="agentic",
-        museums=museums,
-        base_url=base_url,
-        api_key=api_key,
-        extractor_model=extractor_model,
-        verifier_model=verifier_model,
-        job=job,
-    )
+    fallback_report = None
+    agentic_report = None
+
+    if args.mode in ("fallback", "both"):
+        fallback_report = run_mode(
+            mode="fallback",
+            museums=museums,
+            base_url=base_url,
+            api_key=api_key,
+            extractor_model=extractor_model,
+            verifier_model=verifier_model,
+            job=job,
+        )
+
+    if args.mode in ("agentic", "both"):
+        agentic_report = run_mode(
+            mode="agentic",
+            museums=museums,
+            base_url=base_url,
+            api_key=api_key,
+            extractor_model=extractor_model,
+            verifier_model=verifier_model,
+            job=job,
+        )
+        if args.record:
+            acc, rev = record_results(agentic_report["results"])
+            print(f"\nRecorded agentic results: {acc} accepted, {rev} needs_review in data/enrichment/")
 
     comparison = {
         "pilot_museums_count": len(museums),
@@ -161,18 +173,27 @@ def main():
     with open(REPORT_OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(comparison, f, indent=2, ensure_ascii=False)
 
-    print("\n" + "=" * 75)
-    print("=== DRY RUN COMPARISON SUMMARY (20 PILOT MUSEUMS) ===")
-    print("=" * 75)
-    print(f"{'Metric':<30} | {'Fallback Mode':<18} | {'Agentic Mode':<18}")
-    print("-" * 75)
-    print(f"{'Accepted':<30} | {fallback_report['accepted_count']:<18} | {agentic_report['accepted_count']:<18}")
-    print(f"{'Needs Review':<30} | {fallback_report['needs_review_count']:<18} | {agentic_report['needs_review_count']:<18}")
-    print(f"{'Total Tool / Page Calls':<30} | {fallback_report['total_tool_calls']:<18} | {agentic_report['total_tool_calls']:<18}")
-    print(f"{'Avg Calls / Museum':<30} | {fallback_report['avg_tool_calls_per_museum']:<18} | {agentic_report['avg_tool_calls_per_museum']:<18}")
-    print(f"{'Total Time (s)':<30} | {fallback_report['total_time_seconds']:<18} | {agentic_report['total_time_seconds']:<18}")
-    print(f"{'Avg Time / Museum (s)':<30} | {fallback_report['avg_time_per_museum']:<18} | {agentic_report['avg_time_per_museum']:<18}")
-    print("=" * 75)
+    if fallback_report and agentic_report:
+        print("\n" + "=" * 75)
+        print("=== DRY RUN COMPARISON SUMMARY (20 PILOT MUSEUMS) ===")
+        print("=" * 75)
+        print(f"{'Metric':<30} | {'Fallback Mode':<18} | {'Agentic Mode':<18}")
+        print("-" * 75)
+        print(f"{'Accepted':<30} | {fallback_report['accepted_count']:<18} | {agentic_report['accepted_count']:<18}")
+        print(f"{'Needs Review':<30} | {fallback_report['needs_review_count']:<18} | {agentic_report['needs_review_count']:<18}")
+        print(f"{'Total Tool / Page Calls':<30} | {fallback_report['total_tool_calls']:<18} | {agentic_report['total_tool_calls']:<18}")
+        print(f"{'Avg Calls / Museum':<30} | {fallback_report['avg_tool_calls_per_museum']:<18} | {agentic_report['avg_tool_calls_per_museum']:<18}")
+        print(f"{'Total Time (s)':<30} | {fallback_report['total_time_seconds']:<18} | {agentic_report['total_time_seconds']:<18}")
+        print(f"{'Avg Time / Museum (s)':<30} | {fallback_report['avg_time_per_museum']:<18} | {agentic_report['avg_time_per_museum']:<18}")
+        print("=" * 75)
+    elif agentic_report:
+        print("\n" + "=" * 65)
+        print("=== AGENTIC PILOT RUN SUMMARY (20 MUSEUMS) ===")
+        print(f"Accepted:     {agentic_report['accepted_count']}/{len(museums)}")
+        print(f"Needs Review: {agentic_report['needs_review_count']}/{len(museums)}")
+        print(f"Tool Calls:   {agentic_report['total_tool_calls']} (avg {agentic_report['avg_tool_calls_per_museum']} / museum)")
+        print(f"Time Taken:   {agentic_report['total_time_seconds']}s")
+        print("=" * 65)
 
 
 if __name__ == "__main__":
