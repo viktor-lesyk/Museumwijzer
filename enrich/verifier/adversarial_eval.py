@@ -10,6 +10,7 @@ Reports:
 (c) Verifier-only rate on semantic cases, separated from gate catches.
 """
 
+import math
 from dataclasses import dataclass
 import json
 import logging
@@ -28,6 +29,28 @@ logger = logging.getLogger("enrich.adversarial_eval")
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
 
+def wilson_score_interval(successes: int, total: int, confidence: float = 0.95) -> Tuple[float, float]:
+    """Calculate the two-sided Wilson score confidence interval for a binomial proportion.
+
+    Returns (lower_pct, upper_pct) bounded between 0.0 and 100.0.
+    """
+    if total <= 0:
+        return 0.0, 100.0
+
+    # For 95% confidence, z ~ 1.95996
+    z = 1.959963984540054 if confidence == 0.95 else 1.6448536269514722
+    p_hat = successes / total
+    z2 = z * z
+    denom = 1.0 + z2 / total
+    center = (p_hat + z2 / (2.0 * total)) / denom
+    std_err = math.sqrt((p_hat * (1.0 - p_hat) / total) + (z2 / (4.0 * total * total)))
+    margin = (z / denom) * std_err
+
+    lower = max(0.0, center - margin) * 100.0
+    upper = min(1.0, center + margin) * 100.0
+    return round(lower, 1), round(upper, 1)
+
+
 @dataclass
 class TestCase:
     id: str
@@ -40,6 +63,7 @@ class TestCase:
     status: str
     quote: Optional[str]
     description: str
+    is_holdout: bool = False
 
 
 ADVERSARIAL_TEST_CASES: List[TestCase] = [
@@ -289,10 +313,197 @@ ADVERSARIAL_TEST_CASES: List[TestCase] = [
 ]
 
 
+HOLD_OUT_TEST_CASES: List[TestCase] = [
+    # --- 5 HOLD-OUT POSITIVE CONTROLS (Authentic & Correct from New Unused Museum Pages) ---
+    TestCase(
+        id="H_C1",
+        category="correct",
+        semantic_subtype="positive_control",
+        museum_name="Van Gogh Museum",
+        museum_website="https://www.vangoghmuseum.nl/",
+        source_url="https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices",
+        claimed_price=25.00,
+        status="paid",
+        quote="Adults: € 25.",
+        description="Authentic standard adult ticket on Van Gogh Museum tickets subpage",
+        is_holdout=True,
+    ),
+    TestCase(
+        id="H_C2",
+        category="correct",
+        semantic_subtype="positive_control",
+        museum_name="Stedelijk Museum Amsterdam",
+        museum_website="https://www.stedelijk.nl/",
+        source_url="https://www.stedelijk.nl/nl",
+        claimed_price=22.50,
+        status="paid",
+        quote="Volwassenen: € 22,50",
+        description="Authentic standard adult ticket on Stedelijk Museum Amsterdam homepage",
+        is_holdout=True,
+    ),
+    TestCase(
+        id="H_C3",
+        category="correct",
+        semantic_subtype="positive_control",
+        museum_name="Marius van Dokkum Museum",
+        museum_website="https://www.mariusvandokkummuseum.nl/",
+        source_url="https://www.mariusvandokkummuseum.nl/",
+        claimed_price=15.00,
+        status="paid",
+        quote="Volwassenen € 15",
+        description="Authentic standard adult ticket on Marius van Dokkum Museum homepage",
+        is_holdout=True,
+    ),
+    TestCase(
+        id="H_C4",
+        category="correct",
+        semantic_subtype="positive_control",
+        museum_name="Paleis Lofen",
+        museum_website="https://www.paleislofen.nl/",
+        source_url="https://www.paleislofen.nl/bezoek/",
+        claimed_price=13.50,
+        status="paid",
+        quote="Volwassene € 13,50",
+        description="Authentic standard adult ticket on Paleis Lofen visit page",
+        is_holdout=True,
+    ),
+    TestCase(
+        id="H_C5",
+        category="correct",
+        semantic_subtype="positive_control",
+        museum_name="Nationaal Museum Tachtigjarige Oorlog",
+        museum_website="https://www.nmto.nl/",
+        source_url="https://www.nmto.nl",
+        claimed_price=12.50,
+        status="paid",
+        quote="Volwassenen: €12,50",
+        description="Authentic standard adult ticket on NMTO Groenlo homepage",
+        is_holdout=True,
+    ),
+
+    # --- 5 HOLD-OUT KNOWN-WRONG CLAIMS (Pure Semantic Non-Adult Discounts) ---
+    TestCase(
+        id="H_W1",
+        category="wrong",
+        semantic_subtype="student_discount",
+        museum_name="Van Gogh Museum",
+        museum_website="https://www.vangoghmuseum.nl/",
+        source_url="https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices",
+        claimed_price=16.00,
+        status="paid",
+        quote="Students: € 16",
+        description="Student discount claimed as regular adult ticket at Van Gogh Museum",
+        is_holdout=True,
+    ),
+    TestCase(
+        id="H_W2",
+        category="wrong",
+        semantic_subtype="student_discount",
+        museum_name="Stedelijk Museum Amsterdam",
+        museum_website="https://www.stedelijk.nl/",
+        source_url="https://www.stedelijk.nl/nl",
+        claimed_price=12.50,
+        status="paid",
+        quote="Student & CJP: € 12,50",
+        description="Student / CJP tariff claimed as regular adult ticket at Stedelijk Museum",
+        is_holdout=True,
+    ),
+    TestCase(
+        id="H_W3",
+        category="wrong",
+        semantic_subtype="youth_price",
+        museum_name="Marius van Dokkum Museum",
+        museum_website="https://www.mariusvandokkummuseum.nl/",
+        source_url="https://www.mariusvandokkummuseum.nl/",
+        claimed_price=5.00,
+        status="paid",
+        quote="Jongeren 13 t/m 18 jaar € 5",
+        description="Youth admission tariff claimed as regular adult ticket at Marius van Dokkum Museum",
+        is_holdout=True,
+    ),
+    TestCase(
+        id="H_W4",
+        category="wrong",
+        semantic_subtype="child_price",
+        museum_name="Paleis Lofen",
+        museum_website="https://www.paleislofen.nl/",
+        source_url="https://www.paleislofen.nl/bezoek/",
+        claimed_price=10.00,
+        status="paid",
+        quote="Student / Kind (adviesleeftijd vanaf 8 jaar) € 10,-",
+        description="Child / student discounted rate claimed as adult ticket at Paleis Lofen",
+        is_holdout=True,
+    ),
+    TestCase(
+        id="H_W5",
+        category="wrong",
+        semantic_subtype="child_price",
+        museum_name="Nationaal Museum Tachtigjarige Oorlog",
+        museum_website="https://www.nmto.nl/",
+        source_url="https://www.nmto.nl",
+        claimed_price=7.50,
+        status="paid",
+        quote="(5-12 jaar): €7,50",
+        description="Child ticket rate claimed as regular adult ticket at NMTO",
+        is_holdout=True,
+    ),
+]
+
+ALL_TEST_CASES = ADVERSARIAL_TEST_CASES + HOLD_OUT_TEST_CASES
+
+
+def evaluate_cohort(cohort_results: List[Dict[str, Any]], cohort_name: str) -> Dict[str, Any]:
+    wrong_cases = [r for r in cohort_results if r["category"] == "wrong"]
+    correct_cases = [r for r in cohort_results if r["category"] == "correct"]
+
+    # (a) Rejection rate on wrong claims (Consensus)
+    wrong_rejected_count = sum(1 for r in wrong_cases if r["consensus_rejected"])
+    rejection_rate = (wrong_rejected_count / len(wrong_cases)) * 100.0 if wrong_cases else 0.0
+    wrong_ci = wilson_score_interval(wrong_rejected_count, len(wrong_cases))
+
+    # (b) Confirm rate on correct claims (Consensus)
+    correct_confirmed_count = sum(1 for r in correct_cases if r["consensus_confirmed"])
+    confirm_rate = (correct_confirmed_count / len(correct_cases)) * 100.0 if correct_cases else 0.0
+    correct_ci = wilson_score_interval(correct_confirmed_count, len(correct_cases))
+
+    # (c) Verifier-only rate on semantic cases, separated from gate catches
+    semantic_subtypes = {
+        "child_price", "combo_price", "wrong_museum", "stale_price",
+        "group_rate", "pass_discount", "student_discount", "youth_price", "addon_bundle",
+    }
+    semantic_wrong_cases = [r for r in wrong_cases if r["subtype"] in semantic_subtypes]
+    verifier_only_semantic_rejects = sum(1 for r in semantic_wrong_cases if r["verifier_verdict"] in ("reject", "unsure"))
+    verifier_semantic_rate = (verifier_only_semantic_rejects / len(semantic_wrong_cases)) * 100.0 if semantic_wrong_cases else 0.0
+    semantic_ci = wilson_score_interval(verifier_only_semantic_rejects, len(semantic_wrong_cases))
+
+    gate_catches = sum(1 for r in wrong_cases if not r["gates_passed"])
+    verifier_catches = sum(1 for r in wrong_cases if r["verifier_verdict"] in ("reject", "unsure"))
+
+    return {
+        "cohort_name": cohort_name,
+        "total_cases": len(cohort_results),
+        "wrong_count": len(wrong_cases),
+        "wrong_rejected": wrong_rejected_count,
+        "rejection_rate_pct": round(rejection_rate, 1),
+        "rejection_ci_95": wrong_ci,
+        "correct_count": len(correct_cases),
+        "correct_confirmed": correct_confirmed_count,
+        "confirm_rate_pct": round(confirm_rate, 1),
+        "confirm_ci_95": correct_ci,
+        "semantic_wrong_count": len(semantic_wrong_cases),
+        "semantic_rejected": verifier_only_semantic_rejects,
+        "semantic_rate_pct": round(verifier_semantic_rate, 1),
+        "semantic_ci_95": semantic_ci,
+        "gate_catches": gate_catches,
+        "verifier_catches": verifier_catches,
+    }
+
+
 def run_adversarial_eval(
     verifier_model: Optional[str] = None,
     base_url: Optional[str] = None,
     api_key: Optional[str] = None,
+    include_holdout: bool = True,
 ) -> Dict[str, Any]:
     base_url = base_url or os.environ.get("ENRICH_BASE_URL", "https://openrouter.ai/api/v1")
     api_key = api_key or os.environ.get("ENRICH_API_KEY") or os.environ.get("OPENROUTER_API_KEY")
@@ -302,16 +513,19 @@ def run_adversarial_eval(
     fetcher = PoliteFetcher()
     verifier = IndependentVerifier(client, verifier_model=verifier_model)
 
-    print("=" * 65)
+    test_cases = ALL_TEST_CASES if include_holdout else ADVERSARIAL_TEST_CASES
+
+    print("=" * 70)
     print("=== ADVERSARIAL VERIFIER EVALUATION ===")
     print(f"Verifier Model: {verifier_model}")
-    print(f"Total Test Cases: {len(ADVERSARIAL_TEST_CASES)} (12 wrong, 8 positive controls)")
-    print("=" * 65)
+    print(f"Total Test Cases: {len(test_cases)} (Baseline: {len(ADVERSARIAL_TEST_CASES)}, Hold-out: {len(HOLD_OUT_TEST_CASES) if include_holdout else 0})")
+    print("=" * 70)
 
     results = []
 
-    for tc in ADVERSARIAL_TEST_CASES:
-        print(f"\n[{tc.id}] {tc.description}")
+    for tc in test_cases:
+        prefix = "[HOLD-OUT] " if tc.is_holdout else ""
+        print(f"\n{prefix}[{tc.id}] {tc.description}")
         print(f"     Target: {tc.museum_name} | Claim: €{tc.claimed_price} (status: {tc.status})")
 
         # Fetch page
@@ -340,7 +554,7 @@ def run_adversarial_eval(
             fetcher=fetcher,
         )
 
-        # 2. Evaluate Verifier Model Alone (even if gates failed, to measure semantic verifier performance)
+        # 2. Evaluate Verifier Model Alone
         v_result = verifier.verify(
             museum_name=tc.museum_name,
             museum_website=tc.museum_website,
@@ -351,14 +565,12 @@ def run_adversarial_eval(
         )
 
         v_verdict = v_result.get("verdict")  # 'confirm', 'reject', 'unsure'
-        v_rejected = v_verdict in ("reject", "unsure")
-
-        # Overall Consensus Decision: gates must pass AND verifier must confirm
         consensus_confirmed = gates_passed and v_verdict == "confirm"
         consensus_rejected = not consensus_confirmed
 
         rec = {
             "id": tc.id,
+            "is_holdout": tc.is_holdout,
             "category": tc.category,
             "subtype": tc.semantic_subtype,
             "description": tc.description,
@@ -376,52 +588,40 @@ def run_adversarial_eval(
         print(f"     Verifier: {v_verdict.upper()} ({v_result.get('justification')})")
         print(f"     -> Consensus: {status_str}")
 
-    # Compute Metrics
-    wrong_cases = [r for r in results if r["category"] == "wrong"]
-    correct_cases = [r for r in results if r["category"] == "correct"]
+    # Cohort analyses
+    baseline_results = [r for r in results if not r["is_holdout"]]
+    holdout_results = [r for r in results if r["is_holdout"]]
 
-    # (a) Rejection rate on wrong claims (Consensus)
-    wrong_rejected_count = sum(1 for r in wrong_cases if r["consensus_rejected"])
-    rejection_rate = (wrong_rejected_count / len(wrong_cases)) * 100.0 if wrong_cases else 0.0
+    baseline_metrics = evaluate_cohort(baseline_results, "Baseline Suite (20 cases)")
+    holdout_metrics = evaluate_cohort(holdout_results, "Hold-out Suite (10 cases)") if holdout_results else None
+    combined_metrics = evaluate_cohort(results, f"Combined Suite ({len(results)} cases)")
 
-    # (b) Confirm rate on correct claims (Consensus)
-    correct_confirmed_count = sum(1 for r in correct_cases if r["consensus_confirmed"])
-    confirm_rate = (correct_confirmed_count / len(correct_cases)) * 100.0 if correct_cases else 0.0
+    def print_metrics_block(m: Dict[str, Any]):
+        print(f"\n--- {m['cohort_name']} ---")
+        print(f"  1. Rejection Rate on Wrong Claims:     {m['rejection_rate_pct']:.1f}% ({m['wrong_rejected']}/{m['wrong_count']}) "
+              f"[95% Wilson CI: {m['rejection_ci_95'][0]:.1f}% – {m['rejection_ci_95'][1]:.1f}%]")
+        print(f"  2. Confirm Rate on Positive Controls:  {m['confirm_rate_pct']:.1f}% ({m['correct_confirmed']}/{m['correct_count']}) "
+              f"[95% Wilson CI: {m['confirm_ci_95'][0]:.1f}% – {m['confirm_ci_95'][1]:.1f}%]")
+        print(f"  3. Verifier-Only Semantic Catch Rate:  {m['semantic_rate_pct']:.1f}% ({m['semantic_rejected']}/{m['semantic_wrong_count']}) "
+              f"[95% Wilson CI: {m['semantic_ci_95'][0]:.1f}% – {m['semantic_ci_95'][1]:.1f}%]")
+        print(f"     • Deterministic Gate catches:       {m['gate_catches']}/{m['wrong_count']}")
+        print(f"     • Verifier Model catches:           {m['verifier_catches']}/{m['wrong_count']}")
 
-    # (c) Verifier-only rate on semantic cases (child, combo, wrong museum, other offering),
-    # separated from cases where deterministic gates already catch them.
-    semantic_subtypes = {"child_price", "combo_price", "wrong_museum", "stale_price", "group_rate", "pass_discount", "student_discount", "addon_bundle"}
-    semantic_wrong_cases = [r for r in wrong_cases if r["subtype"] in semantic_subtypes]
-    verifier_only_semantic_rejects = sum(1 for r in semantic_wrong_cases if r["verifier_verdict"] in ("reject", "unsure"))
-    verifier_semantic_rate = (verifier_only_semantic_rejects / len(semantic_wrong_cases)) * 100.0 if semantic_wrong_cases else 0.0
+    print("\n" + "=" * 70)
+    print("=== STATISTICAL ADVERSARIAL EVALUATION REPORT ===")
+    print_metrics_block(baseline_metrics)
+    if holdout_metrics:
+        print_metrics_block(holdout_metrics)
+    print_metrics_block(combined_metrics)
+    print("=" * 70)
 
-    # Gate catches vs Verifier catches
-    gate_catches = sum(1 for r in wrong_cases if not r["gates_passed"])
-    verifier_catches = sum(1 for r in wrong_cases if r["verifier_verdict"] in ("reject", "unsure"))
-
-    summary = {
+    return {
         "verifier_model": verifier_model,
-        "total_test_cases": len(results),
-        "wrong_cases_count": len(wrong_cases),
-        "correct_cases_count": len(correct_cases),
-        "rejection_rate_wrong_claims_pct": round(rejection_rate, 1),
-        "confirm_rate_correct_claims_pct": round(confirm_rate, 1),
-        "verifier_semantic_reject_rate_pct": round(verifier_semantic_rate, 1),
-        "gate_catches_count": gate_catches,
-        "verifier_catches_count": verifier_catches,
+        "baseline": baseline_metrics,
+        "holdout": holdout_metrics,
+        "combined": combined_metrics,
         "results": results,
     }
-
-    print("\n" + "=" * 65)
-    print("=== ADVERSARIAL EVALUATION REPORT ===")
-    print(f"1. Rejection Rate on Known-Wrong Claims: {rejection_rate:.1f}% ({wrong_rejected_count}/{len(wrong_cases)})")
-    print(f"2. Confirm Rate on Correct Positive Controls: {confirm_rate:.1f}% ({correct_confirmed_count}/{len(correct_cases)})")
-    print(f"3. Verifier-Only Rate on Semantic Cases: {verifier_semantic_rate:.1f}% ({verifier_only_semantic_rejects}/{len(semantic_wrong_cases)})")
-    print(f"   - Deterministic Gate catches: {gate_catches}/{len(wrong_cases)}")
-    print(f"   - Verifier Model catches:     {verifier_catches}/{len(wrong_cases)}")
-    print("=" * 65)
-
-    return summary
 
 
 if __name__ == "__main__":
