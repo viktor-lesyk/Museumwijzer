@@ -26,8 +26,10 @@ def load_env_file():
 load_env_file()
 
 from enrich.audit_identity import run_identity_audit
+from enrich.identity import run_identity_job
 from enrich.jobs.base import JobDefinition, list_available_jobs
 from enrich.ops.audit import run_spot_check_audit
+from enrich.ops.proposals import load_proposals
 from enrich.ops.storage import load_json, record_results
 from enrich.runner.orchestrator import EnrichmentOrchestrator
 
@@ -206,7 +208,28 @@ def main():
     # 4. report command
     report_parser = subparsers.add_parser("report", help="Print detailed report of accepted vs needs_review records")
 
+    # 5. proposals command
+    proposals_parser = subparsers.add_parser("proposals", help="List pending identity and address proposals from data/enrichment/proposals.json")
+
     args = parser.parse_args()
+
+    if args.command == "proposals":
+        proposals = load_proposals()
+        print("\n" + "=" * 65)
+        print("=== PENDING ENRICHMENT PROPOSALS (data/enrichment/proposals.json) ===")
+        print(f"Total proposals pending bulk review: {len(proposals)}")
+        print("=" * 65)
+        if not proposals:
+            print("No pending proposals found.")
+        for p in proposals:
+            print(f"\n• Slug:       {p.get('slug')} [{p.get('field')}]")
+            print(f"  Proposed:   {p.get('proposed_value')}")
+            print(f"  Evidence:   {p.get('evidence_url')}")
+            print(f"  Quote:      {p.get('quote')}")
+            print(f"  Confidence: {p.get('confidence')} | Date: {p.get('checked_on')}")
+            print(f"  Reason:     {p.get('reason')}")
+        print("=" * 65 + "\n")
+        return
 
     if args.command == "report":
         print_detailed_report()
@@ -221,6 +244,10 @@ def main():
         return
 
     if args.command == "run":
+        if args.job in ("website", "address_check"):
+            run_identity_job(job_name=args.job, slug=args.slug, limit=args.limit)
+            return
+
         job = JobDefinition.load(args.job)
         base_url = args.base_url or os.environ.get("ENRICH_BASE_URL", "http://localhost:11434/v1")
         api_key = args.api_key or os.environ.get("ENRICH_API_KEY") or os.environ.get("OPENAI_API_KEY") or os.environ.get("OPENROUTER_API_KEY")

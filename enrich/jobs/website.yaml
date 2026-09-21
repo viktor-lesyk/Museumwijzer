@@ -1,0 +1,58 @@
+field: website
+title: "Official Museum Website Discovery"
+description_en: >-
+  Discover and verify the official primary website for a museum missing its website.
+  Must be the museum's own website (or official parent trust subpage for multi-site trusts).
+  Aggregators, directories, social media profiles, and review sites are strictly forbidden.
+  The candidate page must explicitly mention the museum's name and city.
+  Discovered websites are written strictly to proposals.json for human review; never to overrides.yaml.
+description_nl: >-
+  Vind en verifieer de officiële primaire website voor een museum waarvan de website ontbreekt.
+  Moet de eigen website van het museum zijn. Geen aggregators of sociale media.
+output_schema:
+  type: object
+  properties:
+    museum_website:
+      type: string
+      format: uri
+      description: "Official canonical homepage URL."
+    quote:
+      type: string
+      description: "Verbatim quote or title element confirming the museum's identity on the page (<=15 words)."
+    confidence:
+      type: string
+      enum: ["high", "medium", "low"]
+    reason:
+      type: string
+      description: "Brief rationale explaining why this is the museum's own website."
+    checked_on:
+      type: string
+      description: "ISO date of the check (YYYY-MM-DD)."
+  required: ["museum_website", "quote", "confidence", "reason"]
+plausibility:
+  forbidden_domains:
+    - tripadvisor
+    - wikipedia
+    - museum.nl
+    - whichmuseum
+    - facebook
+    - instagram
+    - twitter
+    - x.com
+    - linkedin
+    - youtube
+    - tiktok
+    - visitholland
+    - holland.com
+    - dagjeweg
+    - kidsproof
+    - museumkids
+    - vvv.nl
+    - welkom-in-het-museum
+    - google
+    - bing
+    - duckduckgo
+    - hotelspecials
+    - booking.com
+    - anwb.nl
+refresh_interval_days: 365

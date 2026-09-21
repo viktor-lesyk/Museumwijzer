@@ -1,0 +1,42 @@
+field: address_check
+title: "Physical Address Verification"
+description_en: >-
+  Verify physical street address, postal code, and city against the museum's official contact or visit page.
+  Flags discrepancies (typos, outdated locations, shared template errors) and proposes corrections.
+  Proposals are written strictly to proposals.json for human review; never to overrides.yaml.
+description_nl: >-
+  Controleer het fysieke adres, postcode en plaats tegen de officiële contact- of bezoekpagina.
+output_schema:
+  type: object
+  properties:
+    street:
+      type: string
+      description: "Physical street and house number as stated on contact page."
+    postcode:
+      type: string
+      pattern: "^[1-9][0-9]{3}\\s?[A-Z]{2}$"
+      description: "Dutch 4-digit + 2-letter postal code."
+    city:
+      type: string
+      description: "City name."
+    source_url:
+      type: string
+      format: uri
+      description: "URL of official contact or visitor information page."
+    quote:
+      type: string
+      description: "Verbatim quote of the address from the page (<=15 words)."
+    differs_from_current:
+      type: boolean
+      description: "Whether this address differs from current data in museums.json."
+    confidence:
+      type: string
+      enum: ["high", "medium", "low"]
+    reason:
+      type: string
+      description: "Rationale for proposal."
+    checked_on:
+      type: string
+      description: "ISO date of the check (YYYY-MM-DD)."
+  required: ["street", "postcode", "city", "source_url", "quote", "confidence"]
+refresh_interval_days: 365

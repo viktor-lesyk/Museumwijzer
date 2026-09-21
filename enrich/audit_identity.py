@@ -156,6 +156,15 @@ def check_identity(
     desc = page_data.get("meta_description", "")
     preview = page_data.get("body_preview", "")
 
+    # Check for parked / for-sale domains
+    haystack_lower = f"{title} {h1} {desc}".lower()
+    for park in [
+        "is mogelijk beschikbaar", "domeinnaam is gereserveerd", "domeinnaam te koop",
+        "domain for sale", "domain is parked", "buy this domain", "radioactive", "sedo", "dan.com"
+    ]:
+        if park in haystack_lower:
+            return "suspicious", f"Parked or for-sale domain page ({park})"
+
     norm_haystack_strong = normalize_token(f"{title} {h1}")
     norm_haystack_weak = normalize_token(f"{title} {h1} {desc} {preview}")
 
