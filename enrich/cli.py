@@ -1,12 +1,13 @@
 """Command-line interface for the Museumwijzer Enrichment framework."""
 
 import argparse
+from collections import Counter
 import json
 import logging
 import os
 from pathlib import Path
 import sys
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 # Load .env if present
 def load_env_file():
@@ -36,6 +37,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MUSEUMS_JSON_PATH = REPO_ROOT / "data" / "museums.json"
 PRICES_PATH = REPO_ROOT / "data" / "enrichment" / "prices.json"
+NEEDS_REVIEW_PATH = REPO_ROOT / "data" / "enrichment" / "needs_review.json"
 
 
 def load_target_museums(
@@ -62,8 +64,6 @@ def load_target_museums(
         museums = [m for m in museums if m["slug"] not in existing_by_slug]
 
     if only_stale and job:
-        # Filter museums whose checked_on date is older than refresh_interval_days
-        # (For pilot, missing is considered stale)
         filtered = []
         for m in museums:
             rec = existing_by_slug.get(m["slug"])
@@ -79,6 +79,100 @@ def load_target_museums(
     return museums
 
 
+def print_detailed_report():
+    """Print structured breakdown of accepted records and needs_review issues."""
+    prices_data = load_json(PRICES_PATH)
+    needs_data = load_json(NEEDS_REVIEW_PATH)
+
+    accepted_list = prices_data.get("museums", [])
+    review_list = needs_data.get("records", [])
+
+    print("\n" + "=" * 65)
+    print("=== ENRICHMENT STATUS REPORT ===")
+    print("=" * 65)
+
+    # 1. Accepted breakdown
+    paid_records = []
+    free_records = []
+    closed_records = []
+    other_accepted = []
+
+    for m in accepted_list:
+        p = m.get("price", {})
+        status = p.get("status", "unknown")
+        if status == "paid" or (p.get("primary_adult_eur") or p.get("adult_eur")):
+            paid_records.append(m)
+        elif status == "free" or (p.get("primary_adult_eur") == 0.0 or p.get("adult_eur") == 0.0):
+            free_records.append(m)
+        elif status == "closed":
+            closed_records.append(m)
+        else:
+            other_accepted.append(m)
+
+    print(f"\n[✓] TOTAL ACCEPTED: {len(accepted_list)}")
+    if paid_records:
+        prices = [
+            (m["price"].get("primary_adult_eur") if m["price"].get("primary_adult_eur") is not None else m["price"].get("adult_eur", 0.0))
+            for m in paid_records
+        ]
+        prices = [pr for pr in prices if pr is not None]
+        avg_price = sum(prices) / len(prices) if prices else 0.0
+        print(f"  • Paid Admission:     {len(paid_records)} museums (avg €{avg_price:.2f}, min €{min(prices):.2f}, max €{max(prices):.2f})")
+    print(f"  • Free Admission:     {len(free_records)} museums")
+    if free_records:
+        print(f"    -> {', '.join(m['slug'] for m in free_records)}")
+    print(f"  • Temporarily Closed: {len(closed_records)} museums")
+    if closed_records:
+        print(f"    -> {', '.join(m['slug'] for m in closed_records)}")
+    if other_accepted:
+        print(f"  • Other / Protected:  {len(other_accepted)} museums")
+
+    # 2. Needs Review Breakdown
+    print(f"\n[✗] TOTAL NEEDS REVIEW: {len(review_list)}")
+    reason_categories = Counter()
+
+    for r in review_list:
+        failures = r.get("gate_failures", [])
+        v_verdict = r.get("verifier_verdict")
+
+        categorized = False
+        for f in failures:
+            f_lower = f.lower()
+            if "not found verbatim" in f_lower:
+                reason_categories["literal_quote_mismatch"] += 1
+                categorized = True
+            elif "exceeds 15 words limit" in f_lower:
+                reason_categories["quote_length_exceeded"] += 1
+                categorized = True
+            elif "combo" in f_lower or "duo" in f_lower:
+                reason_categories["combo_ticket_rejected"] += 1
+                categorized = True
+            elif "yoy change" in f_lower:
+                reason_categories["yoy_price_jump"] += 1
+                categorized = True
+            elif "range" in f_lower:
+                reason_categories["range_out_of_bounds"] += 1
+                categorized = True
+            elif "domain" in f_lower:
+                reason_categories["domain_mismatch"] += 1
+                categorized = True
+            elif "identity" in f_lower:
+                reason_categories["identity_mismatch"] += 1
+                categorized = True
+
+        if not categorized:
+            if v_verdict == "reject":
+                reason_categories["verifier_rejected"] += 1
+            elif r.get("price", {}).get("status") == "blocked_by_bot_protection":
+                reason_categories["bot_protection"] += 1
+            else:
+                reason_categories["unspecified_review"] += 1
+
+    for cat, cnt in reason_categories.most_common():
+        print(f"  • {cat:<24}: {cnt}")
+    print("=" * 65 + "\n")
+
+
 def main():
     parser = argparse.ArgumentParser(
         prog="python -m enrich",
@@ -90,7 +184,7 @@ def main():
     run_parser = subparsers.add_parser("run", help="Run enrichment job on museums")
     run_parser.add_argument("--job", default="price_adult", help="Job definition name (default: price_adult)")
     run_parser.add_argument("--slug", default=None, help="Target a specific museum slug")
-    run_parser.add_argument("--mode", choices=["agentic", "fallback"], default="agentic", help="Research mode")
+    run_parser.add_argument("--mode", choices=["agentic", "fallback"], default="agentic", help="Research mode (default: agentic)")
     run_parser.add_argument("--only-stale", action="store_true", help="Only process records requiring refresh")
     run_parser.add_argument("--resume", action="store_true", help="Skip museums already present in prices.json")
     run_parser.add_argument("--limit", type=int, default=None, help="Limit number of museums to process")
@@ -98,6 +192,7 @@ def main():
     run_parser.add_argument("--api-key", default=None, help="API key")
     run_parser.add_argument("--extractor-model", default=None, help="Model for extraction phase")
     run_parser.add_argument("--verifier-model", default=None, help="Model for verification phase (must be different family)")
+    run_parser.add_argument("--escalation-model", default=None, help="Stronger model for retry escalation ladder (must be different family from verifier)")
     run_parser.add_argument("--allow-same-family", action="store_true", help="Bypass family check (testing only)")
 
     # 2. audit-identity command
@@ -108,7 +203,14 @@ def main():
     audit_parser = subparsers.add_parser("audit", help="Spot check accepted records")
     audit_parser.add_argument("--sample", type=int, default=10, help="Number of random accepted records to inspect")
 
+    # 4. report command
+    report_parser = subparsers.add_parser("report", help="Print detailed report of accepted vs needs_review records")
+
     args = parser.parse_args()
+
+    if args.command == "report":
+        print_detailed_report()
+        return
 
     if args.command == "audit-identity":
         run_identity_audit(limit=args.limit)
@@ -124,21 +226,25 @@ def main():
         api_key = args.api_key or os.environ.get("ENRICH_API_KEY") or os.environ.get("OPENAI_API_KEY") or os.environ.get("OPENROUTER_API_KEY")
         extractor = args.extractor_model or os.environ.get("ENRICH_EXTRACTOR_MODEL", "qwen3.5:9b")
         verifier = args.verifier_model or os.environ.get("ENRICH_VERIFIER_MODEL", "deepseek-r1:1.5b")
+        escalation = args.escalation_model or os.environ.get("ENRICH_ESCALATION_MODEL")
 
-        print("=" * 60)
+        print("=" * 65)
         print("=== MUSEUMWIJZER ENRICHMENT RUNNER ===")
-        print(f"Job:             {job.title} ({job.field})")
-        print(f"Mode:            {args.mode}")
-        print(f"Base URL:        {base_url}")
-        print(f"Extractor Model: {extractor}")
-        print(f"Verifier Model:  {verifier}")
-        print("=" * 60)
+        print(f"Job:              {job.title} ({job.field})")
+        print(f"Mode:             {args.mode}")
+        print(f"Base URL:         {base_url}")
+        print(f"Extractor Model:  {extractor}")
+        print(f"Verifier Model:   {verifier}")
+        if escalation:
+            print(f"Escalation Model: {escalation}")
+        print("=" * 65)
 
         orchestrator = EnrichmentOrchestrator(
             base_url=base_url,
             api_key=api_key,
             extractor_model=extractor,
             verifier_model=verifier,
+            escalation_model=escalation,
             job=job,
             mode=args.mode,
             force_different_families=not args.allow_same_family,
@@ -167,12 +273,7 @@ def main():
                     print(f"     Verifier verdict: {res.get('verifier_verdict')} ({res.get('verifier_justification')})")
 
         acc_count, rev_count = record_results(results)
-        print("\n" + "=" * 60)
-        print("=== RUN COMPLETE ===")
-        print(f"Total Processed: {len(results)}")
-        print(f"Accepted:        {acc_count}")
-        print(f"Needs Review:    {rev_count}")
-        print("=" * 60)
+        print_detailed_report()
 
 
 if __name__ == "__main__":

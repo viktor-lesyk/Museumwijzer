@@ -80,8 +80,11 @@ def run_fallback_extraction(
         confidence = status if status in ("blocked_by_bot_protection", "blocked_by_robots") else "low"
         return {
             "status": status,
-            "admission": "unknown",
+            "primary_adult_eur": None,
             "adult_eur": None,
+            "free_for": [],
+            "offerings": [],
+            "combo_available": None,
             "quote": None,
             "source_url": website,
             "reason": f"Homepage fetch failed: {err}",
@@ -105,7 +108,6 @@ def run_fallback_extraction(
             pages_content.append(f'<untrusted_web_content url="{cand_url}">\n{sanitized["text"]}\n</untrusted_web_content>')
 
     combined_text = "\n\n".join(pages_content)
-    schema_str = json.dumps(job.output_schema.get("properties", {}), indent=2)
 
     prompt = f"""You are an expert museum data extractor.
 Target Museum: {museum.get('name')} in {museum.get('city')}
@@ -119,25 +121,28 @@ RULES:
 1. Standard single adult ticket for the museum itself ONLY.
 2. NEVER select combo or duo tickets. If only combo tickets exist, status="combo_only".
 3. Free admission requires an explicit quote stating admission is free for everyone.
-4. Paid tickets: adult_eur between 1.00 and 45.00 EUR.
+4. Paid tickets: primary_adult_eur between 1.00 and 45.00 EUR.
 5. Quote must appear verbatim in the text below, MAXIMUM 15 words.
 6. Calibrated confidence: "high" (single clear price on ticket page), "medium" (multi-tier or subpage), "low" (uncertain).
+7. Audiences with free admission (free_for): Select only applicable groups from:
+   ["children_under_4", "children_under_12", "children_under_18", "youth", "students", "seniors", "museumkaart", "vriendenloterij_vip_kaart", "icom", "rembrandtkaart", "everyone", "other"]
 
 === RAW WEBPAGES ===
 {combined_text}
 
 Output ONLY a JSON object formatted exactly as:
 {{
-  "admission": "paid",
   "status": "paid",
-  "adult_eur": 15.00,
+  "primary_adult_eur": 15.00,
+  "free_for": ["children_under_18", "museumkaart"],
+  "combo_available": false,
+  "offerings": [],
   "quote": "Exact quote from page",
   "source_url": "https://example.com/tickets",
   "reason": "Short reason",
   "confidence": "high"
 }}
-(Allowed status values: "paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "blocked_by_robots", "unknown".
- Allowed admission values: "free", "paid", "unknown".)
+(Allowed status values: "paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "not_found", "unknown".)
 """
 
     messages = [

@@ -67,7 +67,7 @@ def check_literal_match(
     adult_eur: Optional[float],
     quote: Optional[str],
     status: str,
-    admission: str,
+    admission: Optional[str] = None,
 ) -> Tuple[bool, Optional[str]]:
     """Gate 2: literal number and quote appear verbatim in the page text."""
     norm_page = normalize_for_match(page_text)
@@ -146,29 +146,81 @@ def check_identity_presence(
 def check_plausible_range(
     adult_eur: Optional[float],
     status: str,
-    admission: str,
+    admission: Optional[str] = None,
     min_paid: float = 1.0,
     max_paid: float = 45.0,
 ) -> Tuple[bool, Optional[str]]:
     """Gate 4: plausible price range check."""
     if status == "paid":
         if adult_eur is None:
-            return False, "Paid status requires a numeric adult_eur value"
+            return False, "Paid status requires a numeric primary_adult_eur value"
         if not (min_paid <= adult_eur <= max_paid):
             return False, f"Price €{adult_eur} is outside plausible adult range [€{min_paid:.2f} - €{max_paid:.2f}]"
-        if admission != "paid":
+        if admission is not None and admission != "paid":
             return False, f"Status 'paid' conflicts with admission '{admission}'"
     elif status == "free":
         if adult_eur is not None and adult_eur != 0.0:
             return False, f"Status 'free' cannot have adult_eur={adult_eur} (expected 0.0)"
-        if admission != "free":
+        if admission is not None and admission != "free":
             return False, f"Status 'free' conflicts with admission '{admission}'"
     else:
-        # non-priced states
+        # non-priced states (closed, combo_only, blocked_by_bot_protection, not_found, unknown)
         if adult_eur is not None:
-            return False, f"Status '{status}' should have adult_eur=null, got {adult_eur}"
+            return False, f"Status '{status}' should have primary_adult_eur=null, got {adult_eur}"
 
     return True, None
+
+
+CONTROLLED_FREE_FOR_VOCABULARY = {
+    "children_under_4",
+    "children_under_12",
+    "children_under_18",
+    "youth",
+    "students",
+    "seniors",
+    "museumkaart",
+    "vriendenloterij_vip_kaart",
+    "icom",
+    "rembrandtkaart",
+    "everyone",
+    "other",
+}
+
+
+def check_free_for_vocabulary(free_for: Optional[List[str]]) -> Tuple[bool, Optional[str]]:
+    """Validate free_for entries against controlled vocabulary."""
+    if not free_for:
+        return True, None
+    invalid = [f for f in free_for if f not in CONTROLLED_FREE_FOR_VOCABULARY]
+    if invalid:
+        return False, f"free_for items {invalid} are not in controlled vocabulary: {sorted(CONTROLLED_FREE_FOR_VOCABULARY)}"
+    return True, None
+
+
+def check_offerings_gates(offerings: Optional[List[Dict[str, Any]]], status: str) -> Tuple[bool, Optional[str]]:
+    """Gate: validate ticket offerings schema and bounds."""
+    if not offerings:
+        return True, None
+    valid_audiences = {"adult", "youth", "child", "student", "senior", "family", "group", "other"}
+    for idx, off in enumerate(offerings):
+        aud = off.get("audience")
+        if aud not in valid_audiences:
+            return False, f"Offering #{idx} invalid audience '{aud}', must be one of {sorted(valid_audiences)}"
+        label = off.get("label") or ""
+        if len(label.split()) > 8:
+            return False, f"Offering #{idx} label '{label}' exceeds 8 words limit ({len(label.split())} words)"
+        amt = off.get("amount_eur")
+        if amt is not None:
+            if not isinstance(amt, (int, float)):
+                return False, f"Offering #{idx} amount_eur must be numeric or null, got {amt}"
+            if amt < 0.0 or amt > 45.0:
+                return False, f"Offering #{idx} amount_eur €{amt} outside plausible range [0.0 - 45.0]"
+    return True, None
+
+
+def is_only_quote_length_failure(failures: List[str]) -> bool:
+    """Helper: returns True if the ONLY gate failure is quote length > 15 words."""
+    return len(failures) == 1 and "exceeds 15 words limit" in failures[0]
 
 
 def check_combo_rejection(
@@ -235,9 +287,13 @@ def run_all_price_gates(
     failures: List[str] = []
 
     status = extracted_data.get("status", "unknown")
-    admission = extracted_data.get("admission", "unknown")
-    adult_eur = extracted_data.get("adult_eur")
+    admission = extracted_data.get("admission")
+    adult_eur = extracted_data.get("primary_adult_eur")
+    if adult_eur is None:
+        adult_eur = extracted_data.get("adult_eur")
     quote = extracted_data.get("quote")
+    free_for = extracted_data.get("free_for")
+    offerings = extracted_data.get("offerings")
 
     # If blocked by bot protection or robots, non-content gates apply
     if status in ("blocked_by_bot_protection", "blocked_by_robots"):
@@ -276,4 +332,17 @@ def run_all_price_gates(
     if not ok and reason:
         failures.append(f"YoY change gate: {reason}")
 
+    # 7. Free_for vocabulary
+    if free_for:
+        ok, reason = check_free_for_vocabulary(free_for)
+        if not ok and reason:
+            failures.append(f"Free_for gate: {reason}")
+
+    # 8. Offerings bounds and labels
+    if offerings:
+        ok, reason = check_offerings_gates(offerings, status)
+        if not ok and reason:
+            failures.append(f"Offerings gate: {reason}")
+
     return len(failures) == 0, failures
+

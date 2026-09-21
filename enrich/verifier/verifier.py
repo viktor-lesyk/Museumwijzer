@@ -29,14 +29,14 @@ def get_model_family(model_name: str) -> str:
     return parts or "unknown"
 
 
-def assert_different_model_families(extractor_model: str, verifier_model: str) -> None:
-    fam_ext = get_model_family(extractor_model)
-    fam_ver = get_model_family(verifier_model)
+def assert_different_model_families(model_a: str, model_b: str, role_a: str = "Extractor", role_b: str = "Verifier") -> None:
+    fam_a = get_model_family(model_a)
+    fam_b = get_model_family(model_b)
 
-    if fam_ext == fam_ver and fam_ext != "unknown":
+    if fam_a == fam_b and fam_a != "unknown":
         raise ValueError(
-            f"Extractor model '{extractor_model}' and Verifier model '{verifier_model}' "
-            f"belong to the same model family ('{fam_ext}'). "
+            f"{role_a} model '{model_a}' and {role_b} model '{model_b}' "
+            f"belong to the same model family ('{fam_a}'). "
             "Independent verification strictly requires two different model families to avoid correlated hallucinations."
         )
 
@@ -62,17 +62,17 @@ def format_verifier_user_prompt(
     museum_website: Optional[str],
     source_url: str,
     claimed_value: Optional[float],
-    admission: str,
     status: str,
     page_text: str,
+    admission: Optional[str] = None,
 ) -> str:
-    claimed_desc = f"€{claimed_value:.2f}" if claimed_value is not None else f"status '{status}' (admission: '{admission}')"
+    claimed_desc = f"€{claimed_value:.2f}" if claimed_value is not None else f"status '{status}'"
 
     prompt = f"""=== VERIFICATION TARGET ===
 Museum Name: {museum_name}
 Official Website: {museum_website or 'None'}
 Source URL: {source_url}
-Claimed Admission: {admission}
+Claimed Status: {status}
 Claimed Ticket Price: {claimed_desc}
 
 === WEBPAGE CONTENT ===
@@ -97,9 +97,9 @@ class IndependentVerifier:
         museum_website: Optional[str],
         source_url: Optional[str],
         claimed_value: Optional[float],
-        admission: str,
         status: str,
         fetcher: PoliteFetcher,
+        admission: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Execute independent verification on the claimed value."""
         # Non-priced states like bot protection or robots block don't require LLM page reading

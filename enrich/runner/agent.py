@@ -15,7 +15,6 @@ MAX_TOOL_CALLS = 8
 
 
 def build_system_prompt(job: JobDefinition, museum: Dict[str, Any]) -> str:
-    schema_str = json.dumps(job.output_schema.get("properties", {}), indent=2)
     return f"""You are an autonomous museum data research agent.
 Your mission is to find the official admission price for:
 Museum: {museum.get('name')}
@@ -29,30 +28,33 @@ Extract the {job.title}.
 STRICT CONSTRAINTS:
 1. Standard single-entry adult ticket for the museum itself ONLY.
 2. NEVER select combo, combi, duo, or joint tickets with other attractions.
-   If only combo tickets exist, record status="combo_only" and admission="unknown".
-3. Free admission: status="free", admission="free" requires an explicit quote stating admission is free for everyone.
+   If only combo tickets exist, record status="combo_only".
+3. Free admission: status="free" requires an explicit quote stating admission is free for everyone.
    Free-for-children does NOT qualify as free admission.
-4. Paid admission: adult_eur must be between 1.00 and 45.00 EUR.
+4. Paid admission: primary_adult_eur must be between 1.00 and 45.00 EUR.
 5. Quote: Must be a literal verbatim substring from the fetched page, MAXIMUM 15 words.
 6. Calibrated confidence:
    - "high": Single clearly labelled adult ticket price found directly on official static ticket/pricing page.
    - "medium": Multi-tier pricing (castle vs garden, peak/off-peak, online vs desk), secondary subpage, or complex options.
    - "low": Uncertain or inferred.
-7. Tools available:
+7. Audiences with free admission (free_for): Select only applicable groups from:
+   ["children_under_4", "children_under_12", "children_under_18", "youth", "students", "seniors", "museumkaart", "vriendenloterij_vip_kaart", "icom", "rembrandtkaart", "everyone", "other"]
+8. Tools available:
    - fetch_page(url): Fetch and read the webpage.
    - web_search(query): Find candidate ticket URLs. Pointers only; evidence must come from fetch_page!
-8. When finished, output ONLY a JSON object formatted exactly as:
+9. When finished, output ONLY a JSON object formatted exactly as:
 {{
-  "admission": "paid",
   "status": "paid",
-  "adult_eur": 15.00,
+  "primary_adult_eur": 15.00,
+  "free_for": ["children_under_18", "museumkaart"],
+  "combo_available": false,
+  "offerings": [],
   "quote": "Exact quote from page",
   "source_url": "https://example.com/tickets",
   "reason": "Short reason",
   "confidence": "high"
 }}
-(Allowed status values: "paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "blocked_by_robots", "unknown".
- Allowed admission values: "free", "paid", "unknown".)
+(Allowed status values: "paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "not_found", "unknown".)
 """
 
 
@@ -79,7 +81,7 @@ def extract_json_payload(text: str) -> Optional[Dict[str, Any]]:
                 pass
 
     if isinstance(data, dict):
-        for k in ["status", "admission", "confidence"]:
+        for k in ["status", "confidence"]:
             v = data.get(k)
             if isinstance(v, dict):
                 val = v.get("value") or v.get("type") or (v.get("enum") and v.get("enum")[0])
@@ -87,14 +89,27 @@ def extract_json_payload(text: str) -> Optional[Dict[str, Any]]:
             elif v is not None:
                 data[k] = str(v)
 
-        val = data.get("adult_eur")
+        val = data.get("primary_adult_eur")
+        if val is None:
+            val = data.get("adult_eur")
         if isinstance(val, dict):
             val = val.get("value")
         if val is not None:
             try:
-                data["adult_eur"] = float(val)
+                data["primary_adult_eur"] = float(val)
             except (ValueError, TypeError):
-                data["adult_eur"] = None
+                data["primary_adult_eur"] = None
+        else:
+            data["primary_adult_eur"] = None
+        # Keep adult_eur in sync for backward compatibility
+        data["adult_eur"] = data["primary_adult_eur"]
+
+        if "free_for" not in data or not isinstance(data.get("free_for"), list):
+            data["free_for"] = []
+        if "offerings" not in data or not isinstance(data.get("offerings"), list):
+            data["offerings"] = []
+        if "combo_available" not in data:
+            data["combo_available"] = None
 
         return data
 

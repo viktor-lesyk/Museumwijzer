@@ -165,3 +165,73 @@ def test_gate_yoy_change(tmp_path):
     ok, err = check_yoy_change("test-museum", 14.50, prev_file)
     assert ok is False
     assert "Price changed by 45.0%" in err
+
+
+def test_gate_free_for_vocabulary():
+    from enrich.gates.price_gates import check_free_for_vocabulary
+
+    # Valid vocabulary
+    ok, _ = check_free_for_vocabulary(["children_under_18", "museumkaart"])
+    assert ok is True
+
+    # Empty list is fine
+    ok, _ = check_free_for_vocabulary([])
+    assert ok is True
+
+    # Invalid vocabulary entry
+    ok, err = check_free_for_vocabulary(["children_under_18", "free_hotdogs"])
+    assert ok is False
+    assert "not in controlled vocabulary" in err
+
+
+def test_gate_offerings():
+    from enrich.gates.price_gates import check_offerings_gates
+
+    # Valid offerings
+    valid_offerings = [
+        {"audience": "adult", "amount_eur": 20.0, "label": "Volwassenen", "conditions": None},
+        {"audience": "child", "amount_eur": 10.0, "label": "Kinderen 4-12 jaar", "conditions": "4-12"},
+    ]
+    ok, _ = check_offerings_gates(valid_offerings, "paid")
+    assert ok is True
+
+    # Invalid audience
+    bad_audience = [
+        {"audience": "aliens", "amount_eur": 20.0, "label": "Aliens", "conditions": None},
+    ]
+    ok, err = check_offerings_gates(bad_audience, "paid")
+    assert ok is False
+    assert "invalid audience" in err
+
+    # Label exceeding 8 words
+    bad_label = [
+        {"audience": "adult", "amount_eur": 20.0, "label": "Dit is een veel te lang ticket label met meer dan acht woorden", "conditions": None},
+    ]
+    ok, err = check_offerings_gates(bad_label, "paid")
+    assert ok is False
+    assert "exceeds 8 words limit" in err
+
+    # Out of bounds price (>45)
+    bad_price = [
+        {"audience": "adult", "amount_eur": 99.0, "label": "Super VIP ticket", "conditions": None},
+    ]
+    ok, err = check_offerings_gates(bad_price, "paid")
+    assert ok is False
+    assert "outside plausible range" in err
+
+
+def test_is_only_quote_length_failure():
+    from enrich.gates.price_gates import is_only_quote_length_failure
+
+    # Single failure with quote length exceeded -> True
+    assert is_only_quote_length_failure(["Literal match gate: Quote exceeds 15 words limit (18 words)"]) is True
+
+    # Multiple failures -> False
+    assert is_only_quote_length_failure([
+        "Literal match gate: Quote exceeds 15 words limit (18 words)",
+        "Range gate: Price out of bounds",
+    ]) is False
+
+    # Single failure but not quote length -> False
+    assert is_only_quote_length_failure(["Domain gate: source_url mismatch"]) is False
+

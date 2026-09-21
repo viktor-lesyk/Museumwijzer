@@ -3,25 +3,61 @@ title: "Standard Single-Entry Adult Ticket"
 description_en: >-
   Standard single-entry adult ticket price for the museum itself.
   Must be regular individual adult admission. Never combo, combi, duo, or joint tickets with other attractions.
-  If the museum only sells combo tickets, set status to 'combo_only' and admission to 'unknown'.
-  If admission is free for everyone, set status to 'free' and admission to 'free' with an explicit quote stating free general admission (free-for-children does NOT qualify as free admission).
+  If the museum only sells combo tickets, set status to 'combo_only'.
+  If admission is free for everyone, set status to 'free' with an explicit quote stating free general admission (free-for-children does NOT qualify as free admission).
 description_nl: >-
   Standaard individueel toegangskaartje voor een volwassene voor het museum zelf.
   Nooit combinatie-, duo- of combinatietickets met andere attracties.
 output_schema:
   type: object
   properties:
-    admission:
-      type: string
-      enum: ["free", "paid", "unknown"]
-      description: "Whether general admission is free for all adults, paid, or unknown."
     status:
       type: string
-      enum: ["paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "blocked_by_robots", "unknown"]
+      enum: ["paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "not_found", "unknown"]
       description: "Operational/ticketing status."
-    adult_eur:
+    primary_adult_eur:
       type: ["number", "null"]
-      description: "Standard adult price in EUR. Must be 1.00 - 45.00 for paid, 0.0 for free, null otherwise."
+      description: "Standard adult price in EUR (used for sorting). Must be 1.00 - 45.00 for paid, 0.0 for free, null otherwise."
+    free_for:
+      type: array
+      items:
+        type: string
+        enum:
+          - children_under_4
+          - children_under_12
+          - children_under_18
+          - youth
+          - students
+          - seniors
+          - museumkaart
+          - vriendenloterij_vip_kaart
+          - icom
+          - rembrandtkaart
+          - everyone
+          - other
+      description: "Audiences with free admission from controlled vocabulary."
+    combo_available:
+      type: ["boolean", "null"]
+      description: "Whether combination tickets are available."
+    offerings:
+      type: array
+      items:
+        type: object
+        properties:
+          audience:
+            type: string
+            enum: ["adult", "youth", "child", "student", "senior", "family", "group", "other"]
+          amount_eur:
+            type: ["number", "null"]
+            description: "Ticket price in EUR (1.00 - 45.00 for paid, 0.0 for free)."
+          label:
+            type: string
+            description: "Up to 8 words as on the page."
+          conditions:
+            type: ["string", "null"]
+            description: "Conditions or age bounds, e.g. '18-25 years'."
+        required: ["audience", "label"]
+      description: "Full ticket offerings list (Phase 2)."
     quote:
       type: ["string", "null"]
       description: "Literal quote from the page supporting the price/status (maximum 15 words)."
@@ -39,7 +75,19 @@ output_schema:
       type: string
       enum: ["agent", "manual"]
       description: "Whether the record was extracted by the automated agent or manually entered."
-  required: ["admission", "status", "reason", "confidence"]
+    mode:
+      type: string
+      description: "Execution mode ('agentic' or 'fallback')."
+    extractor_model:
+      type: string
+      description: "Name of the extractor model used."
+    verifier_model:
+      type: string
+      description: "Name of the verifier model used."
+    checked_on:
+      type: string
+      description: "ISO date of the check (YYYY-MM-DD)."
+  required: ["status", "reason", "confidence"]
 plausibility:
   min_paid_eur: 1.00
   max_paid_eur: 45.00

@@ -16,9 +16,10 @@ def test_load_price_adult_job():
     assert job.refresh_interval_days == 540
 
     props = job.output_schema.get("properties", {})
-    assert "admission" in props
     assert "status" in props
-    assert "adult_eur" in props
+    assert "primary_adult_eur" in props
+    assert "free_for" in props
+    assert "offerings" in props
     assert "quote" in props
     assert "entered_by" in props
 
