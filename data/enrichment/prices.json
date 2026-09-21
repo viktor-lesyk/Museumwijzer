@@ -1,317 +1,2721 @@
 {
   "version": "1.0",
-  "last_updated": "2026-09-20T19:26:27.577949+00:00",
-  "total_museums": 20,
+  "last_updated": "2026-09-21T22:30:33.873255+00:00",
+  "total_museums": 146,
   "museums": [
+    {
+      "slug": "allard-pierson-museum",
+      "name": "Allard Pierson Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.5,
+        "free_for": [
+          "icom",
+          "other",
+          "museumkaart",
+          "children_under_4"
+        ],
+        "quote": "Adults €15,50",
+        "source_url": "https://www.allardpierson.nl/en/visit",
+        "page_title": "Allard Pierson | Opening hours, location &amp; ticket prices",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "anne-frank-huis",
+      "name": "Anne Frank Huis",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "free_for": [],
+        "quote": "Volwassene € 16,00",
+        "source_url": "https://tickets.annefrank.org/en-US/tickets",
+        "page_title": "Tickets | Anne Frank House",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
     {
       "slug": "anno",
       "name": "ANNO",
-      "categories": [
-        "history"
-      ],
       "price": {
-        "adult_eur": 12.5,
-        "note": "Online en aan kassa; begane grond en tuin vrij toegankelijk, museumzalen € 12,50.",
-        "source_url": "https://tickets.anno.nl/nl/tickets",
-        "quote": "Volwassenen € 12,50",
-        "checked_on": "2026-09-20",
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Tickets Volwassenen € 12,50 Museumkaart gratis",
+        "source_url": "https://anno.nl/contact-en-bezoek/",
+        "page_title": "Contact - Anno",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "archeon",
+      "name": "Archeon",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 28.95,
+        "free_for": [
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Entree v.a. 10 jaar Van € 29,50 voor € 28,95 online",
+        "source_url": "https://www.archeon.nl/nl/tickets.html",
+        "page_title": "Online tickets | Archeon",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "aviodrome",
+      "name": "Aviodrome",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Day ticket from 12 years of age from €17.50 per person",
+        "source_url": "https://www.aviodrome.nl/en/visit/practical-info/prices",
+        "page_title": "Prices | Aviation Museum Aviodrome",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium",
+        "cheapest_adult_eur": 17.5
+      }
+    },
+    {
+      "slug": "beeld-geluid-hilversum",
+      "name": "Beeld & Geluid Hilversum",
+      "price": {
+        "status": "blocked_by_bot_protection",
+        "primary_adult_eur": null,
+        "free_for": [],
+        "quote": null,
+        "source_url": "https://www.beeldengeluid.nl/en/visit/tickets",
+        "page_title": "Bot Protection",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "blocked_by_bot_protection"
+      }
+    },
+    {
+      "slug": "bevrijdingsmuseum-zeeland",
+      "name": "Bevrijdingsmuseum Zeeland",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "children_under_18",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen (vanaf 13 jaar) € 15,00",
+        "source_url": "https://bevrijdingsmuseumzeeland.nl/bezoekersinformatie/toegangsprijzen/",
+        "page_title": "Toegangsprijzen - Bevrijdingsmuseum Zeeland",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "bonnefanten",
+      "name": "Bonnefanten",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [],
+        "quote": "The entrance fee is 17,50 euro per person.",
+        "source_url": "https://tickets.bonnefanten.nl/group/group-tickets/nl/1545/readmore",
+        "page_title": "Book a group visit - Bonnefantenmuseum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "centraal-museum",
+      "name": "Centraal Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 18.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassene € 18,00",
+        "source_url": "https://tickets.centraalmuseum.nl/nl/tickets",
+        "page_title": "Centraal Museum - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "cobra-museum",
+      "name": "Cobra Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 20.0,
+        "free_for": [
+          "museumkaart",
+          "rembrandtkaart",
+          "other",
+          "icom",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "€ 20,00 – Volwassenen",
+        "source_url": "https://cobra-museum.nl/bezoek/",
+        "page_title": "Bezoek - Museum Cobra",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "cruquiusmuseum",
+      "name": "CruquiusMuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "icom",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 17,50 € 16,00",
+        "source_url": "https://cruquius-museum.nl/tijden-en-prijzen",
+        "page_title": "Tijden - prijzen | Cruquius Museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "de-elleboogkerk",
+      "name": "De Elleboogkerk",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 6.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Prijzen Volwassenen: €6,-",
+        "source_url": "https://www.elleboogkerk.nl/",
+        "page_title": "Elleboog Kerk - Bekijk wat er te zien is bij ons",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "de-mesdag-collectie",
+      "name": "De Mesdag Collectie",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "museumkaart"
+        ],
+        "quote": "€ 15 per visitor. Under 18: free admission",
+        "source_url": "https://demesdagcollectie.nl/en/plan-your-visit/admission",
+        "page_title": "Tickets and Ticket Prices - De Mesdag Collectie",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "de-museumfabriek",
+      "name": "De Museumfabriek",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Entree Volwassenen (vanaf 18 jaar) € 13,50",
+        "source_url": "https://www.demuseumfabriek.nl/tickets",
+        "page_title": "De Museum Fabriek - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "de-nieuwe-kerk",
+      "name": "De Nieuwe Kerk",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Adult: €15",
+        "source_url": "https://www.nieuwekerk.nl/en/faq-the-roof-of-amsterdam/",
+        "page_title": "FAQ The roof of Amsterdam - De Nieuwe Kerk",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "de-oude-kerk",
+      "name": "De Oude Kerk",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.5,
+        "free_for": [
+          "icom",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Toegangsprijzen Oude Kerk Volwassene: € 14,50",
+        "source_url": "https://www.oudekerk.nl/openingstijden-toegangsprijzen/40784",
+        "page_title": "Openingstijden &amp; toegangsprijzen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "depot-boijmans-van-beuningen",
+      "name": "Depot Boijmans Van Beuningen",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 20.0,
+        "free_for": [
+          "museumkaart",
+          "children_under_18",
+          "other",
+          "icom",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassenen: € 20",
+        "source_url": "https://www.boijmans.nl/Entreeprijzen",
+        "page_title": "Entreeprijzen - Museum Boijmans Van Beuningen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "design-museum-den-bosch",
+      "name": "Design Museum Den Bosch",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "children_under_18",
+          "museumkaart"
+        ],
+        "quote": "adults (aged 30 and over) pay €15",
+        "source_url": "https://designmuseum.nl/en/plan-your-visit/",
+        "page_title": "Plan your visit - Design Museum Den Bosch",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
       }
     },
     {
       "slug": "discovery-museum",
       "name": "Discovery Museum",
-      "categories": [
-        "science-technology"
-      ],
       "price": {
-        "adult_eur": 18.0,
-        "note": "Regulier entreetarief vanaf 18 jaar.",
-        "source_url": "https://www.discoverymuseum.nl/plan-je-bezoek/openingstijden-prijzen/",
-        "quote": "Entree vanaf 18 jaar € 18,00",
-        "checked_on": "2026-09-20",
-        "confidence": "high"
+        "status": "paid",
+        "primary_adult_eur": 18.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Entrance 18 years and older € 18,00",
+        "source_url": "https://www.discoverymuseum.nl/en/plan-your-visit/opening-hours-admission-prices/",
+        "page_title": "Opening hours &amp; admission prices &#8226; Discovery Museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "domunder",
+      "name": "DOMunder",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.5,
+        "free_for": [],
+        "quote": "Wat kost een Ontdekkingstocht DOMunder? Volwassene € 14,50",
+        "source_url": "https://www.domunder.nl/tickets/",
+        "page_title": "TICKETS | DOMunder",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
       }
     },
     {
       "slug": "dordrechts-museum",
       "name": "Dordrechts Museum",
-      "categories": [
-        "art",
-        "history"
-      ],
       "price": {
-        "adult_eur": 17.0,
-        "note": "Reguliere toegangsprijs volwassenen; jeugd t/m 18 jaar gratis.",
+        "status": "paid",
+        "primary_adult_eur": 17.0,
+        "free_for": [
+          "museumkaart",
+          "children_under_18",
+          "other",
+          "icom",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassenen € 17",
         "source_url": "https://www.dordrechtsmuseum.nl/praktische-informatie/",
-        "quote": "Toegangsprijzen Volwassenen € 17",
-        "checked_on": "2026-09-20",
+        "page_title": "Praktische informatie - Dordrechts Museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
+      }
+    },
+    {
+      "slug": "drents-museum",
+      "name": "Drents Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "children_under_18",
+          "icom"
+        ],
+        "quote": "Adults pay €15.00 for a ticket, unless there is an exhibition change.",
+        "source_url": "https://drentsmuseum.nl/en/plan-your-visit/tickets-and-prices",
+        "page_title": "Tickets and prices - Drents Museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high",
+        "cheapest_adult_eur": 12.5,
+        "price_note": "standard price is 15.0, but reduced rate of 12.5 applies during exhibition changes"
+      }
+    },
+    {
+      "slug": "drents-museum-de-buitenplaats",
+      "name": "Drents Museum de Buitenplaats",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "children_under_18",
+          "icom"
+        ],
+        "quote": "Adults € 15,-",
+        "source_url": "https://dmdebuitenplaats.nl/en/plan-je-bezoek/entreeprijzen",
+        "page_title": "Buitenplaats - Prices",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high",
+        "cheapest_adult_eur": 8.0,
+        "price_note": "reduced rate available between exhibitions"
+      }
+    },
+    {
+      "slug": "eusebiuskerk",
+      "name": "Eusebiuskerk",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen €17,50",
+        "source_url": "https://eusebius.nl/bezoeken/",
+        "page_title": "Eusebiuskerk Bezoeken - Plan je bezoek aan de Eusebius",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "eye-filmmuseum",
+      "name": "Eye Filmmuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "free_for": [
+          "other"
+        ],
+        "quote": "Standaard €12,50",
+        "source_url": "https://development.eyefilm.nl/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Eye Filmmuseum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "foam-fotografiemuseum",
+      "name": "Foam Fotografiemuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "free_for": [
+          "icom",
+          "other",
+          "museumkaart",
+          "children_under_12"
+        ],
+        "quote": "Adult €16.00",
+        "source_url": "https://tickets.foam.org/en/tickets",
+        "page_title": "Foam",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "forteiland-pampus",
+      "name": "Forteiland Pampus",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 20.0,
+        "free_for": [
+          "icom",
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Entree + retour veer Volwassenen: € 20,00 online",
+        "source_url": "https://www.pampus.nl/bezoek/tijden-en-prijzen",
+        "page_title": "Openingstijden en prijzen - Forteiland Pampus",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high",
+        "cheapest_adult_eur": 15.5,
+        "price_note": "standard ticket includes return ferry"
       }
     },
     {
       "slug": "fortresse-holland",
       "name": "Fortresse Holland",
-      "categories": [
-        "heritage-site",
-        "history"
-      ],
       "price": {
-        "adult_eur": 9.5,
-        "note": "Museumticket zonder rondleiding € 9,50; incl. rondleiding Droogdok Jan Blanken € 15,00.",
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Museumticket 16 jaar en ouder – € 15,00",
         "source_url": "https://fortresseholland.nl/plan-uw-bezoek/",
-        "quote": "Museumticket zonder rondleiding 16 jaar en ouder – € 9,50",
-        "checked_on": "2026-09-20",
+        "page_title": "Plan uw bezoek - Fortresse Holland",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium",
+        "cheapest_adult_eur": 9.5,
+        "price_note": "standard ticket includes guided tour"
+      }
+    },
+    {
+      "slug": "forum-groningen",
+      "name": "Forum Groningen",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.0,
+        "free_for": [
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Regulier tarief € 13,00",
+        "source_url": "https://forum.nl/nl/jouw-bezoek/ticketinformatie",
+        "page_title": "Ticketinformatie",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "fotomuseum-aan-het-vrijthof",
+      "name": "Fotomuseum aan het Vrijthof",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen 14.00",
+        "source_url": "https://fotomuseumaanhetvrijthof.nl/bezoek",
+        "page_title": "Plan je bezoek - Fotomuseum aan het Vrijthof",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "fotomuseum-den-haag",
+      "name": "Fotomuseum Den Haag",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Regular € 16",
+        "source_url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+        "page_title": "Plan your visit | Fotomuseum Den Haag",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "fraeylemaborg",
+      "name": "Fraeylemaborg",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 10.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen: € 10,00",
+        "source_url": "https://fraeylemaborg.nl/bezoek/",
+        "page_title": "Bezoek - Fraeylemaborg",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "frans-hals-museum",
+      "name": "Frans Hals Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 18.5,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 18,50",
+        "source_url": "https://franshalsmuseum.nl/nl/tickets-openingstijden",
+        "page_title": "Bestel tickets voor het Frans Hals Museum online",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
       }
     },
     {
-      "slug": "huis-zypendaal",
-      "name": "Huis Zypendaal",
-      "categories": [
-        "heritage-site",
-        "history"
-      ],
+      "slug": "fries-museum",
+      "name": "Fries Museum",
       "price": {
-        "adult_eur": 13.5,
-        "note": "Reguliere entreeprijs inclusief rondleiding; park Zypendaal is vrij toegankelijk.",
-        "source_url": "https://www.glk.nl/zypendaal/huis-zypendaal/plan-je-bezoek",
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "museumkaart",
+          "rembrandtkaart",
+          "children_under_18",
+          "other",
+          "icom",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassenen €17,50",
+        "source_url": "https://www.friesmuseum.nl/bezoekinfo/openingstijden-en-entreeprijzen",
+        "page_title": "entreeprijzen fries museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "gemeenlandshuis-amsterdam",
+      "name": "Gemeenlandshuis Amsterdam",
+      "price": {
+        "status": "blocked_by_bot_protection",
+        "primary_adult_eur": null,
+        "free_for": [],
+        "quote": null,
+        "source_url": "https://www.hendrickdekeyser.nl/museumbezoek/gemeenlandshuis-amsterdam",
+        "page_title": "Bot Protection",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "blocked_by_bot_protection"
+      }
+    },
+    {
+      "slug": "gemeentemuseum-het-hannemahuis",
+      "name": "Gemeentemuseum het Hannemahuis",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 6.5,
+        "free_for": [
+          "icom",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen: € 6,50",
+        "source_url": "https://hannemahuis.nl/plan-je-bezoek-item/toegangsprijzen",
+        "page_title": "Toegangsprijzen | Gemeentemuseum het Hannemahuis",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "gevangenismuseum",
+      "name": "Gevangenismuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "vriendenloterij_vip_kaart",
+          "museumkaart",
+          "children_under_4"
+        ],
+        "quote": "Entree 13+ jaar: € 15,00",
+        "source_url": "https://gevangenismuseum.nl/en/plan_je_bezoek/prijzen/",
+        "page_title": "Prijzen - Gevangenismuseum Veenhuizen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "groninger-museum",
+      "name": "Groninger Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 10.0,
+        "free_for": [
+          "rembrandtkaart",
+          "children_under_18",
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 10,00",
+        "source_url": "https://groningermuseum.nl/bezoek/plan-je-bezoek",
+        "page_title": "Groninger Museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "herinneringscentrum-kamp-westerbork",
+      "name": "Herinneringscentrum Kamp Westerbork",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "free_for": [],
+        "quote": "Adult (18 and up) €13.50",
+        "source_url": "https://tickets.kampwesterbork.nl/en/tickets",
+        "page_title": "Memorial Center Kamp Westerbork - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "hof-van-nederland",
+      "name": "Hof van Nederland",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [
+          "museumkaart",
+          "rembrandtkaart",
+          "icom",
+          "other",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassenen € 14",
+        "source_url": "https://www.hofvannederland.nl/praktische-informatie/",
+        "page_title": "Praktische informatie - Hof van Nederland",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "huis-van-eysinga",
+      "name": "Huis Van Eysinga",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "free_for": [
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassene €11 Kind tot 18 jaar",
+        "source_url": "https://www.hendrickdekeyser.nl/museumbezoek/huis-van-meerten-Delft",
+        "page_title": "Huis Van Meerten | Bezoek de mooiste historische huizen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "huis-van-gijn",
+      "name": "Huis Van Gijn",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [
+          "museumkaart",
+          "rembrandtkaart",
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassenen € 14",
+        "source_url": "https://www.huisvangijn.nl/praktische-informatie/",
+        "page_title": "Praktische informatie - Huis Van Gijn",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "huis-van-meerten",
+      "name": "Huis van Meerten",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "free_for": [
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassene €11 Kind tot 18 jaar",
+        "source_url": "https://www.hendrickdekeyser.nl/museumbezoek/huis-van-meerten-Delft",
+        "page_title": "Huis Van Meerten | Bezoek de mooiste historische huizen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "hunebedcentrum",
+      "name": "Hunebedcentrum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.5,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Adults € 15,50",
+        "source_url": "https://www.hunebedcentrum.eu/en/admission-prices/",
+        "page_title": "Tickets - Het Hunebedcentrum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "jopie-huisman-museum",
+      "name": "Jopie Huisman Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "free_for": [
+          "icom",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen / jeugd vanaf 13 jaar € 12,50",
+        "source_url": "https://www.jopiehuismanmuseum.nl/het-museum/toegangsprijzen",
+        "page_title": "Plan je bezoek | Jopie Huisman Museum Workum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "kasteel-ammersoyen",
+      "name": "Kasteel Ammersoyen",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 13,50",
+        "source_url": "https://www.glk.nl/hernen/kasteel-hernen/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "kasteel-cannenburch",
+      "name": "Kasteel Cannenburch",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
         "quote": "Entreeprijzen Volwassenen € 13,50",
-        "checked_on": "2026-09-20",
-        "confidence": "high"
-      }
-    },
-    {
-      "slug": "joods-museum",
-      "name": "Joods Museum",
-      "categories": [
-        "history",
-        "world-cultures"
-      ],
-      "price": {
-        "adult_eur": 20.0,
-        "note": "Online duoticket Joods Museum & Portugese Synagoge € 20; combiticket alle 4 locaties € 30 (+€ 2 aan kassa).",
-        "source_url": "https://jck.nl/plan-je-bezoek",
-        "quote": "Duoticket Joods Museum + junior en Portugese Synagoge Volwassenen € 20",
-        "checked_on": "2026-09-20",
-        "confidence": "high"
+        "source_url": "https://www.glk.nl/hernen/kasteel-hernen/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
       }
     },
     {
       "slug": "kasteel-de-haar",
       "name": "Kasteel de Haar",
-      "categories": [
-        "heritage-site",
-        "history"
-      ],
       "price": {
-        "adult_eur": 21.5,
-        "note": "Volwassenentarief kasteel incl. toegang tuinen; los tuinticket kost € 8,00 - € 12,50.",
+        "status": "paid",
+        "primary_adult_eur": 21.5,
+        "free_for": [
+          "rembrandtkaart",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen (april t/m oktober) € 12,50 € 21,50",
         "source_url": "https://www.kasteeldehaar.nl/plan-je-bezoek/praktische-informatie/toegangsprijzen-kasteel-de-haar/",
-        "quote": "KASTEEL incl. toegang tuinen Volwassenen € 21,50",
-        "checked_on": "2026-09-20",
+        "page_title": "Praktische informatie: | Kasteel de Haar",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
+      }
+    },
+    {
+      "slug": "kasteel-doorwerth",
+      "name": "Kasteel Doorwerth",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 13,50",
+        "source_url": "https://www.glk.nl/hernen/kasteel-hernen/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "kasteel-hernen",
+      "name": "Kasteel Hernen",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Entreeprijzen Volwassenen € 13,50",
+        "source_url": "https://www.glk.nl/hernen/kasteel-hernen/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "kasteel-het-nijenhuis",
+      "name": "Kasteel het Nijenhuis",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "rembrandtkaart",
+          "other",
+          "museumkaart",
+          "icom"
+        ],
+        "quote": "Volwassenen € 17,50",
+        "source_url": "https://tickets.museumdefundatie.nl/nl/nijenhuis/tickets",
+        "page_title": "Museum de Fundatie online tickets - Museum de Fundatie",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "kasteel-hoensbroek",
+      "name": "Kasteel Hoensbroek",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen: € 15",
+        "source_url": "https://kasteelhoensbroek.nl/plan-je-bezoek/tickets",
+        "page_title": "Tickets - Kasteel Hoensbroek",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
       }
     },
     {
       "slug": "kasteel-radboud",
       "name": "Kasteel Radboud",
-      "categories": [
-        "heritage-site",
-        "history"
-      ],
       "price": {
-        "adult_eur": 10.5,
-        "note": "Regulier entreetarief vanaf 13 jaar; online boeking via WooCommerce winkel.",
-        "source_url": "https://kasteelradboud.nl/plan-je-bezoek/openingstijden/",
+        "status": "paid",
+        "primary_adult_eur": 10.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
         "quote": "Vanaf 13 jaar € 10,50",
-        "checked_on": "2026-09-20",
+        "source_url": "https://kasteelradboud.nl/en/plan-je-bezoek/openingstijden/",
+        "page_title": "Opening hours - Radboud Castle",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "kasteel-rosendael",
+      "name": "Kasteel Rosendael",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 13,50",
+        "source_url": "https://www.glk.nl/hernen/kasteel-hernen/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "kasteel-ruurlo",
+      "name": "Kasteel Ruurlo",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassene entree MORE Ruurlo € 16,50",
+        "source_url": "https://tickets.museummore-kasteelruurlo.nl/nl/tickets",
+        "page_title": "Tickets bestellen voor Kasteel Ruurlo",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "keramiekmuseum-princessehof",
+      "name": "Keramiekmuseum Princessehof",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 17,50",
+        "source_url": "https://www.princessehof.nl/bezoekinfo/openingstijden-en-entreeprijzen",
+        "page_title": "Openingstijden en entreeprijzen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "km21",
+      "name": "KM21",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 18.5,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Regular € 18,50",
+        "source_url": "https://www.km21.nl/en/visit",
+        "page_title": "Open from Tuesday to Sunday | KM21",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "koepelkathedraal",
+      "name": "Koepelkathedraal",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 5.0,
+        "free_for": [
+          "other"
+        ],
+        "quote": "€ 5,00 volwassenen en kinderen vanaf 13 jaar",
+        "source_url": "https://koepelkathedraal.nl/wat-is-er-te-zien/torens-beklimmen/",
+        "page_title": "Klim door de tijd - KoepelKathedraal Haarlem",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "kroller-muller-museum",
+      "name": "Kröller-Müller Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 27.75,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassene € 27,75",
+        "source_url": "https://www.krollermuller.nl/nl/bezoek/tickets-en-prijzen",
+        "page_title": "Tickets en prijzen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "kunsthal-kade",
+      "name": "Kunsthal KAdE",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 20.0,
+        "free_for": [
+          "other"
+        ],
+        "quote": "Adult + surcharge €20,-",
+        "source_url": "https://www.kunsthalkade.nl/en/plan-your-visit/",
+        "page_title": "Plan your visit to Kunsthal KAdE",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "kunsthal-rotterdam",
+      "name": "Kunsthal Rotterdam",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 19.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 19,00",
+        "source_url": "https://www.kunsthal.nl/nl/plan-je-bezoek/praktische-informatie/openingstijden-en-prijzen/",
+        "page_title": "Openingstijden en prijzen - Kunsthal",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "kunstlinie-kunsthal",
+      "name": "Kunstlinie - Kunsthal",
+      "price": {
+        "status": "blocked_by_bot_protection",
+        "primary_adult_eur": null,
+        "free_for": [],
+        "quote": null,
+        "source_url": "https://kunstlinie.nl/kunsthal/",
+        "page_title": "Bot Protection",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "blocked_by_bot_protection"
+      }
+    },
+    {
+      "slug": "kunstmuseum-den-haag",
+      "name": "Kunstmuseum Den Haag",
+      "price": {
+        "status": "blocked_by_bot_protection",
+        "primary_adult_eur": null,
+        "free_for": [],
+        "quote": null,
+        "source_url": "https://www.kunstmuseum.nl/nl/bezoek",
+        "page_title": "Bot Protection",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "blocked_by_bot_protection"
+      }
+    },
+    {
+      "slug": "lalique-museum",
+      "name": "Lalique Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart",
+          "children_under_12"
+        ],
+        "quote": "Volwassene entree 17,50 incl. tentoonstellingstoeslag",
+        "source_url": "https://www.laliquemuseum.nl/nl/uw-bezoek/tickets-tarieven/",
+        "page_title": "Tickets &amp; tarieven Lalique Museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "landhuis-oud-amelisweerd",
+      "name": "Landhuis Oud Amelisweerd",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 10.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "museumkaart"
+        ],
+        "quote": "vanaf 18 jaar €10,- per persoon.",
+        "source_url": "https://landhuisoudamelisweerd.nl/museumkaart-geldig/",
+        "page_title": "MUSEUMKAART GELDIG - Landhuis Oud Amelisweerd - Museum in Utrecht",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "limburgs-museum",
+      "name": "Limburgs Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Adults (18+) € 17,50",
+        "source_url": "https://www.limburgsmuseum.nl/en/tickets-and-admission/",
+        "page_title": "Tickets and admission - Limburgs Museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "louwman-museum",
+      "name": "Louwman Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 20.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Adults €20.00",
+        "source_url": "https://tickets.louwmanmuseum.nl/en/tickets",
+        "page_title": "Louwman Museum - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "marie-tak-van-poortvliet-museum-domburg",
+      "name": "Marie Tak van Poortvliet Museum Domburg",
+      "price": {
+        "status": "blocked_by_bot_protection",
+        "primary_adult_eur": null,
+        "free_for": [],
+        "quote": null,
+        "source_url": "https://marietakmuseum.nl/en/visitor-information/",
+        "page_title": "Bot Protection",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "blocked_by_bot_protection"
+      }
+    },
+    {
+      "slug": "mariniersmuseum",
+      "name": "Mariniersmuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 24.5,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Reguliere prijs volwassenen",
+        "source_url": "https://tickets.mariniersmuseum.nl/nl/tickets",
+        "page_title": "Mariniersmuseum - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium",
+        "cheapest_adult_eur": 9.5,
+        "price_note": "Pay what you want model; standard regular price is €24,50"
+      }
+    },
+    {
+      "slug": "maritiem-museum-rotterdam",
+      "name": "Maritiem Museum Rotterdam",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 19.0,
+        "free_for": [
+          "icom",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Adults - € 19,00",
+        "source_url": "https://maritiemmuseum.nl/en/plan-your-visit/prices",
+        "page_title": "Prices - Maritiem Museum Rotterdam",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "marius-van-dokkum-museum",
+      "name": "Marius van Dokkum Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "free_for": [
+          "museumkaart",
+          "children_under_12"
+        ],
+        "quote": "Adults € 12,50",
+        "source_url": "https://www.mariusvandokkummuseum.nl/?lang=en",
+        "page_title": "Marius van Dokkum Museum - Marius van Dokkum Museum Harderwijk",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
       }
     },
     {
       "slug": "mauritshuis",
       "name": "Mauritshuis",
-      "categories": [
-        "art"
-      ],
       "price": {
-        "adult_eur": null,
-        "note": "Crawler geblokkeerd door robots.txt / Cloudflare (HTTP 403).",
-        "source_url": "https://www.mauritshuis.nl/",
+        "status": "blocked_by_bot_protection",
+        "primary_adult_eur": null,
+        "free_for": [],
         "quote": null,
-        "checked_on": "2026-09-20",
-        "confidence": "blocked_by_robots"
+        "source_url": "https://www.mauritshuis.nl/en/visit",
+        "page_title": "Bot Protection",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "blocked_by_bot_protection"
+      }
+    },
+    {
+      "slug": "molenmuseum",
+      "name": "Molenmuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 10.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Molenmuseum • Volwassenen € 10,00",
+        "source_url": "https://www.zaanschemolen.nl/openingstijden-en-prijzen/",
+        "page_title": "Openingstijden en prijzen &#8211; De Zaansche molen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "mondriaanhuis",
+      "name": "Mondriaanhuis",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [
+          "museumkaart",
+          "icom",
+          "rembrandtkaart",
+          "other",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Regulier €14,-",
+        "source_url": "https://www.mondriaanhuis.nl/nl/plan-je-bezoek/openingstijden-en-prijzen/",
+        "page_title": "Openingstijden en prijzen - Mondriaanhuis",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museon-omniversum",
+      "name": "Museon-Omniversum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.95,
+        "free_for": [
+          "icom",
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Dagkaart Volwassenen € 17,95*",
+        "source_url": "https://www.museon-omniversum.nl/plan-je-bezoek/tickets-en-prijzen",
+        "page_title": "Tickets en prijzen | Museon-Omniversum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-batavialand",
+      "name": "Museum Batavialand",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.95,
+        "free_for": [
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen €14,95",
+        "source_url": "https://www.batavialand.nl/plan-je-bezoek/tickets-en-tarieven/",
+        "page_title": "Tickets en tarieven - Museum Batavialand",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-beelden-aan-zee",
+      "name": "Museum Beelden aan Zee",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 22.0,
+        "free_for": [
+          "museumkaart",
+          "rembrandtkaart",
+          "other",
+          "icom",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassenen €22,00",
+        "source_url": "https://www.beeldenaanzee.nl/nl/bezoek/tickets",
+        "page_title": "Tickets - Museum Beelden aan Zee - NL",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-belvedere",
+      "name": "Museum Belvédère",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 20.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Entrance: Adult: €20",
+        "source_url": "https://www.museumbelvedere.nl/en/archive/art-noord-vii-2025/",
+        "page_title": "Art Noord VII (2025) | Museum Belvédère",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-catharijneconvent",
+      "name": "Museum Catharijneconvent",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "free_for": [
+          "museumkaart",
+          "rembrandtkaart",
+          "other",
+          "children_under_18",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassenen: €16,00 | Online €15,00",
+        "source_url": "https://www.catharijneconvent.nl/tijden-en-tickets/",
+        "page_title": "Tijden &amp; tickets - Catharijneconvent",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium",
+        "cheapest_adult_eur": 15.0,
+        "price_note": "standard ticket is €16.00, online is €15.00"
+      }
+    },
+    {
+      "slug": "museum-de-dageraad",
+      "name": "Museum de Dageraad",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Museum De Dageraad €17.50 Free",
+        "source_url": "https://www.hetschip.nl/en/visitors/practical/opening-hours-and-prices/opening-hours-and-prices-de-dageraad",
+        "page_title": "Admission fees &amp; tickets - Museum Het Schip",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-de-fundatie",
+      "name": "Museum De Fundatie",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Adults: € 17,50",
+        "source_url": "https://museumdefundatie.nl/en/visit-museum/zwolle",
+        "page_title": "Zwolle | Museum de Fundatie",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-de-lakenhal",
+      "name": "Museum de Lakenhal",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassen € 16,00",
+        "source_url": "https://tickets.lakenhal.nl/nl/tickets",
+        "page_title": "Museum De Lakenhal - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-de-proefkolonie",
+      "name": "Museum de Proefkolonie",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Adults – € 15",
+        "source_url": "https://proefkolonie.nl/en/plan-your-visit/prices/",
+        "page_title": "Prices - Museum De Proefkolonie",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-engelandvaarders",
+      "name": "Museum Engelandvaarders",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 10.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 10,00",
+        "source_url": "https://www.museumengelandvaarders.nl/museum/museumbezoek/",
+        "page_title": "Museumbezoek - Museum Engelandvaarders",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-gouda",
+      "name": "Museum Gouda",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "E-ticket entree volwassene € 16,00",
+        "source_url": "https://tickets.museumgouda.nl/nl/tickets",
+        "page_title": "Museum Gouda - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-helmond",
+      "name": "Museum Helmond",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen 12,00",
+        "source_url": "https://museumhelmond.nl/kasteel-helmond/bezoekersinformatie/toegangsprijzen/",
+        "page_title": "Toegangsprijzen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium",
+        "cheapest_adult_eur": 3.0,
+        "price_note": "cheapest adult price available with income statement"
+      }
+    },
+    {
+      "slug": "museum-het-rembrandthuis",
+      "name": "Museum het Rembrandthuis",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [],
+        "quote": "De toegangsprijs is 14 euro per persoon.",
+        "source_url": "https://tickets.rembrandthuis.nl/onderwijs/onderwijs-tickets/nl/518/readmore",
+        "page_title": "Schoolbezoek reserveren - Rembrandthuis",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-huis-doorn",
+      "name": "Museum Huis Doorn",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.0,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Adults House € 12,-",
+        "source_url": "https://www.huisdoorn.nl/en/plan-your-visit/opening-hours-tickets/",
+        "page_title": "Opening hours &amp; tickets - Museum Huis Doorn",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium",
+        "cheapest_adult_eur": 12.0
+      }
+    },
+    {
+      "slug": "museum-jan-cunen",
+      "name": "Museum Jan Cunen",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.5,
+        "free_for": [
+          "museumkaart",
+          "rembrandtkaart",
+          "children_under_18",
+          "icom",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassenen €11,50",
+        "source_url": "https://www.museumjancunen.nl/tickets-en-prijzen/",
+        "page_title": "Museum Jan Cunen | Tickets &amp; prijzen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-klok-peel",
+      "name": "Museum Klok & Peel",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [
+          "rembrandtkaart",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen (18 jaar en ouder) € 14,00",
+        "source_url": "https://tickets.museumklokenpeel.nl/nl/tickets",
+        "page_title": "Museum Klok &amp; Peel - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
       }
     },
     {
       "slug": "museum-martena",
       "name": "Museum Martena",
-      "categories": [
-        "history",
-        "art"
-      ],
       "price": {
-        "adult_eur": 6.0,
-        "note": "Regulier volwassenentarief; combikaarten met Planetarium of Keatsmuseum beschikbaar voor € 10,00.",
-        "source_url": "https://www.museummartena.nl/bezoekinformatie-museum/tickets-en-tarieven",
+        "status": "paid",
+        "primary_adult_eur": 6.0,
+        "free_for": [
+          "icom",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
         "quote": "Volwassenen : € 6,-",
-        "checked_on": "2026-09-20",
+        "source_url": "https://www.museummartena.nl/bezoekinformatie-museum/tickets-en-tarieven",
+        "page_title": "Kaarten en tarieven | Museum Martena Franeker",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-more",
+      "name": "Museum MORE",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 19.5,
+        "free_for": [
+          "icom",
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Adult incl. exhibition fee €19.50",
+        "source_url": "https://tickets.museummore.nl/en/tickets",
+        "page_title": "Museum More - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
       }
     },
     {
-      "slug": "museumprinsenhofdelft",
-      "name": "Museum Prinsenhof Delft",
-      "categories": [
-        "history",
-        "art"
-      ],
+      "slug": "museum-nienoord",
+      "name": "Museum Nienoord",
       "price": {
-        "adult_eur": null,
-        "note": "Tijdelijk gesloten wegens renovatie t/m eind 2026; geen reguliere kaartverkoop.",
-        "source_url": "https://www.museumprinsenhofdelft.nl/",
-        "quote": "Museum Prinsenhof Delft is tijdelijk gesloten voor verbouwing en vernieuwing.",
-        "checked_on": "2026-09-20",
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 11,00",
+        "source_url": "https://museumnienoord.nl/tickets-en-prijzen/",
+        "page_title": "Tickets &amp; prijzen | Museum Nienoord",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-rotterdam",
+      "name": "Museum Rotterdam",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "free_for": [
+          "rembrandtkaart",
+          "icom",
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Entree volwassenen: € 12,50 p.p.",
+        "source_url": "https://museumrotterdam.nl/plan-je-bezoek/veelgestelde-vragen/",
+        "page_title": "Veelgestelde vragen - Museum Rotterdam",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-schokland",
+      "name": "Museum Schokland",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 10.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Adults : €10.00",
+        "source_url": "https://www.museumschokland.nl/en/tickets-and-admission/",
+        "page_title": "Tickets | Museum Schokland",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-speelklok",
+      "name": "Museum Speelklok",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 18.5,
+        "free_for": [
+          "other"
+        ],
+        "quote": "Volwassene | Toegangsticket € 18,50",
+        "source_url": "https://tickets.museumspeelklok.nl/nl/toegangstickets/tickets",
+        "page_title": "Museum Speelklok - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-tachtigjarige-oorlog",
+      "name": "Museum Tachtigjarige Oorlog",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen: €12,50",
+        "source_url": "https://www.nmto.nl/bezoek-ons/tickets-toegangsprijzen",
+        "page_title": "Tickets | NMTO",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-van-bommel-van-dam",
+      "name": "Museum van Bommel van Dam",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 1.0,
+        "free_for": [],
+        "quote": "Bestelling afronden (€ 1,00)",
+        "source_url": "https://tickets.vanbommelvandam.nl/nl-NL/tickets",
+        "page_title": "Museum van Bommel van Dam",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museum-van-de-20e-eeuw",
+      "name": "Museum van de 20e eeuw",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "free_for": [
+          "museumkaart"
+        ],
+        "quote": "Museum van de 20e Eeuw in Hoorn. Normale entreeprijs volwassenen € 11,00.",
+        "source_url": "https://www.museumhoorn.nl/pg-5548-7-142418/pagina/welke_musea_gratis_met_museumkaart.html",
+        "page_title": "welke musea gratis met museumkaart - Museum van de Twintigste Eeuw",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-van-de-geest-dolhuys",
+      "name": "Museum van de Geest | Dolhuys",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Adult €17.50",
+        "source_url": "https://tickets.museumvandegeest.nl/en/tickets",
+        "page_title": "Online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-volkenkunde",
+      "name": "Museum Volkenkunde",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "free_for": [
+          "other"
+        ],
+        "quote": "Adults: €16 online (€18 at the ticket desk).",
+        "source_url": "https://leiden.wereldmuseum.nl/en/tickets",
+        "page_title": "Tickets | Wereldmuseum Leiden",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museumhuis-barnaart",
+      "name": "Museumhuis Barnaart",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "free_for": [
+          "museumkaart"
+        ],
+        "quote": "Volwassene €11 Kind tot 18 jaar",
+        "source_url": "https://www.hendrickdekeyser.nl/museumbezoek/huis-barnaart-Haarlem",
+        "page_title": "Huis Barnaart | Bezoek de mooiste historische huizen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museumhuis-bartolotti",
+      "name": "Museumhuis Bartolotti",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "free_for": [
+          "museumkaart"
+        ],
+        "quote": "Volwassene €11 Kind tot 18 jaar",
+        "source_url": "https://www.hendrickdekeyser.nl/museumbezoek/huis-bartolotti-Amsterdam",
+        "page_title": "Huis Bartolotti | Bezoek de mooiste historische huizen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museumhuis-polman",
+      "name": "Museumhuis Polman",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 7.0,
+        "free_for": [
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassene €7 Kind tot 18 jaar",
+        "source_url": "https://www.hendrickdekeyser.nl/museumbezoek/huis-polman-nagele#information",
+        "page_title": "Huis Polman | Bezoek de mooiste historische huizen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museumhuis-rams-woerthe",
+      "name": "Museumhuis Rams Woerthe",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "free_for": [
+          "museumkaart"
+        ],
+        "quote": "Volwassene €11 Kind tot 18 jaar",
+        "source_url": "https://www.hendrickdekeyser.nl/museumbezoek/villa-rams-woerthe-Steenwijk",
+        "page_title": "Villa Rams Woerthe | Hendrick de Keyser Monumenten",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "museumprinsenhofdelft",
+      "name": "museumprinsenhofdelft",
+      "price": {
+        "status": "closed",
+        "primary_adult_eur": null,
+        "free_for": [],
+        "quote": "The Museum Prinsenhof Delft is temporarily closed for renovation and refurbishment.",
+        "source_url": "https://www.museumprinsenhofdelft.nl/en/plan-your-visit",
+        "page_title": "Plan your visit - Museum Prinsenhof Delft",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "nationaal-glasmuseum",
+      "name": "Nationaal Glasmuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "free_for": [
+          "rembrandtkaart",
+          "vriendenloterij_vip_kaart",
+          "museumkaart",
+          "icom"
+        ],
+        "quote": "Museumlocatie Glasblazerij Vanaf 18 jaar € 18,50 € 12,50",
+        "source_url": "https://www.nationaalglasmuseum.nl/home/plan-je-bezoek/",
+        "page_title": "Plan je bezoek &#8211; Nationaal Glasmuseum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
       }
     },
     {
       "slug": "nationaal-monument-kamp-amersfoort",
       "name": "Nationaal Monument Kamp Amersfoort",
-      "categories": [
-        "history"
-      ],
       "price": {
-        "adult_eur": 14.0,
-        "note": "Regulier volwassenentarief voor het herinneringscentrum; buitenterrein vrij toegankelijk.",
-        "source_url": "https://kampamersfoort.nl/bezoek/",
-        "quote": "TOEGANGSPRIJZEN Volwassenen € 14",
-        "checked_on": "2026-09-20",
-        "confidence": "high"
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [
+          "museumkaart"
+        ],
+        "quote": "Public guided tours €14",
+        "source_url": "https://kampamersfoort.nl/en/plan-your-visit/",
+        "page_title": "Plan your visit - Nationaal Monument Kamp Amersfoort",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
       }
     },
     {
       "slug": "nationaal-monument-kamp-vught",
       "name": "Nationaal Monument Kamp Vught",
-      "categories": [
-        "history"
-      ],
       "price": {
-        "adult_eur": 12.0,
-        "note": "Combikaartje voor hoofdgebouw en Barak 1B inclusief plattegrond en audiotour; betaling aan de balie.",
-        "source_url": "https://www.nmkampvught.nl/museumbezoek/",
+        "status": "paid",
+        "primary_adult_eur": 12.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
         "quote": "Volwassenen : € 12,00",
-        "checked_on": "2026-09-20",
+        "source_url": "https://www.nmkampvught.nl/bezoeken/praktisch/bezoekersinformatie/",
+        "page_title": "Bezoekersinformatie - Nationaal Monument Kamp Vught",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
+      }
+    },
+    {
+      "slug": "nationaal-monument-oranjehotel",
+      "name": "Nationaal monument Oranjehotel",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "free_for": [
+          "icom",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassene € 12,50",
+        "source_url": "https://www.oranjehotel.org/nl/bezoek/plan-je-bezoek/",
+        "page_title": "Plan je bezoek naar het Oranjehotel",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "nationaal-onderduikmuseum",
+      "name": "Nationaal Onderduikmuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 9.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassen € 9,50",
+        "source_url": "https://nationaalonderduikmuseum.nl/product/museum-tickets/",
+        "page_title": "Tickets - Nationaal Onderduikmuseum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "naturalis-biodiversity-center",
+      "name": "Naturalis Biodiversity Center",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 18.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Aged 4 and older €18",
+        "source_url": "https://www.naturalis.nl/en/tickets-for-naturalis",
+        "page_title": "Tickets for museum Naturalis | Naturalis",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "natuurmuseum-brabant",
+      "name": "Natuurmuseum Brabant",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.0,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Adults € 17",
+        "source_url": "https://www.natuurmuseumbrabant.nl/en/museum-visit/admission-prices",
+        "page_title": "Admission prices: Natuurmuseum Brabant",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "natuurmuseum-frysian",
+      "name": "Natuurmuseum FrysIân",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassene € 14",
+        "source_url": "https://natuurmuseumfryslan.nl/entreeprijzen/",
+        "page_title": "Entreeprijzen - Natuurmuseum Fryslân",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "nederlands-fotomuseum",
+      "name": "Nederlands Fotomuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Adults € 17,50",
+        "source_url": "https://nederlandsfotomuseum.nl/en/plan-your-visit/",
+        "page_title": "Plan your visit &#8211; Nederlands Fotomuseum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "nederlands-openluchtmuseum",
+      "name": "Nederlands Openluchtmuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [],
+        "quote": "Weekdagen v.a. €15,00",
+        "source_url": "https://www.openluchtmuseum.nl/tickets",
+        "page_title": "Nederlands Openluchtmuseum Combishop",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium",
+        "cheapest_adult_eur": 7.0,
+        "price_note": "Weekdays from €15.00, low season from €7.00"
       }
     },
     {
       "slug": "nemo-science-museum",
       "name": "NEMO Science Museum",
-      "categories": [
-        "science-technology"
-      ],
       "price": {
-        "adult_eur": 21.5,
-        "note": "Online ticket met starttijd; gelijk tarief voor alle bezoekers vanaf 4 jaar.",
-        "source_url": "https://tickets.nemosciencemuseum.nl/nl/tickets",
-        "quote": "Ticket 18 jaar en ouder € 21,50",
-        "checked_on": "2026-09-20",
+        "status": "paid",
+        "primary_adult_eur": 21.5,
+        "free_for": [],
+        "quote": "A ticket for visitors from 4 years old costs €21.50 per person.",
+        "source_url": "https://www.nemosciencemuseum.nl/en/plan-your-visit/frequently-asked-questions",
+        "page_title": "Frequently asked questions - NEMO Science Museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "nijntje-museum",
+      "name": "Nijntje Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [
+          "icom",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "adult €14.00",
+        "source_url": "https://tickets.nijntjemuseum.nl/en/tickets",
+        "page_title": "miffy museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "noordbrabants-museum",
+      "name": "Noordbrabants Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Ticket prikkelarm museumbezoek volwassene € 17,50",
+        "source_url": "https://tickets.hetnoordbrabantsmuseum.nl/nl/prikkelarm/tickets",
+        "page_title": "Het Noordbrabants Museum - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "oorlogsmuseum-overloon",
+      "name": "Oorlogsmuseum Overloon",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 20.0,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Adults and young people from 13 years € 20,00",
+        "source_url": "https://www.oorlogsmuseum.nl/en/information/admission-fees/",
+        "page_title": "Admission Fees - Oorlogsmuseum Overloon",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high",
+        "cheapest_adult_eur": 18.5,
+        "price_note": "Online price is cheaper"
+      }
+    },
+    {
+      "slug": "oyfo-techniekmuseum",
+      "name": "Oyfo Techniekmuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Vanaf 18 jaar €13,50",
+        "source_url": "https://www.oyfotechniekmuseum.nl/31180/tickets",
+        "page_title": "Tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "paleis-het-loo",
+      "name": "Paleis Het Loo",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 21.0,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Adults € 21.00",
+        "source_url": "https://paleishetloo.nl/en/visit/tickets",
+        "page_title": "Get your tickets | Paleis Het Loo",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "paleis-lofen",
+      "name": "Paleis Lofen",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "free_for": [],
+        "quote": "Wat kost een Tijdreis Paleis Lofen? Volwassene € 13,50",
+        "source_url": "https://www.paleislofen.nl/tickets/",
+        "page_title": "TICKETS - Paleis Lofen",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "rietveld-schroederhuis",
+      "name": "Rietveld Schröderhuis",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 19.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Adults aged 18 and over €19.00",
+        "source_url": "https://tickets.rietveldschroderhuis.nl/en/tickets",
+        "page_title": "Rietveld Schröderhuis - online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
       }
     },
     {
       "slug": "rijksmuseum",
       "name": "Rijksmuseum",
-      "categories": [
-        "art",
-        "history"
-      ],
       "price": {
-        "adult_eur": 25.0,
-        "note": "Online ticket met starttijd; reguliere volwassenenprijs (jeugd t/m 18 jaar gratis).",
-        "source_url": "https://www.rijksmuseum.nl/nl/tickets",
+        "status": "paid",
+        "primary_adult_eur": 25.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
         "quote": "Volwassenen € 25,00",
-        "checked_on": "2026-09-20",
+        "source_url": "https://www.rijksmuseum.nl/nl/tickets/articles",
+        "page_title": "Tickets Rijksmuseum &#x2013; Offici&#xEB;le en goedkoopste tickets &#x2013; Boek nu - Rijksmuseum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "rijksmuseum-de-gevangenpoort",
+      "name": "Rijksmuseum de Gevangenpoort",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen (18 jaar en ouder): € 15,00",
+        "source_url": "https://gevangenpoort.nl/bezoek/praktische-informatie/tickets-en-prijzen/",
+        "page_title": "Tickets en prijzen - Gevangenpoort",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "rijksmuseum-muiderslot",
+      "name": "Rijksmuseum Muiderslot",
+      "price": {
+        "status": "blocked_by_bot_protection",
+        "primary_adult_eur": null,
+        "free_for": [],
+        "quote": null,
+        "source_url": "https://muiderslot.nl/bezoek/openingstijden-prijzen/",
+        "page_title": "Bot Protection",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "blocked_by_bot_protection"
+      }
+    },
+    {
+      "slug": "rijksmuseum-twenthe",
+      "name": "Rijksmuseum Twenthe",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.5,
+        "free_for": [
+          "museumkaart"
+        ],
+        "quote": "Regular admission ticket €16.50",
+        "source_url": "https://www.rijksmuseumtwenthe.nl/en/my-museum/rmt-next",
+        "page_title": "RMT Next | Rijksmuseum Twenthe - The artmuseum of Enschede",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "rijksmuseum-van-oudheden",
+      "name": "Rijksmuseum van Oudheden",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Admission fees Adults: € 14",
+        "source_url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+        "page_title": "Opening hours, admission and directions | Rijksmuseum van Oudheden",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
+      }
+    },
+    {
+      "slug": "schunck",
+      "name": "SCHUNCK",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.5,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "museumzaal & atrium € 11,50 | algemene entree",
+        "source_url": "https://schunck.nl/museum/praktische-informatie/entreeprijzen",
+        "page_title": "Entreeprijzen Museum | SCHUNCK",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "singer-laren",
+      "name": "Singer Laren",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 19.5,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 19,50",
+        "source_url": "https://www.singerlaren.nl/nl/openingstijden-en-entreeprijzen-ntvf",
+        "page_title": "Openingstijden en entreeprijzen Singer Laren | Singer Laren",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
       }
     },
     {
       "slug": "sint-jan-de-doper",
       "name": "Sint Jan de Doper",
       "price": {
-        "admission": "free",
         "status": "free",
-        "adult_eur": 0.0,
+        "primary_adult_eur": null,
+        "free_for": [],
         "quote": "Toegang is gratis, een vrijwillige bijdrage wordt erg op prijs gesteld.",
         "source_url": "https://www.vriendensintjanwaalwijk.nl/grootstemuseum",
-        "reason": "The website explicitly states that access to the church/museum is free, though donations are welcome.",
-        "confidence": "high",
-        "entered_by": "agent",
-        "checked_on": "2026-09-20"
-      }
-    },
-    {
-      "slug": "spoorwegmuseum",
-      "name": "Het Spoorwegmuseum",
-      "categories": [
-        "history",
-        "science-technology"
-      ],
-      "price": {
-        "adult_eur": 19.5,
-        "note": "Regulier entreetarief per persoon (vanaf 4 jaar).",
-        "source_url": "https://www.spoorwegmuseum.nl/bezoek/bezoekersinformatie/",
-        "quote": "Toegangsprijzen per persoon Entree € 19,50",
-        "checked_on": "2026-09-20",
+        "page_title": "Sint Jan de Doper Waalwijk - Ontdek de verborgen schatten",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
       }
     },
     {
-      "slug": "stedelijk-museum-zutphen",
-      "name": "Stedelijk Museum Zutphen",
-      "categories": [
-        "history",
-        "art"
-      ],
+      "slug": "sint-jan-gouda",
+      "name": "Sint-Jan Gouda",
       "price": {
-        "adult_eur": 11.0,
-        "note": "Los ticket Stedelijk Museum Zutphen € 11; combiticket met Museum Henriette Polak € 19.",
-        "source_url": "https://museazutphen.nl/stedelijk-museum-zutphen/plan-je-bezoek/",
-        "quote": "Stedelijk Museum Zutphen Entree vanaf 13 jaar € 11",
-        "checked_on": "2026-09-20",
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 11,-",
+        "source_url": "https://sintjan.com/je-bezoek/praktische-informatie/",
+        "page_title": "Praktische informatie - Sint-Jan Gouda",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "sonnenborgh",
+      "name": "Sonnenborgh",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "free_for": [],
+        "quote": "Entree: €15 niet-bilbliotheeklid",
+        "source_url": "https://www.sonnenborgh.nl/post-voor-de-planeet",
+        "page_title": "Sonnenborgh museum & sterrenwacht",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "sovjet-ereveld-experience",
+      "name": "Sovjet Ereveld Experience",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.95,
+        "free_for": [
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassen 18+ € 11,95",
+        "source_url": "https://tickets.sovjet-ereveld.nl/nl/tickets",
+        "page_title": "Online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "stadsmuseum-harderwijk",
+      "name": "Stadsmuseum Harderwijk",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "free_for": [
+          "children_under_18",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 12,50",
+        "source_url": "https://www.stadsmuseum-harderwijk.nl/tickets-openingstijden/",
+        "page_title": "Tickets &amp; openingstijden - Stadsmuseum Harderwijk",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "stedelijk-museum-alkmaar",
+      "name": "Stedelijk Museum Alkmaar",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "€ 17.00*| Full rate",
+        "source_url": "https://stedelijkmuseumalkmaar.nl/en/plan-your-visit/times-and-prices/",
+        "page_title": "Times and prices | Stedelijk Museum Alkmaar",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "stedelijk-museum-amsterdam",
+      "name": "Stedelijk Museum Amsterdam",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 22.5,
+        "free_for": [],
+        "quote": "Prices Adults: € 22,50",
+        "source_url": "https://www.stedelijk.nl/en/tickets",
+        "page_title": "Book your Ticket – Stedelijk Museum Amsterdam",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "stedelijk-museum-breda",
+      "name": "Stedelijk Museum Breda",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 14.5,
+        "free_for": [
+          "rembrandtkaart",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen / € 14,50",
+        "source_url": "https://www.stedelijkmuseumbreda.nl/nl/bezoek/openingstijden-en-prijzen",
+        "page_title": "Openingstijden en prijzen - Stedelijk Museum Breda",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "stedelijk-museum-schiedam",
+      "name": "Stedelijk Museum Schiedam",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 21.5,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "€ 21,50 | Voltarief",
+        "source_url": "https://stedelijkmuseumschiedam.nl/plan-je-bezoek/",
+        "page_title": "Plan je bezoek - Stedelijk Museum Schiedam",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "storyworld",
+      "name": "Storyworld",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "free_for": [
+          "children_under_18",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Standard € 11.00",
+        "source_url": "https://www.storyworld.nl/en/plan-your-visit/tickets",
+        "page_title": "Prices",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "teylers-museum",
+      "name": "Teylers Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 18.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 18,50",
+        "source_url": "https://teylersmuseum.nl/nl/bezoek-het-museum/praktische-informatie/openingstijden-en-prijzen",
+        "page_title": "Praktische informatie over Teylers Museum Haarlem",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "universiteits-museum-utrecht",
+      "name": "Universiteits Museum Utrecht",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassene - UMU & Oude Hortus € 15,50",
+        "source_url": "https://tickets.umu.nl/nl/tickets",
+        "page_title": "Online tickets",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
         "confidence": "high"
       }
     },
     {
       "slug": "van-gogh-museum",
       "name": "Van Gogh Museum",
-      "categories": [
-        "art"
-      ],
       "price": {
-        "adult_eur": 25.0,
-        "note": "Verplicht online ticket met starttijd; jeugd onder 18 jaar gratis.",
-        "source_url": "https://www.vangoghmuseum.nl/nl/bezoek/tickets-en-toegangsprijzen",
-        "quote": "Volwassenen: € 25.",
-        "checked_on": "2026-09-20",
-        "confidence": "high"
+        "status": "paid",
+        "primary_adult_eur": 25.0,
+        "free_for": [
+          "children_under_18",
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Ticket prices: Adults: € 25.",
+        "source_url": "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices",
+        "page_title": "Tickets and Ticket Prices - Van Gogh Museum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "verzetsmuseum-amsterdam",
+      "name": "Verzetsmuseum Amsterdam",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen: € 17,50",
+        "source_url": "https://www.verzetsmuseum.org/nl/tickets-en-prijzen",
+        "page_title": "Tickets voor Verzetsmuseum en Verzetsmuseum Junior",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
       }
     },
     {
       "slug": "watersnoodmuseum",
       "name": "Watersnoodmuseum",
-      "categories": [
-        "history"
-      ],
       "price": {
-        "adult_eur": 16.0,
-        "note": "Online ticket voor volwassenen (vanaf 12 jaar).",
-        "source_url": "https://ticket.watersnoodmuseum.nl/",
-        "quote": "Volwassenen (vanaf 12 jaar) € 16,00",
-        "checked_on": "2026-09-20",
-        "confidence": "high"
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "free_for": [
+          "other",
+          "vriendenloterij_vip_kaart",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen (vanaf 12 jaar) € 16.00",
+        "source_url": "https://watersnoodmuseum.nl/het-museum/plan-je-bezoek",
+        "page_title": "Plan je Bezoek Watersnoodmuseum | Tickets &amp; Openingstijden - Watersnoodmuseum",
+        "checked_on": "2026-09-21",
+        "model": "google/gemma-4-26b-a4b-it:free",
+        "confidence": "medium"
       }
     }
   ]
