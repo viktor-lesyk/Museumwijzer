@@ -103,15 +103,16 @@ artis-groote-museum:
       city: "Amsterdam"
 
 het-nieuwe-instituut:
-  date: "2026-09-20"
+  date: "2026-09-21"
   evidence_url: "https://nieuweinstituut.nl/"
-  exact_text_read: "Contact Nieuwe Instituut Museumpark 25 3015 CB Rotterdam"
-  note: "Source website CMS entry duplicated Gevangenismuseum Veenhuizen address."
+  exact_text_read: "Nieuwe Instituut Museumpark 25 3015 CB Rotterdam"
+  note: "Source website CMS entry duplicated Gevangenismuseum Veenhuizen website and address."
   override:
     address:
       street: "Museumpark 25"
       postcode: "3015 CB"
       city: "Rotterdam"
+    museum_website: "https://nieuweinstituut.nl/"
 
 koepelkathedraal:
   date: "2026-09-20"
@@ -146,3 +147,27 @@ sint-jan-de-doper:
       postcode: "5141 GR"
       city: "Waalwijk"
     museum_website: "https://www.vriendensintjanwaalwijk.nl/"
+
+km21:
+  date: "2026-09-21"
+  evidence_url: "https://www.km21.nl/"
+  exact_text_read: "KM21 Stadhouderslaan 43 2517 HV Den Haag"
+  note: "Source website CMS entry duplicated Gevangenismuseum Veenhuizen website. KM21 is located at Stadhouderslaan 43, 2517 HV Den Haag."
+  override:
+    museum_website: "https://www.km21.nl/"
+
+museumstoomtram-hoorn-medemblik:
+  date: "2026-09-21"
+  evidence_url: "https://www.stoomtram.nl/contact/"
+  exact_text_read: "Bezoekadres / Hoorn Tramstation: Van Dedemstraat 8 1624 NN Hoorn"
+  note: >-
+    Source website CMS entry duplicated Museum BroekerVeiling address and lacked website.
+    Address reconciliation: The workshop and depot are at Van Linschotenstraat 21, 1625 HK Hoorn, while the official public visitor entrance, ticket office, and tram departure point is Van Dedemstraat 8, 1624 NN Hoorn ("Bezoekadres / Hoorn Tramstation: Van Dedemstraat 8 1624 NN Hoorn").
+    This heritage railway is a multi-site line between Hoorn and Medemblik, with additional station/jetty locations at Dam 2, 1671 AW Medemblik ("Medemblik tramstation en aanlegsteiger: Dam 2, 1671 AW Medemblik") and Tritondam 5, 1601 GT Enkhuizen ("Enkhuizen aanlegsteiger: Tritondam 5, 1601 GT Enkhuizen"). We list the primary visitor entrance in Hoorn (Van Dedemstraat 8, 1624 NN Hoorn).
+  override:
+    address:
+      street: "Van Dedemstraat 8"
+      postcode: "1624 NN"
+      city: "Hoorn"
+    museum_website: "https://www.stoomtram.nl/"
+

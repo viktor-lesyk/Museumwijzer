@@ -21,6 +21,7 @@ logger = logging.getLogger(__name__)
 
 WHITELISTED_SHARED_WEBSITES = {
     frozenset(["huygens-museum-hofwijck", "huygens-museum-notarishuis"]),
+    frozenset(["museumstoomtram", "museumstoomtram-hoorn-medemblik"]),
 }
 
 WHITELISTED_SHARED_ADDRESSES = {
@@ -29,6 +30,7 @@ WHITELISTED_SHARED_ADDRESSES = {
     frozenset(["fotomuseum-den-haag", "km21"]),
     frozenset(["kunstlinie", "kunstlinie-kunsthal"]),
     frozenset(["museum-henriette-polak", "stedelijk-museum-zutphen"]),
+    frozenset(["museumstoomtram", "museumstoomtram-hoorn-medemblik"]),
 }
 
 

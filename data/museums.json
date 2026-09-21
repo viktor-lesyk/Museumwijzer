@@ -1415,7 +1415,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/het-nieuwe-instituut/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/het-nieuwe-instituut/"
       },
-      "museum_website": "https://www.gevangenismuseum.nl/",
+      "museum_website": "https://nieuweinstituut.nl/",
       "source_date_raw": "2022-11-10T09:07:12.007Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -2198,7 +2198,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/km21/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/km21/"
       },
-      "museum_website": "https://www.gevangenismuseum.nl/",
+      "museum_website": "https://www.km21.nl/",
       "source_date_raw": "2022-11-10T09:48:22.323Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -4039,28 +4039,28 @@
       "slug": "museumstoomtram-hoorn-medemblik",
       "name": "Museumstoomtram Hoorn-Medemblik",
       "province": "Noord-Holland",
-      "city": "Broek op Langedijk",
-      "municipality": "Dijk en Waard",
+      "city": "Hoorn",
+      "municipality": "Hoorn",
       "address": {
-        "street": "Museumweg 2",
-        "postcode": "1721 BW",
-        "city": "Broek op Langedijk"
+        "street": "Van Dedemstraat 8",
+        "postcode": "1624 NN",
+        "city": "Hoorn"
       },
-      "lat": 52.679873,
-      "lon": 4.806555,
+      "lat": 52.645633,
+      "lon": 5.054515,
       "official_url": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumstoomtram-hoorn-medemblik/",
       "official_urls": {
         "nl": "https://welkominhetmuseum.vriendenloterij.nl/nl/musea/museumstoomtram-hoorn-medemblik/",
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museumstoomtram-hoorn-medemblik/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museumstoomtram-hoorn-medemblik/"
       },
-      "museum_website": null,
+      "museum_website": "https://www.stoomtram.nl/",
       "source_date_raw": "2025-07-28T14:30:09.351Z",
       "first_seen": "2026-09-19",
       "programmes": [
         "welkom-in-het-museum"
       ],
-      "pdok_woonplaats": "Broek op Langedijk",
+      "pdok_woonplaats": "Hoorn",
       "status": "active",
       "consecutive_missing": 0
     },

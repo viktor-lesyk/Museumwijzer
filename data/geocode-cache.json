@@ -1299,16 +1299,16 @@
     "weergavenaam": "van Dedemstraat 8, 1624NN Hoorn"
   },
   "museumstoomtram-hoorn-medemblik": {
-    "address_sig": "1721 BW|Museumweg 2|Broek op Langedijk",
-    "city": "Broek op Langedijk",
-    "geocoded_at": "2026-09-19T19:26:55.394361+00:00",
-    "lat": 52.679873,
-    "lon": 4.806555,
-    "municipality": "Dijk en Waard",
+    "address_sig": "1624 NN|Van Dedemstraat 8|Hoorn",
+    "city": "Hoorn",
+    "geocoded_at": "2026-09-21T09:12:57.184616+00:00",
+    "lat": 52.645633,
+    "lon": 5.054515,
+    "municipality": "Hoorn",
     "province": "Noord-Holland",
-    "query": "1721 BW 2",
-    "weergavenaam": "Museumweg 2, 1721BW Broek op Langedijk",
-    "woonplaats": "Broek op Langedijk"
+    "query": "1624 NN 8",
+    "weergavenaam": "van Dedemstraat 8, 1624NN Hoorn",
+    "woonplaats": "Hoorn"
   },
   "nationaal-glasmuseum": {
     "address_sig": "4141 BE||Leerdam)",
