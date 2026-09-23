@@ -1,0 +1,334 @@
+{
+  "updated_at": "2026-09-23T23:06:43.722032+00:00",
+  "museums": [
+    {
+      "slug": "kasteel-de-haar",
+      "name": "Kasteel de Haar",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/De_Haar_castlle.jpg/960px-De_Haar_castlle.jpg?utm_source=nl.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "author": "Rafa.rivero",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:De_Haar_castlle.jpg"
+      },
+      "summary": {
+        "nl": "Kasteel de Haar in Haarzuilens is het grootste kasteel van Nederland en een indrukwekkend voorbeeld van neogotische architectuur. Het complex werd vanaf 1892 herbouwd op middeleeuwse ruïnes en omvat een rijk gemeubileerd hoofdgebouw en uitgestrekte historische tuinen. Bezoekers ontdekken hier de weelderige leefstijl van de adel en de rijke geschiedenis van het landgoed.",
+        "en": "Kasteel de Haar in Haarzuilens is the largest castle in the Netherlands and a striking example of neo-Gothic architecture. Rebuilt from 1892 on medieval ruins, the estate features a lavishly furnished main building and extensive historic gardens. Visitors can explore the opulent lifestyle of the nobility and the rich history of the grounds.",
+        "uk": "Замок Де Хаар у Гарzuйленсі є найбільшим замком у Нідерландах та вражаючим зразком неоготичної архітектури. Відбудований з 1892 року на середньовічних руїнах, комплекс включає розкішно обставлену головну будівлю та великі історичні сади. Відвідувачі можуть ознайомитися з розкішним способом життя знаті та багатою історією маєтку."
+      },
+      "why_visit": {
+        "nl": [
+          "Bewonder het grootste kasteel van Nederland met zijn spectaculaire neogotische architectuur.",
+          "Verken de rijkelijk ingerichte vertrekken en de collectie kunst- en historisch erfgoed.",
+          "Wandel door de uitgestrekte, prachtig aangelegde parken en historische tuinen.",
+          "Ontdek de unieke band tussen het kasteel en het nabijgelegen, beschermde dorp Haarzuilens."
+        ],
+        "en": [
+          "Marvel at the largest castle in the Netherlands with its spectacular neo-Gothic architecture.",
+          "Explore the richly decorated rooms and the collection of art and historical heritage.",
+          "Stroll through the extensive, beautifully landscaped parklands and historic gardens.",
+          "Discover the unique connection between the castle and the nearby protected village of Haarzuilens."
+        ],
+        "uk": [
+          "Замилуйтеся найбільшим замком у Нідерландах із його ефектною неоготичною архітектурою.",
+          "Дослідіть розкішно прикрашені кімнати та колекцію витворів мистецтва й історичної спадщини.",
+          "Прогуляйтеся великими, чудово спланованими парками та історичними садами.",
+          "Відкрийте для себе унікальний зв'язок між замком та сусіднім охоронюваним селом Гарzuйленс."
+        ]
+      },
+      "tags": [
+        "kastelen",
+        "geschiedenis",
+        "cultuur",
+        "natuur"
+      ],
+      "source": "wikipedia_and_commons",
+      "checked_on": "2026-09-23"
+    },
+    {
+      "slug": "maritiem-museum-rotterdam",
+      "name": "Maritiem Museum Rotterdam",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Maritiem_Museum_Rotterdam_1_Fotografie_Marco_de_Swart.jpg/960px-Maritiem_Museum_Rotterdam_1_Fotografie_Marco_de_Swart.jpg?utm_source=nl.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "author": "Marco de Swart",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Maritiem_Museum_Rotterdam_1_Fotografie_Marco_de_Swart.jpg"
+      },
+      "summary": {
+        "nl": "Het Maritiem Museum Rotterdam is een toonaangevend museum in het hart van de stad dat de rijke maritieme geschiedenis van Nederland belicht. Bezoekers ontdekken de invloed van de scheepvaart en de haven op ons dagelijks leven door middel van interactieve tentoonstellingen. In de bijbehorende museumhaven liggen historische schepen en kranen die een uniek beeld geven van de maritieme techniek.",
+        "en": "The Maritime Museum Rotterdam is a leading institution in the city center that highlights the rich maritime history of the Netherlands. Visitors explore the influence of shipping and the port on daily life through interactive exhibitions. The adjacent museum harbor features a collection of historic ships and cranes that provide a unique insight into maritime technology.",
+        "uk": "Морський музей Роттердама — це провідний музей у центрі міста, що висвітлює багату морську історію Нідерландів. Відвідувачі дізнаються про вплив судноплавства та порту на повсякденне життя завдяки інтерактивним експозиціям. У прилеглій музейній гавані розташована колекція історичних суден і кранів, що дають унікальне уявлення про морські технології."
+      },
+      "why_visit": {
+        "nl": [
+          "Verken de historische vloot en kranen in de unieke museumhaven.",
+          "Interactieve tentoonstellingen die de maritieme wereld toegankelijk maken voor alle leeftijden.",
+          "Diepgaande inzichten in de ontwikkeling van de Rotterdamse haven door de eeuwen heen."
+        ],
+        "en": [
+          "Explore the historic fleet and cranes in the unique museum harbor.",
+          "Interactive exhibitions that make the maritime world accessible to all ages.",
+          "In-depth insights into the development of the Port of Rotterdam throughout the centuries."
+        ],
+        "uk": [
+          "Дослідіть історичний флот і крани в унікальній музейній гавані.",
+          "Інтерактивні виставки, що роблять морський світ доступним для будь-якого віку.",
+          "Глибоке розуміння розвитку порту Роттердама протягом століть."
+        ]
+      },
+      "tags": [
+        "maritiem",
+        "geschiedenis",
+        "technologie",
+        "familie"
+      ],
+      "source": "wikipedia_and_commons",
+      "checked_on": "2026-09-23"
+    },
+    {
+      "slug": "museum-kaap-skil",
+      "name": "Museum Kaap Skil",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Kaap_Skil_hoofdgebouw.JPG/960px-Kaap_Skil_hoofdgebouw.JPG?utm_source=nl.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "author": "©noisytoy.net",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kaap_Skil_hoofdgebouw.JPG"
+      },
+      "summary": {
+        "nl": "Museum Kaap Skil in Oudeschild belicht de maritieme geschiedenis van Texel en de strategische rol van de Reede van Texel in de zeventiende en achttiende eeuw. Het museum combineert een binnenmuseum met een openluchtgedeelte waar bezoekers het leven aan de kust en de scheepvaart van weleer ontdekken. De collectie bevat unieke objecten die uit historische scheepswrakken zijn opgedoken.",
+        "en": "Museum Kaap Skil in Oudeschild explores the maritime history of Texel and the strategic importance of the Reede van Texel during the seventeenth and eighteenth centuries. The museum combines indoor galleries with an open-air section where visitors can discover coastal life and historical shipping. The collection features unique artifacts recovered from historic shipwrecks.",
+        "uk": "Музей Каап Скіл в Аудесхілді висвітлює морську історію острова Тесел та стратегічне значення рейду Тесел у сімнадцятому та вісімнадцятому століттях. Музей поєднує внутрішні експозиції з простором під відкритим небом, де відвідувачі можуть дізнатися про життя на узбережжі та історію мореплавства. Колекція містить унікальні артефакти, підняті з історичних корабельних аварій."
+      },
+      "why_visit": {
+        "nl": [
+          "Bewonder de indrukwekkende collectie voorwerpen die uit historische scheepswrakken zijn opgedoken.",
+          "Ervaar het leven op het eiland in het openluchtmuseum met historische vissershuisjes en ambachten.",
+          "Leer over de Reede van Texel, ooit de grootste en belangrijkste ankerplaats ter wereld."
+        ],
+        "en": [
+          "Admire the impressive collection of artifacts recovered from historic shipwrecks.",
+          "Experience island life in the open-air museum featuring historic fishermen's cottages and traditional crafts.",
+          "Learn about the Reede van Texel, once the largest and most important anchorage in the world."
+        ],
+        "uk": [
+          "Ознайомтеся з вражаючою колекцією предметів, піднятих з історичних затонулих кораблів.",
+          "Відчуйте атмосферу острівного життя у музеї просто неба з історичними рибальськими будиночками та ремеслами.",
+          "Дізнайтеся про рейд Тесел, який колись був найбільшою та найважливішою якірною стоянкою у світі."
+        ]
+      },
+      "tags": [
+        "maritiem",
+        "geschiedenis",
+        "archeologie"
+      ],
+      "source": "wikipedia_and_commons",
+      "checked_on": "2026-09-23"
+    },
+    {
+      "slug": "naturalis-biodiversity-center",
+      "name": "Naturalis Biodiversity Center",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Naturalis-Leiden-2019-1.jpg/960px-Naturalis-Leiden-2019-1.jpg?utm_source=nl.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "author": "Hay Kranen",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Naturalis-Leiden-2019-1.jpg"
+      },
+      "summary": {
+        "nl": "Naturalis Biodiversity Center in Leiden is het nationale onderzoeksinstituut en museum voor biodiversiteit van Nederland. Het museum combineert wetenschappelijk onderzoek met uitgestrekte natuurhistorische collecties die de rijkdom van het leven op aarde belichten. Bezoekers ontdekken er indrukwekkende fossielen, mineralen en tentoonstellingen over de evolutie en de toekomst van onze planeet. De grootschalige vernieuwing zorgt voor een moderne en interactieve ervaring voor jong en oud.",
+        "en": "Naturalis Biodiversity Center in Leiden is the Netherlands' national research institute and museum for biodiversity. The museum combines scientific research with extensive natural history collections that highlight the richness of life on Earth. Visitors can explore impressive fossils, minerals, and exhibitions dedicated to evolution and the future of our planet. Its extensive renovation offers a modern, interactive experience for all ages.",
+        "uk": "Naturalis Biodiversity Center у Лейдені — це національний науково-дослідний інститут і музей біорізноманіття Нідерландів. Музей поєднує наукові дослідження з масштабними природничо-історичними колекціями, що висвітлюють багатство життя на Землі. Відвідувачі можуть ознайомитися з вражаючими скам'янілостями, мінералами та виставками, присвяченими еволюції та майбутньому нашої планети. Масштабна реконструкція забезпечує сучасний та інтерактивний досвід для відвідувачів будь-якого віku."
+      },
+      "why_visit": {
+        "nl": [
+          "Bewonder wereldberoemde fossielen, waaronder een origineel en vrijwel compleet skelet van een Tyrannosaurus rex.",
+          "Verken miljoenen jaar aan natuurhistorie via omvangrijke en wetenschappelijk vooraanstaande collecties.",
+          "Ervaar interactieve tentoonstellingen die inzicht geven in de kwetsbaarheid en diversiteit van de natuur.",
+          "Bezoek een modern, architectonisch vernieuwd museumcomplex in de historische stad Leiden."
+        ],
+        "en": [
+          "Admire world-renowned fossils, including an original and nearly complete skeleton of a Tyrannosaurus rex.",
+          "Explore millions of years of natural history through extensive and scientifically leading collections.",
+          "Experience interactive exhibitions that provide insight into the fragility and diversity of nature.",
+          "Visit a modern, architecturally renewed museum complex in the historic city of Leiden."
+        ],
+        "uk": [
+          "Захоплюйтеся всесвітньо відомими скам'янілостями, зокрема оригінальним та майже повним скелетом тиранозавра рекса.",
+          "Досліджуйте мільйони років природної історії завдяки масштабним і науково провідним колекціям.",
+          "Випробовуйте інтерактивні виставки, які дають уявлення про вразливість та різноманіття природи.",
+          "Відвідайте сучасний, архітектурно оновлений музейний комплекс у історичному місті Лейден."
+        ]
+      },
+      "tags": [
+        "natuur",
+        "wetenschap",
+        "familie"
+      ],
+      "source": "wikipedia_and_commons",
+      "checked_on": "2026-09-23"
+    },
+    {
+      "slug": "nederlands-openluchtmuseum",
+      "name": "Nederlands Openluchtmuseum",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Entree_Nederlands_Openluchtmuseum.jpg/960px-Entree_Nederlands_Openluchtmuseum.jpg?utm_source=nl.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "author": "Arnhemcity12",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Entree_Nederlands_Openluchtmuseum.jpg"
+      },
+      "summary": {
+        "nl": "Het Nederlands Openluchtmuseum in Arnhem is een cultuurhistorisch museumpark van 44 hectare dat het dagelijks leven in Nederland door de eeuwen heen toont. Bezoekers ontdekken er verplaatste historische gebouwen zoals boerderijen, molens en werkplaatsen, verspreid over verschillende thematische gebieden. Dankzij gedemonstreerde oude ambachten en de permanente presentatie van de Canon van Nederland biedt het museum een levendige inkijk in de Nederlandse geschiedenis en tradities.",
+        "en": "The Netherlands Open-Air Museum in Arnhem is a 44-hectare cultural-history museum park depicting everyday life in the Netherlands through the centuries. Visitors can explore relocated historic buildings such as farms, windmills, and workshops, arranged across various thematic zones. Featuring live demonstrations of traditional crafts and the permanent Canon of the Netherlands exhibition, the museum offers a vivid insight into Dutch history and traditions.",
+        "uk": "Нідерландський музей під відкритим небом в Арнемі — це культурно-історичний музейний парк площею 44 гектари, який показує повсякденне життя в Нідерландах крізь століття. Відвідувачі можуть дослідити перенесені історичні будівлі, такі як ферми, млини та майстерні, розташовані в різних тематичних зонах. Завдяки живим демонстраціям традиційних ремесел та постійній експозиції «Канон Нідерландів», музей пропонує яскраве уявлення про нідерландську історію та традиції."
+      },
+      "why_visit": {
+        "nl": [
+          "Verken authentieke, verplaatste historische gebouwen waaronder molens, boerderijen en arbeiderswoningen uit heel Nederland.",
+          "Ervaar oude ambachten in de praktijk met dagelijkse demonstraties door ambachtslieden zoals smeden, papierscheppers en molenaars.",
+          "Ontdek de Nederlandse geschiedenis op een interactieve manier via de permanente tentoonstelling van de Canon van Nederland."
+        ],
+        "en": [
+          "Explore authentic, relocated historic buildings including windmills, farmhouses, and workers' homes from across the Netherlands.",
+          "Experience traditional crafts firsthand with daily demonstrations by artisans such as blacksmiths, papermakers, and millers.",
+          "Discover Dutch history in an engaging way through the permanent exhibition dedicated to the Canon of the Netherlands."
+        ],
+        "uk": [
+          "Досліджуйте автентичні перенесені історичні будівлі, зокрема млини, ферми та будинки робітників з усіх куточків Нідерландів.",
+          "На власні очі побачте традиційні ремесла завдяки щоденним демонстраціям майстрів, таких як ковалі, папероробники та мельники.",
+          "Відкрийте для себе нідерландську історію в інтерактивний спосіб за допомогою постійної експозиції «Канон Нідерландів»."
+        ]
+      },
+      "tags": [
+        "geschiedenis",
+        "cultuur",
+        "familie"
+      ],
+      "source": "wikipedia_and_commons",
+      "checked_on": "2026-09-23"
+    },
+    {
+      "slug": "rijksmuseum",
+      "name": "Rijksmuseum",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Amsterdam_-_Rijksmuseum.jpg/960px-Amsterdam_-_Rijksmuseum.jpg?utm_source=nl.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "author": "User:Voytikof",
+        "license": "CC BY-SA 2.5",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Rijksmuseum.jpg"
+      },
+      "summary": {
+        "nl": "Het Rijksmuseum in Amsterdam is het nationale museum van Nederland, gevestigd in een iconisch gebouw van architect Pierre Cuypers. De collectie biedt een uitgebreid overzicht van de Nederlandse kunst en geschiedenis vanaf de middeleeuwen tot de 20e eeuw. Bezoekers kunnen wereldberoemde meesterwerken bewonderen van 17e-eeuwse schilders zoals Rembrandt, Vermeer en Hals.",
+        "en": "The Rijksmuseum in Amsterdam is the national museum of the Netherlands, housed in an iconic building designed by architect Pierre Cuypers. Its collection provides a comprehensive overview of Dutch art and history from the Middle Ages to the 20th century. Visitors can admire world-renowned masterpieces by 17th-century painters such as Rembrandt, Vermeer, and Hals.",
+        "uk": "Рейксмузей в Амстердамі — це національний музей Нідерландів, розташований у знаковій будівлі, спроєктованій архітектором П'єром Кейперсом. Колекція пропонує всеосяжний огляд нідерландського мистецтва та історії від Середньовіччя до XX століття. Відвідувачі можуть побачити всесвітньо відомі шедеври художників XVII століття, таких як Рембрандт, Вермеєр та Галс."
+      },
+      "why_visit": {
+        "nl": [
+          "Bekijk de Nachtwacht van Rembrandt in de eregalerij.",
+          "Ontdek de uitgebreide collectie 17e-eeuwse Nederlandse meesters.",
+          "Bewonder de architectuur van het historische Rijksmuseumgebouw.",
+          "Verken de rijke geschiedenis van Nederland via historische objecten en kunst."
+        ],
+        "en": [
+          "View Rembrandt's The Night Watch in the Gallery of Honour.",
+          "Discover the extensive collection of 17th-century Dutch masters.",
+          "Admire the architecture of the historic Rijksmuseum building.",
+          "Explore the rich history of the Netherlands through historical objects and art."
+        ],
+        "uk": [
+          "Побачте «Нічну варту» Рембрандта в Галереї пошани.",
+          "Відкрийте для себе велику колекцію нідерландських майстрів XVII століття.",
+          "Оцініть архітектуру історичної будівлі Рейксмузею.",
+          "Дослідіть багату історію Нідерландів через історичні артефакти та мистецтво."
+        ]
+      },
+      "tags": [
+        "kunst",
+        "geschiedenis"
+      ],
+      "source": "wikipedia_and_commons",
+      "checked_on": "2026-09-23"
+    },
+    {
+      "slug": "spoorwegmuseum",
+      "name": "Spoorwegmuseum",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/41%2CAmsterdam.jpg/960px-41%2CAmsterdam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "author": "Bart from Amstelveen, Holland",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:41,Amsterdam.jpg"
+      },
+      "summary": {
+        "nl": "Het Spoorwegmuseum in Utrecht is gevestigd in het historische Maliebaanstation en biedt een uitgebreide blik op de Nederlandse spoorweggeschiedenis. Bezoekers kunnen een indrukwekkende collectie historische treinen, locomotieven en rijtuigen bewonderen die de evolutie van het spoorvervoer door de eeuwen heen tonen. Het museum combineert educatieve tentoonstellingen met interactieve ervaringen voor jong en oud.",
+        "en": "The Railway Museum in Utrecht is housed in the historic Maliebaan station and offers a comprehensive look at the history of Dutch railways. Visitors can admire an impressive collection of historic trains, locomotives, and carriages that showcase the evolution of rail transport over the centuries. The museum combines educational exhibitions with interactive experiences for all ages.",
+        "uk": "Залізничний музей в Утрехті розташований у будівлі історичного вокзалу Малібан і пропонує детальний огляд історії нідерландських залізниць. Відвідувачі можуть побачити вражаючу колекцію історичних поїздів, локомотивів та вагонів, що демонструють еволюцію залізничного транспорту протягом століть. Музей поєднує освітні експозиції з інтерактивними розвагами для відвідувачів будь-якого віку."
+      },
+      "why_visit": {
+        "nl": [
+          "Bewonder de unieke collectie historische treinen in een prachtig gerestaureerd 19e-eeuws station.",
+          "Ontdek de technologische vooruitgang van het spoorvervoer door middel van interactieve presentaties.",
+          "Ervaar de sfeer van reizen uit vervlogen tijden in de authentiek ingerichte rijtuigen."
+        ],
+        "en": [
+          "Admire a unique collection of historic trains housed within a beautifully restored 19th-century station.",
+          "Discover the technological progress of rail transport through engaging interactive presentations.",
+          "Experience the atmosphere of travel from bygone eras inside authentically furnished carriages."
+        ],
+        "uk": [
+          "Огляньте унікальну колекцію історичних поїздів, розміщену в чудово відреставрованій будівлі вокзалу XIX століття.",
+          "Дізнайтеся про технологічний прогрес залізничного транспорту завдяки захопливим інтерактивним експозиціям.",
+          "Відчуйте атмосферу подорожей минулих епох всередині автентично оформлених вагонів."
+        ]
+      },
+      "tags": [
+        "geschiedenis",
+        "technologie",
+        "familie"
+      ],
+      "source": "wikipedia_and_commons",
+      "checked_on": "2026-09-23"
+    },
+    {
+      "slug": "van-gogh-museum",
+      "name": "Van Gogh Museum",
+      "image": {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Van_Gogh_-_Die_Kirche_von_Nuenen_mit_Kirchg%C3%A4ngern.jpeg/960px-Van_Gogh_-_Die_Kirche_von_Nuenen_mit_Kirchg%C3%A4ngern.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "author": "Vincent van Gogh",
+        "license": "Public domain",
+        "license_url": null,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Van Gogh - Die Kirche von Nuenen mit Kirchgängern.jpeg"
+      },
+      "summary": {
+        "nl": "Het Van Gogh Museum in Amsterdam herbergt de grootste collectie werken van Vincent van Gogh ter wereld. Bezoekers kunnen de artistieke ontwikkeling van de schilder volgen aan de hand van meer dan tweehonderd schilderijen, vijfhonderd tekeningen en honderden persoonlijke brieven. Het museum biedt een diepgaand inzicht in zijn leven, zijn inspiratiebronnen en zijn blijvende invloed op de kunstgeschiedenis.",
+        "en": "The Van Gogh Museum in Amsterdam houses the world's largest collection of works by Vincent van Gogh. Visitors can trace the artist's development through more than two hundred paintings, five hundred drawings, and hundreds of personal letters. The museum offers profound insight into his life, his sources of inspiration, and his lasting impact on art history.",
+        "uk": "Музей Ван Гога в Амстердамі зберігає найбільшу у світі колекцію робіт Вінсента ван Гога. Відвідувачі можуть простежити творчий розвиток художника завдяки понад двомстам картинам, п'ятистам малюнкам та сотням особистих листів. Музей пропонує глибоке розуміння його життя, джерел натхнення та тривалого впливу на історію мистецтва."
+      },
+      "why_visit": {
+        "nl": [
+          "Bekijk wereldberoemde meesterwerken zoals 'Zonnebloemen' en 'Amandelbloesem'.",
+          "Ontdek de persoonlijke kant van de kunstenaar via zijn uitgebreide correspondentie.",
+          "Verken de invloed van Japanse prenten op de unieke stijl van Van Gogh."
+        ],
+        "en": [
+          "View world-famous masterpieces such as 'Sunflowers' and 'Almond Blossom'.",
+          "Discover the personal side of the artist through his extensive correspondence.",
+          "Explore the influence of Japanese prints on Van Gogh's unique style."
+        ],
+        "uk": [
+          "Побачте всесвітньо відомі шедеври, такі як «Соняшники» та «Квітучий мигдаль».",
+          "Відкрийте для себе особисту сторону художника через його велике листування.",
+          "Дослідіть вплив японських гравюр на унікальний стиль Ван Гога."
+        ]
+      },
+      "tags": [
+        "kunst",
+        "geschiedenis"
+      ],
+      "source": "wikipedia_and_commons",
+      "checked_on": "2026-09-23"
+    }
+  ]
+}
