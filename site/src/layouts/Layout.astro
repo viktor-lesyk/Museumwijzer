@@ -59,9 +59,8 @@ const showNotice = Boolean(noticeData && noticeData.active);
 const noticeMessage = showNotice && noticeData.message ? (noticeData.message[locale] || noticeData.message.nl) : '';
 const noticeLink = showNotice && noticeData.link ? noticeData.link : null;
 
-// Preview release configuration
+// Preview release configuration (controls indexing meta tag)
 const isPreview = process.env.PREVIEW !== 'false';
-const contactEmail = process.env.CONTACT_EMAIL || process.env.MUSEUMWIJZER_CONTACT || 'contact@museumwijzer.nl';
 ---
 
 <!doctype html>
@@ -201,42 +200,6 @@ const contactEmail = process.env.CONTACT_EMAIL || process.env.MUSEUMWIJZER_CONTA
         color: var(--color-alert-text);
       }
 
-      .site-notice-banner.notice-prototype {
-        background-color: #eff6ff;
-        border-bottom: 1px solid #bfdbfe;
-        color: #1e40af;
-        font-size: 0.9rem;
-        padding: 0.6rem 1rem;
-      }
-
-      .prototype-badge {
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 0.05em;
-        background-color: #2563eb;
-        color: #ffffff;
-        padding: 0.15rem 0.45rem;
-        border-radius: 4px;
-        line-height: 1;
-        display: inline-block;
-      }
-
-      .prototype-email-link {
-        font-weight: 600;
-        color: #1d4ed8;
-        text-decoration: underline;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        .site-notice-banner.notice-prototype {
-          background-color: #1e293b;
-          border-bottom: 1px solid #334155;
-          color: #93c5fd;
-        }
-        .prototype-email-link {
-          color: #60a5fa;
-        }
-      }
 
       .site-notice-content {
         max-width: var(--max-width);
@@ -423,18 +386,6 @@ const contactEmail = process.env.CONTACT_EMAIL || process.env.MUSEUMWIJZER_CONTA
     </script>
   </head>
   <body>
-    <!-- Preview Release Prototype Banner (active when PREVIEW is not false) -->
-    {isPreview && (
-      <aside class="site-notice-banner notice-prototype" role="status">
-        <div class="site-notice-content">
-          <span class="prototype-badge">PROTOTYPE</span>
-          <span>{t.prototypeBanner}</span>
-          <a href={`mailto:${contactEmail}?subject=Museumwijzer%20feedback`} class="prototype-email-link">
-            {t.prototypeFeedback.replace('{email}', contactEmail)} ↗
-          </a>
-        </div>
-      </aside>
-    )}
 
     <!-- Site-wide Notice Banner (controlled by data/notice.json or stale data) -->
     {showNotice && (
@@ -471,6 +422,7 @@ const contactEmail = process.env.CONTACT_EMAIL || process.env.MUSEUMWIJZER_CONTA
         <nav aria-label="Main Navigation">
           <ul class="nav-links">
             <li><a href={`/${locale}/`}>{t.navFinder}</a></li>
+            <li><a href={`/${locale}/#map`}>{t.mapView}</a></li>
             <li>
               <a href={`/${locale}/list/`}>
                 <span>{t.navMyList}</span>

@@ -252,12 +252,12 @@ const pageTitle =
           {t.resultsCount.replace('{count}', String(museums.length))}
         </span>
         <div class="view-toggle-group" role="group" aria-label={t.viewMode}>
-          <button type="button" id="btn-view-grid" class="btn-view-toggle active" aria-pressed="true">
+          <a href="#list" id="btn-view-grid" class="btn-view-toggle active" role="button" aria-pressed="true">
             <span aria-hidden="true">⊞</span> <span>{t.gridView}</span>
-          </button>
-          <button type="button" id="btn-view-map" class="btn-view-toggle" aria-pressed="false">
+          </a>
+          <a href="#map" id="btn-view-map" class="btn-view-toggle" role="button" aria-pressed="false">
             <span aria-hidden="true">🗺️</span> <span>{t.mapView}</span>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -384,7 +384,9 @@ const pageTitle =
       }
     </section>
 
-    <!-- Interactive Country Map View -->
+    <!-- Interactive Country Map View with Deep Link Anchors -->
+    <div id="map" class="map-anchor" tabindex="-1"></div>
+    <div id="kaart" class="map-anchor" tabindex="-1"></div>
     <section id="country-map-section" class="country-map-section" style="display: none;" aria-label={t.countryMapTitle}>
       <div id="country-map" class="country-map-container"></div>
     </section>
@@ -691,17 +693,25 @@ const pageTitle =
     border: none;
     border-radius: calc(var(--radius) - 2px);
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.15s ease;
   }
 
   .btn-view-toggle:hover {
     color: var(--color-text);
+    text-decoration: none;
   }
 
   .btn-view-toggle.active {
     background-color: var(--color-surface);
     color: var(--color-primary);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .map-anchor {
+    position: relative;
+    top: -1.5rem;
+    visibility: hidden;
   }
 
   .country-map-section {
@@ -1198,7 +1208,7 @@ const pageTitle =
       }
     }
 
-    function setViewMode(mode) {
+    function setViewMode(mode, updateHash = true) {
       currentViewMode = mode;
       if (mode === 'map') {
         if (btnViewMap) {
@@ -1212,6 +1222,10 @@ const pageTitle =
 
         museumsList.style.display = 'none';
         countryMapSection.style.display = 'block';
+
+        if (updateHash && window.location.hash !== '#map' && window.location.hash !== '#kaart') {
+          history.replaceState(null, '', '#map');
+        }
 
         if (!countryMap) {
           initCountryMap();
@@ -1231,11 +1245,49 @@ const pageTitle =
 
         countryMapSection.style.display = 'none';
         museumsList.style.display = 'grid';
+
+        if (updateHash && (window.location.hash === '#map' || window.location.hash === '#kaart' || window.location.hash === '#list')) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
       }
     }
 
-    if (btnViewGrid) btnViewGrid.addEventListener('click', () => setViewMode('grid'));
-    if (btnViewMap) btnViewMap.addEventListener('click', () => setViewMode('map'));
+    function checkHashForViewMode() {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#map' || hash === '#kaart') {
+        setViewMode('map', false);
+        setTimeout(() => {
+          if (countryMapSection) {
+            countryMapSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }, 150);
+      } else if (hash === '#list' || hash === '#lijst') {
+        setViewMode('grid', false);
+      }
+    }
+
+    if (btnViewGrid) {
+      btnViewGrid.addEventListener('click', (e) => {
+        e.preventDefault();
+        setViewMode('grid', true);
+      });
+    }
+    if (btnViewMap) {
+      btnViewMap.addEventListener('click', (e) => {
+        e.preventDefault();
+        setViewMode('map', true);
+        if (countryMapSection) {
+          countryMapSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    }
+
+    window.addEventListener('hashchange', checkHashForViewMode);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkHashForViewMode);
+    } else {
+      checkHashForViewMode();
+    }
 
     let userLat = null;
     let userLon = null;
