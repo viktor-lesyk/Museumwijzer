@@ -159,13 +159,37 @@ const pageTitle =
         </div>
 
         <div class="select-wrapper">
-          <label for="sort-select" class="sr-only">{t.sortBy}</label>
-          <select id="sort-select" class="filter-select">
+          <label for="price-filter-select" class="sr-only">{t.filterByPrice}</label>
+          <select id="price-filter-select" class="filter-select" title={t.filterByPrice}>
+            <option value="">{t.allPrices}</option>
+            <option value="free">{t.priceFreeOption}</option>
+            <option value="under-10">{t.priceUnder10}</option>
+            <option value="under-15">{t.priceUnder15}</option>
+            <option value="under-20">{t.priceUnder20}</option>
+            <option value="20-plus">{t.price20AndUp}</option>
+          </select>
+        </div>
+
+        <div class="select-wrapper">
+          <label for="sort-select" class="sr-only">{t.sortByPrimary}</label>
+          <select id="sort-select" class="filter-select" title={t.sortByPrimary}>
             <option value="name">{t.sortByName}</option>
-            <option value="province">{t.sortByProvince}</option>
             <option value="price-asc">{t.sortByPriceAsc}</option>
             <option value="price-desc">{t.sortByPriceDesc}</option>
+            <option value="province">{t.sortByProvince}</option>
             <option value="distance" id="distance-sort-option" disabled>{t.sortByDistance}</option>
+          </select>
+        </div>
+
+        <div class="select-wrapper">
+          <label for="sort-secondary-select" class="sr-only">{t.sortBySecondary}</label>
+          <select id="sort-secondary-select" class="filter-select" title={t.sortBySecondary}>
+            <option value="none">{t.sortBySecondary}: {t.sortNone}</option>
+            <option value="distance" id="distance-sort-secondary-option" disabled>{t.sortByDistance}</option>
+            <option value="price-asc">{t.sortByPriceAsc}</option>
+            <option value="price-desc">{t.sortByPriceDesc}</option>
+            <option value="name">{t.sortByName}</option>
+            <option value="province">{t.sortByProvince}</option>
           </select>
         </div>
 
@@ -945,6 +969,9 @@ const pageTitle =
     const maxDistanceSelect = document.getElementById('max-distance-select');
     const sortSelect = document.getElementById('sort-select');
     const distanceSortOption = document.getElementById('distance-sort-option');
+    const priceFilterSelect = document.getElementById('price-filter-select');
+    const sortSecondarySelect = document.getElementById('sort-secondary-select');
+    const distanceSortSecondaryOption = document.getElementById('distance-sort-secondary-option');
     const clearBtn = document.getElementById('clear-filters-btn');
     const resultsCountEl = document.getElementById('results-count');
     const notFoundBox = document.getElementById('not-found-box');
@@ -1151,11 +1178,14 @@ const pageTitle =
           if (badge) badge.style.display = 'none';
         });
         distanceSortOption.disabled = true;
+        if (distanceSortSecondaryOption) distanceSortSecondaryOption.disabled = true;
         if (sortSelect.value === 'distance') sortSelect.value = 'name';
+        if (sortSecondarySelect && sortSecondarySelect.value === 'distance') sortSecondarySelect.value = 'none';
         return;
       }
 
       distanceSortOption.disabled = false;
+      if (distanceSortSecondaryOption) distanceSortSecondaryOption.disabled = false;
 
       cards.forEach((card) => {
         const cLat = parseFloat(card.dataset.lat);
@@ -1193,6 +1223,8 @@ const pageTitle =
       manualLocationInput.value = '';
       locationFeedbackMsg.style.display = 'none';
       maxDistanceSelect.value = '';
+      if (priceFilterSelect) priceFilterSelect.value = '';
+      if (sortSecondarySelect) sortSecondarySelect.value = 'none';
       updateDistances();
       sortSelect.value = 'name';
       sortAndFilterCards();
@@ -1214,7 +1246,9 @@ const pageTitle =
       const selectedProvince = provinceSelect.value;
       const selectedCity = citySelect.value;
       const maxDistance = parseFloat(maxDistanceSelect.value);
+      const selectedPriceFilter = priceFilterSelect ? priceFilterSelect.value : '';
       const sortBy = sortSelect.value;
+      const secondarySort = sortSecondarySelect ? sortSecondarySelect.value : 'none';
 
       let visibleCards = [];
 
@@ -1247,52 +1281,80 @@ const pageTitle =
         const cardDist = card.dataset.distance !== undefined ? parseFloat(card.dataset.distance) : null;
         const matchesDistance = isNaN(maxDistance) || (cardDist !== null && cardDist <= maxDistance);
 
-        const isVisible = matchesQuery && matchesProvince && matchesCity && matchesDistance;
+        // Price filter matching
+        let matchesPrice = true;
+        if (selectedPriceFilter === 'free') {
+          matchesPrice = card.dataset.status === 'free' || card.dataset.price === '0';
+        } else if (selectedPriceFilter === 'under-10') {
+          const p = card.dataset.price !== '' ? parseFloat(card.dataset.price) : null;
+          matchesPrice = p !== null && p <= 10.0;
+        } else if (selectedPriceFilter === 'under-15') {
+          const p = card.dataset.price !== '' ? parseFloat(card.dataset.price) : null;
+          matchesPrice = p !== null && p <= 15.0;
+        } else if (selectedPriceFilter === 'under-20') {
+          const p = card.dataset.price !== '' ? parseFloat(card.dataset.price) : null;
+          matchesPrice = p !== null && p <= 20.0;
+        } else if (selectedPriceFilter === '20-plus') {
+          const p = card.dataset.price !== '' ? parseFloat(card.dataset.price) : null;
+          matchesPrice = p !== null && p >= 20.0;
+        }
+
+        const isVisible = matchesQuery && matchesProvince && matchesCity && matchesDistance && matchesPrice;
         card.style.display = isVisible ? 'flex' : 'none';
         if (isVisible) {
           visibleCards.push(card);
         }
       });
 
-      // Sort visible cards
-      visibleCards.sort((a, b) => {
-        if (sortBy === 'distance') {
+      // Comparator helper for multi-criteria sorting
+      function compareCards(a, b, key) {
+        if (key === 'distance') {
           const distA = a.dataset.distance ? parseFloat(a.dataset.distance) : 99999;
           const distB = b.dataset.distance ? parseFloat(b.dataset.distance) : 99999;
           return distA - distB;
-        } else if (sortBy === 'province') {
-          const pComp = (a.dataset.province || '').localeCompare(b.dataset.province || '');
-          if (pComp !== 0) return pComp;
-          return (a.dataset.name || '').localeCompare(b.dataset.name || '');
-        } else if (sortBy === 'price-asc') {
+        } else if (key === 'province') {
+          return (a.dataset.province || '').localeCompare(b.dataset.province || '');
+        } else if (key === 'price-asc') {
           const hasPriceA = a.dataset.price !== '' && a.dataset.price !== undefined;
           const hasPriceB = b.dataset.price !== '' && b.dataset.price !== undefined;
           if (hasPriceA && hasPriceB) {
             const pA = parseFloat(a.dataset.price);
             const pB = parseFloat(b.dataset.price);
-            if (pA !== pB) return pA - pB;
+            return pA - pB;
           } else if (hasPriceA && !hasPriceB) {
             return -1;
           } else if (!hasPriceA && hasPriceB) {
             return 1;
           }
-          return (a.dataset.name || '').localeCompare(b.dataset.name || '');
-        } else if (sortBy === 'price-desc') {
+          return 0;
+        } else if (key === 'price-desc') {
           const hasPriceA = a.dataset.price !== '' && a.dataset.price !== undefined;
           const hasPriceB = b.dataset.price !== '' && b.dataset.price !== undefined;
           if (hasPriceA && hasPriceB) {
             const pA = parseFloat(a.dataset.price);
             const pB = parseFloat(b.dataset.price);
-            if (pA !== pB) return pB - pA;
+            return pB - pA;
           } else if (hasPriceA && !hasPriceB) {
             return -1;
           } else if (!hasPriceA && hasPriceB) {
             return 1;
           }
-          return (a.dataset.name || '').localeCompare(b.dataset.name || '');
-        } else {
+          return 0;
+        } else if (key === 'name') {
           return (a.dataset.name || '').localeCompare(b.dataset.name || '');
         }
+        return 0;
+      }
+
+      // Sort visible cards (primary + secondary)
+      visibleCards.sort((a, b) => {
+        const comp1 = compareCards(a, b, sortBy);
+        if (comp1 !== 0) return comp1;
+        if (secondarySort && secondarySort !== 'none' && secondarySort !== sortBy) {
+          const comp2 = compareCards(a, b, secondarySort);
+          if (comp2 !== 0) return comp2;
+        }
+        return (a.dataset.name || '').localeCompare(b.dataset.name || '');
       });
 
       // Reorder cards in DOM
@@ -1321,7 +1383,16 @@ const pageTitle =
       }
 
       // Clear button visibility
-      if (query || selectedProvince || selectedCity || !isNaN(maxDistance) || userLat !== null) {
+      if (
+        query ||
+        selectedProvince ||
+        selectedCity ||
+        !isNaN(maxDistance) ||
+        (priceFilterSelect && priceFilterSelect.value) ||
+        sortBy !== 'name' ||
+        (secondarySort && secondarySort !== 'none') ||
+        userLat !== null
+      ) {
         clearBtn.style.display = 'inline-block';
       } else {
         clearBtn.style.display = 'none';
@@ -1449,14 +1520,18 @@ const pageTitle =
     searchInput.addEventListener('input', sortAndFilterCards);
     provinceSelect.addEventListener('change', sortAndFilterCards);
     citySelect.addEventListener('change', sortAndFilterCards);
+    if (priceFilterSelect) priceFilterSelect.addEventListener('change', sortAndFilterCards);
     sortSelect.addEventListener('change', sortAndFilterCards);
+    if (sortSecondarySelect) sortSecondarySelect.addEventListener('change', sortAndFilterCards);
 
     clearBtn.addEventListener('click', () => {
       searchInput.value = '';
       provinceSelect.value = '';
       citySelect.value = '';
       maxDistanceSelect.value = '';
+      if (priceFilterSelect) priceFilterSelect.value = '';
       sortSelect.value = 'name';
+      if (sortSecondarySelect) sortSecondarySelect.value = 'none';
       resetLocation();
       searchInput.focus();
     });
