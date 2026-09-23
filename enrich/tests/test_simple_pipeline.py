@@ -284,3 +284,69 @@ def test_storage_and_agreement_separation(tmp_path, monkeypatch):
         assert rec["disagreement_type"] == "price_mismatch"
         assert rec["model1"]["reasoning_summary"] == "M1 reason"
         assert rec["model2"]["reasoning_summary"] == "M2 reason"
+
+
+def test_quote_mojibake_normalization():
+    from enrich.simple_pipeline import check_quote_in_text
+
+    text = "<tr><td>Volwassenen</td><td>â‚¬ 12,00</td></tr>"
+    assert check_quote_in_text("Volwassenen € 12,00", text) is True
+
+    text_mojibake2 = "<div>Adults: â\x82¬ 13,00</div>"
+    assert check_quote_in_text("Adults: € 13,00", text_mojibake2) is True
+
+
+def test_single_model_fallback(monkeypatch):
+    from enrich.simple_pipeline import process_museum_dual_model
+
+    museum = {
+        "slug": "test-fallback-museum",
+        "name": "Test Fallback Museum",
+        "museum_website": "https://testmuseum.nl/",
+    }
+    pages = [
+        {
+            "url": "https://testmuseum.nl/tickets",
+            "title": "Tickets",
+            "text": "Volwassenen entree: € 14,50 per persoon.",
+        }
+    ]
+
+    # Monkeypatch call_pricing_model so M1 passes and M2 fails to parse (returns status=unknown)
+    def mock_call_pricing_model(base_url, api_key, model, museum_name, city, website, multi_page_content, timeout=45):
+        if "free-lite" in model or "m1" in model:
+            return {
+                "status": "paid",
+                "primary_adult_eur": 14.5,
+                "quote": "Volwassenen entree: € 14,50",
+                "source_url": "https://testmuseum.nl/tickets",
+                "reasoning_summary": "Extracted valid ticket price",
+            }
+        else:
+            return {
+                "status": "unknown",
+                "primary_adult_eur": None,
+                "reasoning_summary": "Failed to parse model response into valid JSON",
+            }
+
+    import enrich.simple_pipeline as sp
+    monkeypatch.setattr(sp, "call_pricing_model", mock_call_pricing_model)
+
+    res = process_museum_dual_model(
+        museum=museum,
+        fetcher=None,
+        quota_guard=None,
+        litellm_base_url="http://localhost:4000/v1",
+        litellm_api_key="mock",
+        litellm_model="free-lite",
+        openrouter_base_url="https://openrouter.ai/api/v1",
+        openrouter_api_key="mock",
+        openrouter_model="nemotron:free",
+        override_pages=pages,
+    )
+
+    assert res["is_accepted"] is True
+    assert res["price"]["primary_adult_eur"] == 14.5
+    assert res["price"]["confidence"] == "medium"
+    assert "fallback_m1" in res["price"]["mode"]
+

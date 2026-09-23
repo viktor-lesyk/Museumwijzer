@@ -37,7 +37,7 @@ from urllib.parse import urlparse
 
 import requests
 
-from enrich.fetch import PoliteFetcher
+from enrich.fetch import LinkExtractor, PoliteFetcher
 from enrich.tools.fetch_page import sanitize_html_for_agent
 
 logger = logging.getLogger("enrich.simple")
@@ -293,13 +293,46 @@ def gather_and_fetch_pages(
             seen_urls.add(u_norm)
             candidate_urls.append(u.strip())
 
-    # 1. Official website homepage
+    # 1. Official website homepage & on-domain navigation link discovery
     if website:
         add_url(website)
+        success, home_html, err = fetcher.fetch(website)
+        if success and home_html:
+            parser = LinkExtractor(base_url=website)
+            try:
+                parser.feed(home_html)
+                home_links = parser.links
+            except Exception:
+                home_links = []
+
+            scored_home_links: List[Tuple[float, str]] = []
+            home_keywords = [
+                "ticket", "tarief", "prijs", "prijzen", "toegang", "admission", "entree",
+                "bezoek", "visit", "plan-je-bezoek", "plan", "praktisch", "openingstijden"
+            ]
+            for link in home_links:
+                u_clean = link.strip().split("#")[0].rstrip("/")
+                if not u_clean or not is_ticketing_subdomain(u_clean, domain):
+                    continue
+                path_lower = urlparse(u_clean).path.lower()
+                if any(x in path_lower for x in ["/nieuws", "/agenda", "/vacature", "/collectie", "/colofon", "/shop"]):
+                    continue
+                score = 0.0
+                for kw in home_keywords:
+                    if kw in path_lower:
+                        score += 10.0
+                if score > 0:
+                    scored_home_links.append((score, link.strip()))
+
+            scored_home_links.sort(key=lambda x: x[0], reverse=True)
+            for _, u in scored_home_links:
+                add_url(u)
+                if len(candidate_urls) >= max_pages:
+                    break
 
     # 2. Search result URLs, sorted to prioritize ticket/price/visit pages
     scored_urls: List[Tuple[float, str]] = []
-    keywords = ["ticket", "tarief", "prijs", "prijzen", "toegang", "admission", "bezoek", "visit", "plan", "praktisch", "openingstijden"]
+    keywords = ["ticket", "tarief", "prijs", "prijzen", "toegang", "admission", "entree", "bezoek", "visit", "plan", "praktisch", "openingstijden"]
 
     for r in (search_results or []):
         u = r.get("url", "").strip()
@@ -587,9 +620,10 @@ Begin your response immediately with '{{' and output strictly valid JSON matchin
 # ---------------------------------------------------------------------------
 
 def normalize_text_for_match(text: str) -> str:
-    """Normalize whitespace, NBSP, and punctuation for literal matching."""
+    """Normalize whitespace, NBSP, punctuation, and mojibake for literal matching."""
     t = text.replace("\u00a0", " ").replace("&nbsp;", " ")
-    t = re.sub(r"[|]", " ", t)
+    t = t.replace("â‚¬", "€").replace("â\x82¬", "€")
+    t = re.sub(r"[|:–—\-<>]", " ", t)
     t = re.sub(r"\s+", " ", t)
     return t.strip().lower()
 
@@ -978,44 +1012,69 @@ def process_museum_dual_model(
 
     is_agreed = False
     disagreement_type = None
+    fallback_model = None
 
-    if not passed1:
+    if passed1 and passed2:
+        if status1 != status2:
+            disagreement_type = "status_mismatch"
+        elif status1 == "paid":
+            if price1 is not None and price2 is not None and abs(float(price1) - float(price2)) < 0.01:
+                is_agreed = True
+            else:
+                door1 = res1.get("door_adult_eur")
+                door2 = res2.get("door_adult_eur")
+                if (door2 is not None and abs(float(door2) - float(price1)) < 0.01) or \
+                   (door1 is not None and abs(float(door1) - float(price2)) < 0.01):
+                    is_agreed = True
+                    if price1 is not None and price2 is not None:
+                        price1 = min(price1, price2)
+                else:
+                    disagreement_type = "price_mismatch"
+        elif status1 in ("free", "closed"):
+            is_agreed = True
+        else:
+            disagreement_type = "both_unknown"
+    elif passed1 and not passed2 and status1 in ("paid", "free", "closed"):
+        is_agreed = True
+        fallback_model = 1
+    elif passed2 and not passed1 and status2 in ("paid", "free", "closed"):
+        is_agreed = True
+        fallback_model = 2
+    elif not passed1:
         disagreement_type = "gate_failure_model1"
     elif not passed2:
         disagreement_type = "gate_failure_model2"
-    elif status1 != status2:
-        disagreement_type = "status_mismatch"
-    elif status1 == "paid":
-        if price1 is not None and price2 is not None and abs(float(price1) - float(price2)) < 0.01:
-            is_agreed = True
-        else:
-            disagreement_type = "price_mismatch"
-    elif status1 in ("free", "closed"):
-        is_agreed = True
     else:
         disagreement_type = "both_unknown"
 
     # Calibration of confidence
-    # High: clear agreement on standard adult price on static page, or free admission
-    # Medium: age-tier prices or multi-tier/tour-split pages
     conf = "low"
     if is_agreed:
-        combined_reasoning = (res1.get("reasoning_summary", "") + " " + res2.get("reasoning_summary", "")).lower()
-        if any(w in combined_reasoning for w in ["vanaf", "tier", "tour", "seizoen", "rondleiding"]):
+        if fallback_model is not None:
             conf = "medium"
         else:
-            conf = "high"
+            combined_reasoning = (res1.get("reasoning_summary", "") + " " + res2.get("reasoning_summary", "")).lower()
+            if any(w in combined_reasoning for w in ["vanaf", "tier", "tour", "seizoen", "rondleiding"]):
+                conf = "medium"
+            else:
+                conf = "high"
 
-    # Pick preferred metadata
-    quote = res1.get("quote") or res2.get("quote")
-    source_url = res1.get("source_url") or res2.get("source_url") or website
-    page_title = res1.get("page_title") or res2.get("page_title") or ""
-    door_adult = res1.get("door_adult_eur") or res2.get("door_adult_eur")
-    online_adult = res1.get("online_adult_eur") or res2.get("online_adult_eur")
-    if door_adult is not None and online_adult is None and is_agreed and status1 == "paid":
-        online_adult = price1
+    # Determine chosen result for metadata
+    chosen_res = res2 if fallback_model == 2 else res1
 
-    # Merge variants if any
+    final_status = chosen_res.get("status") if is_agreed else "needs_review"
+    final_price = chosen_res.get("primary_adult_eur") if is_agreed else None
+    if is_agreed and fallback_model is None and status1 == "paid":
+        final_price = price1
+
+    quote = chosen_res.get("quote") or res1.get("quote") or res2.get("quote")
+    source_url = chosen_res.get("source_url") or res1.get("source_url") or res2.get("source_url") or website
+    page_title = chosen_res.get("page_title") or res1.get("page_title") or res2.get("page_title") or ""
+    door_adult = chosen_res.get("door_adult_eur") or (res1.get("door_adult_eur") or res2.get("door_adult_eur"))
+    online_adult = chosen_res.get("online_adult_eur") or (res1.get("online_adult_eur") or res2.get("online_adult_eur"))
+    if door_adult is not None and online_adult is None and is_agreed and final_status == "paid":
+        online_adult = final_price
+
     variants = {}
     if isinstance(res1.get("variants"), dict):
         variants.update(res1["variants"])
@@ -1023,13 +1082,15 @@ def process_museum_dual_model(
         variants.update(res2["variants"])
     variants_val = variants if variants else None
 
-    cheapest = res1.get("cheapest_adult_eur") or res2.get("cheapest_adult_eur")
-    price_note = res1.get("price_note") or res2.get("price_note")
+    cheapest = chosen_res.get("cheapest_adult_eur") or (res1.get("cheapest_adult_eur") or res2.get("cheapest_adult_eur"))
+    price_note = chosen_res.get("price_note") or (res1.get("price_note") or res2.get("price_note"))
     free_for = list(set((res1.get("free_for") or []) + (res2.get("free_for") or [])))
 
+    mode_name = "dual_model" if fallback_model is None else f"dual_model_fallback_m{fallback_model}"
+
     price_dict: Dict[str, Any] = {
-        "status": status1 if is_agreed else "needs_review",
-        "primary_adult_eur": price1 if is_agreed else None,
+        "status": final_status,
+        "primary_adult_eur": final_price,
         "door_adult_eur": door_adult if is_agreed else None,
         "online_adult_eur": online_adult if is_agreed else None,
         "variants": variants_val if is_agreed else None,
@@ -1039,9 +1100,9 @@ def process_museum_dual_model(
         "quote": quote,
         "source_url": source_url,
         "page_title": page_title,
-        "reasoning_summary": res1.get("reasoning_summary") or res2.get("reasoning_summary") or "",
+        "reasoning_summary": chosen_res.get("reasoning_summary") or res1.get("reasoning_summary") or res2.get("reasoning_summary") or "",
         "checked_on": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "mode": "dual_model",
+        "mode": mode_name,
         "extractor_model": litellm_model,
         "verifier_model": openrouter_model,
         "confidence": conf,
