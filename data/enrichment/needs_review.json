@@ -1,93 +1,8 @@
 {
   "version": "1.0",
-  "last_updated": "2026-09-23T09:36:17.455215+00:00",
-  "total_needs_review": 49,
+  "last_updated": "2026-09-23T20:43:46.585572+00:00",
+  "total_needs_review": 16,
   "records": [
-    {
-      "slug": "HaRT-Museum1",
-      "name": "H’ART Museum",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 12.5,
-        "door_adult_eur": null,
-        "online_adult_eur": null,
-        "variants": {
-          "adult_chez_matisse_exhibition": 29.5,
-          "all_in_ticket": 32.5
-        },
-        "quote": "Volwassene (vanaf 18 jaar) €12.50",
-        "source_url": "https://www.hartmuseum.nl/plan-je-bezoek",
-        "reasoning_summary": "Extracted the standard adult admission of €12.50 from the Dutch ticketing page. Special exhibition surcharges and all-in combo tickets are listed as variants."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "door_adult_eur": null,
-        "online_adult_eur": null,
-        "variants": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-23T09:36:17.451273+00:00"
-    },
-    {
-      "slug": "anne-frank-huis",
-      "name": "Anne Frank Huis",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": "https://www.annefrank.org/nl/",
-        "reasoning_summary": "No admission price information or ticket details were provided in the scraped homepage content for the Anne Frank Huis. Therefore, the status is set to unknown."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030587+00:00"
-    },
-    {
-      "slug": "archeon",
-      "name": "Archeon",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 28.95,
-        "quote": "Entree v.a. 10 jaar\nVan € 29,50 voor € 28,95 online",
-        "source_url": "https://www.archeon.nl/nl/tickets.html",
-        "reasoning_summary": "Standard adult admission (ages 10+) is € 28.95 online (€ 29.50 at the door). Museumkaart and VriendenLoterij VIP-kaart holders have free entry. Avoided special events and school booking traps."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030590+00:00"
-    },
     {
       "slug": "artis-groote-museum",
       "name": "ARTIS Groote Museum",
@@ -97,33 +12,39 @@
       ],
       "model1": {},
       "model2": {},
-      "timestamp": "2026-09-22T23:27:15.030594+00:00"
+      "timestamp": "2026-09-23T20:43:46.579367+00:00"
     },
     {
       "slug": "bonnefanten",
       "name": "Bonnefanten",
       "disagreement_type": "gate_failure_model1",
       "gate_failures": [
-        "Extraction status is 'unknown'",
+        "Literal match gate: Claimed amount €17.5 not found in fetched text",
         "Extraction status is 'unknown'"
       ],
       "model1": {
         "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "door_adult_eur": 17.5,
+        "online_adult_eur": 17.5,
+        "variants": null,
+        "quote": "Alle tickets geven recht op entree tot het gehele museum.",
         "source_url": "https://tickets.bonnefanten.nl/nl/tickets",
-        "reasoning_summary": "The standard adult admission price is not listed on the ticketing pages because online sales are currently unavailable due to partial/full closures and 50% discount periods, preventing verification of the exact standard full adult price."
+        "reasoning_summary": "The museum is currently offering a 50% discount on door tickets due to partial closures until October 26th. The standard full-price adult admission is €17,50, which is the regular rate when the museum is fully operational."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": "Tot en met 18 jaar is gratis toegang.",
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "quote": "Alle tickets geven recht op entree tot het gehele museum.",
         "source_url": "https://tickets.bonnefanten.nl/nl/tickets",
-        "reasoning_summary": "Standard adult price not listed; only free entry for under 18 and discount passes mentioned. No regular ticket price found, so status unknown."
+        "reasoning_summary": "No adult ticket price listed; only free under 18 and discount info provided."
       },
-      "timestamp": "2026-09-22T23:27:15.030597+00:00"
+      "timestamp": "2026-09-23T20:43:46.579402+00:00"
     },
     {
       "slug": "buitenplaats-beeckestijn",
@@ -137,70 +58,25 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": "Tickets en rondleidingen",
-        "source_url": "https://buitenplaatsbeeckestijn.nl/",
-        "reasoning_summary": "The website provides a link for 'Tickets en rondleidingen', but the link does not lead to a public price list or booking engine on the provided domain. No specific adult admission price is stated."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Tickets en rondleidingen",
-        "source_url": "https://buitenplaatsbeeckestijn.nl/",
-        "reasoning_summary": "No adult admission price found on the homepage; only mentions tickets and tours without pricing."
-      },
-      "timestamp": "2026-09-22T23:27:15.030600+00:00"
-    },
-    {
-      "slug": "centraal-museum",
-      "name": "Centraal Museum",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 18.0,
-        "quote": "Volwassene € 18,00",
-        "source_url": "https://tickets.centraalmuseum.nl/nl/tickets",
-        "reasoning_summary": "Reviewed the ticket and opening hours pages for Centraal Museum in Utrecht. The standard adult (Volwassene) walk-in admission price is € 18,00. Free admission applies for Museumkaart and VriendenLoterij VIP-KAART holders."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030604+00:00"
-    },
-    {
-      "slug": "drents-museum-de-buitenplaats",
-      "name": "Drents Museum de Buitenplaats",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Tickets en prijzen",
-        "source_url": "https://dmdebuitenplaats.nl/",
-        "reasoning_summary": "The website provides a 'Tickets en prijzen' link, but the landing page does not display the actual price list. Navigation to the ticket page is not possible with the provided content."
+        "source_url": "https://buitenplaatsbeeckestijn.nl/",
+        "reasoning_summary": "The website mentions tickets and tours exist for the museum house, but no specific ticket prices are listed on the main page. Status is unknown."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": "Tickets en prijzen",
-        "source_url": "https://dmdebuitenplaats.nl/",
-        "reasoning_summary": "No adult admission price found on the homepage; only ticket section heading present without pricing details."
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "quote": "Tickets en rondleidingen",
+        "source_url": "https://buitenplaatsbeeckestijn.nl/",
+        "reasoning_summary": "No explicit adult admission price found on the homepage; only mentions tickets and tours without pricing details."
       },
-      "timestamp": "2026-09-22T23:27:15.030610+00:00"
+      "timestamp": "2026-09-23T20:43:46.579407+00:00"
     },
     {
       "slug": "foam-fotografiemuseum",
@@ -211,33 +87,7 @@
       ],
       "model1": {},
       "model2": {},
-      "timestamp": "2026-09-22T23:27:15.030617+00:00"
-    },
-    {
-      "slug": "fotomuseum-den-haag",
-      "name": "Fotomuseum Den Haag",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Literal match gate: Claimed amount €18.5 not found in fetched text",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 18.5,
-        "quote": "Voltarief € 16",
-        "source_url": "https://www.fotomuseumdenhaag.nl/nl/plan-je-bezoek",
-        "reasoning_summary": "Standard adult admission is €16.00 plus a €2.50 exhibition surcharge, totaling €18.50. Free admission applies for Museumkaart holders."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030623+00:00"
+      "timestamp": "2026-09-23T20:43:46.579419+00:00"
     },
     {
       "slug": "gemeenlandshuis-amsterdam",
@@ -251,19 +101,25 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
         "source_url": "https://www.hendrickdekeyser.nl/museumbezoek/gemeenlandshuis-amsterdam",
-        "reasoning_summary": "The provided pages for Gemeenlandshuis Amsterdam do not list a specific ticket price for individual adult visitors. The website focuses on membership, Museumkaart usage, and general information, but lacks a direct booking page with pricing for this specific location."
+        "reasoning_summary": "The provided webpage content discusses museum visitor FAQs, passes, and booking conditions for Hendrick de Keyser Monumenten, but does not state the specific standard adult admission price for Gemeenlandshuis Amsterdam."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "unknown",
         "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": "Zonder geldige Museumkaart betaal je het reguliere entreebedrag.",
         "source_url": "https://www.hendrickdekeyser.nl/veelgestelde-vragen-over-je-museumbezoek",
-        "reasoning_summary": "No explicit adult admission price found; only references to free entry for children, members, and Museumkaart (not valid here)."
+        "reasoning_summary": "No specific adult admission price found for Gemeenlandshuis Amsterdam; only reference to a regular entrance fee without amount."
       },
-      "timestamp": "2026-09-22T23:27:15.030628+00:00"
+      "timestamp": "2026-09-23T20:43:46.579426+00:00"
     },
     {
       "slug": "haags-historisch-museum",
@@ -277,70 +133,25 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
         "source_url": "https://www.haagshistorischmuseum.nl/nl",
-        "reasoning_summary": "The provided webpage content only shows specific tours and walks (Bewonerstour, Oude Stadhuis, Jan van Goyen stadswandeling) rather than the standard museum admission price. Therefore, the status is unknown."
+        "reasoning_summary": "The provided pages only list specific tours and events (Bewonerstour, Oude Stadhuis, city walks). No standard general admission ticket for the museum itself is available on the provided ticket shop pages."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": "Bewonerstours Deelnemer Bewonerstour € 25,00",
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "quote": "",
         "source_url": "https://ticketshop.haagshistorischmuseum.nl/nl/bewonerstour/tickets",
-        "reasoning_summary": "Only special tour tickets are listed; no general admission price found, so standard adult admission status is unknown."
+        "reasoning_summary": "No standard adult admission price found; only special tour tickets (Resident tour, Old City Hall visit, city walk) are listed."
       },
-      "timestamp": "2026-09-22T23:27:15.030631+00:00"
-    },
-    {
-      "slug": "herinneringscentrum-kamp-westerbork",
-      "name": "Herinneringscentrum Kamp Westerbork",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Literal match gate: Quote 'Toegang tot het museum en het kampterrein is gratis.' not found verbatim in fetched text",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "free",
-        "primary_adult_eur": null,
-        "quote": "Toegang tot het museum en het kampterrein is gratis.",
-        "source_url": "https://kampwesterbork.nl/bezoek/praktische-informatie/",
-        "reasoning_summary": "The museum website explicitly states that access to both the museum and the camp grounds is free of charge for all visitors."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "https://kampwesterbork.nl/",
-        "reasoning_summary": "No admission pricing information found on the provided homepage; cannot determine standard adult ticket price."
-      },
-      "timestamp": "2026-09-22T23:27:15.030634+00:00"
-    },
-    {
-      "slug": "het-nieuwe-instituut",
-      "name": "Het Nieuwe Instituut",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 18.0,
-        "quote": "Volwassenen (combi-ticket Nieuwe Instituut en Huis Sonneveld): €18,-",
-        "source_url": "https://nieuweinstituut.nl/projects/plan-uw-bezoek/tickets-prijzen",
-        "reasoning_summary": "The standard adult ticket is a combined ticket for Het Nieuwe Instituut and Huis Sonneveld priced at €18.00 as listed on the tickets and prices page."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "https://nieuweinstituut.nl/projects/plan-uw-bezoek/tickets-prijzen",
-        "reasoning_summary": "No explicit standard adult admission price for Het Nieuwe Instituut alone is listed; only combi ticket with Huis Sonneveld and Huis Sonneveld-only ticket are shown."
-      },
-      "timestamp": "2026-09-22T23:27:15.030638+00:00"
+      "timestamp": "2026-09-23T20:43:46.579431+00:00"
     },
     {
       "slug": "huis-sonneveld",
@@ -354,64 +165,12 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": null,
-        "source_url": "https://www.huissonneveld.nl/",
-        "reasoning_summary": "The provided webpage mentions visiting Huis Sonneveld and has a ticket purchase link, but it does not explicitly state the specific euro price for standard adult admission on the homepage."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Koop een kaartje",
-        "source_url": "https://www.huissonneveld.nl/",
-        "reasoning_summary": "No adult ticket price found on the homepage; only a 'Koop een kaartje' link without displayed pricing, so standard adult admission cannot be determined."
-      },
-      "timestamp": "2026-09-22T23:27:15.030641+00:00"
-    },
-    {
-      "slug": "huis-verwolde",
-      "name": "Huis Verwolde",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": "https://www.glk.nl/verwolde/huis-verwolde",
-        "reasoning_summary": "The provided webpage for Huis Verwolde mentions opening hours and activities, but does not state the specific adult admission price for this location. Therefore, the status is unknown."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030644+00:00"
-    },
-    {
-      "slug": "huis-willet-holthuysen",
-      "name": "Huis Willet-Holthuysen",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
         "door_adult_eur": null,
         "online_adult_eur": null,
         "variants": null,
         "quote": null,
-        "source_url": "https://www.amsterdammuseum.nl/tentoonstelling/huis-willet-holthuysen/9511",
-        "reasoning_summary": "The provided webpage contents for Huis Willet-Holthuysen and the Amsterdam Museum mention ticket purchase links, but do not state the actual numeric adult admission prices. Therefore, the status is unknown."
+        "source_url": "https://www.huissonneveld.nl/",
+        "reasoning_summary": "The provided website pages contain a 'Koop een kaartje' (Buy a ticket) button, but the link does not lead to a price list or booking interface within the provided text. No pricing information is available."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -420,211 +179,30 @@
         "door_adult_eur": null,
         "online_adult_eur": null,
         "variants": null,
-        "quote": "Bestel tickets",
-        "source_url": "https://www.amsterdammuseum.nl/tentoonstelling/huis-willet-holthuysen/9511",
-        "reasoning_summary": "No standard adult admission price found on provided pages; only group tour price listed."
-      },
-      "timestamp": "2026-09-23T09:31:18.285953+00:00"
-    },
-    {
-      "slug": "huis-zypendaal",
-      "name": "Huis Zypendaal",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
         "quote": null,
-        "source_url": "https://www.glk.nl/zypendaal/huis-zypendaal",
-        "reasoning_summary": "The provided webpage for Huis Zypendaal mentions that the house can be visited on the first and third Sunday of the month, but it does not list a specific ticket price for adult admission."
+        "source_url": "https://www.huissonneveld.nl/",
+        "reasoning_summary": "No adult admission price found on the provided pages; therefore status is unknown."
       },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Openingstijden & entreeprijzen",
-        "source_url": "https://www.glk.nl/zypendaal/huis-zypendaal",
-        "reasoning_summary": "No adult admission price found on the Huis Zypendaal page; only opening times and activities listed."
-      },
-      "timestamp": "2026-09-22T23:27:15.030650+00:00"
-    },
-    {
-      "slug": "japanmuseum-sieboldhuis",
-      "name": "Japanmuseum Sieboldhuis",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Literal match gate: Quote 'Volwassenen € 12,00' not found verbatim in fetched text"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 12.0,
-        "quote": "Volwassenen € 12,00",
-        "source_url": "https://www.sieboldhuis.org/informatie/bezoekersinfo",
-        "reasoning_summary": "The standard adult admission price is explicitly listed as €12.00 on the museum's visitor information page. All other categories (youth, students, passes) are excluded as per instructions."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "paid",
-        "primary_adult_eur": 12.0,
-        "quote": "Volwassenen â¬ 12,00",
-        "source_url": "https://www.sieboldhuis.org/informatie/bezoekersinfo",
-        "reasoning_summary": "Standard adult ticket is €12,00 from the entrance fees table on the Bezoekersinfo page; it is the regular walk-in price, not a group, school, combo, or event rate."
-      },
-      "timestamp": "2026-09-22T23:27:15.030655+00:00"
-    },
-    {
-      "slug": "joods-museum",
-      "name": "Joods Museum",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Literal match gate: Quote 'Duoticket Jewish Museum + junior en Portuguese Synagogue Adults € 20' not found verbatim in fetched text",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 20.0,
-        "quote": "Duoticket Jewish Museum + junior en Portuguese Synagogue Adults € 20",
-        "source_url": "https://jck.nl/en/plan-your-visit",
-        "reasoning_summary": "The Joods Museum is part of the Jewish Cultural Quarter. It does not sell a standalone single-location ticket; it is bundled as a 'Duoticket' with the Portuguese Synagogue for €20.00."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030658+00:00"
-    },
-    {
-      "slug": "kasteel-cannenburch",
-      "name": "Kasteel Cannenburch",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": "https://www.glk.nl/cannenburch/kasteel-cannenburch",
-        "reasoning_summary": "The provided pages for Kasteel Cannenburch mention general opening times and events, but lack specific ticket pricing information for adult admission. Pricing details shown in the source text belong to other castles (Hernen, Ammersoyen)."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "https://www.glk.nl/cannenburch/kasteel-cannenburch",
-        "reasoning_summary": "No standard adult admission price is listed for Kasteel Cannenburch in the provided content; only opening times and activities are shown."
-      },
-      "timestamp": "2026-09-22T23:27:15.030661+00:00"
-    },
-    {
-      "slug": "kasteel-doorwerth",
-      "name": "Kasteel Doorwerth",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": "https://www.glk.nl/doorwerth/kasteel-doorwerth",
-        "reasoning_summary": "The provided webpage text for Kasteel Doorwerth mentions opening times and events, but does not contain the specific admission pricing for adult tickets. Therefore, the status is unknown."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Kasteeltickets",
-        "source_url": "https://www.glk.nl/doorwerth/kasteel-doorwerth",
-        "reasoning_summary": "No adult ticket price found for Kasteel Doorwerth in provided pages; only prices for other GLK castles are shown, so status unknown."
-      },
-      "timestamp": "2026-09-22T23:27:15.030664+00:00"
-    },
-    {
-      "slug": "kasteel-rosendael",
-      "name": "Kasteel Rosendael",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "https://www.glk.nl/rosendael/kasteel-rosendael",
-        "reasoning_summary": "The provided webpage content for Kasteel Rosendael lists opening times and general information, but does not state specific adult admission ticket prices for this specific location. Therefore, the status is unknown."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "https://www.glk.nl/rosendael/kasteel-rosendael",
-        "reasoning_summary": "No adult ticket price found on Rosendael page; other GLK castle pages show prices but not for Rosendael, so price cannot be determined."
-      },
-      "timestamp": "2026-09-22T23:27:15.030673+00:00"
-    },
-    {
-      "slug": "kunstlinie",
-      "name": "Kunstlinie",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": "https://kunstlinie.nl/",
-        "reasoning_summary": "Kunstlinie is a cultural center/theatre offering shows, musicals, and exhibitions, but the scraped webpage does not list any standard museum admission prices or ticket costs for exhibitions."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "https://kunstlinie.nl/",
-        "reasoning_summary": "No general admission price found; only event-specific tickets are listed. Museumkaart and VriendenLoterij VIP-KAART are accepted, but no standard adult walk-in fee is provided."
-      },
-      "timestamp": "2026-09-22T23:27:15.030684+00:00"
+      "timestamp": "2026-09-23T20:43:46.579442+00:00"
     },
     {
       "slug": "madurodam",
       "name": "Madurodam",
       "disagreement_type": "gate_failure_model1",
       "gate_failures": [
-        "Literal match gate: Claimed amount €19.5 not found in fetched text",
+        "Extraction status is 'unknown'",
         "Extraction status is 'unknown'"
       ],
       "model1": {
         "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 19.5,
-        "door_adult_eur": 23.5,
-        "online_adult_eur": 19.5,
+        "status": "unknown",
+        "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
         "variants": null,
-        "quote": "Koop je tickets online en profiteer van extra korting!",
+        "quote": null,
         "source_url": "https://www.madurodam.nl/nl/tickets",
-        "reasoning_summary": "The standard adult ticket is €19.50 online and €23.50 at the door. I identified these as the primary rates, excluding group or seasonal offers, and applied the online/door pricing rule."
+        "reasoning_summary": "The provided webpage content for Madurodam mentions tickets can be purchased online or at the counter, but does not list the actual numeric Euro prices for standard individual adult admission, only group rates."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -633,88 +211,11 @@
         "door_adult_eur": null,
         "online_adult_eur": null,
         "variants": null,
-        "quote": null,
-        "source_url": "https://www.madurodam.nl/",
-        "reasoning_summary": "No adult ticket price visible in the provided page content; cannot determine standard admission."
+        "quote": "Koop je tickets online en profiteer van extra korting!",
+        "source_url": "https://www.madurodam.nl/nl/tickets",
+        "reasoning_summary": "No standard adult ticket price found in provided content; only group rates and promotions visible."
       },
-      "timestamp": "2026-09-23T09:31:18.285957+00:00"
-    },
-    {
-      "slug": "marinemuseum",
-      "name": "Marinemuseum",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Literal match gate: Quote 'Adults: € 13,00' not found verbatim in fetched text",
-        "Literal match gate: Quote 'Adults: € 13,00' not found verbatim in fetched text"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 13.0,
-        "quote": "Adults: € 13,00",
-        "source_url": "https://www.marinemuseum.nl/en/visit",
-        "reasoning_summary": "The standard adult walk-in admission price is €13.00, as confirmed by the official English and Dutch ticket portals. Online discounts are excluded as they are not the standard walk-in rate."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "paid",
-        "primary_adult_eur": 13.0,
-        "quote": "Adults: € 13,00",
-        "source_url": "https://www.marinemuseum.nl/en/visit",
-        "reasoning_summary": "Standard adult price is €13,00 per the English visit page and online ticket shop; other listings are outdated or discounted."
-      },
-      "timestamp": "2026-09-22T23:27:15.030692+00:00"
-    },
-    {
-      "slug": "mariniersmuseum",
-      "name": "Mariniersmuseum",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Literal match gate: Quote 'Volwassenen: € 14,00 (Online €13,50)' not found verbatim in fetched text",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 14.0,
-        "quote": "Volwassenen: € 14,00 (Online €13,50)",
-        "source_url": "https://www.mariniersmuseum.nl/nl/bezoek",
-        "reasoning_summary": "The standard adult admission price for Mariniersmuseum is €14,00 at the door (€13,50 online), as found on the official visitors page, avoiding group, school, and special event tickets."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030695+00:00"
-    },
-    {
-      "slug": "marius-van-dokkum-museum",
-      "name": "Marius van Dokkum Museum",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Literal match gate: Quote 'Het Marius van Dokkum Museum is in september gesloten vanwege de verhuizing.' not found verbatim in fetched text"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 15.0,
-        "quote": "Volwassenen € 15",
-        "source_url": "https://www.mariusvandokkummuseum.nl/",
-        "reasoning_summary": "The standard adult admission price is explicitly listed as €15 on the museum's homepage. I excluded group rates and combi-tickets, and verified that the museum is currently open for visitors."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "closed",
-        "primary_adult_eur": null,
-        "quote": "Het Marius van Dokkum Museum is in september gesloten vanwege de verhuizing.",
-        "source_url": "https://www.mariusvandokkummuseum.nl/",
-        "reasoning_summary": "The museum states it is closed in September due to relocation; therefore standard adult admission is not applicable."
-      },
-      "timestamp": "2026-09-22T23:27:15.030698+00:00"
+      "timestamp": "2026-09-23T20:43:46.579465+00:00"
     },
     {
       "slug": "micropia",
@@ -725,7 +226,7 @@
       ],
       "model1": {},
       "model2": {},
-      "timestamp": "2026-09-22T23:27:15.030701+00:00"
+      "timestamp": "2026-09-23T20:43:46.579473+00:00"
     },
     {
       "slug": "museum-arnhem",
@@ -739,45 +240,25 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
         "source_url": "https://www.museumarnhem.nl/nl/plan-je-bezoek",
-        "reasoning_summary": "The provided webpage texts do not contain specific admission prices for Museum Arnhem, only generic page titles. Therefore, pricing status is unknown."
+        "reasoning_summary": "The official website pages for Museum Arnhem do not list specific ticket prices or admission fees. The 'Plan je bezoek' and 'Veelgestelde vragen' pages lack pricing information, making it impossible to determine the standard adult admission."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": "Bezoek | Museum Arnhem",
-        "source_url": "https://www.museumarnhem.nl/nl/plan-je-bezoek",
-        "reasoning_summary": "No pricing details found on provided pages; cannot determine standard adult admission price."
-      },
-      "timestamp": "2026-09-22T23:27:15.030703+00:00"
-    },
-    {
-      "slug": "museum-de-proefkolonie",
-      "name": "Museum de Proefkolonie",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
-        "source_url": "https://proefkolonie.nl/",
-        "reasoning_summary": "The main page mentions tickets and packages but does not display specific numerical pricing for standard adult admission. Therefore, the status is unknown."
+        "source_url": "https://www.museumarnhem.nl/nl/plan-je-bezoek",
+        "reasoning_summary": "No pricing information visible in the provided page content; cannot determine standard adult admission price."
       },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Tickets",
-        "source_url": "https://proefkolonie.nl/",
-        "reasoning_summary": "No standard adult admission price found on the homepage; only a package deal and navigation links are present, so the price cannot be determined."
-      },
-      "timestamp": "2026-09-22T23:27:15.030711+00:00"
+      "timestamp": "2026-09-23T20:43:46.579477+00:00"
     },
     {
       "slug": "museum-flehite",
@@ -791,44 +272,25 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "quote": null,
+        "source_url": "https://museumflehite.nl/",
+        "reasoning_summary": "The provided webpage content for Museum Flehite (Museum Amersfoort) mentions current exhibitions and general information, but lacks explicit pricing details or a ticket tariff page. Therefore, the status is set to unknown."
+      },
+      "model2": {
+        "model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "status": "unknown",
+        "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": "Tickets",
         "source_url": "https://museumflehite.nl/",
-        "reasoning_summary": "The provided webpage content mentions ticketing links and exhibitions but does not explicitly list the specific Euro price for standard adult walk-in admission. Therefore, the status is set to unknown."
+        "reasoning_summary": "No standard adult admission price found on the provided pages; only event notices and navigation links are present, so price cannot be determined."
       },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030714+00:00"
-    },
-    {
-      "slug": "museum-henriette-polak",
-      "name": "Museum Henriette Polak",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 11.0,
-        "quote": "Entree vanaf 13 jaar € 11",
-        "source_url": "https://museazutphen.nl/plan-je-bezoek/openingstijden-prijzen",
-        "reasoning_summary": "The museum lists a standard adult entry fee of €11 for Museum Henriette Polak. This price is clearly separated from group, school, and combo tickets. Children under 12 are free, and various passes are accepted."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030717+00:00"
+      "timestamp": "2026-09-23T20:43:46.579482+00:00"
     },
     {
       "slug": "museum-het-valkhof",
@@ -842,96 +304,25 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
-        "source_url": "http://www.valkhofmuseum.nl/",
-        "reasoning_summary": "The provided webpages did not contain explicit pricing details or ticket costs for Valkhof Museum. Therefore, the status is set to unknown."
+        "source_url": "https://valkhofmuseum.nl/nl/bezoek/praktische-info",
+        "reasoning_summary": "The provided webpage contents for Valkhof Museum do not contain pricing information for standard adult admission tickets, so the status is marked as unknown."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "http://www.valkhofmuseum.nl/",
-        "reasoning_summary": "No admission pricing information found on the provided pages; cannot determine standard adult ticket price."
-      },
-      "timestamp": "2026-09-22T23:27:15.030722+00:00"
-    },
-    {
-      "slug": "museum-nienoord",
-      "name": "Museum Nienoord",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Tickets & prijzen",
-        "source_url": "https://museumnienoord.nl/",
-        "reasoning_summary": "The website provides a 'Tickets & prijzen' link, but the landing page does not display the actual price list. Navigation to the specific pricing page is required to confirm the standard adult admission."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Tickets & prijzen",
-        "source_url": "https://museumnienoord.nl/",
-        "reasoning_summary": "No ticket pricing details found on the homepage; only navigation links present, so standard adult price cannot be determined."
-      },
-      "timestamp": "2026-09-22T23:27:15.030731+00:00"
-    },
-    {
-      "slug": "museum-panorama-mesdag",
-      "name": "Museum Panorama Mesdag",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
-        "source_url": "https://panorama-mesdag.nl/bezoek/tarieven",
-        "reasoning_summary": "The museum's website provides navigation links to 'Tarieven' (Rates), but the actual content page is empty of pricing data, only showing headers for groups and schools. No standard adult admission price is currently displayed."
+        "source_url": "https://valkhofmuseum.nl/nl/bezoek/praktische-info",
+        "reasoning_summary": "No pricing details visible in the provided page content; cannot determine standard adult admission price."
       },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "https://panorama-mesdag.nl/en/visit/ticket-prices",
-        "reasoning_summary": "No adult admission price found in provided pages; cannot determine standard ticket."
-      },
-      "timestamp": "2026-09-22T23:27:15.030734+00:00"
-    },
-    {
-      "slug": "museum-van-bommel-van-dam",
-      "name": "Museum van Bommel van Dam",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 13.5,
-        "quote": "Volwassenen (18+) €13,50 p.p.",
-        "source_url": "https://www.vanbommelvandam.nl/tickets-en-prijzen",
-        "reasoning_summary": "Extracted standard adult admission (18+) from the official pricing page of Museum van Bommel van Dam, which clearly lists 'Volwassenen (18+) €13,50 p.p.'. Avoided student, group, and combo ticket rates."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030737+00:00"
+      "timestamp": "2026-09-23T20:43:46.579488+00:00"
     },
     {
       "slug": "museum-volkenkunde",
@@ -945,48 +336,29 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
-        "source_url": "https://leiden.wereldmuseum.nl/",
-        "reasoning_summary": "The provided webpage content contains general information, events, and exhibition highlights, but lacks a dedicated tickets or pricing page to determine the standard adult admission cost."
+        "source_url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden",
+        "reasoning_summary": "The website provides a 'tickets reserveren' link, but the actual pricing information is not displayed on the provided pages. Therefore, the standard adult admission price cannot be determined."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "https://leiden.wereldmuseum.nl/",
-        "reasoning_summary": "No standard adult admission price found on the provided homepage; ticket information not visible."
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "quote": "Openingstijden en prijzen",
+        "source_url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden",
+        "reasoning_summary": "No adult admission price found on provided pages; only link to 'Openingstijden en prijzen' without details."
       },
-      "timestamp": "2026-09-22T23:27:15.030740+00:00"
+      "timestamp": "2026-09-23T20:43:46.579497+00:00"
     },
     {
       "slug": "museumstoomtram-hoorn-medemblik",
       "name": "Museumstoomtram Hoorn-Medemblik",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 29.5,
-        "quote": "Retour stoomtram Hoorn – Medemblik € 29,50",
-        "source_url": "https://www.stoomtram.nl/tarieven",
-        "reasoning_summary": "Extracted the standard adult return ticket for the Museumstoomtram (Hoorn-Medemblik) from the official tariff page, avoiding group, combo, and special event rates."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030745+00:00"
-    },
-    {
-      "slug": "nationaal-glasmuseum",
-      "name": "Nationaal Glasmuseum",
       "disagreement_type": "gate_failure_model1",
       "gate_failures": [
         "Extraction status is 'unknown'",
@@ -996,95 +368,59 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
-        "source_url": "https://www.nationaalglasmuseum.nl/",
-        "reasoning_summary": "The main page lists opening info and news, but does not provide ticket prices or admission costs for the Nationaal Glasmuseum."
+        "source_url": "https://www.stoomtram.nl/",
+        "reasoning_summary": "The provided webpage contents for Museumstoomtram Hoorn-Medemblik mention routes and group/school visits, but do not contain any pricing information or ticket prices for standard adult admission."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": "",
-        "source_url": "https://www.nationaalglasmuseum.nl/",
-        "reasoning_summary": "No admission price information found on the provided homepage content."
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "quote": "Geen tarieven vermeld op deze pagina",
+        "source_url": "https://www.stoomtram.nl/",
+        "reasoning_summary": "No adult admission price found on homepage, reisplanner, group, or school pages; thus status unknown."
       },
-      "timestamp": "2026-09-22T23:27:15.030748+00:00"
+      "timestamp": "2026-09-23T20:43:46.579501+00:00"
     },
     {
-      "slug": "nationaal-militair-museum",
-      "name": "Nationaal Militair Museum",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Literal match gate: Quote 'Volwassenen: € 19,50' not found verbatim in fetched text"
-      ],
+      "slug": "nationaal-glasmuseum",
+      "name": "Nationaal Glasmuseum",
+      "disagreement_type": "price_mismatch",
+      "gate_failures": [],
       "model1": {
         "model": "free-lite",
         "status": "paid",
-        "primary_adult_eur": 19.5,
-        "quote": "Volwassenen: € 19,50",
-        "source_url": "https://www.nmm.nl/nl/bezoek",
-        "reasoning_summary": "Page 2 lists standard adult admission at €19.50. Online booking gives a €0.50 discount, but the standard walk-in rate is €19.50. Passes like Museumkaart grant free entry."
+        "primary_adult_eur": 18.5,
+        "door_adult_eur": 18.5,
+        "online_adult_eur": null,
+        "variants": {
+          "glasaccumulator_only": 12.5,
+          "glasblazerij_only": 10.0
+        },
+        "quote": "Vanaf 18 jaar € 18,50 € 12,50 € 10,00",
+        "source_url": "https://www.nationaalglasmuseum.nl/home/plan-je-bezoek/",
+        "reasoning_summary": "The Nationaal Glasmuseum offers a combination ticket covering both the museum and the glassblowing workshop for €18.50, which is selected as the primary adult admission. Separate location tickets are stored in variants."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "paid",
-        "primary_adult_eur": 19.5,
-        "quote": "Volwassenen: â¬ 19,50",
-        "source_url": "https://www.nmm.nl/nl/bezoek",
-        "reasoning_summary": "The standard adult ticket price is listed as €19,50 under 'Entreeprijzen' on the visit page, with no cheaper self-guided option indicated."
+        "primary_adult_eur": 12.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "combi_ticket": 18.5
+        },
+        "quote": "Volwassenen € 12,50",
+        "source_url": "https://www.nationaalglasmuseum.nl/home/plan-je-bezoek/",
+        "reasoning_summary": "Standard adult admission for the museum is €12,50; combi ticket is a plus variant; free passes listed; no online/door distinction."
       },
-      "timestamp": "2026-09-22T23:27:15.030751+00:00"
-    },
-    {
-      "slug": "nederlands-fotomuseum",
-      "name": "Nederlands Fotomuseum",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 17.5,
-        "quote": "Volwassene € 17,50",
-        "source_url": "https://nederlandsfotomuseum.nl/plan-je-bezoek",
-        "reasoning_summary": "The standard adult admission for the Nederlands Fotomuseum is found on the visit planning page as € 17,50 for 'Volwassene'. Passes like Museumkaart grant free entry."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030755+00:00"
-    },
-    {
-      "slug": "portugese-synagoge",
-      "name": "Portugese Synagoge",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Literal match gate: Quote 'Duoticket Jewish Museum + junior en Portuguese Synagoge Adults € 20' not found verbatim in fetched text",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 20.0,
-        "quote": "Duoticket Jewish Museum + junior en Portuguese Synagoge Adults € 20",
-        "source_url": "https://jck.nl/en/plan-your-visit",
-        "reasoning_summary": "The Portuguese Synagogue is part of the Jewish Cultural Quarter. It does not sell a standalone single-entry ticket; it is only accessible via a 'Duoticket' (with the Jewish Museum) or a 'Combiticket' (all locations)."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Duoticket Joods Museum + junior en Portugese Synagoge Volwassenen € 20",
-        "source_url": "https://jck.nl/plan-je-bezoek",
-        "reasoning_summary": "Only combi- and duotickets including the Portuguese Synagogue are listed; no standalone adult ticket price is provided, so standard admission cannot be determined."
-      },
-      "timestamp": "2026-09-22T23:27:15.030767+00:00"
+      "timestamp": "2026-09-23T20:43:46.579504+00:00"
     },
     {
       "slug": "rijksmuseum-boerhaave",
@@ -1098,145 +434,25 @@
         "model": "free-lite",
         "status": "unknown",
         "primary_adult_eur": null,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
         "quote": null,
         "source_url": "https://rijksmuseumboerhaave.nl/plan-je-bezoek",
-        "reasoning_summary": "The provided webpage text mentions that tickets can be bought online or at the museum entrance, but the specific numerical price for standard adult admission is not stated in the provided text snippets."
+        "reasoning_summary": "The provided webpage text mentions that tickets can be bought online, but does not state the actual numerical admission prices for adults anywhere in the content."
       },
       "model2": {
         "model": "nvidia/nemotron-3-super-120b-a12b:free",
         "status": "unknown",
         "primary_adult_eur": null,
-        "quote": "Toegangsprijzen",
-        "source_url": "https://www.rijksmuseumboerhaave.nl/plan-je-bezoek",
-        "reasoning_summary": "Price section heading found but no numeric adult admission price listed; no other price details present."
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "quote": "",
+        "source_url": "https://rijksmuseumboerhaave.nl/plan-je-bezoek",
+        "reasoning_summary": "No admission price information found in the provided pages."
       },
-      "timestamp": "2026-09-22T23:27:15.030770+00:00"
-    },
-    {
-      "slug": "sint-jan-gouda",
-      "name": "Sint-Jan Gouda",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 11.0,
-        "quote": "Volwassenen € 11,-",
-        "source_url": "https://sintjan.com/je-bezoek/praktische-informatie",
-        "reasoning_summary": "Standard adult admission is €11.00 as listed on the practical information and online ticketing pages. Free admission applies for children up to 17, Museumkaart, and several other passes."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030773+00:00"
-    },
-    {
-      "slug": "stedelijk-museum-zutphen",
-      "name": "Stedelijk Museum Zutphen",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 11.0,
-        "quote": "Stedelijk Museum Zutphen € 11",
-        "source_url": "https://museazutphen.nl/plan-je-bezoek/openingstijden-prijzen",
-        "reasoning_summary": "The museum lists a standard adult entry price of €11 for the Stedelijk Museum Zutphen. This excludes combi-tickets, group rates, and educational bookings, focusing solely on the individual adult walk-in price."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030779+00:00"
-    },
-    {
-      "slug": "van-abbemuseum",
-      "name": "Van Abbemuseum",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 16.0,
-        "quote": "Adults € 16",
-        "source_url": "https://vanabbemuseum.nl/en/plan-your-visit/practical-information",
-        "reasoning_summary": "The standard adult admission price is €16, as explicitly stated on the museum's official 'Practical information' page. Other rates listed are for specific groups, passes, or free entry periods, which are excluded per instructions."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030784+00:00"
-    },
-    {
-      "slug": "van-gogh-museum",
-      "name": "Van Gogh Museum",
-      "disagreement_type": "gate_failure_model1",
-      "gate_failures": [
-        "Extraction status is 'unknown'",
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": "https://www.vangoghmuseum.nl/nl",
-        "reasoning_summary": "The provided webpage content mentions ticket booking but does not explicitly state the adult admission price. Therefore, the status is unknown."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": "Ontdek het leven en werk van Vincent van Gogh",
-        "source_url": "https://www.vangoghmuseum.nl/nl",
-        "reasoning_summary": "Homepage reviewed; no ticket pricing information visible. Without access to ticket pages, standard adult price cannot be confirmed."
-      },
-      "timestamp": "2026-09-22T23:27:15.030787+00:00"
-    },
-    {
-      "slug": "verzetsmuseum-amsterdam",
-      "name": "Verzetsmuseum Amsterdam",
-      "disagreement_type": "gate_failure_model2",
-      "gate_failures": [
-        "Extraction status is 'unknown'"
-      ],
-      "model1": {
-        "model": "free-lite",
-        "status": "paid",
-        "primary_adult_eur": 17.5,
-        "quote": "Volwassenen: € 17,50",
-        "source_url": "https://www.verzetsmuseum.org/nl/tickets-en-prijzen",
-        "reasoning_summary": "Checked ticket pages. Standard adult admission is €17,50. Free passes include Museumkaart and I amsterdam City Card."
-      },
-      "model2": {
-        "model": "nvidia/nemotron-3-super-120b-a12b:free",
-        "status": "unknown",
-        "primary_adult_eur": null,
-        "quote": null,
-        "source_url": null,
-        "reasoning_summary": "Failed to parse model response into valid JSON"
-      },
-      "timestamp": "2026-09-22T23:27:15.030790+00:00"
+      "timestamp": "2026-09-23T20:43:46.579518+00:00"
     }
   ]
 }

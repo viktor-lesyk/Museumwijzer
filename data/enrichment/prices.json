@@ -1,8 +1,38 @@
 {
   "version": "1.0",
-  "last_updated": "2026-09-23T09:36:17.451403+00:00",
-  "total_museums": 146,
+  "last_updated": "2026-09-23T20:43:46.579680+00:00",
+  "total_museums": 179,
   "museums": [
+    {
+      "slug": "HaRT-Museum1",
+      "name": "H’ART Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "chez_matisse_exhibition": 29.5,
+          "chez_matisse": 29.5
+        },
+        "cheapest_adult_eur": 12.5,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Volwassene (vanaf 18 jaar) €12.50",
+        "source_url": "https://www.hartmuseum.nl/plan-je-bezoek/",
+        "page_title": "Plan je bezoek - H’ART Museum",
+        "reasoning_summary": "Extracted the standard adult admission price of €12.50 for H’ART Museum from the 'Plan je bezoek' page. Avoided exhibition surcharges (like Chez Matisse) and noted passes like Museumkaart under free_for.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
     {
       "slug": "Museum-Tromps-Huys",
       "name": "Museum Tromp’s Huys",
@@ -102,6 +132,32 @@
       }
     },
     {
+      "slug": "anne-frank-huis",
+      "name": "Anne Frank Huis",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.5,
+        "door_adult_eur": null,
+        "online_adult_eur": 16.5,
+        "variants": null,
+        "cheapest_adult_eur": 16.5,
+        "price_note": "Price includes a €1.00 mandatory reservation fee; tickets are only available online.",
+        "free_for": [
+          "museumkaart",
+          "other"
+        ],
+        "quote": "volwassene € 16,50*",
+        "source_url": "https://www.annefrank.org/nl/museum/tickets/",
+        "page_title": "Tickets | Anne Frank Stichting",
+        "reasoning_summary": "The Anne Frank House exclusively sells tickets online for a fixed price of €16.50 for adults. No door sales exist. Other categories are excluded as per instructions.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
       "slug": "anno",
       "name": "ANNO",
       "price": {
@@ -119,6 +175,32 @@
         "page_title": "Anno - online tickets",
         "reasoning_summary": "The standard adult admission price for ANNO Stadsmuseum Zwolle is € 12,50. This is confirmed by the official online ticketing portal and the museum's contact page.",
         "checked_on": "2026-09-22",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "archeon",
+      "name": "Archeon",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 28.95,
+        "door_adult_eur": null,
+        "online_adult_eur": 28.95,
+        "variants": null,
+        "cheapest_adult_eur": 28.95,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other"
+        ],
+        "quote": "Entree v.a. 10 jaar Van € 29,50 voor € 28,95 online",
+        "source_url": "https://www.archeon.nl/nl/tickets.html",
+        "page_title": "Online tickets | Archeon",
+        "reasoning_summary": "Archeon standard adult admission (10+ years) is €28.95 online. Museumkaart and VriendenLoterij VIP-kaart offer free admission.",
+        "checked_on": "2026-09-23",
         "mode": "dual_model",
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -191,6 +273,37 @@
         "page_title": "Admission Prices - Bevrijdingsmuseum Zeeland",
         "reasoning_summary": "The standard adult admission price for visitors aged 13 and older at Bevrijdingsmuseum Zeeland is € 15,00, as found on the official admission prices page.",
         "checked_on": "2026-09-22",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "centraal-museum",
+      "name": "Centraal Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 18.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "cjp_student": 10.5,
+          "age_13_17": 10.0
+        },
+        "cheapest_adult_eur": 10.5,
+        "price_note": "Cheapest adult rate is for CJP/Student cardholders.",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom",
+          "rembrandtkaart"
+        ],
+        "quote": "€18 Volwassenen",
+        "source_url": "https://www.centraalmuseum.nl/nl/plan-je-bezoek/openingstijden-en-ticketprijzen",
+        "page_title": "Openingstijden en praktische informatie",
+        "reasoning_summary": "The standard adult admission price is €18.00, as explicitly stated on the museum's official pricing page. Other rates listed are for specific age groups or discount cards, which are excluded per instructions.",
+        "checked_on": "2026-09-23",
         "mode": "dual_model",
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -558,6 +671,36 @@
       }
     },
     {
+      "slug": "drents-museum-de-buitenplaats",
+      "name": "Drents Museum de Buitenplaats",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "cjp": 9.0,
+          "groepen_vanaf_10_personen_pp": 12.0
+        },
+        "cheapest_adult_eur": 15.0,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Volwassenen € 15,-",
+        "source_url": "https://dmdebuitenplaats.nl/plan-je-bezoek/tickets-en-prijzen",
+        "page_title": "Buitenplaats - Tickets en prijzen",
+        "reasoning_summary": "Extracted standard adult admission price of €15.00 from the tickets and prices page. Avoided group and discount rates, noting passes like Museumkaart provide free admission.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
       "slug": "eusebiuskerk",
       "name": "Eusebiuskerk",
       "price": {
@@ -696,6 +839,37 @@
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
         "confidence": "high"
+      }
+    },
+    {
+      "slug": "fotomuseum-den-haag",
+      "name": "Fotomuseum Den Haag",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "jongeren_19_25": 7.0,
+          "cjp_student": 7.0,
+          "combikaart_km21_kunstmuseum": 32.0
+        },
+        "cheapest_adult_eur": 7.0,
+        "price_note": "Exhibition surcharge is currently included or noted separately, standard rate is €16.00",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "rembrandtkaart"
+        ],
+        "quote": "Voltarief € 16",
+        "source_url": "https://www.fotomuseumdenhaag.nl/nl/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Fotomuseum Den Haag",
+        "reasoning_summary": "Fotomuseum Den Haag lists standard adult admission (voltarief) at €16.00. Free admission applies for Museumkaart holders and youth up to 18 years.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model_fallback_m1",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
       }
     },
     {
@@ -841,6 +1015,64 @@
       }
     },
     {
+      "slug": "herinneringscentrum-kamp-westerbork",
+      "name": "Herinneringscentrum Kamp Westerbork",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "cheapest_adult_eur": null,
+        "price_note": "entree is inclusief pendelbus naar het voormalige kampterrein en een audiotour",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "18 jaar en ouder € 13.50",
+        "source_url": "https://kampwesterbork.nl/bezoek",
+        "page_title": "Kamp Westerbork",
+        "reasoning_summary": "Extracted the standard adult admission price (€ 13.50 for visitors 18 and older) from the visitor page of Herinneringscentrum Kamp Westerbork. Passes such as the Museumkaart grant free entry.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "het-nieuwe-instituut",
+      "name": "Het Nieuwe Instituut",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 10.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "combi_ticket_huis_sonneveld": 18.0,
+          "huis_sonneveld_only": 12.0
+        },
+        "cheapest_adult_eur": 10.5,
+        "price_note": "Standard museum entry is €10.50. A combo-ticket including Huis Sonneveld is €18.00. Huis Sonneveld only is €12.00. Free access on Thursday evenings (17:00-21:00).",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom",
+          "rembrandtkaart"
+        ],
+        "quote": "Ticket voor alleen een bezoek aan Huis Sonneveld: €12,-",
+        "source_url": "https://nieuweinstituut.nl/projects/plan-uw-bezoek/tickets-prijzen",
+        "page_title": "Tickets en prijzen",
+        "reasoning_summary": "The standard adult museum entry is €10.50, as evidenced by the online booking system. The €18.00 price is a combo-ticket with Huis Sonneveld, and the €12.00 price is for Huis Sonneveld only.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model_fallback_m1",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
       "slug": "het-scheepvaartmuseum",
       "name": "Het Scheepvaartmuseum",
       "price": {
@@ -964,6 +1196,90 @@
       }
     },
     {
+      "slug": "huis-verwolde",
+      "name": "Huis Verwolde",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "cheapest_adult_eur": 13.5,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Volwassenen € 13,50",
+        "source_url": "https://www.glk.nl/verwolde/huis-verwolde/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "reasoning_summary": "The standard adult admission price for Huis Verwolde is €13,50, as explicitly stated on the official 'Plan je bezoek' page. This price excludes group, educational, or event-specific rates.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "huis-willet-holthuysen",
+      "name": "Huis Willet-Holthuysen",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "cheapest_adult_eur": 7.5,
+        "price_note": "€7,50 rate applies to students and CJP cardholders.",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "€15,00 Volwassene 18+",
+        "source_url": "https://www.amsterdammuseum.nl/tickets-en-bezoek/locaties/huis-willet-holthuysen/3632",
+        "page_title": "Huis Willet-Holthuysen | Amsterdam Museum",
+        "reasoning_summary": "The standard adult admission price for Huis Willet-Holthuysen is €15,00, as explicitly stated on the official museum website. This price applies to visitors aged 18 and older.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model_fallback_m1",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "huis-zypendaal",
+      "name": "Huis Zypendaal",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "kinderen_4_t_m_18_jaar": 6.75,
+          "cjp_kaarthouders": 5.0
+        },
+        "cheapest_adult_eur": 13.5,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Volwassenen € 13,50",
+        "source_url": "https://www.glk.nl/zypendaal/huis-zypendaal/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "reasoning_summary": "Standard adult admission is €13.50 based on the official visitor planning page. Museumkaarthouders, ICOM, and GLK donors enter for free.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
       "slug": "hunebedcentrum",
       "name": "Hunebedcentrum",
       "price": {
@@ -1037,6 +1353,61 @@
       }
     },
     {
+      "slug": "japanmuseum-sieboldhuis",
+      "name": "Japanmuseum Sieboldhuis",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.0,
+        "door_adult_eur": 12.0,
+        "online_adult_eur": 12.0,
+        "variants": null,
+        "cheapest_adult_eur": 12.0,
+        "price_note": null,
+        "free_for": [
+          "rembrandtkaart",
+          "icom",
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 12,00",
+        "source_url": "https://www.sieboldhuis.org/informatie/bezoekersinfo/",
+        "page_title": "Sieboldhuis | Bezoekersinfo",
+        "reasoning_summary": "Extracted standard adult admission from the visitor info page at € 12.00. Children and youth up to 17 are free.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "joods-museum",
+      "name": "Joods Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 18.0,
+        "door_adult_eur": 20.0,
+        "online_adult_eur": 18.0,
+        "variants": null,
+        "cheapest_adult_eur": 18.0,
+        "price_note": "Online price is €18.00; door price is €20.00.",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Tickets aan de kassa op locatie zijn € 2,00 duurder.",
+        "source_url": "https://jck.nl/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Joods Cultureel Kwartier",
+        "reasoning_summary": "The museum uses a dynamic pricing structure where tickets are €2 cheaper online. The base price for a single adult ticket (Nationaal Holocaustmuseum/Hollandsche Schouwburg) is €20 at the door, making the online price €18.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model_fallback_m1",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
       "slug": "jopie-huisman-museum",
       "name": "Jopie Huisman Museum",
       "price": {
@@ -1085,6 +1456,33 @@
       }
     },
     {
+      "slug": "kasteel-cannenburch",
+      "name": "Kasteel Cannenburch",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "cheapest_adult_eur": null,
+        "price_note": null,
+        "free_for": [
+          "other",
+          "icom",
+          "museumkaart"
+        ],
+        "quote": "Volwassenen € 15,00",
+        "source_url": "https://www.glk.nl/cannenburch/kasteel-cannenburch/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "reasoning_summary": "The standard adult admission price for Kasteel Cannenburch is €15,00, as explicitly stated on the official 'Plan je bezoek' page. This excludes group, school, and event-specific pricing.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
       "slug": "kasteel-de-haar",
       "name": "Kasteel de Haar",
       "price": {
@@ -1102,6 +1500,36 @@
         "page_title": "Praktische informatie:   | Kasteel de Haar",
         "reasoning_summary": "Standard adult admission for the castle including gardens is €21.50. A gardens-only ticket is available from €8.00.",
         "checked_on": "2026-09-22",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "kasteel-doorwerth",
+      "name": "Kasteel Doorwerth",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "cjp": 5.0,
+          "child_4_to_18": 7.5
+        },
+        "cheapest_adult_eur": 5.0,
+        "price_note": "CJP-kaarthouders € 5,00",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Volwassenen € 15,00",
+        "source_url": "https://www.glk.nl/doorwerth/kasteel-doorwerth/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "reasoning_summary": "Standard adult admission for Kasteel Doorwerth is €15.00, as found on the planning visit page. Free admission applies for Museumkaart and other specified passes.",
+        "checked_on": "2026-09-23",
         "mode": "dual_model",
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -1199,6 +1627,35 @@
         "page_title": "Opening hours - Radboud Castle",
         "reasoning_summary": "The standard adult admission price is explicitly listed as €10,50 for visitors aged 13 and older. I excluded combo deals and group rates, focusing only on the regular walk-in entry fee.",
         "checked_on": "2026-09-22",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "kasteel-rosendael",
+      "name": "Kasteel Rosendael",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "park_only": 8.5
+        },
+        "cheapest_adult_eur": 8.5,
+        "price_note": "Park-only ticket available for € 8.50",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Kasteel & park Volwassenen € 15,00",
+        "source_url": "https://www.glk.nl/rosendael/kasteel-rosendael/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Geldersch Landschap en Kasteelen",
+        "reasoning_summary": "Extracted standard adult admission for Kasteel & park Rosendael from the Plan je bezoek page. Park-only admission is stored as a variant.",
+        "checked_on": "2026-09-23",
         "mode": "dual_model",
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -1377,6 +1834,29 @@
       }
     },
     {
+      "slug": "kunstlinie",
+      "name": "Kunstlinie",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "cheapest_adult_eur": 12.5,
+        "price_note": "Kunstlinie is primarily a theater; museum exhibitions are currently closed and scheduled to open in 2027.",
+        "free_for": [],
+        "quote": "Regulier - € 12,50",
+        "source_url": "https://kunstlinie.nl/programma/kunstlinie-x-2turvenhoog-dwalen-2",
+        "page_title": "Kunstlinie x 2turvenhoog: DWALEN (2+) - Kunstlinie",
+        "reasoning_summary": "Kunstlinie is primarily a theater and event venue. As it does not have a permanent museum collection (exhibitions open in 2027), the standard adult admission is derived from their regular event/performance pricing.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model_fallback_m1",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
       "slug": "kunstlinie-kunsthal",
       "name": "Kunstlinie - Kunsthal",
       "price": {
@@ -1531,6 +2011,60 @@
       }
     },
     {
+      "slug": "marinemuseum",
+      "name": "Marinemuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 12.5,
+        "door_adult_eur": 13.0,
+        "online_adult_eur": 12.5,
+        "variants": {
+          "combikaart_reddingmuseum": 19.0
+        },
+        "cheapest_adult_eur": 12.5,
+        "price_note": null,
+        "free_for": [
+          "other",
+          "museumkaart"
+        ],
+        "quote": "Online: € 12,50*",
+        "source_url": "https://www.marinemuseum.nl/nl/bezoek/",
+        "page_title": "Bezoek het Marinemuseum - Bekijk openingstijden en prijzen",
+        "reasoning_summary": "Standard adult ticket is €13.00 walk-in, €12.50 online; per rule 9, primary is online price.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model_fallback_m2",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "mariniersmuseum",
+      "name": "Mariniersmuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "door_adult_eur": 14.0,
+        "online_adult_eur": 13.5,
+        "variants": null,
+        "cheapest_adult_eur": 13.5,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other"
+        ],
+        "quote": "Volwassenen: € 14,00  (Online €13,50)",
+        "source_url": "https://www.mariniersmuseum.nl/nl/bezoek/",
+        "page_title": "Bezoek - Mariniersmuseum | Plan je bezoek",
+        "reasoning_summary": "Extracted standard adult admission from the visitor page: €14.00 at the door and €13.50 online. Applied online pricing rule as the primary standard rate.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
       "slug": "maritiem-museum-rotterdam",
       "name": "Maritiem Museum Rotterdam",
       "price": {
@@ -1548,6 +2082,35 @@
         "page_title": "Entreeprijzen - Maritiem Museum Rotterdam",
         "reasoning_summary": "The standard adult admission price for the Maritiem Museum Rotterdam is €19.00, as clearly stated on their official pricing page. Various passes allow for free entry, but the standard walk-in rate is €19.00.",
         "checked_on": "2026-09-22",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "marius-van-dokkum-museum",
+      "name": "Marius van Dokkum Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "youth_13_18": 5.0,
+          "combiticket_stadsmuseum": 20.0
+        },
+        "cheapest_adult_eur": 15.0,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other"
+        ],
+        "quote": "Volwassenen € 15",
+        "source_url": "https://www.mariusvandokkummuseum.nl/",
+        "page_title": "Marius van Dokkum Museum - Marius van Dokkum Museum Harderwijk",
+        "reasoning_summary": "Extracted standard adult admission price of €15.00 from the main webpage pricing section ('Volwassenen € 15'). Passes like Museumkaart and VriendenLoterij VIP-kaart grant free entry.",
+        "checked_on": "2026-09-23",
         "mode": "dual_model",
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -1872,6 +2435,32 @@
       }
     },
     {
+      "slug": "museum-de-proefkolonie",
+      "name": "Museum de Proefkolonie",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 15.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "cheapest_adult_eur": 15.0,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other"
+        ],
+        "quote": "Volwassenen – € 15,00",
+        "source_url": "https://proefkolonie.nl/plan-je-bezoek/prijzen/",
+        "page_title": "Prijzen - Museum De Proefkolonie",
+        "reasoning_summary": "Checked pricing page for Museum de Proefkolonie. The standard adult all-in ticket price is € 15,00. Free admission applies for Museumkaart and Vriendenloterij cardholders.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
       "slug": "museum-engelandvaarders",
       "name": "Museum Engelandvaarders",
       "price": {
@@ -1940,6 +2529,36 @@
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
         "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-henriette-polak",
+      "name": "Museum Henriette Polak",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "combiticket_both_museums": 19.0,
+          "museumplein_ticket": 23.0
+        },
+        "cheapest_adult_eur": 11.0,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "rembrandtkaart"
+        ],
+        "quote": "Entree vanaf 13 jaar € 11",
+        "source_url": "https://museazutphen.nl/museum-henriette-polak/plan-je-bezoek/",
+        "page_title": "Plan je bezoek - Museum Henriette Polak",
+        "reasoning_summary": "Museum Henriette Polak shares a building with Stedelijk Museum Zutphen. The standard adult admission (from age 13) for Museum Henriette Polak individually is € 11,00, while a combiticket for both museums is € 19,00.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model_fallback_m1",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
       }
     },
     {
@@ -2140,6 +2759,59 @@
       }
     },
     {
+      "slug": "museum-nienoord",
+      "name": "Museum Nienoord",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "door_adult_eur": 11.0,
+        "online_adult_eur": 11.0,
+        "variants": null,
+        "cheapest_adult_eur": 11.0,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other"
+        ],
+        "quote": "Volwassenen € 11,00",
+        "source_url": "https://museumnienoord.nl/tickets-en-prijzen",
+        "page_title": "Tickets & prijzen | Museum Nienoord",
+        "reasoning_summary": "The standard adult admission price is clearly listed as €11.00 on the official tickets page. Group rates and membership passes were excluded as per instructions.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-panorama-mesdag",
+      "name": "Museum Panorama Mesdag",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "cheapest_adult_eur": 17.5,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Volwassenen € 17,50",
+        "source_url": "https://tickets.panorama-mesdag.nl/nl/tickets",
+        "page_title": "Tickets bestellen - Museum Panorama Mesdag",
+        "reasoning_summary": "The standard adult admission price is €17,50, as listed in the official online ticket portal. Other categories like student/CJP are discounted, and children/pass holders enter for free.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
       "slug": "museum-rotterdam",
       "name": "Museum Rotterdam",
       "price": {
@@ -2228,6 +2900,35 @@
         "page_title": "Tickets | NMTO",
         "reasoning_summary": "Standard adult walk-in admission to the Nationaal Museum Tachtigjarige Oorlog is €12,50 as specified on the official tickets page.",
         "checked_on": "2026-09-22",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "museum-van-bommel-van-dam",
+      "name": "Museum van Bommel van Dam",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 13.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "combiticket_limburgs_museum": 25.0
+        },
+        "cheapest_adult_eur": 13.5,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Volwassenen (18+) €13,50 p.p.",
+        "source_url": "https://www.vanbommelvandam.nl/tickets-en-prijzen/",
+        "page_title": "Tickets en prijzen | Museum van Bommel van Dam",
+        "reasoning_summary": "Found standard adult admission for ages 18+ at €13.50 on the tickets and prices page. Excluded combo, student, and group rates.",
+        "checked_on": "2026-09-23",
         "mode": "dual_model",
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -2442,6 +3143,36 @@
       }
     },
     {
+      "slug": "nationaal-militair-museum",
+      "name": "Nationaal Militair Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 19.0,
+        "door_adult_eur": 19.5,
+        "online_adult_eur": 19.0,
+        "variants": {
+          "student_cjp": 15.0,
+          "child_4_12": 10.5
+        },
+        "cheapest_adult_eur": 19.0,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "rembrandtkaart"
+        ],
+        "quote": "Volwassene (vanaf 13 jaar) Van: € 19,50 Voor: € 19,00",
+        "source_url": "https://ticketshop.nmm.nl/nl/tickets",
+        "page_title": "Online tickets",
+        "reasoning_summary": "The Nationaal Militair Museum charges €19.00 online and €19.50 at the door for standard adult admission (13+). Free admission applies with a Museumkaart, VriendenLoterij VIP-kaart, and various military/veteran passes.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
       "slug": "nationaal-monument-kamp-amersfoort",
       "name": "Nationaal Monument Kamp Amersfoort",
       "price": {
@@ -2603,6 +3334,34 @@
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
         "confidence": "high"
+      }
+    },
+    {
+      "slug": "nederlands-fotomuseum",
+      "name": "Nederlands Fotomuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": null,
+        "cheapest_adult_eur": 17.5,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "rembrandtkaart",
+          "icom"
+        ],
+        "quote": "Volwassene € 17,50",
+        "source_url": "https://nederlandsfotomuseum.nl/plan-je-bezoek/",
+        "page_title": "Plan je bezoek – Nederlands Fotomuseum",
+        "reasoning_summary": "Extracted the standard adult admission price for Nederlands Fotomuseum as €17,50 from the ticketing and visit information pages.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
       }
     },
     {
@@ -2827,6 +3586,36 @@
       }
     },
     {
+      "slug": "portugese-synagoge",
+      "name": "Portugese Synagoge",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 18.0,
+        "door_adult_eur": 20.0,
+        "online_adult_eur": 18.0,
+        "variants": {
+          "duoticket_joods_museum_synagoge": 20.0,
+          "combiticket_alle_locaties": 30.0
+        },
+        "cheapest_adult_eur": 18.0,
+        "price_note": "Online price for single entry is €18.00; door price is €20.00.",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Tickets aan de kassa op locatie zijn € 2,00 duurder.",
+        "source_url": "https://jck.nl/plan-je-bezoek",
+        "page_title": "Plan je bezoek | Joods Cultureel Kwartier",
+        "reasoning_summary": "The museum is part of the Joods Cultureel Kwartier. While combo tickets exist, the standard single-entry adult price for the Portugese Synagoge is derived from the duoticket price minus the Joods Museum component, resulting in €18 online.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model_fallback_m1",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
       "slug": "rietveld-schroederhuis",
       "name": "Rietveld Schröderhuis",
       "price": {
@@ -3031,6 +3820,33 @@
         "page_title": "Sint Jan de Doper Waalwijk - Grootste neo-byzantijnse kerk van Nederland",
         "reasoning_summary": "General admission to the Sint Jan de Doper church/museum is completely free of charge.",
         "checked_on": "2026-09-22",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "sint-jan-gouda",
+      "name": "Sint-Jan Gouda",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "door_adult_eur": 11.0,
+        "online_adult_eur": 11.0,
+        "variants": null,
+        "cheapest_adult_eur": 11.0,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom"
+        ],
+        "quote": "Entree volwassene € 11,00",
+        "source_url": "https://tickets.sintjan.com/nl/tickets/",
+        "page_title": "Goudse Sint-Jan - online tickets",
+        "reasoning_summary": "The standard adult admission is €11.00, as confirmed on both the information page and the official ticket portal. Group rates and student discounts were excluded per instructions.",
+        "checked_on": "2026-09-23",
         "mode": "dual_model",
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -3246,6 +4062,37 @@
       }
     },
     {
+      "slug": "stedelijk-museum-zutphen",
+      "name": "Stedelijk Museum Zutphen",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 11.0,
+        "door_adult_eur": 19.0,
+        "online_adult_eur": 11.0,
+        "variants": {
+          "combiticket_museum_henriette_polak": 19.0,
+          "museumplein_ticket": 23.0,
+          "combiticket": 23.0
+        },
+        "cheapest_adult_eur": 11.0,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "rembrandtkaart"
+        ],
+        "quote": "Stedelijk Museum Zutphen € 11",
+        "source_url": "https://museazutphen.nl/plan-je-bezoek/openingstijden-prijzen",
+        "page_title": "Plan je bezoek - Stedelijk Museum Zutphen",
+        "reasoning_summary": "The standard adult admission for Stedelijk Museum Zutphen is €11.00. I excluded the combi-ticket and Museumplein ticket as they are multi-venue bundles. Other listed prices are for specific groups or passes, which are excluded per instructions.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model_fallback_m1",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
       "slug": "storyworld",
       "name": "Storyworld",
       "price": {
@@ -3312,6 +4159,95 @@
         "extractor_model": "free-lite",
         "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
         "confidence": "high"
+      }
+    },
+    {
+      "slug": "van-abbemuseum",
+      "name": "Van Abbemuseum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 16.0,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "familiepas": 32.0,
+          "cjp_student_leraar": 8.0
+        },
+        "cheapest_adult_eur": 16.0,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom",
+          "vriendenloterij_vip_kaart"
+        ],
+        "quote": "Volwassenen € 16",
+        "source_url": "https://vanabbemuseum.nl/nl/plan-je-bezoek/praktische-informatie",
+        "page_title": "Praktische informatie | Van Abbemuseum",
+        "reasoning_summary": "The standard adult admission price is €16.00, as explicitly stated on the museum's official practical information page. Other rates (family pass, student/CJP) are excluded as they are not standard single-entry adult tickets.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
+      }
+    },
+    {
+      "slug": "van-gogh-museum",
+      "name": "Van Gogh Museum",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 25.0,
+        "door_adult_eur": null,
+        "online_adult_eur": 25.0,
+        "variants": {
+          "adult_with_audioguide": 28.75
+        },
+        "cheapest_adult_eur": 25.0,
+        "price_note": "Standard ticket is €25.00; an optional audioguide can be added for a total of €28.75.",
+        "free_for": [
+          "museumkaart",
+          "other",
+          "icom",
+          "rembrandtkaart"
+        ],
+        "quote": "Volwassenen: € 25.",
+        "source_url": "https://www.vangoghmuseum.nl/nl/bezoek/tickets-en-toegangsprijzen",
+        "page_title": "Tickets en toegangsprijzen - Van Gogh Museum",
+        "reasoning_summary": "The standard adult admission is €25.00. Tickets are exclusively available online with a start time. An optional audioguide variant is available for €28.75. Other listed prices are for specific groups or pass holders.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "high"
+      }
+    },
+    {
+      "slug": "verzetsmuseum-amsterdam",
+      "name": "Verzetsmuseum Amsterdam",
+      "price": {
+        "status": "paid",
+        "primary_adult_eur": 17.5,
+        "door_adult_eur": null,
+        "online_adult_eur": null,
+        "variants": {
+          "familieticket": 40.0
+        },
+        "cheapest_adult_eur": 17.5,
+        "price_note": null,
+        "free_for": [
+          "museumkaart",
+          "other"
+        ],
+        "quote": "Volwassenen: € 17,50",
+        "source_url": "https://www.verzetsmuseum.org/nl/tickets-en-prijzen",
+        "page_title": "Tickets voor Verzetsmuseum en Verzetsmuseum Junior",
+        "reasoning_summary": "Standard adult admission is €17.50. Free passes include Museumkaart, I amsterdam City Card, VriendenLoterij VIP-KAART, and others.",
+        "checked_on": "2026-09-23",
+        "mode": "dual_model",
+        "extractor_model": "free-lite",
+        "verifier_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "confidence": "medium"
       }
     },
     {
