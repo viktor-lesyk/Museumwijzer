@@ -110,6 +110,22 @@ export const ui = {
     locationNotFound: 'Plaats of postcode niet gevonden in Nederland',
     nearCity: 'nabij {city}',
     changeLocation: 'Locatie wijzigen',
+
+    // Admission Pricing strings
+    priceFrom: 'Vanaf €{price}',
+    priceFree: 'Gratis',
+    priceClosed: 'Gesloten (renovatie)',
+    priceCheckWebsite: 'Bekijk website museum',
+    priceOnlineDoor: 'Online €{online} · Aan de kassa €{door}',
+    priceCheckedDate: 'Gecontroleerd {date}',
+    reportWrongPrice: 'Prijs niet juist?',
+    sortByPriceAsc: 'Prijs (laag naar hoog)',
+    sortByPriceDesc: 'Prijs (hoog naar laag)',
+    regularAdmission: 'Reguliere volwassenenprijs',
+
+    // Prototype preview release strings
+    prototypeBanner: 'Prototype voor feedback — Onofficiële gids voor deelnemende musea aan Welkom in het Museum.',
+    prototypeFeedback: 'Vragen of feedback? Neem contact op via {email}',
   },
   en: {
     siteTitle: 'Museumwijzer',
@@ -220,6 +236,22 @@ export const ui = {
     locationNotFound: 'Town or postal code not found in the Netherlands',
     nearCity: 'near {city}',
     changeLocation: 'Change location',
+
+    // Admission Pricing strings
+    priceFrom: 'From €{price}',
+    priceFree: 'Free',
+    priceClosed: 'Closed (renovation)',
+    priceCheckWebsite: 'Check the museum’s website',
+    priceOnlineDoor: 'Online €{online} · At the door €{door}',
+    priceCheckedDate: 'Checked {date}',
+    reportWrongPrice: 'Report a wrong price',
+    sortByPriceAsc: 'Price (low to high)',
+    sortByPriceDesc: 'Price (high to low)',
+    regularAdmission: 'Standard adult admission',
+
+    // Prototype preview release strings
+    prototypeBanner: 'Prototype for feedback — Unofficial guide for participating museums in Welkom in het Museum.',
+    prototypeFeedback: 'Questions or feedback? Contact us at {email}',
   },
   // REVIEW_FLAG: The Ukrainian strings below are machine-drafted and must be reviewed by native Ukrainian speakers before official launch (§6.6).
   uk: {
@@ -331,6 +363,22 @@ export const ui = {
     locationNotFound: 'Населений пункт або індекс не знайдено в Нідерландах',
     nearCity: 'поблизу {city}',
     changeLocation: 'Змінити локацію',
+
+    // Admission Pricing strings
+    priceFrom: 'Від €{price}',
+    priceFree: 'Безкоштовно',
+    priceClosed: 'Зачинено (ремонт)',
+    priceCheckWebsite: 'Перевірте сайт музею',
+    priceOnlineDoor: 'Онлайн €{online} · У касі €{door}',
+    priceCheckedDate: 'Перевірено {date}',
+    reportWrongPrice: 'Повідомити про помилку',
+    sortByPriceAsc: 'Ціна (від низької до високої)',
+    sortByPriceDesc: 'Ціна (від високої до низької)',
+    regularAdmission: 'Звичайний квиток для дорослих',
+
+    // Prototype preview release strings
+    prototypeBanner: 'Прототип для відгуків — Неофіційний путівник для музеїв-учасників програми Welkom in het Museum.',
+    prototypeFeedback: 'Запитання чи відгуки? Напишіть нам на {email}',
   },
 } as const;
 

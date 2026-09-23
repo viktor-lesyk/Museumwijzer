@@ -58,6 +58,10 @@ const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
 const showNotice = Boolean(noticeData && noticeData.active);
 const noticeMessage = showNotice && noticeData.message ? (noticeData.message[locale] || noticeData.message.nl) : '';
 const noticeLink = showNotice && noticeData.link ? noticeData.link : null;
+
+// Preview release configuration
+const isPreview = process.env.PREVIEW !== 'false';
+const contactEmail = process.env.CONTACT_EMAIL || process.env.MUSEUMWIJZER_CONTACT || 'contact@museumwijzer.nl';
 ---
 
 <!doctype html>
@@ -65,7 +69,7 @@ const noticeLink = showNotice && noticeData.link ? noticeData.link : null;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={isPreview ? "noindex, nofollow" : "index, follow"} />
     <title>{title} — {t.siteTitle}</title>
     <meta name="description" content={description || t.explainer} />
     <link rel="canonical" href={canonicalUrl} />
@@ -195,6 +199,43 @@ const noticeLink = showNotice && noticeData.link ? noticeData.link : null;
         background-color: var(--color-alert-bg);
         border-color: var(--color-alert-border);
         color: var(--color-alert-text);
+      }
+
+      .site-notice-banner.notice-prototype {
+        background-color: #eff6ff;
+        border-bottom: 1px solid #bfdbfe;
+        color: #1e40af;
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+      }
+
+      .prototype-badge {
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        background-color: #2563eb;
+        color: #ffffff;
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        line-height: 1;
+        display: inline-block;
+      }
+
+      .prototype-email-link {
+        font-weight: 600;
+        color: #1d4ed8;
+        text-decoration: underline;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .site-notice-banner.notice-prototype {
+          background-color: #1e293b;
+          border-bottom: 1px solid #334155;
+          color: #93c5fd;
+        }
+        .prototype-email-link {
+          color: #60a5fa;
+        }
       }
 
       .site-notice-content {
@@ -382,6 +423,19 @@ const noticeLink = showNotice && noticeData.link ? noticeData.link : null;
     </script>
   </head>
   <body>
+    <!-- Preview Release Prototype Banner (active when PREVIEW is not false) -->
+    {isPreview && (
+      <aside class="site-notice-banner notice-prototype" role="status">
+        <div class="site-notice-content">
+          <span class="prototype-badge">PROTOTYPE</span>
+          <span>{t.prototypeBanner}</span>
+          <a href={`mailto:${contactEmail}?subject=Museumwijzer%20feedback`} class="prototype-email-link">
+            {t.prototypeFeedback.replace('{email}', contactEmail)} ↗
+          </a>
+        </div>
+      </aside>
+    )}
+
     <!-- Site-wide Notice Banner (controlled by data/notice.json or stale data) -->
     {showNotice && (
       <aside class={`site-notice-banner notice-${noticeData.level || 'info'}`} role="status">

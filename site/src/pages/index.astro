@@ -1,10 +1,12 @@
 ---
 // Redirect root to preferred or browser language (/nl/, /en/, /uk/)
+const isPreview = process.env.PREVIEW !== 'false';
 ---
 <!doctype html>
 <html lang="nl">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content={isPreview ? "noindex, nofollow" : "index, follow"} />
     <meta http-equiv="refresh" content="0;url=/nl/" />
     <title>Museumwijzer</title>
     <script is:inline>
