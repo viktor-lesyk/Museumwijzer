@@ -142,6 +142,11 @@ export const ui = {
     viewOnMap: 'Bekijk op de kaart',
     mapMarkerPrice: 'Toegang: {price}',
 
+    // Description & Photo strings
+    whyVisitHeading: 'Waarom bezoeken?',
+    photoCredit: 'Foto',
+    viaWikimedia: 'via Wikimedia Commons',
+
     // Prototype preview release strings
     prototypeBanner: 'Prototype voor feedback — Onofficiële gids voor deelnemende musea aan Welkom in het Museum.',
     prototypeFeedback: 'Vragen of feedback? Neem contact op via {email}',
@@ -286,6 +291,11 @@ export const ui = {
     countryMapTitle: 'Map of participating museums in the Netherlands',
     viewOnMap: 'View on map',
     mapMarkerPrice: 'Admission: {price}',
+
+    // Description & Photo strings
+    whyVisitHeading: 'Why visit?',
+    photoCredit: 'Photo',
+    viaWikimedia: 'via Wikimedia Commons',
 
     // Prototype preview release strings
     prototypeBanner: 'Prototype for feedback — Unofficial guide for participating museums in Welkom in het Museum.',
@@ -432,6 +442,11 @@ export const ui = {
     countryMapTitle: 'Карта музеїв-учасників у Нідерландах',
     viewOnMap: 'Показати на карті',
     mapMarkerPrice: 'Вхід: {price}',
+
+    // Description & Photo strings
+    whyVisitHeading: 'Чому варто відвідати?',
+    photoCredit: 'Фото',
+    viaWikimedia: 'через Wikimedia Commons',
 
     // Prototype preview release strings
     prototypeBanner: 'Прототип для відгуків — Неофіційний путівник для музеїв-учасників програми Welkom in het Museum.',

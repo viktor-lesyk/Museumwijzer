@@ -76,6 +76,20 @@ for (const p of (pricesData.museums || [])) {
   }
 }
 const priceObj = pricesMap[museum.slug] || ((museum as any).duplicate_of ? pricesMap[(museum as any).duplicate_of] : undefined);
+
+import descriptionsData from '../../../../../data/enrichment/descriptions.json';
+
+const descriptionsMap: Record<string, any> = {};
+for (const d of (descriptionsData.museums || [])) {
+  if (d.slug) {
+    descriptionsMap[d.slug] = d;
+  }
+}
+const descObj = descriptionsMap[museum.slug] || ((museum as any).duplicate_of ? descriptionsMap[(museum as any).duplicate_of] : undefined);
+const summaryText = descObj?.summary?.[lang] || descObj?.summary?.nl || null;
+const whyVisitList = descObj?.why_visit?.[lang] || descObj?.why_visit?.nl || [];
+const museumImage = descObj?.image || null;
+const categoryTags = descObj?.tags || [];
 ---
 
 <Layout title={`${museum.name} — ${museum.city || 'Nederland'}`} locale={lang} canonicalPath={canonicalPath}>
@@ -104,6 +118,9 @@ const priceObj = pricesMap[museum.slug] || ((museum as any).duplicate_of ? price
         <div class="detail-header-top">
           <div class="detail-badges">
             <span class="detail-province">{museum.province}</span>
+            {categoryTags.map((tag: string) => (
+              <span class="detail-tag-badge">#{tag}</span>
+            ))}
           </div>
 
           <!-- Add / Remove from personal list button -->
@@ -127,6 +144,43 @@ const priceObj = pricesMap[museum.slug] || ((museum as any).duplicate_of ? price
         <span class="notice-icon" aria-hidden="true">ℹ️</span>
         <p class="notice-text">{t.checkOpeningHours}</p>
       </div>
+
+      {museumImage && museumImage.url && (
+        <div class="detail-hero-media">
+          <img
+            src={museumImage.url}
+            alt={museum.name}
+            class="detail-hero-image"
+            loading="lazy"
+          />
+          <div class="detail-image-attribution">
+            <span>{t.photoCredit}: {museumImage.author}</span>
+            {museumImage.license && <span>· {museumImage.license}</span>}
+            {museumImage.source_url && (
+              <a href={museumImage.source_url} target="_blank" rel="noopener noreferrer" class="attr-link">
+                {t.viaWikimedia} ↗
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+
+      {summaryText && (
+        <div class="detail-summary-card">
+          <p class="detail-summary-text">{summaryText}</p>
+        </div>
+      )}
+
+      {whyVisitList && whyVisitList.length > 0 && (
+        <div class="why-visit-card">
+          <h2 class="why-visit-title">✨ {t.whyVisitHeading}</h2>
+          <ul class="why-visit-list">
+            {whyVisitList.map((item: string) => (
+              <li class="why-visit-item">{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <section class="detail-info-grid">
         <div class="info-card">
@@ -370,9 +424,93 @@ const priceObj = pricesMap[museum.slug] || ((museum as any).duplicate_of ? price
     line-height: 1;
   }
 
-  .notice-text {
+  .detail-tag-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background-color: var(--color-surface-hover);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border-light);
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .detail-hero-media {
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .detail-hero-image {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .detail-image-attribution {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .detail-image-attribution .attr-link {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .detail-summary-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-summary-text {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--color-text);
     margin: 0;
-    font-weight: 500;
+  }
+
+  .why-visit-card {
+    background: var(--color-badge-bg);
+    border: 1px solid var(--color-badge-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .why-visit-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-badge-text);
+    margin: 0 0 0.85rem 0;
+  }
+
+  .why-visit-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .why-visit-item {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text);
   }
 
   .detail-info-grid {
