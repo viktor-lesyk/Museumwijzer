@@ -15,6 +15,7 @@ import {
   getReportWrongPriceUrl,
   type PriceRecord,
 } from '../../utils/price';
+import 'leaflet/dist/leaflet.css';
 
 const aliasesPath = fileURLToPath(new URL('../../../../data/city-aliases.yaml', import.meta.url));
 const cityAliasesData = yaml.parse(fs.readFileSync(aliasesPath, 'utf-8')) || {};
@@ -250,6 +251,14 @@ const pageTitle =
         <span id="results-count" class="results-count">
           {t.resultsCount.replace('{count}', String(museums.length))}
         </span>
+        <div class="view-toggle-group" role="group" aria-label={t.viewMode}>
+          <button type="button" id="btn-view-grid" class="btn-view-toggle active" aria-pressed="true">
+            <span aria-hidden="true">⊞</span> <span>{t.gridView}</span>
+          </button>
+          <button type="button" id="btn-view-map" class="btn-view-toggle" aria-pressed="false">
+            <span aria-hidden="true">🗺️</span> <span>{t.mapView}</span>
+          </button>
+        </div>
       </div>
 
       <!-- "Does X participate?" not found message box -->
@@ -373,6 +382,11 @@ const pageTitle =
           );
         })
       }
+    </section>
+
+    <!-- Interactive Country Map View -->
+    <section id="country-map-section" class="country-map-section" style="display: none;" aria-label={t.countryMapTitle}>
+      <div id="country-map" class="country-map-container"></div>
     </section>
   </div>
 </Layout>
@@ -645,10 +659,117 @@ const pageTitle =
   }
 
   .search-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--color-text-muted);
     margin-bottom: 1.5rem;
+  }
+
+  .view-toggle-group {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2px;
+  }
+
+  .btn-view-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: none;
+    border-radius: calc(var(--radius) - 2px);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .btn-view-toggle:hover {
+    color: var(--color-text);
+  }
+
+  .btn-view-toggle.active {
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .country-map-section {
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .country-map-container {
+    width: 100%;
+    height: 620px;
+    z-index: 1;
+    background: #e2e8f0;
+  }
+
+  :global(.map-popup-card) {
+    min-width: 190px;
+    padding: 0.2rem;
+    font-family: var(--font-sans);
+  }
+
+  :global(.map-popup-title) {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    color: var(--color-primary);
+  }
+
+  :global(.map-popup-title a) {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  :global(.map-popup-title a:hover) {
+    text-decoration: underline;
+  }
+
+  :global(.map-popup-loc) {
+    font-size: 0.825rem;
+    color: #475569;
+    margin: 0 0 0.35rem;
+  }
+
+  :global(.map-popup-price) {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #166534;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+  }
+
+  :global(.map-popup-link) {
+    display: inline-block;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  :global(.map-popup-link:hover) {
+    text-decoration: underline;
   }
 
   .not-found-banner {
@@ -940,6 +1061,11 @@ const pageTitle =
   }
 </style>
 
+<script>
+  import L from 'leaflet';
+  (window as any).L = L;
+</script>
+
 <!-- Progressive enhancement client search, filter, geolocation, and priority list script -->
 <script is:inline define:vars={{
   cityAliases: cityAliasesData,
@@ -960,7 +1086,12 @@ const pageTitle =
   setLocationBtnText: t.setLocationBtn,
   nearMeButtonText: t.nearMeButton,
   distanceFilterResultsTemplate: t.distanceFilterResults,
-  canonicalMapping: canonicalMapping
+  canonicalMapping: canonicalMapping,
+  currentLang: lang,
+  viewDetailsText: t.viewDetails,
+  priceFromTemplate: t.priceFrom,
+  priceFreeText: t.priceFree,
+  priceClosedText: t.priceClosed
 }}>
   document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
@@ -989,6 +1120,122 @@ const pageTitle =
     const clearLocationBtn = document.getElementById('clear-location-btn');
     const locationFeedbackMsg = document.getElementById('location-feedback-msg');
     const cards = Array.from(document.querySelectorAll('.museum-card'));
+
+    const btnViewGrid = document.getElementById('btn-view-grid');
+    const btnViewMap = document.getElementById('btn-view-map');
+    const countryMapSection = document.getElementById('country-map-section');
+    const countryMapEl = document.getElementById('country-map');
+
+    let countryMap = null;
+    let mapMarkers = [];
+    let currentViewMode = 'grid';
+
+    function initCountryMap() {
+      if (countryMap || !window.L || !countryMapEl) return;
+      window.L.Icon.Default.imagePath = '/leaflet/images/';
+
+      countryMap = window.L.map(countryMapEl, {
+        center: [52.1326, 5.2913],
+        zoom: 8,
+        scrollWheelZoom: true,
+      });
+
+      window.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(countryMap);
+
+      updateMapMarkers();
+    }
+
+    function updateMapMarkers() {
+      if (!countryMap || !window.L) return;
+
+      mapMarkers.forEach((m) => countryMap.removeLayer(m));
+      mapMarkers = [];
+
+      const visibleCards = cards.filter((c) => c.style.display !== 'none');
+      const bounds = [];
+
+      visibleCards.forEach((card) => {
+        const lat = parseFloat(card.dataset.lat);
+        const lon = parseFloat(card.dataset.lon);
+        if (isNaN(lat) || isNaN(lon)) return;
+
+        const slug = card.dataset.slug;
+        const name = card.dataset.name;
+        const city = card.dataset.city;
+        const prov = card.dataset.province;
+        const priceVal = card.dataset.price;
+        const status = card.dataset.status;
+
+        let priceHtml = '';
+        if (status === 'free') {
+          priceHtml = `<span class="map-popup-price">${priceFreeText}</span>`;
+        } else if (priceVal && priceVal !== '0') {
+          priceHtml = `<span class="map-popup-price">${priceFromTemplate.replace('{price}', priceVal)}</span>`;
+        }
+
+        const popupContent = `
+          <div class="map-popup-card">
+            <h3 class="map-popup-title"><a href="/${currentLang}/museum/${slug}/">${name}</a></h3>
+            <p class="map-popup-loc">${city || ''}, ${prov || ''}</p>
+            ${priceHtml}
+            <div><a href="/${currentLang}/museum/${slug}/" class="map-popup-link">${viewDetailsText} →</a></div>
+          </div>
+        `;
+
+        const marker = window.L.marker([lat, lon]).bindPopup(popupContent);
+        marker.addTo(countryMap);
+        mapMarkers.push(marker);
+        bounds.push([lat, lon]);
+      });
+
+      if (bounds.length > 0 && bounds.length < cards.length) {
+        countryMap.fitBounds(bounds, { padding: [30, 30], maxZoom: 13 });
+      } else if (bounds.length === cards.length) {
+        countryMap.setView([52.1326, 5.2913], 8);
+      }
+    }
+
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      if (mode === 'map') {
+        if (btnViewMap) {
+          btnViewMap.classList.add('active');
+          btnViewMap.setAttribute('aria-pressed', 'true');
+        }
+        if (btnViewGrid) {
+          btnViewGrid.classList.remove('active');
+          btnViewGrid.setAttribute('aria-pressed', 'false');
+        }
+
+        museumsList.style.display = 'none';
+        countryMapSection.style.display = 'block';
+
+        if (!countryMap) {
+          initCountryMap();
+        } else {
+          countryMap.invalidateSize();
+          updateMapMarkers();
+        }
+      } else {
+        if (btnViewGrid) {
+          btnViewGrid.classList.add('active');
+          btnViewGrid.setAttribute('aria-pressed', 'true');
+        }
+        if (btnViewMap) {
+          btnViewMap.classList.remove('active');
+          btnViewMap.setAttribute('aria-pressed', 'false');
+        }
+
+        countryMapSection.style.display = 'none';
+        museumsList.style.display = 'grid';
+      }
+    }
+
+    if (btnViewGrid) btnViewGrid.addEventListener('click', () => setViewMode('grid'));
+    if (btnViewMap) btnViewMap.addEventListener('click', () => setViewMode('map'));
 
     let userLat = null;
     let userLon = null;
@@ -1380,6 +1627,11 @@ const pageTitle =
         notFoundText.textContent = notFoundTemplate.replace('{query}', searchInput.value || (maxDistance ? `${maxDistance} km` : ''));
       } else {
         notFoundBox.style.display = 'none';
+      }
+
+      // Update map markers if map view is active
+      if (currentViewMode === 'map') {
+        updateMapMarkers();
       }
 
       // Clear button visibility

@@ -133,6 +133,15 @@ export const ui = {
     sortBySecondary: 'Tweede sortering (2e)',
     sortNone: 'Geen',
 
+    // Map View strings
+    viewMode: 'Weergave',
+    gridView: 'Lijst',
+    mapView: 'Kaart',
+    interactiveMap: 'Interactieve kaart',
+    countryMapTitle: 'Kaart van deelnemende musea in Nederland',
+    viewOnMap: 'Bekijk op de kaart',
+    mapMarkerPrice: 'Toegang: {price}',
+
     // Prototype preview release strings
     prototypeBanner: 'Prototype voor feedback — Onofficiële gids voor deelnemende musea aan Welkom in het Museum.',
     prototypeFeedback: 'Vragen of feedback? Neem contact op via {email}',
@@ -268,6 +277,15 @@ export const ui = {
     sortByPrimary: 'Sort by (1st)',
     sortBySecondary: 'Secondary sort (2nd)',
     sortNone: 'None',
+
+    // Map View strings
+    viewMode: 'View',
+    gridView: 'List',
+    mapView: 'Map',
+    interactiveMap: 'Interactive map',
+    countryMapTitle: 'Map of participating museums in the Netherlands',
+    viewOnMap: 'View on map',
+    mapMarkerPrice: 'Admission: {price}',
 
     // Prototype preview release strings
     prototypeBanner: 'Prototype for feedback — Unofficial guide for participating museums in Welkom in het Museum.',
@@ -405,6 +423,15 @@ export const ui = {
     sortByPrimary: 'Сортувати за (1-е)',
     sortBySecondary: 'Друге сортування (2-е)',
     sortNone: 'Немає',
+
+    // Map View strings
+    viewMode: 'Вигляд',
+    gridView: 'Список',
+    mapView: 'Карта',
+    interactiveMap: 'Інтерактивна карта',
+    countryMapTitle: 'Карта музеїв-учасників у Нідерландах',
+    viewOnMap: 'Показати на карті',
+    mapMarkerPrice: 'Вхід: {price}',
 
     // Prototype preview release strings
     prototypeBanner: 'Прототип для відгуків — Неофіційний путівник для музеїв-учасників програми Welkom in het Museum.',

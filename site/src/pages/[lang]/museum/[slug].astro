@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import { type Locale } from '../../../i18n/languages';
 import { useTranslations } from '../../../i18n/ui';
 import museumsData from '../../../../../data/museums.json';
+import 'leaflet/dist/leaflet.css';
 
 export function getStaticPaths() {
   const locales: Locale[] = ['nl', 'en', 'uk'];
@@ -141,6 +142,18 @@ const priceObj = pricesMap[museum.slug] || ((museum as any).duplicate_of ? price
               <p class="municipality-line">{t.municipality}: {museum.municipality}</p>
             )}
           </div>
+
+          {museum.lat && museum.lon && (
+            <div class="map-embed-wrapper">
+              <div
+                id="detail-map"
+                class="detail-map"
+                data-lat={museum.lat}
+                data-lon={museum.lon}
+                data-name={museum.name}
+              ></div>
+            </div>
+          )}
 
           <div class="map-links-container">
             <a href={googleMapsUrl} class="btn-map" target="_blank" rel="noopener noreferrer">
@@ -621,7 +634,57 @@ const priceObj = pricesMap[museum.slug] || ((museum as any).duplicate_of ? price
   .price-report-link:hover {
     color: var(--color-accent);
   }
+
+  .map-embed-wrapper {
+    margin: 1.25rem 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .detail-map {
+    width: 100%;
+    height: 240px;
+    z-index: 1;
+    background: #e2e8f0;
+  }
 </style>
+
+<script>
+  import L from 'leaflet';
+
+  function initDetailMap() {
+    const mapEl = document.getElementById('detail-map');
+    if (!mapEl) return;
+    const lat = parseFloat(mapEl.dataset.lat || '0');
+    const lon = parseFloat(mapEl.dataset.lon || '0');
+    const name = mapEl.dataset.name || '';
+    if (!lat || !lon) return;
+
+    L.Icon.Default.imagePath = '/leaflet/images/';
+
+    const map = L.map(mapEl, {
+      center: [lat, lon],
+      zoom: 14,
+      scrollWheelZoom: false,
+    });
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    const marker = L.marker([lat, lon]).addTo(map);
+    marker.bindPopup(`<strong>${name}</strong>`).openPopup();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDetailMap);
+  } else {
+    initDetailMap();
+  }
+</script>
 
 <script is:inline define:vars={{ slug: museum.slug, addText: t.addToList, inListText: t.inYourList }}>
   document.addEventListener('DOMContentLoaded', () => {
