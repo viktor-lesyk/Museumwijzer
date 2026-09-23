@@ -74,6 +74,9 @@ def record_results(results: List[Dict[str, Any]]) -> Tuple[int, int]:
                 "verifier_justification": r.get("verifier_justification"),
                 "timestamp": datetime.now(timezone.utc).isoformat(),
             }
+            # If it failed gates/verification, remove stale unverified entry from prices_by_slug
+            if slug in prices_by_slug and (not existing or existing.get("price", {}).get("entered_by") != "manual"):
+                del prices_by_slug[slug]
             new_review_count += 1
 
     # Save prices.json

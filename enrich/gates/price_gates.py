@@ -67,7 +67,6 @@ def check_literal_match(
     adult_eur: Optional[float],
     quote: Optional[str],
     status: str,
-    admission: Optional[str] = None,
 ) -> Tuple[bool, Optional[str]]:
     """Gate 2: literal number and quote appear verbatim in the page text."""
     norm_page = normalize_for_match(page_text)
@@ -87,7 +86,7 @@ def check_literal_match(
                 return False, f"Quote '{quote}' was not found verbatim in fetched page text"
 
     # 2. Free admission check
-    if status == "free" or admission == "free":
+    if status == "free":
         free_keywords = ["gratis", "gratis toegang", "toegang is gratis", "vrije toegang", "kostenloos", "kostenlose"]
         if not quote or not any(k in quote.lower() for k in free_keywords):
             return False, "Free admission requires an explicit quote stating admission is free for everyone"
@@ -146,7 +145,6 @@ def check_identity_presence(
 def check_plausible_range(
     adult_eur: Optional[float],
     status: str,
-    admission: Optional[str] = None,
     min_paid: float = 1.0,
     max_paid: float = 45.0,
 ) -> Tuple[bool, Optional[str]]:
@@ -156,13 +154,9 @@ def check_plausible_range(
             return False, "Paid status requires a numeric primary_adult_eur value"
         if not (min_paid <= adult_eur <= max_paid):
             return False, f"Price €{adult_eur} is outside plausible adult range [€{min_paid:.2f} - €{max_paid:.2f}]"
-        if admission is not None and admission != "paid":
-            return False, f"Status 'paid' conflicts with admission '{admission}'"
     elif status == "free":
-        if adult_eur is not None and adult_eur != 0.0:
-            return False, f"Status 'free' cannot have adult_eur={adult_eur} (expected 0.0)"
-        if admission is not None and admission != "free":
-            return False, f"Status 'free' conflicts with admission '{admission}'"
+        if adult_eur is not None:
+            return False, f"Status 'free' requires primary_adult_eur to be null, got {adult_eur}"
     else:
         # non-priced states (closed, combo_only, blocked_by_bot_protection, not_found, unknown)
         if adult_eur is not None:
@@ -203,6 +197,8 @@ def check_offerings_gates(offerings: Optional[List[Dict[str, Any]]], status: str
         return True, None
     valid_audiences = {"adult", "youth", "child", "student", "senior", "family", "group", "other"}
     for idx, off in enumerate(offerings):
+        if not isinstance(off, dict):
+            return False, f"Offering #{idx} must be an object, got {type(off).__name__}"
         aud = off.get("audience")
         if aud not in valid_audiences:
             return False, f"Offering #{idx} invalid audience '{aud}', must be one of {sorted(valid_audiences)}"
@@ -269,6 +265,48 @@ def check_yoy_change(
     return True, None
 
 
+def calibrate_confidence(
+    status: str,
+    quote: Optional[str],
+    offerings: Optional[List[Dict[str, Any]]] = None,
+    raw_confidence: Optional[str] = None,
+) -> str:
+    """
+    Calibrate confidence level:
+    - 'high': ONLY for a clearly labelled adult price on a static page (e.g. 'Volwassenen', 'Adults').
+    - 'medium': age-tier prices (e.g. 'vanaf 13 jaar') and multi-tier pages/offerings.
+    - 'blocked_by_bot_protection' / 'blocked_by_robots': for protected/blocked hosts.
+    - 'low': inferred, unknown, or uncertain.
+    """
+    if status in ("blocked_by_bot_protection", "blocked_by_robots"):
+        return status
+
+    if status in ("unknown", "not_found", "closed"):
+        return "low" if status == "unknown" else ("high" if quote else "medium")
+
+    if not quote:
+        return "low"
+
+    q_lower = quote.lower()
+
+    # Age-tier check: if it says 'vanaf X jaar', '13+', '18+' or other age brackets rather than adult
+    is_age_tier = any(ind in q_lower for ind in ["vanaf", "13 jaar", "12 jaar", "14 jaar", "15 jaar", "16 jaar", "17 jaar", "18 jaar", "13+", "18+", "tot 18", "t/m 18", "leeftijd"])
+
+    # Multi-tier offerings check
+    is_multi_tier = offerings is not None and len(offerings) > 1
+
+    if is_age_tier or is_multi_tier:
+        return "medium"
+
+    # Clearly labelled adult keywords
+    is_clearly_adult = any(w in q_lower for w in ["volwassenen", "volwassene", "adults", "adult", "normaal tarief", "regulier tarief", "regulier entreetarief", "toegang is gratis", "gratis"])
+
+    if is_clearly_adult and status in ("paid", "free"):
+        return "high"
+
+    return "medium" if raw_confidence == "high" else (raw_confidence or "medium")
+
+
 def run_all_price_gates(
     slug: str,
     museum_name: str,
@@ -287,7 +325,6 @@ def run_all_price_gates(
     failures: List[str] = []
 
     status = extracted_data.get("status", "unknown")
-    admission = extracted_data.get("admission")
     adult_eur = extracted_data.get("primary_adult_eur")
     if adult_eur is None:
         adult_eur = extracted_data.get("adult_eur")
@@ -307,7 +344,7 @@ def run_all_price_gates(
 
     # 2. Literal Match
     if page_text:
-        ok, reason = check_literal_match(page_text, adult_eur, quote, status, admission)
+        ok, reason = check_literal_match(page_text, adult_eur, quote, status)
         if not ok and reason:
             failures.append(f"Literal match gate: {reason}")
 
@@ -318,7 +355,7 @@ def run_all_price_gates(
             failures.append(f"Identity gate: {reason}")
 
     # 4. Plausible Range
-    ok, reason = check_plausible_range(adult_eur, status, admission)
+    ok, reason = check_plausible_range(adult_eur, status)
     if not ok and reason:
         failures.append(f"Range gate: {reason}")
 

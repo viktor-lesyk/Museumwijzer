@@ -29,13 +29,13 @@ STRICT CONSTRAINTS:
 1. Standard single-entry adult ticket for the museum itself ONLY.
 2. NEVER select combo, combi, duo, or joint tickets with other attractions.
    If only combo tickets exist, record status="combo_only".
-3. Free admission: status="free" requires an explicit quote stating admission is free for everyone.
+3. Free admission: status="free" requires primary_adult_eur=null and an explicit quote stating admission is free for everyone.
    Free-for-children does NOT qualify as free admission.
 4. Paid admission: primary_adult_eur must be between 1.00 and 45.00 EUR.
 5. Quote: Must be a literal verbatim substring from the fetched page, MAXIMUM 15 words.
 6. Calibrated confidence:
    - "high": Single clearly labelled adult ticket price found directly on official static ticket/pricing page.
-   - "medium": Multi-tier pricing (castle vs garden, peak/off-peak, online vs desk), secondary subpage, or complex options.
+   - "medium": Age-tier prices ("vanaf 13 jaar"), multi-tier pricing, secondary subpage, or complex options.
    - "low": Uncertain or inferred.
 7. Audiences with free admission (free_for): Select only applicable groups from:
    ["children_under_4", "children_under_12", "children_under_18", "youth", "students", "seniors", "museumkaart", "vriendenloterij_vip_kaart", "icom", "rembrandtkaart", "everyone", "other"]
@@ -54,7 +54,7 @@ STRICT CONSTRAINTS:
   "reason": "Short reason",
   "confidence": "high"
 }}
-(Allowed status values: "paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "not_found", "unknown".)
+(Allowed status values: "paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "not_found", "unknown". Note: For status="free", set primary_adult_eur: null.)
 """
 
 
@@ -156,7 +156,7 @@ def run_agentic_research(
             # Model responded with final text, attempt JSON parsing
             content = msg.get("content", "")
             data = extract_json_payload(content)
-            if data and "status" in data and "admission" in data:
+            if data and "status" in data:
                 data["entered_by"] = "agent"
                 return data, messages, tool_call_count
             else:
@@ -213,7 +213,7 @@ def run_agentic_research(
 
     return {
         "status": "unknown",
-        "admission": "unknown",
+        "primary_adult_eur": None,
         "adult_eur": None,
         "quote": None,
         "source_url": None,

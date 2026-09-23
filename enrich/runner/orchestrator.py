@@ -8,7 +8,7 @@ import time
 from typing import Any, Dict, List, Optional, Tuple
 
 from enrich.fetch import PoliteFetcher
-from enrich.gates.price_gates import is_only_quote_length_failure, run_all_price_gates
+from enrich.gates.price_gates import calibrate_confidence, is_only_quote_length_failure, run_all_price_gates
 from enrich.jobs.base import JobDefinition
 from enrich.runner.agent import extract_json_payload, run_agentic_research
 from enrich.runner.client import OpenAICompatClient
@@ -267,10 +267,21 @@ Output ONLY a JSON object with:
                 gate_failures.extend([f"Escalation failed: {f}" for f in esc_gate_failures])
 
         # 3. Finalize metadata on extracted record
+        if extracted.get("status") == "free":
+            extracted["primary_adult_eur"] = None
+            extracted["adult_eur"] = None
+
         extracted["mode"] = self.mode
         extracted["extractor_model"] = extracted.get("extractor_model") or self.extractor_model
         extracted["verifier_model"] = self.verifier_model
         extracted["checked_on"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        extracted["confidence"] = calibrate_confidence(
+            status=extracted.get("status", "unknown"),
+            quote=extracted.get("quote"),
+            offerings=extracted.get("offerings"),
+            raw_confidence=extracted.get("confidence"),
+        )
+
 
         elapsed = round(time.time() - start_time, 2)
 

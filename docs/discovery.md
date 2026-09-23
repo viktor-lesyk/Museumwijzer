@@ -34,9 +34,16 @@
      - Full list: `https://welkominhetmuseum.vriendenloterij.nl/_next/data/{buildId}/{locale}/deelnemende-musea.json`
      - Museum detail: `https://welkominhetmuseum.vriendenloterij.nl/_next/data/{buildId}/{locale}/musea/{slug}.json`
   3. CloudFront serves standard `ETag` and `Last-Modified` HTTP headers, supporting cache validation via conditional requests (`If-None-Match`).
+- **Public Endpoints Guarantee:**
+  - The scraper fetches **only** publicly accessible Next.js pages and routes:
+    - Initial discovery: `https://welkominhetmuseum.vriendenloterij.nl/nl/deelnemende-musea/` (reads `buildId` and slug index from `<script id="__NEXT_DATA__">`).
+    - Standard Next.js client-side data routes: `https://welkominhetmuseum.vriendenloterij.nl/_next/data/{buildId}/nl/musea/{slug}.json`.
+    - Standard HTML fallback: `https://welkominhetmuseum.vriendenloterij.nl/nl/musea/{slug}/`.
+  - The scraper does **not** invoke any private, hidden, or undocumented CMS endpoints (e.g. `/umbraco/api/...` is completely absent; the site uses Storyblok CMS distributed via static Next.js artifacts on AWS CloudFront). All ingested data is strictly identical to what a standard browser receives when navigating the public site.
 - **Conclusion & Recommended Scraper Approach:**
   - We do **not** need a headless browser (Playwright is unnecessary).
-  - The scraper can fetch the list page HTML once to read the active `buildId` and extract the 195 museum slugs, then politely fetch the detail JSON files with rate limiting (≤ 1 request per second) and cache headers.
+  - The scraper fetches the list page HTML once to read the active `buildId` and extract the 195 museum slugs, then politely fetches the detail JSON files with rate limiting (≤ 1 request per second) and cache headers.
+
 
 ---
 

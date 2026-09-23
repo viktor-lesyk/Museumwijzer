@@ -18,6 +18,19 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 MUSEUMS_JSON_PATH = REPO_ROOT / "data" / "museums.json"
 REPORT_OUTPUT_PATH = REPO_ROOT / ".cache" / "enrichment" / "dry_run_comparison.json"
 
+# Load .env if present
+env_file = REPO_ROOT / ".env"
+if env_file.exists():
+    with open(env_file, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                k = k.strip()
+                v = v.strip().strip("'\"")
+                if k not in os.environ:
+                    os.environ[k] = v
+
 PILOT_SLUGS = [
     # 10 Curated
     "museumprinsenhofdelft",
@@ -155,9 +168,11 @@ def main():
             verifier_model=verifier_model,
             job=job,
         )
-        if args.record:
-            acc, rev = record_results(agentic_report["results"])
-            print(f"\nRecorded agentic results: {acc} accepted, {rev} needs_review in data/enrichment/")
+    if args.record:
+        results_to_record = agentic_report["results"] if agentic_report else (fallback_report["results"] if fallback_report else None)
+        if results_to_record:
+            acc, rev = record_results(results_to_record)
+            print(f"\nRecorded results: {acc} accepted, {rev} needs_review in data/enrichment/")
 
     comparison = {
         "pilot_museums_count": len(museums),

@@ -64,7 +64,6 @@ def format_verifier_user_prompt(
     claimed_value: Optional[float],
     status: str,
     page_text: str,
-    admission: Optional[str] = None,
 ) -> str:
     claimed_desc = f"€{claimed_value:.2f}" if claimed_value is not None else f"status '{status}'"
 
@@ -99,7 +98,6 @@ class IndependentVerifier:
         claimed_value: Optional[float],
         status: str,
         fetcher: PoliteFetcher,
-        admission: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Execute independent verification on the claimed value."""
         # Non-priced states like bot protection or robots block don't require LLM page reading
@@ -132,7 +130,6 @@ class IndependentVerifier:
             museum_website=museum_website,
             source_url=source_url,
             claimed_value=claimed_value,
-            admission=admission,
             status=status,
             page_text=parsed["text"],
         )

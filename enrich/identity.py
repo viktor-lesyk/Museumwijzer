@@ -48,7 +48,8 @@ AGGREGATOR_DOMAINS = {
     "vvv.nl",
     "welkominhetmuseum.vriendenloterij.nl",
     "welkom-in-het-museum.nl",
-    "google.com",
+    "onh.nl",
+    "vvvzeeland.nl",
     "bing.com",
     "duckduckgo.com",
     "hotelspecials.nl",
@@ -189,11 +190,13 @@ def discover_museum_website(
             h1 = page_data.get("h1", "")
             quote = f"{title} | {h1}".strip(" |")[:100]
 
-            # Normalize homepage URLs (strip query params / trailing slashes variance)
+            # Normalize website URL to https site root, except huis-willet-holthuysen which stays a deep link
             parsed_cand = urlparse(candidate)
-            clean_url = f"{parsed_cand.scheme}://{parsed_cand.netloc}{parsed_cand.path}".rstrip("/")
-            if clean_url.count("/") == 2:  # Root domain
-                clean_url += "/"
+            netloc = parsed_cand.netloc.lower()
+            if slug == "huis-willet-holthuysen":
+                clean_url = f"https://{netloc}{parsed_cand.path}".rstrip("/")
+            else:
+                clean_url = f"https://{netloc}/"
 
             return {
                 "slug": slug,

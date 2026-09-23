@@ -63,7 +63,7 @@ def run_fallback_extraction(
     if not website:
         return {
             "status": "unknown",
-            "admission": "unknown",
+            "primary_adult_eur": None,
             "adult_eur": None,
             "quote": None,
             "source_url": None,
@@ -120,10 +120,10 @@ Extract the {job.title}.
 RULES:
 1. Standard single adult ticket for the museum itself ONLY.
 2. NEVER select combo or duo tickets. If only combo tickets exist, status="combo_only".
-3. Free admission requires an explicit quote stating admission is free for everyone.
+3. Free admission: status="free" requires primary_adult_eur=null and an explicit quote stating admission is free for everyone.
 4. Paid tickets: primary_adult_eur between 1.00 and 45.00 EUR.
 5. Quote must appear verbatim in the text below, MAXIMUM 15 words.
-6. Calibrated confidence: "high" (single clear price on ticket page), "medium" (multi-tier or subpage), "low" (uncertain).
+6. Calibrated confidence: "high" (clearly labelled adult price on static page), "medium" (age-tier or multi-tier), "low" (uncertain).
 7. Audiences with free admission (free_for): Select only applicable groups from:
    ["children_under_4", "children_under_12", "children_under_18", "youth", "students", "seniors", "museumkaart", "vriendenloterij_vip_kaart", "icom", "rembrandtkaart", "everyone", "other"]
 
@@ -142,7 +142,7 @@ Output ONLY a JSON object formatted exactly as:
   "reason": "Short reason",
   "confidence": "high"
 }}
-(Allowed status values: "paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "not_found", "unknown".)
+(Allowed status values: "paid", "free", "closed", "combo_only", "blocked_by_bot_protection", "not_found", "unknown". Note: For status="free", set primary_adult_eur: null.)
 """
 
     messages = [
@@ -152,7 +152,7 @@ Output ONLY a JSON object formatted exactly as:
     try:
         resp = client.chat_completion(model=model, messages=messages, temperature=0.0, json_mode=True)
         data = extract_json_payload(resp)
-        if data and "status" in data and "admission" in data:
+        if data and "status" in data:
             data["entered_by"] = "agent"
             return data, messages, pages_fetched
     except Exception as e:
@@ -160,7 +160,7 @@ Output ONLY a JSON object formatted exactly as:
 
     return {
         "status": "unknown",
-        "admission": "unknown",
+        "primary_adult_eur": None,
         "adult_eur": None,
         "quote": None,
         "source_url": website,

@@ -28,6 +28,19 @@ logger = logging.getLogger("enrich.adversarial_eval")
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
+# Load .env if present
+env_file = REPO_ROOT / ".env"
+if env_file.exists():
+    with open(env_file, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                k = k.strip()
+                v = v.strip().strip("'\"")
+                if k not in os.environ:
+                    os.environ[k] = v
+
 
 def wilson_score_interval(successes: int, total: int, confidence: float = 0.95) -> Tuple[float, float]:
     """Calculate the two-sided Wilson score confidence interval for a binomial proportion.
@@ -135,7 +148,7 @@ ADVERSARIAL_TEST_CASES: List[TestCase] = [
         museum_name="Het Spoorwegmuseum",
         museum_website="https://www.spoorwegmuseum.nl/",
         source_url="https://www.spoorwegmuseum.nl/",
-        claimed_price=0.0,
+        claimed_price=None,
         status="free",
         quote="Toegang tot het museum is gratis voor iedereen",
         description="Free general admission claimed for a paid museum (€19.50) with fake quote",
@@ -159,7 +172,7 @@ ADVERSARIAL_TEST_CASES: List[TestCase] = [
         museum_name="Museum Martena",
         museum_website="https://www.museummartena.nl/",
         source_url="https://www.museummartena.nl/",
-        claimed_price=0.0,
+        claimed_price=None,
         status="free",
         quote="Museumkaart gratis toegang",
         description="Member/Museumkaart pass claimed as general free admission for all adults",
@@ -293,7 +306,7 @@ ADVERSARIAL_TEST_CASES: List[TestCase] = [
         museum_name="Sint-Jan de Doper",
         museum_website="https://www.vriendensintjanwaalwijk.nl/",
         source_url="https://www.vriendensintjanwaalwijk.nl/",
-        claimed_price=0.0,
+        claimed_price=None,
         status="free",
         quote="De toegang is gratis.",
         description="Authentic free admission quote on Sint-Jan de Doper homepage",
@@ -532,7 +545,7 @@ def run_adversarial_eval(
         succ, html, _ = fetcher.fetch(tc.source_url)
         page_text = ""
         if succ and html:
-            sanitized = sanitize_html_for_agent(html, tc.source_url)
+            sanitized = sanitize_html_for_agent(html, tc.source_url, max_chars=12000)
             page_text = sanitized["text"]
 
         extracted_data = {

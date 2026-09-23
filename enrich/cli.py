@@ -186,7 +186,7 @@ def main():
     run_parser = subparsers.add_parser("run", help="Run enrichment job on museums")
     run_parser.add_argument("--job", default="price_adult", help="Job definition name (default: price_adult)")
     run_parser.add_argument("--slug", default=None, help="Target a specific museum slug")
-    run_parser.add_argument("--mode", choices=["agentic", "fallback"], default="agentic", help="Research mode (default: agentic)")
+    run_parser.add_argument("--mode", choices=["simple", "agentic", "fallback"], default="simple", help="Research mode (default: simple)")
     run_parser.add_argument("--only-stale", action="store_true", help="Only process records requiring refresh")
     run_parser.add_argument("--resume", action="store_true", help="Skip museums already present in prices.json")
     run_parser.add_argument("--limit", type=int, default=None, help="Limit number of museums to process")
@@ -204,6 +204,7 @@ def main():
     # 3. audit command
     audit_parser = subparsers.add_parser("audit", help="Spot check accepted records")
     audit_parser.add_argument("--sample", type=int, default=10, help="Number of random accepted records to inspect")
+    audit_parser.add_argument("--paid-only", action="store_true", help="Only show accepted paid admission rows")
 
     # 4. report command
     report_parser = subparsers.add_parser("report", help="Print detailed report of accepted vs needs_review records")
@@ -211,7 +212,70 @@ def main():
     # 5. proposals command
     proposals_parser = subparsers.add_parser("proposals", help="List pending identity and address proposals from data/enrichment/proposals.json")
 
+    # 6. recheck command (MANUAL ONLY: strictly forbidden in cron/systemd/CI)
+    recheck_parser = subparsers.add_parser(
+        "recheck",
+        help="Manually recheck prices (direct source_url validation, dual-model comparison, delta reporting)",
+    )
+    recheck_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        default=True,
+        help="Run without modifying prices.json or needs_review.json (default: True)",
+    )
+    recheck_parser.add_argument(
+        "--apply",
+        dest="dry_run",
+        action="store_false",
+        help="Apply and persist changes to prices.json and needs_review.json",
+    )
+    recheck_parser.add_argument(
+        "--write",
+        dest="dry_run",
+        action="store_false",
+        help="Alias for --apply",
+    )
+    recheck_parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Limit number of museums to recheck",
+    )
+    recheck_parser.add_argument(
+        "--slugs",
+        default=None,
+        help="Comma-separated list of specific museum slugs to recheck",
+    )
+    recheck_parser.add_argument(
+        "--extractor-model",
+        default=None,
+        help="Model for extraction phase (LiteLLM proxy)",
+    )
+    recheck_parser.add_argument(
+        "--base-url",
+        default=None,
+        help="OpenRouter Base URL",
+    )
+    recheck_parser.add_argument(
+        "--api-key",
+        default=None,
+        help="API key",
+    )
+
     args = parser.parse_args()
+
+    if args.command == "recheck":
+        from enrich.recheck import run_recheck
+        slug_list = [s.strip() for s in args.slugs.split(",") if s.strip()] if args.slugs else None
+        run_recheck(
+            dry_run=args.dry_run,
+            limit=args.limit,
+            slugs=slug_list,
+            model=args.extractor_model,
+            base_url=args.base_url,
+            api_key=args.api_key,
+        )
+        return
 
     if args.command == "proposals":
         proposals = load_proposals()
@@ -240,12 +304,37 @@ def main():
         return
 
     if args.command == "audit":
-        run_spot_check_audit(sample_size=args.sample)
+        run_spot_check_audit(sample_size=args.sample, paid_only=args.paid_only)
         return
 
     if args.command == "run":
         if args.job in ("website", "address_check"):
             run_identity_job(job_name=args.job, slug=args.slug, limit=args.limit)
+            return
+
+        if args.mode == "simple" and args.job == "price_adult":
+            from enrich.simple_pipeline import run_simple_pipeline
+            museums_path = REPO_ROOT / "data" / "museums.json"
+            with open(museums_path, "r", encoding="utf-8") as f:
+                all_museums = json.load(f)["museums"]
+
+            if args.slug:
+                target_museums = [m for m in all_museums if m.get("slug") == args.slug]
+            else:
+                target_museums = all_museums
+
+            base_url = args.base_url or os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+            api_key = args.api_key or os.environ.get("OPENROUTER_API_KEY")
+            extractor = args.extractor_model or os.environ.get("LITELLM_FREE_LITE_MODEL", "free-lite")
+
+            run_simple_pipeline(
+                museums=target_museums,
+                model=extractor,
+                base_url=base_url,
+                api_key=api_key,
+                limit=args.limit,
+                resume=args.resume,
+            )
             return
 
         job = JobDefinition.load(args.job)

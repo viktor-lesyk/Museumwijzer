@@ -2,11 +2,17 @@
 
 import json
 import logging
+import re
 import time
 from typing import Any, Dict, List, Optional
 import requests
 
 logger = logging.getLogger("enrich.client")
+
+
+class ProviderRateLimitError(RuntimeError):
+    """Raised when upstream model provider returns 429 or quota exhaustion."""
+    pass
 
 
 class OpenAICompatClient:
@@ -19,7 +25,7 @@ class OpenAICompatClient:
     ):
         self.base_url = base_url.rstrip("/")
         self.api_key = api_key or "not-needed"
-        self.max_retries = max_retries
+        self.max_retries = max_retries if max_retries is not None else 5
         self.timeout = timeout
         self.session = requests.Session()
         self.session.headers.update({
@@ -33,28 +39,57 @@ class OpenAICompatClient:
         url = f"{self.base_url}{endpoint}"
         delay = 2.0
         last_error = None
+        last_status = None
 
         for attempt in range(self.max_retries + 1):
             try:
                 resp = self.session.post(url, json=payload, timeout=self.timeout)
+                last_status = resp.status_code
                 if resp.status_code == 200:
                     return resp.json()
                 elif resp.status_code in (429, 502, 503, 504):
+                    sleep_time = delay
+                    if resp.status_code == 429:
+                        retry_after = resp.headers.get("Retry-After")
+                        if retry_after:
+                            try:
+                                sleep_time = max(float(retry_after), sleep_time)
+                            except (ValueError, TypeError):
+                                pass
+                        else:
+                            try:
+                                raw_text = resp.text
+                                match = re.search(r'retryDelay":\s*"(\d+)', raw_text)
+                                if match:
+                                    sleep_time = max(float(match.group(1)) + 1.0, sleep_time)
+                                else:
+                                    match2 = re.search(r'Please retry in ([0-9.]+)', raw_text)
+                                    if match2:
+                                        sleep_time = max(float(match2.group(1)) + 1.0, sleep_time)
+                            except Exception:
+                                pass
+
                     logger.warning(
-                        f"HTTP {resp.status_code} on {url}. Retrying in {delay:.1f}s (attempt {attempt+1}/{self.max_retries})..."
+                        f"HTTP {resp.status_code} on {url}. Retrying in {sleep_time:.1f}s (attempt {attempt+1}/{self.max_retries})..."
                     )
-                    time.sleep(delay)
-                    delay *= 2.0
+                    time.sleep(sleep_time)
+                    delay = max(delay * 2.0, 5.0)
                     last_error = f"HTTP {resp.status_code}: {resp.text}"
                 else:
-                    raise RuntimeError(f"API request failed with HTTP {resp.status_code}: {resp.text}")
+                    err_msg = f"API request failed with HTTP {resp.status_code}: {resp.text}"
+                    if resp.status_code in (402, 429) or "quota" in resp.text.lower() or "rate limit" in resp.text.lower():
+                        raise ProviderRateLimitError(err_msg)
+                    raise RuntimeError(err_msg)
             except (requests.ConnectionError, requests.Timeout) as e:
                 logger.warning(f"Connection error: {e}. Retrying in {delay:.1f}s...")
                 time.sleep(delay)
                 delay *= 2.0
                 last_error = str(e)
 
-        raise RuntimeError(f"Failed after {self.max_retries} retries: {last_error}")
+        err_text = f"Failed after {self.max_retries} retries: {last_error}"
+        if last_status == 429 or "429" in str(last_error) or "quota" in str(last_error).lower():
+            raise ProviderRateLimitError(err_text)
+        raise RuntimeError(err_text)
 
     def chat_completion(
         self,

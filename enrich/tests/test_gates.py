@@ -36,7 +36,6 @@ def test_gate_literal_match_paid():
         adult_eur=17.50,
         quote="Volwassenen betalen € 17,50",
         status="paid",
-        admission="paid",
     )
     assert ok is True, f"Failed: {err}"
 
@@ -46,7 +45,6 @@ def test_gate_literal_match_paid():
         adult_eur=25.00,
         quote="Volwassenen betalen € 17,50",
         status="paid",
-        admission="paid",
     )
     assert ok is False
     assert "not found in page text" in err
@@ -57,7 +55,6 @@ def test_gate_literal_match_paid():
         adult_eur=17.50,
         quote="Non existent quote text",
         status="paid",
-        admission="paid",
     )
     assert ok is False
     assert "was not found verbatim" in err
@@ -69,7 +66,6 @@ def test_gate_literal_match_paid():
         adult_eur=17.50,
         quote=long_quote,
         status="paid",
-        admission="paid",
     )
     assert ok is False
     assert "exceeds 15 words" in err
@@ -81,10 +77,9 @@ def test_gate_literal_match_free():
     # Genuine free admission with explicit quote
     ok, err = check_literal_match(
         page_text=page_text,
-        adult_eur=0.0,
+        adult_eur=None,
         quote="toegang is gratis voor iedereen",
         status="free",
-        admission="free",
     )
     assert ok is True, f"Failed: {err}"
 
@@ -92,10 +87,9 @@ def test_gate_literal_match_free():
     page_text_child = "Tarieven: Volwassenen € 15. Kinderen tot 18 jaar gratis."
     ok, err = check_literal_match(
         page_text=page_text_child,
-        adult_eur=0.0,
+        adult_eur=None,
         quote="Kinderen tot 18 jaar gratis",
         status="free",
-        admission="free",
     )
     assert ok is False
     assert "youth/children" in err
@@ -103,23 +97,32 @@ def test_gate_literal_match_free():
 
 def test_gate_plausible_range():
     # Valid paid range [1.0, 45.0]
-    ok, _ = check_plausible_range(adult_eur=15.0, status="paid", admission="paid")
+    ok, _ = check_plausible_range(adult_eur=15.0, status="paid")
     assert ok is True
 
     # Price below 1.00 EUR for paid
-    ok, err = check_plausible_range(adult_eur=0.50, status="paid", admission="paid")
+    ok, err = check_plausible_range(adult_eur=0.50, status="paid")
     assert ok is False
     assert "outside plausible adult range" in err
 
     # Price above 45.00 EUR for paid
-    ok, err = check_plausible_range(adult_eur=55.0, status="paid", admission="paid")
+    ok, err = check_plausible_range(adult_eur=55.0, status="paid")
     assert ok is False
     assert "outside plausible adult range" in err
 
     # Free with adult_eur > 0
-    ok, err = check_plausible_range(adult_eur=10.0, status="free", admission="free")
+    ok, err = check_plausible_range(adult_eur=10.0, status="free")
     assert ok is False
-    assert "cannot have adult_eur" in err
+    assert "requires primary_adult_eur to be null" in err
+
+    # Free with adult_eur = 0.0 (must be strictly null)
+    ok, err = check_plausible_range(adult_eur=0.0, status="free")
+    assert ok is False
+    assert "requires primary_adult_eur to be null" in err
+
+    # Free with adult_eur is None
+    ok, _ = check_plausible_range(adult_eur=None, status="free")
+    assert ok is True
 
 
 def test_gate_combo_rejection():
@@ -136,6 +139,33 @@ def test_gate_combo_rejection():
     ok, err = check_combo_rejection(quote="Combiticket kasteel en museum € 22", page_text="")
     assert ok is False
     assert "forbidden combo/duo keyword" in err
+
+
+def test_regression_joods_museum_combo_rejection():
+    """Regression test: Stored record for Joods Museum ('Duoticket ... € 20') must be rejected by combo gate."""
+    stored_quote = "Duoticket Joods Museum + junior en Portugese Synagoge Volwassenen € 20"
+    ok, err = check_combo_rejection(quote=stored_quote, page_text="")
+    assert ok is False
+    assert "forbidden combo/duo keyword" in err
+
+    from enrich.gates.price_gates import run_all_price_gates
+    passed, failures = run_all_price_gates(
+        slug="joods-museum",
+        museum_name="Joods Museum",
+        city="Amsterdam",
+        museum_website="https://jck.nl/",
+        source_url="https://jck.nl/plan-je-bezoek",
+        page_text="Duoticket Joods Museum + junior en Portugese Synagoge Volwassenen € 20",
+        extracted_data={
+            "status": "paid",
+            "primary_adult_eur": 20.0,
+            "quote": stored_quote,
+            "source_url": "https://jck.nl/plan-je-bezoek",
+        },
+        fetcher=None,
+    )
+    assert passed is False
+    assert any("forbidden combo/duo keyword" in f for f in failures)
 
 
 def test_gate_identity_presence():

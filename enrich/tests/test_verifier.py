@@ -46,7 +46,6 @@ def test_verifier_execution_confirm():
         museum_website="https://www.rijksmuseum.nl/",
         source_url="https://www.rijksmuseum.nl/nl/tickets",
         claimed_value=25.0,
-        admission="paid",
         status="paid",
         fetcher=DummyFetcher(),
     )
@@ -69,7 +68,6 @@ def test_verifier_execution_reject():
         museum_website="https://jck.nl/",
         source_url="https://jck.nl/tickets",
         claimed_value=20.0,
-        admission="paid",
         status="paid",
         fetcher=DummyFetcher(),
     )
