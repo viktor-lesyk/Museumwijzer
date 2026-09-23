@@ -15,6 +15,12 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: Locale };
 const t = useTranslations(lang);
 const allMuseums = museumsData.museums || [];
+const canonicalMapping: Record<string, string> = {};
+for (const m of allMuseums) {
+  if ((m as any).duplicate_of) {
+    canonicalMapping[m.slug] = (m as any).duplicate_of;
+  }
+}
 
 // Compact lookup dictionary for client-side rendering
 const museumsLookup: Record<string, { name: string; city: string; province: string; street: string; website: string | null; status: string }> = {};
@@ -871,7 +877,8 @@ for (const m of allMuseums) {
   addNoteText: t.addNote,
   saveNoteText: t.saveNote,
   cancelNoteText: t.cancelNote,
-  deleteNoteText: t.deleteNote
+  deleteNoteText: t.deleteNote,
+  canonicalMapping: canonicalMapping
 }}>
   document.addEventListener('DOMContentLoaded', () => {
     const itemsListEl = document.getElementById('priority-items-list');
@@ -897,16 +904,23 @@ for (const m of allMuseums) {
         if (raw) {
           const parsed = JSON.parse(raw);
           if (Array.isArray(parsed)) {
+            const seen = new Set();
             return parsed.map((item) => {
+              const rawSlug = typeof item === 'string' ? item : (item.slug || '');
+              const resolved = canonicalMapping[rawSlug] || rawSlug;
               if (typeof item === 'string') {
-                return { slug: item, visited: false, note: '' };
+                return { slug: resolved, visited: false, note: '' };
               }
               return {
-                slug: item.slug || '',
+                slug: resolved,
                 visited: Boolean(item.visited),
                 note: item.note || '',
               };
-            }).filter((item) => item.slug);
+            }).filter((item) => {
+              if (!item.slug || seen.has(item.slug)) return false;
+              seen.add(item.slug);
+              return true;
+            });
           }
         }
       } catch (e) {}
@@ -947,7 +961,15 @@ for (const m of allMuseums) {
     function checkSharedHash() {
       const hash = window.location.hash || '';
       if (hash.startsWith('#list=')) {
-        const rawSlugs = hash.slice(6).split(',').map((s) => decodeURIComponent(s.trim())).filter(Boolean);
+        const seen = new Set();
+        const rawSlugs = hash.slice(6).split(',').map((s) => {
+          const decoded = decodeURIComponent(s.trim());
+          return canonicalMapping[decoded] || decoded;
+        }).filter((slug) => {
+          if (!slug || seen.has(slug)) return false;
+          seen.add(slug);
+          return true;
+        });
         if (rawSlugs.length > 0) {
           const currentSlugs = currentList.map((item) => item.slug).join(',');
           const incomingSlugs = rawSlugs.join(',');

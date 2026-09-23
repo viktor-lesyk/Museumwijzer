@@ -7,6 +7,14 @@ import { languages, type Locale } from '../../i18n/languages';
 import { useTranslations } from '../../i18n/ui';
 import museumsData from '../../../../data/museums.json';
 import metaData from '../../../../data/meta.json';
+import pricesData from '../../../../data/enrichment/prices.json';
+import {
+  formatPriceNumber,
+  formatCheckedDate,
+  formatVariantLabel,
+  getReportWrongPriceUrl,
+  type PriceRecord,
+} from '../../utils/price';
 
 const aliasesPath = fileURLToPath(new URL('../../../../data/city-aliases.yaml', import.meta.url));
 const cityAliasesData = yaml.parse(fs.readFileSync(aliasesPath, 'utf-8')) || {};
@@ -21,7 +29,20 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Locale };
 const t = useTranslations(lang);
-const museums = (museumsData.museums || []).filter((m: any) => m.status !== 'removed');
+const canonicalMapping: Record<string, string> = {};
+for (const m of (museumsData.museums || [])) {
+  if ((m as any).duplicate_of) {
+    canonicalMapping[m.slug] = (m as any).duplicate_of;
+  }
+}
+const museums = (museumsData.museums || []).filter((m: any) => m.status !== 'removed' && !m.duplicate_of);
+
+const pricesMap: Record<string, PriceRecord> = {};
+for (const p of (pricesData.museums || [])) {
+  if (p.slug && p.price) {
+    pricesMap[p.slug] = p.price;
+  }
+}
 
 let formattedDate = 'onbekend';
 if (metaData?.last_checked) {
@@ -142,6 +163,8 @@ const pageTitle =
           <select id="sort-select" class="filter-select">
             <option value="name">{t.sortByName}</option>
             <option value="province">{t.sortByProvince}</option>
+            <option value="price-asc">{t.sortByPriceAsc}</option>
+            <option value="price-desc">{t.sortByPriceDesc}</option>
             <option value="distance" id="distance-sort-option" disabled>{t.sortByDistance}</option>
           </select>
         </div>
@@ -220,56 +243,111 @@ const pageTitle =
     <!-- Pre-rendered Museum Cards List (Progressive Enhancement) -->
     <section class="museums-grid" id="museums-list" aria-label="Participating museums">
       {
-        museums.map((m) => (
-          <article
-            class="museum-card"
-            data-slug={m.slug}
-            data-name={m.name}
-            data-province={m.province}
-            data-city={m.city || ''}
-            data-pdok-woonplaats={m.pdok_woonplaats || ''}
-            data-city-aliases={getCityAliases(m)}
-            data-street={m.address?.street || ''}
-            data-postcode={m.address?.postcode || ''}
-            data-lat={m.lat !== null && m.lat !== undefined ? String(m.lat) : ''}
-            data-lon={m.lon !== null && m.lon !== undefined ? String(m.lon) : ''}
-          >
-            <div class="card-header">
-              <div class="card-header-left">
-                <span class="card-province">{m.province}</span>
+        museums.map((m) => {
+          const priceObj = pricesMap[m.slug] || ((m as any).duplicate_of ? pricesMap[(m as any).duplicate_of] : undefined);
+          const hasPrice = priceObj && (priceObj.status === 'paid' && priceObj.primary_adult_eur !== null || priceObj.status === 'free');
+          const priceDataVal = hasPrice ? (priceObj.status === 'free' ? '0' : String(priceObj.primary_adult_eur)) : '';
+          return (
+            <article
+              class="museum-card"
+              data-slug={m.slug}
+              data-name={m.name}
+              data-province={m.province}
+              data-city={m.city || ''}
+              data-pdok-woonplaats={m.pdok_woonplaats || ''}
+              data-city-aliases={getCityAliases(m)}
+              data-street={m.address?.street || ''}
+              data-postcode={m.address?.postcode || ''}
+              data-lat={m.lat !== null && m.lat !== undefined ? String(m.lat) : ''}
+              data-lon={m.lon !== null && m.lon !== undefined ? String(m.lon) : ''}
+              data-price={priceDataVal}
+              data-status={priceObj?.status || 'unknown'}
+            >
+              <div class="card-header">
+                <div class="card-header-left">
+                  <span class="card-province">{m.province}</span>
+                </div>
+                <button
+                  type="button"
+                  class="card-list-btn"
+                  data-slug={m.slug}
+                  title={t.addToList}
+                  aria-label={t.addToList}
+                  aria-pressed="false"
+                >
+                  <span class="heart-icon" aria-hidden="true">🤍</span>
+                  <span class="sr-only card-list-btn-text">{t.addToList}</span>
+                </button>
               </div>
-              <button
-                type="button"
-                class="card-list-btn"
-                data-slug={m.slug}
-                title={t.addToList}
-                aria-label={t.addToList}
-                aria-pressed="false"
-              >
-                <span class="heart-icon" aria-hidden="true">🤍</span>
-                <span class="sr-only card-list-btn-text">{t.addToList}</span>
-              </button>
-            </div>
 
-            <h2 class="card-title">
-              <a href={`/${lang}/museum/${m.slug}/`}>{m.name}</a>
-            </h2>
+              <h2 class="card-title">
+                <a href={`/${lang}/museum/${m.slug}/`}>{m.name}</a>
+              </h2>
 
-            <div class="card-meta">
-              <div class="card-location-line">
-                <span class="card-city">{m.city || 'Nederland'}</span>
-                <span class="card-distance" style="display: none;"></span>
+              <div class="card-meta">
+                <div class="card-location-line">
+                  <span class="card-city">{m.city || 'Nederland'}</span>
+                  <span class="card-distance" style="display: none;"></span>
+                </div>
+                {m.address?.street && <span class="card-address">{m.address.street}</span>}
               </div>
-              {m.address?.street && <span class="card-address">{m.address.street}</span>}
-            </div>
 
-            <div class="card-footer">
-              <a href={`/${lang}/museum/${m.slug}/`} class="card-link">
-                {t.viewDetails} →
-              </a>
-            </div>
-          </article>
-        ))
+              <div class="card-price-block">
+                <div class="card-price-main">
+                  {priceObj && priceObj.status === 'paid' && priceObj.primary_adult_eur !== null ? (
+                    <span class="price-val">{t.priceFrom.replace('{price}', formatPriceNumber(priceObj.primary_adult_eur, lang))}</span>
+                  ) : priceObj && priceObj.status === 'free' ? (
+                    <span class="price-val price-badge-free">{t.priceFree}</span>
+                  ) : priceObj && priceObj.status === 'closed' ? (
+                    <span class="price-val price-badge-closed">{t.priceClosed}</span>
+                  ) : (
+                    <span class="price-val price-badge-check">{t.priceCheckWebsite}</span>
+                  )}
+                </div>
+
+                {priceObj && priceObj.status === 'paid' && priceObj.online_adult_eur !== null && priceObj.door_adult_eur !== null && priceObj.online_adult_eur !== priceObj.door_adult_eur && (
+                  <div class="card-price-split">
+                    {t.priceOnlineDoor
+                      .replace('{online}', formatPriceNumber(priceObj.online_adult_eur, lang))
+                      .replace('{door}', formatPriceNumber(priceObj.door_adult_eur, lang))}
+                  </div>
+                )}
+
+                {priceObj && priceObj.variants && Object.keys(priceObj.variants).length > 0 && (
+                  <div class="card-price-variant">
+                    {Object.entries(priceObj.variants).slice(0, 1).map(([vKey, vVal]) => (
+                      <span>{formatVariantLabel(vKey, lang)}: €{formatPriceNumber(vVal, lang)}</span>
+                    ))}
+                  </div>
+                )}
+
+                {priceObj && (priceObj.checked_on || priceObj.source_url) && (
+                  <div class="card-price-meta">
+                    {priceObj.checked_on && priceObj.source_url ? (
+                      <a href={priceObj.source_url} class="price-checked-link" target="_blank" rel="noopener noreferrer">
+                        {t.priceCheckedDate.replace('{date}', formatCheckedDate(priceObj.checked_on, lang))} ↗
+                      </a>
+                    ) : priceObj.checked_on ? (
+                      <span class="price-checked-text">
+                        {t.priceCheckedDate.replace('{date}', formatCheckedDate(priceObj.checked_on, lang))}
+                      </span>
+                    ) : null}
+                    <span class="price-meta-sep">·</span>
+                    <a href={getReportWrongPriceUrl(m.name, m.slug, priceObj.source_url, lang)} class="price-report-link">
+                      {t.reportWrongPrice}
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              <div class="card-footer">
+                <a href={`/${lang}/museum/${m.slug}/`} class="card-link">
+                  {t.viewDetails} →
+                </a>
+              </div>
+            </article>
+          );
+        })
       }
     </section>
   </div>
@@ -717,6 +795,107 @@ const pageTitle =
     white-space: nowrap;
   }
 
+  /* Price section in card */
+  .card-price-block {
+    margin-top: auto;
+    margin-bottom: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--color-border-light);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .card-price-main {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .price-val {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .price-badge-free {
+    color: #166534;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .price-badge-closed {
+    color: #991b1b;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .price-badge-check {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .card-price-split {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .card-price-variant {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    background-color: var(--color-bg);
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .card-price-meta {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: 0.15rem;
+  }
+
+  .price-checked-link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  .price-checked-link:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .price-meta-sep {
+    color: var(--color-border);
+  }
+
+  .price-report-link {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+
+  .price-report-link:hover {
+    color: var(--color-accent);
+  }
+
   .card-footer {
     border-top: 1px solid var(--color-border-light);
     padding-top: 0.75rem;
@@ -756,7 +935,8 @@ const pageTitle =
   locationNotFoundText: t.locationNotFound,
   setLocationBtnText: t.setLocationBtn,
   nearMeButtonText: t.nearMeButton,
-  distanceFilterResultsTemplate: t.distanceFilterResults
+  distanceFilterResultsTemplate: t.distanceFilterResults,
+  canonicalMapping: canonicalMapping
 }}>
   document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
@@ -909,7 +1089,17 @@ const pageTitle =
     function getPriorityList() {
       try {
         const raw = localStorage.getItem('museumwijzer_priority_list');
-        return raw ? JSON.parse(raw) : [];
+        const items = raw ? JSON.parse(raw) : [];
+        if (!Array.isArray(items)) return [];
+        return items.map((item) => {
+          if (typeof item === 'string') {
+            return canonicalMapping[item] || item;
+          }
+          if (item && item.slug) {
+            return { ...item, slug: canonicalMapping[item.slug] || item.slug };
+          }
+          return item;
+        });
       } catch (e) {
         return [];
       }
@@ -1073,6 +1263,32 @@ const pageTitle =
         } else if (sortBy === 'province') {
           const pComp = (a.dataset.province || '').localeCompare(b.dataset.province || '');
           if (pComp !== 0) return pComp;
+          return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+        } else if (sortBy === 'price-asc') {
+          const hasPriceA = a.dataset.price !== '' && a.dataset.price !== undefined;
+          const hasPriceB = b.dataset.price !== '' && b.dataset.price !== undefined;
+          if (hasPriceA && hasPriceB) {
+            const pA = parseFloat(a.dataset.price);
+            const pB = parseFloat(b.dataset.price);
+            if (pA !== pB) return pA - pB;
+          } else if (hasPriceA && !hasPriceB) {
+            return -1;
+          } else if (!hasPriceA && hasPriceB) {
+            return 1;
+          }
+          return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+        } else if (sortBy === 'price-desc') {
+          const hasPriceA = a.dataset.price !== '' && a.dataset.price !== undefined;
+          const hasPriceB = b.dataset.price !== '' && b.dataset.price !== undefined;
+          if (hasPriceA && hasPriceB) {
+            const pA = parseFloat(a.dataset.price);
+            const pB = parseFloat(b.dataset.price);
+            if (pA !== pB) return pB - pA;
+          } else if (hasPriceA && !hasPriceB) {
+            return -1;
+          } else if (!hasPriceA && hasPriceB) {
+            return 1;
+          }
           return (a.dataset.name || '').localeCompare(b.dataset.name || '');
         } else {
           return (a.dataset.name || '').localeCompare(b.dataset.name || '');

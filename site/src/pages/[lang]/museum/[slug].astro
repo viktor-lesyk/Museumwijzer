@@ -56,10 +56,44 @@ const linksHeading =
     : lang === 'uk'
       ? 'Посилання та квитки'
       : 'Links & Tickets';
+
+const canonicalPath = (museum as any).duplicate_of ? `/${lang}/museum/${(museum as any).duplicate_of}/` : '';
+
+import pricesData from '../../../../../data/enrichment/prices.json';
+import {
+  formatPriceNumber,
+  formatCheckedDate,
+  formatVariantLabel,
+  getReportWrongPriceUrl,
+  type PriceRecord
+} from '../../../utils/price';
+
+const pricesMap: Record<string, PriceRecord> = {};
+for (const p of (pricesData.museums || [])) {
+  if (p.slug && p.price) {
+    pricesMap[p.slug] = p.price;
+  }
+}
+const priceObj = pricesMap[museum.slug] || ((museum as any).duplicate_of ? pricesMap[(museum as any).duplicate_of] : undefined);
 ---
 
-<Layout title={`${museum.name} — ${museum.city || 'Nederland'}`} locale={lang}>
+<Layout title={`${museum.name} — ${museum.city || 'Nederland'}`} locale={lang} canonicalPath={canonicalPath}>
+  {(museum as any).duplicate_of && (
+    <meta http-equiv="refresh" content={`0;url=/${lang}/museum/${(museum as any).duplicate_of}/`} slot="head" />
+  )}
   <div class="container">
+    {(museum as any).duplicate_of && (
+      <div class="duplicate-banner" style="background:#fff3cd; color:#856404; padding:0.75rem 1rem; border-radius:6px; margin-bottom:1rem; border:1px solid #ffeeba;">
+        <p style="margin:0;">
+          {lang === 'nl'
+            ? `Let op: dit is een dubbele vermelding. Bekijk de officiële pagina: `
+            : `Notice: this is a duplicate listing. View the canonical page: `}
+          <a href={`/${lang}/museum/${(museum as any).duplicate_of}/`} style="font-weight:bold; color:inherit; text-decoration:underline;">
+            {museum.name}
+          </a>
+        </p>
+      </div>
+    )}
     <nav class="breadcrumb-nav" aria-label="Breadcrumb">
       <a href={`/${lang}/`} class="back-link">{t.backToFinder}</a>
     </nav>
@@ -119,6 +153,64 @@ const linksHeading =
               <a href={osmUrl} class="btn-map" target="_blank" rel="noopener noreferrer">
                 🗺️ {t.openInOsm} ↗
               </a>
+            )}
+          </div>
+        </div>
+
+        <div class="info-card price-card">
+          <h2 class="info-heading">{t.regularAdmission}</h2>
+          <div class="price-details">
+            <div class="price-primary">
+              {priceObj && priceObj.status === 'paid' && priceObj.primary_adult_eur !== null ? (
+                <span class="price-val-large">{t.priceFrom.replace('{price}', formatPriceNumber(priceObj.primary_adult_eur, lang))}</span>
+              ) : priceObj && priceObj.status === 'free' ? (
+                <span class="price-badge-free-large">{t.priceFree}</span>
+              ) : priceObj && priceObj.status === 'closed' ? (
+                <span class="price-badge-closed-large">{t.priceClosed}</span>
+              ) : (
+                <span class="price-badge-check-large">{t.priceCheckWebsite}</span>
+              )}
+            </div>
+
+            {priceObj && priceObj.status === 'paid' && priceObj.online_adult_eur !== null && priceObj.door_adult_eur !== null && priceObj.online_adult_eur !== priceObj.door_adult_eur && (
+              <p class="price-split-line">
+                {t.priceOnlineDoor
+                  .replace('{online}', formatPriceNumber(priceObj.online_adult_eur, lang))
+                  .replace('{door}', formatPriceNumber(priceObj.door_adult_eur, lang))}
+              </p>
+            )}
+
+            {priceObj && priceObj.variants && Object.keys(priceObj.variants).length > 0 && (
+              <div class="price-variants-block">
+                {Object.entries(priceObj.variants).map(([vKey, vVal]) => (
+                  <p class="variant-line">
+                    <span class="variant-label">{formatVariantLabel(vKey, lang)}:</span>{' '}
+                    <span class="variant-amount">€{formatPriceNumber(vVal, lang)}</span>
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {priceObj && priceObj.price_note && (
+              <p class="price-note-line">
+                <em>{priceObj.price_note}</em>
+              </p>
+            )}
+
+            {priceObj && (priceObj.checked_on || priceObj.source_url) && (
+              <div class="price-meta-line">
+                {priceObj.checked_on && priceObj.source_url ? (
+                  <a href={priceObj.source_url} class="price-source-link" target="_blank" rel="noopener noreferrer">
+                    {t.priceCheckedDate.replace('{date}', formatCheckedDate(priceObj.checked_on, lang))} ↗
+                  </a>
+                ) : priceObj.checked_on ? (
+                  <span>{t.priceCheckedDate.replace('{date}', formatCheckedDate(priceObj.checked_on, lang))}</span>
+                ) : null}
+                <span class="price-meta-sep">·</span>
+                <a href={getReportWrongPriceUrl(museum.name, museum.slug, priceObj.source_url, lang)} class="price-report-link">
+                  {t.reportWrongPrice}
+                </a>
+              </div>
             )}
           </div>
         </div>
@@ -393,6 +485,141 @@ const linksHeading =
   .ticket-link:hover {
     background-color: var(--color-primary-hover);
     color: #ffffff;
+  }
+
+  /* Admission price card styles */
+  .price-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .price-primary {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .price-val-large {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1.2;
+  }
+
+  .price-badge-free-large {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #166534;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .price-badge-closed-large {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #991b1b;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+  }
+
+  .price-badge-check-large {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+  }
+
+  .price-split-line {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+    padding: 0.4rem 0.65rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius);
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .price-variants-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    background-color: var(--color-surface);
+    border-left: 3px solid var(--color-border);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 0.875rem;
+  }
+
+  .variant-line {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .variant-label {
+    font-weight: 500;
+  }
+
+  .variant-amount {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .price-note-line {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .price-meta-line {
+    font-size: 0.775rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .price-source-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .price-source-link:hover {
+    text-decoration: underline;
+  }
+
+  .price-meta-sep {
+    color: var(--color-border);
+  }
+
+  .price-report-link {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    white-space: nowrap;
+  }
+
+  .price-report-link:hover {
+    color: var(--color-accent);
   }
 </style>
 
