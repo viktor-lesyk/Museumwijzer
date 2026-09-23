@@ -112,9 +112,11 @@ def load_city_aliases():
 
 def test_ac5_full_list_readable_without_javascript():
     """AC 5: With JavaScript disabled, the full list of museums is readable in raw HTML."""
+    with open(DATA_DIR / "museums.json", encoding="utf-8") as f:
+        expected_count = len([m for m in json.load(f)["museums"] if not m.get("duplicate_of") and m.get("status") != "removed"])
     for lang in ("nl", "en"):
         cards = get_parsed_cards(lang)
-        assert len(cards) == 195, f"Expected 195 cards in {lang} static HTML, found {len(cards)}"
+        assert len(cards) == expected_count, f"Expected {expected_count} cards in {lang} static HTML, found {len(cards)}"
         for card in cards:
             assert card["slug"], "Card missing slug"
             assert card["name"], "Card missing name"

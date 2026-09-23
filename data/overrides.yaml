@@ -68,6 +68,7 @@ czaar-peterhuisje:
       street: "Krimp 23"
       postcode: "1506 AA"
       city: "Zaandam"
+    museum_website: "https://www.czaarpeterhuisje.nl/"
 
 museum-kaap-skil:
   date: "2026-09-20"
@@ -79,6 +80,7 @@ museum-kaap-skil:
       street: "Heemskerckstraat 9"
       postcode: "1792 AA"
       city: "Oudeschild"
+    museum_website: "https://kaapskil.nl/"
 
 huis-willet-holthuysen:
   date: "2026-09-20"
@@ -90,6 +92,7 @@ huis-willet-holthuysen:
       street: "Herengracht 605"
       postcode: "1017 CE"
       city: "Amsterdam"
+    museum_website: "https://www.amsterdammuseum.nl/tentoonstelling/huis-willet-holthuysen/9511"
 
 artis-groote-museum:
   date: "2026-09-20"
@@ -165,9 +168,68 @@ museumstoomtram-hoorn-medemblik:
     Address reconciliation: The workshop and depot are at Van Linschotenstraat 21, 1625 HK Hoorn, while the official public visitor entrance, ticket office, and tram departure point is Van Dedemstraat 8, 1624 NN Hoorn ("Bezoekadres / Hoorn Tramstation: Van Dedemstraat 8 1624 NN Hoorn").
     This heritage railway is a multi-site line between Hoorn and Medemblik, with additional station/jetty locations at Dam 2, 1671 AW Medemblik ("Medemblik tramstation en aanlegsteiger: Dam 2, 1671 AW Medemblik") and Tritondam 5, 1601 GT Enkhuizen ("Enkhuizen aanlegsteiger: Tritondam 5, 1601 GT Enkhuizen"). We list the primary visitor entrance in Hoorn (Van Dedemstraat 8, 1624 NN Hoorn).
   override:
+    duplicate_of: "museumstoomtram"
     address:
       street: "Van Dedemstraat 8"
       postcode: "1624 NN"
       city: "Hoorn"
     museum_website: "https://www.stoomtram.nl/"
+
+HaRT-Museum1:
+  date: "2026-09-21"
+  evidence_url: "https://www.hartmuseum.nl/en"
+  exact_text_read: "Museum H'ART Amsterdam H'ART Ticketing Widget | Museum H'ART Amsterdam"
+  note: "Source website CMS entry lacked museum website. Official site is hartmuseum.nl."
+  override:
+    museum_website: "https://www.hartmuseum.nl/"
+
+Museum-Tromps-Huys:
+  date: "2026-09-21"
+  evidence_url: "https://trompshuys.nl"
+  exact_text_read: "Museum Tromp's Huys - prachtig, verrassend, interessant èn op Vlieland | Welkom op de site van museu"
+  note: "Source website CMS entry lacked museum website. Official site is trompshuys.nl."
+  override:
+    museum_website: "https://trompshuys.nl/"
+
+Textiel-museum:
+  date: "2026-09-21"
+  evidence_url: "https://textielmuseum.nl/"
+  exact_text_read: "TextielMuseum Goirkestraat 96 5046 GN Tilburg"
+  note: "Source website CMS entry lacked museum website. Official site is textielmuseum.nl."
+  override:
+    museum_website: "https://textielmuseum.nl/"
+
+madurodam:
+  date: "2026-09-21"
+  evidence_url: "https://www.madurodam.nl/en/organisation"
+  exact_text_read: "About Madurodam (EN) | Madurodam | About Madurodam"
+  note: "Source website CMS entry lacked museum website. Official site is madurodam.nl."
+  override:
+    museum_website: "https://www.madurodam.nl/"
+
+museum-broekerveiling:
+  date: "2026-09-21"
+  evidence_url: "https://broekerveiling.nl/en/auction"
+  exact_text_read: "Groenteveiling BroekerVeiling | Museum Broeker Veiling - Museum Broekerveiling | AUCTION"
+  note: "Source website CMS entry lacked museum website. Official site is broekerveiling.nl."
+  override:
+    museum_website: "https://broekerveiling.nl/"
+
+nederlands-zilvermuseum-schoonhoven:
+  date: "2026-09-21"
+  evidence_url: "https://zilvermuseum.com/house-rules?lang=en"
+  exact_text_read: "House rules - Nederlands Zilvermuseum Schoonhoven | House rules"
+  note: "Source website CMS entry lacked museum website. Official site is zilvermuseum.com."
+  override:
+    museum_website: "https://zilvermuseum.com/"
+
+Museumhuis-sloetjes1:
+  date: "2026-09-23"
+  evidence_url: "https://www.hendrickdekeyser.nl/museumbezoek/huis-sloetjes"
+  exact_text_read: "Huis Sloëtjes | Hendrick de Keyser Monumenten"
+  note: "Source website CMS entry lacked museum website. Official site is hendrickdekeyser.nl/museumbezoek/huis-sloetjes."
+  override:
+    museum_website: "https://www.hendrickdekeyser.nl/museumbezoek/huis-sloetjes"
+
+
 

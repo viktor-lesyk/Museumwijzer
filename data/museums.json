@@ -23,7 +23,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/HaRT-Museum1/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/HaRT-Museum1/"
       },
-      "museum_website": null,
+      "museum_website": "https://www.hartmuseum.nl/",
       "source_date_raw": "2025-02-09T21:20:30.779Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -52,7 +52,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/Museum-Tromps-Huys/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/Museum-Tromps-Huys/"
       },
-      "museum_website": null,
+      "museum_website": "https://trompshuys.nl/",
       "source_date_raw": "2025-02-11T11:02:02.521Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -81,7 +81,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/Museumhuis-sloetjes1/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/Museumhuis-sloetjes1/"
       },
-      "museum_website": null,
+      "museum_website": "https://www.hendrickdekeyser.nl/museumbezoek/huis-sloetjes",
       "source_date_raw": "2025-02-09T16:44:49.031Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -110,7 +110,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/Textiel-museum/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/Textiel-museum/"
       },
-      "museum_website": null,
+      "museum_website": "https://textielmuseum.nl/",
       "source_date_raw": "2025-02-09T16:38:18.514Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -516,7 +516,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/czaar-peterhuisje/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/czaar-peterhuisje/"
       },
-      "museum_website": null,
+      "museum_website": "https://www.czaarpeterhuisje.nl/",
       "source_date_raw": "2025-07-28T13:03:55.450Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -1647,7 +1647,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/huis-willet-holthuysen/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/huis-willet-holthuysen/"
       },
-      "museum_website": null,
+      "museum_website": "https://www.amsterdammuseum.nl/tentoonstelling/huis-willet-holthuysen/9511",
       "source_date_raw": "2025-07-28T13:08:24.771Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -2546,7 +2546,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/madurodam/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/madurodam/"
       },
-      "museum_website": null,
+      "museum_website": "https://www.madurodam.nl/",
       "source_date_raw": "2022-11-10T11:00:10.626Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -3010,7 +3010,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-broekerveiling/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-broekerveiling/"
       },
-      "museum_website": null,
+      "museum_website": "https://broekerveiling.nl/",
       "source_date_raw": "2025-02-11T12:51:17.044Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -3474,7 +3474,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/museum-kaap-skil/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/museum-kaap-skil/"
       },
-      "museum_website": null,
+      "museum_website": "https://kaapskil.nl/",
       "source_date_raw": "2025-07-28T13:12:39.091Z",
       "first_seen": "2026-09-19",
       "programmes": [
@@ -4060,6 +4060,7 @@
       "programmes": [
         "welkom-in-het-museum"
       ],
+      "duplicate_of": "museumstoomtram",
       "pdok_woonplaats": "Hoorn",
       "status": "active",
       "consecutive_missing": 0
@@ -4431,7 +4432,7 @@
         "en": "https://welkominhetmuseum.vriendenloterij.nl/en/musea/nederlands-zilvermuseum-schoonhoven/",
         "uk": "https://welkominhetmuseum.vriendenloterij.nl/uk/musea/nederlands-zilvermuseum-schoonhoven/"
       },
-      "museum_website": null,
+      "museum_website": "https://zilvermuseum.com/",
       "source_date_raw": "2025-02-11T14:14:37.199Z",
       "first_seen": "2026-09-19",
       "programmes": [
