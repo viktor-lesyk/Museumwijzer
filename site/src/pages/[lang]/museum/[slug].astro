@@ -1,8 +1,10 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { type Locale } from '../../../i18n/languages';
-import { useTranslations } from '../../../i18n/ui';
+import { useTranslations, getCategoryLabel } from '../../../i18n/ui';
 import museumsData from '../../../../../data/museums.json';
+import descriptionsData from '../../../../../data/enrichment/descriptions.json';
+import { getMuseumRating, formatReviewsCount } from '../../../utils/rating';
 import 'leaflet/dist/leaflet.css';
 
 export function getStaticPaths() {
@@ -76,8 +78,7 @@ for (const p of (pricesData.museums || [])) {
   }
 }
 const priceObj = pricesMap[museum.slug] || ((museum as any).duplicate_of ? pricesMap[(museum as any).duplicate_of] : undefined);
-
-import descriptionsData from '../../../../../data/enrichment/descriptions.json';
+const ratingObj = getMuseumRating(museum.slug, (museum as any).duplicate_of);
 
 const descriptionsMap: Record<string, any> = {};
 for (const d of (descriptionsData.museums || [])) {
@@ -88,8 +89,12 @@ for (const d of (descriptionsData.museums || [])) {
 const descObj = descriptionsMap[museum.slug] || ((museum as any).duplicate_of ? descriptionsMap[(museum as any).duplicate_of] : undefined);
 const summaryText = descObj?.summary?.[lang] || descObj?.summary?.nl || null;
 const whyVisitList = descObj?.why_visit?.[lang] || descObj?.why_visit?.nl || [];
-const museumImage = descObj?.image || null;
-const categoryTags = descObj?.tags || [];
+const museumImages: any[] = descObj?.images && descObj.images.length > 0
+  ? descObj.images
+  : descObj?.image
+    ? [descObj.image]
+    : [];
+const categoryKeys: string[] = descObj?.categories || descObj?.tags || [];
 ---
 
 <Layout title={`${museum.name} — ${museum.city || 'Nederland'}`} locale={lang} canonicalPath={canonicalPath}>
@@ -118,22 +123,45 @@ const categoryTags = descObj?.tags || [];
         <div class="detail-header-top">
           <div class="detail-badges">
             <span class="detail-province">{museum.province}</span>
-            {categoryTags.map((tag: string) => (
-              <span class="detail-tag-badge">#{tag}</span>
+            {ratingObj && ratingObj.rating && (
+              <span class="detail-rating-badge">
+                ⭐ <strong>{ratingObj.rating.toFixed(1)}</strong>
+                {ratingObj.reviews_count > 0 && (
+                  <span class="rating-sub">({formatReviewsCount(ratingObj.reviews_count, lang)} {t.reviewsOnGoogle})</span>
+                )}
+              </span>
+            )}
+            {categoryKeys.map((catKey: string) => (
+              <span class="detail-tag-badge">{getCategoryLabel(catKey, lang)}</span>
             ))}
           </div>
 
-          <!-- Add / Remove from personal list button -->
-          <button
-            type="button"
-            id="detail-list-toggle-btn"
-            class="btn-list-toggle"
-            data-slug={museum.slug}
-            aria-pressed="false"
-          >
-            <span class="toggle-icon" aria-hidden="true">🤍</span>
-            <span class="toggle-text">{t.addToList}</span>
-          </button>
+          <div class="detail-header-actions">
+            <!-- Mark as visited button -->
+            <button
+              type="button"
+              id="detail-visited-toggle-btn"
+              class="btn-detail-action btn-visited-toggle"
+              data-slug={museum.slug}
+              title={t.markAsVisited}
+              aria-pressed="false"
+            >
+              <span class="visited-check-icon" aria-hidden="true">✓</span>
+              <span class="visited-toggle-text">{t.markAsVisited}</span>
+            </button>
+
+            <!-- Add / Remove from personal list button -->
+            <button
+              type="button"
+              id="detail-list-toggle-btn"
+              class="btn-detail-action btn-list-toggle"
+              data-slug={museum.slug}
+              aria-pressed="false"
+            >
+              <span class="toggle-icon" aria-hidden="true">🤍</span>
+              <span class="toggle-text">{t.addToList}</span>
+            </button>
+          </div>
         </div>
 
         <h1 class="detail-title">{museum.name}</h1>
@@ -145,23 +173,45 @@ const categoryTags = descObj?.tags || [];
         <p class="notice-text">{t.checkOpeningHours}</p>
       </div>
 
-      {museumImage && museumImage.url && (
-        <div class="detail-hero-media">
-          <img
-            src={museumImage.url}
-            alt={museum.name}
-            class="detail-hero-image"
-            loading="lazy"
-          />
-          <div class="detail-image-attribution">
-            <span>{t.photoCredit}: {museumImage.author}</span>
-            {museumImage.license && <span>· {museumImage.license}</span>}
-            {museumImage.source_url && (
-              <a href={museumImage.source_url} target="_blank" rel="noopener noreferrer" class="attr-link">
-                {t.viaWikimedia} ↗
-              </a>
-            )}
+      {museumImages.length > 0 && (
+        <div class="detail-gallery-wrapper">
+          <div class="gallery-slider" id="gallery-slider">
+            {museumImages.map((img: any, idx: number) => (
+              <div class="gallery-slide" id={`slide-${idx}`}>
+                <img
+                  src={img.url}
+                  alt={`${museum.name} - ${idx + 1}`}
+                  class="gallery-image"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                />
+                <div class="gallery-attribution">
+                  <span>{t.photoCredit}: {img.author}</span>
+                  {img.license && <span>· {img.license}</span>}
+                  {img.source_url && (
+                    <a href={img.source_url} target="_blank" rel="noopener noreferrer" class="attr-link">
+                      {t.viaWikimedia} ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
+          {museumImages.length > 1 && (
+            <div class="gallery-controls">
+              <button type="button" class="gallery-btn btn-prev" id="gallery-btn-prev" aria-label="Vorige foto">‹</button>
+              <div class="gallery-dots" id="gallery-dots">
+                {museumImages.map((_: any, idx: number) => (
+                  <button
+                    type="button"
+                    class={`gallery-dot ${idx === 0 ? 'active' : ''}`}
+                    data-index={idx}
+                    aria-label={`Foto ${idx + 1}`}
+                  ></button>
+                ))}
+              </div>
+              <button type="button" class="gallery-btn btn-next" id="gallery-btn-next" aria-label="Volgende foto">›</button>
+            </div>
+          )}
         </div>
       )}
 
@@ -371,30 +421,51 @@ const categoryTags = descObj?.tags || [];
     font-weight: 500;
   }
 
-  .btn-list-toggle {
-    display: inline-flex;
+  .detail-header-actions {
+    display: flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 0.85rem;
-    border-radius: var(--radius);
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
-    transition: background-color 0.15s ease, border-color 0.15s ease;
+    gap: 0.6rem;
+    flex-wrap: wrap;
   }
 
-  .btn-list-toggle:hover {
+  .btn-detail-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.95rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    transition: all 0.15s ease;
+  }
+
+  .btn-detail-action:hover {
     background-color: var(--color-surface-hover);
     border-color: var(--color-accent);
   }
 
   .btn-list-toggle.in-list {
-    background-color: var(--color-badge-bg);
-    color: var(--color-badge-text);
-    border-color: var(--color-badge-border);
+    background-color: #fef08a;
+    color: #854d0e;
+    border-color: #eab308;
+  }
+
+  .btn-visited-toggle:hover {
+    border-color: #10b981;
+  }
+
+  .btn-visited-toggle.is-visited {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border-color: #10b981;
+  }
+
+  .visited-check-icon {
+    font-weight: 800;
   }
 
   .detail-title {
@@ -424,6 +495,25 @@ const categoryTags = descObj?.tags || [];
     line-height: 1;
   }
 
+  .detail-rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.65rem;
+    background-color: #fef9c3;
+    color: #854d0e;
+    border: 1px solid #fde047;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .detail-rating-badge .rating-sub {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #a16207;
+  }
+
   .detail-tag-badge {
     display: inline-block;
     padding: 0.2rem 0.6rem;
@@ -435,7 +525,8 @@ const categoryTags = descObj?.tags || [];
     font-weight: 600;
   }
 
-  .detail-hero-media {
+  .detail-gallery-wrapper {
+    position: relative;
     margin-bottom: 1.5rem;
     border-radius: var(--radius);
     overflow: hidden;
@@ -444,14 +535,37 @@ const categoryTags = descObj?.tags || [];
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
-  .detail-hero-image {
-    width: 100%;
-    max-height: 420px;
-    object-fit: cover;
-    display: block;
+  .gallery-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  .detail-image-attribution {
+  .gallery-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    background-color: var(--color-surface-hover);
+  }
+
+  .gallery-attribution {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -463,9 +577,76 @@ const categoryTags = descObj?.tags || [];
     border-top: 1px solid var(--color-border-light);
   }
 
-  .detail-image-attribution .attr-link {
+  .gallery-attribution .attr-link {
     color: var(--color-accent);
     text-decoration: underline;
+  }
+
+  .gallery-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 420px;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.75rem;
+  }
+
+  .gallery-btn {
+    pointer-events: auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    backdrop-filter: blur(4px);
+    user-select: none;
+  }
+
+  .gallery-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.05);
+  }
+
+  .gallery-dots {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.4rem;
+    pointer-events: auto;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    backdrop-filter: blur(4px);
+  }
+
+  .gallery-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .gallery-dot.active {
+    background: #fff;
+    transform: scale(1.2);
   }
 
   .detail-summary-card {
@@ -824,8 +1005,61 @@ const categoryTags = descObj?.tags || [];
   }
 </script>
 
-<script is:inline define:vars={{ slug: museum.slug, addText: t.addToList, inListText: t.inYourList }}>
+<script is:inline define:vars={{
+  slug: museum.slug,
+  addText: t.addToList,
+  inListText: t.inYourList,
+  markVisitedText: t.markAsVisited,
+  markNotVisitedText: t.markAsNotVisited,
+  alreadyVisitedText: t.alreadyVisited
+}}>
   document.addEventListener('DOMContentLoaded', () => {
+    // 1. Visited Toggle Button
+    const visitedBtn = document.getElementById('detail-visited-toggle-btn');
+    if (visitedBtn) {
+      function getVisited() {
+        try {
+          const raw = localStorage.getItem('museumwijzer_visited_museums');
+          return raw ? JSON.parse(raw) : [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function saveVisited(list) {
+        try {
+          localStorage.setItem('museumwijzer_visited_museums', JSON.stringify(list));
+        } catch (e) {}
+      }
+
+      function updateVisitedBtn() {
+        const list = getVisited();
+        const isVisited = list.includes(slug);
+        visitedBtn.setAttribute('aria-pressed', isVisited ? 'true' : 'false');
+        visitedBtn.classList.toggle('is-visited', isVisited);
+        const textSpan = visitedBtn.querySelector('.visited-toggle-text');
+        if (textSpan) {
+          textSpan.textContent = isVisited ? alreadyVisitedText : markVisitedText;
+        }
+        visitedBtn.title = isVisited ? markNotVisitedText : markVisitedText;
+      }
+
+      visitedBtn.addEventListener('click', () => {
+        let list = getVisited();
+        const idx = list.indexOf(slug);
+        if (idx >= 0) {
+          list.splice(idx, 1);
+        } else {
+          list.push(slug);
+        }
+        saveVisited(list);
+        updateVisitedBtn();
+      });
+
+      updateVisitedBtn();
+    }
+
+    // 2. Personal List Toggle Button
     const btn = document.getElementById('detail-list-toggle-btn');
     if (!btn) return;
 
@@ -880,5 +1114,47 @@ const categoryTags = descObj?.tags || [];
     });
 
     updateBtn();
+  });
+</script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('gallery-slider');
+    if (!slider) return;
+
+    const prevBtn = document.getElementById('gallery-btn-prev');
+    const nextBtn = document.getElementById('gallery-btn-next');
+    const dots = document.querySelectorAll('.gallery-dot');
+
+    function updateDots() {
+      if (!dots.length) return;
+      const index = Math.round(slider.scrollLeft / slider.clientWidth);
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === index);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+      });
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.getAttribute('data-index'));
+        slider.scrollTo({ left: idx * slider.clientWidth, behavior: 'smooth' });
+      });
+    });
+
+    slider.addEventListener('scroll', () => {
+      window.requestAnimationFrame(updateDots);
+    });
   });
 </script>

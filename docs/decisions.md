@@ -74,3 +74,17 @@
   3. Reverse-geocode GPS coordinates to the nearest Dutch woonplaats to explicitly display the detected location (e.g., `Gedetecteerde locatie: nabij Delft (52.00° N, 4.36° E)`).
   4. Allow filtering by maximum distance (10 km, 25 km, 50 km, 100 km).
 - **Rationale:** Fully offline-capable for all Dutch towns and villages, instantaneous lookup without network requests for places, open Dutch government fallback for postcodes, and total transparency on what location was detected.
+
+## ADR 014: Free-Tier LLM Ratings Enrichment & Numerical Reviews Display
+- **Context:** Users need review scores and volume to decide which museums to visit. Direct scraping (e.g. TripAdvisor) suffers 403 blocks, while Google Places API incurs billing risk on Google Cloud.
+- **Decision:** Use local free-tier LiteLLM proxy (`free-lite` / Gemini Flash-Lite) to batch-extract public Google review ratings and review counts across all participating museums into `data/enrichment/ratings.json`.
+- **Rationale:** 100% free with zero billing risk, fast offline build, avoids runtime API calls from browser, and avoids duplicate external links on museum pages.
+
+## ADR 015: Client-Side "Already Visited" Museum Marking & Filter
+- **Context:** Users who have already visited certain museums need an effortless way to mark them as visited and filter them out of their search and map results.
+- **Decision:**
+  1. Add a quick `✓` toggle button directly on every museum card media overlay and on detail page headers.
+  2. Store visited museum slugs in `localStorage` under key `museumwijzer_visited_museums`.
+  3. Provide a sticky toolbar toggle button `👁️‍🗨️ Verberg bezocht` with persistent preference stored under `museumwijzer_hide_visited`.
+  4. When active, visited museums are hidden from both the grid and the country map view, and the result count updates with transparent counts (e.g. `190 musea gevonden (4 bezocht verborgen)`).
+- **Rationale:** Fully client-side, private, instant, zero account creation or backend needed, and preserves state across sessions.

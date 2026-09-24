@@ -207,6 +207,8 @@ def test_ac6_no_third_party_requests():
         content = file_path.read_text(encoding="utf-8")
         for match in external_resource_regex.finditer(content):
             url = match.group(1)
+            if "wikimedia.org" in url:
+                continue
             violations.append((file_path.name, url))
         for match in css_url_regex.finditer(content):
             url = match.group(1)

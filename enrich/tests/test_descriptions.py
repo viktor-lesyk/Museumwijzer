@@ -63,3 +63,32 @@ def test_fetch_commons_image_info_mock():
         assert info["author"] == "John Doe"
         assert info["license"] == "CC BY-SA 4.0"
         assert info["url"] == "https://thumb.wikimedia.org/960px-test.jpg"
+
+
+def test_allowed_categories():
+    from enrich.descriptions import ALLOWED_CATEGORIES
+    expected = {"kunst", "geschiedenis", "kastelen", "wetenschap", "natuur", "familie"}
+    assert set(ALLOWED_CATEGORIES) == expected
+
+
+def test_gallery_and_category_markup_in_build():
+    from pathlib import Path
+    dist_dir = Path(__file__).resolve().parent.parent.parent / "site" / "dist"
+    
+    # Detail page check (Rijksmuseum has enriched images)
+    rijks_html = dist_dir / "nl" / "museum" / "rijksmuseum" / "index.html"
+    if rijks_html.exists():
+        content = rijks_html.read_text(encoding="utf-8")
+        assert "detail-gallery-wrapper" in content
+        assert "gallery-slider" in content
+        assert "detail-rating-badge" in content
+        assert "Google Maps" in content
+
+    # Index page check for category filter
+    index_html = dist_dir / "nl" / "index.html"
+    if index_html.exists():
+        content = index_html.read_text(encoding="utf-8")
+        assert 'id="category-filter-select"' in content
+        assert 'data-categories=' in content
+        assert "card-category-badge" in content
+

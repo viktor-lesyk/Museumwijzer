@@ -1,0 +1,1370 @@
+{
+  "version": 1,
+  "museums": [
+    {
+      "slug": "HaRT-Museum1",
+      "name": "H’ART Museum",
+      "rating": 4.2,
+      "reviews_count": 2500,
+      "source": "Google"
+    },
+    {
+      "slug": "Museum-Tromps-Huys",
+      "name": "Museum Tromp’s Huys",
+      "rating": 4.5,
+      "reviews_count": 210,
+      "source": "Google"
+    },
+    {
+      "slug": "Museumhuis-sloetjes1",
+      "name": "Museumhuis Sloëtjes",
+      "rating": 4.4,
+      "reviews_count": 75,
+      "source": "Google"
+    },
+    {
+      "slug": "Textiel-museum",
+      "name": "Textiel museum",
+      "rating": 4.5,
+      "reviews_count": 2800,
+      "source": "Google"
+    },
+    {
+      "slug": "allard-pierson-museum",
+      "name": "Allard Pierson Museum",
+      "rating": 4.4,
+      "reviews_count": 1100,
+      "source": "Google"
+    },
+    {
+      "slug": "anne-frank-huis",
+      "name": "Anne Frank Huis",
+      "rating": 4.6,
+      "reviews_count": 68000,
+      "source": "Google"
+    },
+    {
+      "slug": "anno",
+      "name": "ANNO",
+      "rating": 4.3,
+      "reviews_count": 350,
+      "source": "Google"
+    },
+    {
+      "slug": "archeon",
+      "name": "Archeon",
+      "rating": 4.2,
+      "reviews_count": 6500,
+      "source": "Google"
+    },
+    {
+      "slug": "artis-groote-museum",
+      "name": "ARTIS Groote Museum",
+      "rating": 4.5,
+      "reviews_count": 850,
+      "source": "Google"
+    },
+    {
+      "slug": "aviodrome",
+      "name": "Aviodrome",
+      "rating": 4.3,
+      "reviews_count": 5200,
+      "source": "Google"
+    },
+    {
+      "slug": "beeld-geluid-hilversum",
+      "name": "Beeld & Geluid Hilversum",
+      "rating": 4.3,
+      "reviews_count": 2400,
+      "source": "Google"
+    },
+    {
+      "slug": "bevrijdingsmuseum-zeeland",
+      "name": "Bevrijdingsmuseum Zeeland",
+      "rating": 4.7,
+      "reviews_count": 1200,
+      "source": "Google"
+    },
+    {
+      "slug": "bonnefanten",
+      "name": "Bonnefanten",
+      "rating": 4.1,
+      "reviews_count": 2200,
+      "source": "Google"
+    },
+    {
+      "slug": "buitenplaats-beeckestijn",
+      "name": "Buitenplaats Beeckestijn",
+      "rating": 4.6,
+      "reviews_count": 1400,
+      "source": "Google"
+    },
+    {
+      "slug": "centraal-museum",
+      "name": "Centraal Museum",
+      "rating": 4.3,
+      "reviews_count": 3100,
+      "source": "Google"
+    },
+    {
+      "slug": "cobra-museum",
+      "name": "Cobra Museum",
+      "rating": 4.2,
+      "reviews_count": 1500,
+      "source": "Google"
+    },
+    {
+      "slug": "cruquiusmuseum",
+      "name": "CruquiusMuseum",
+      "rating": 4.4,
+      "reviews_count": 1600,
+      "source": "Google"
+    },
+    {
+      "slug": "czaar-peterhuisje",
+      "name": "Czaar Peterhuisje",
+      "rating": 4.2,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "de-bastei",
+      "name": "De Bastei",
+      "rating": 4.4,
+      "reviews_count": 1500,
+      "source": "Google"
+    },
+    {
+      "slug": "de-elleboogkerk",
+      "name": "De Elleboogkerk",
+      "rating": 4.3,
+      "reviews_count": 60,
+      "source": "Google"
+    },
+    {
+      "slug": "de-mesdag-collectie",
+      "name": "De Mesdag Collectie",
+      "rating": 4.5,
+      "reviews_count": 850,
+      "source": "Google"
+    },
+    {
+      "slug": "de-museumfabriek",
+      "name": "De Museumfabriek",
+      "rating": 4.4,
+      "reviews_count": 720,
+      "source": "Google"
+    },
+    {
+      "slug": "de-nieuwe-kerk",
+      "name": "De Nieuwe Kerk",
+      "rating": 4.3,
+      "reviews_count": 3500,
+      "source": "Google"
+    },
+    {
+      "slug": "de-oude-kerk",
+      "name": "De Oude Kerk",
+      "rating": 4.2,
+      "reviews_count": 4800,
+      "source": "Google"
+    },
+    {
+      "slug": "depot-boijmans-van-beuningen",
+      "name": "Depot Boijmans Van Beuningen",
+      "rating": 4.6,
+      "reviews_count": 3100,
+      "source": "Google"
+    },
+    {
+      "slug": "design-museum-den-bosch",
+      "name": "Design Museum Den Bosch",
+      "rating": 4.1,
+      "reviews_count": 650,
+      "source": "Google"
+    },
+    {
+      "slug": "discovery-museum",
+      "name": "Discovery Museum",
+      "rating": 4.3,
+      "reviews_count": 2100,
+      "source": "Google"
+    },
+    {
+      "slug": "domunder",
+      "name": "DOMunder",
+      "rating": 4.6,
+      "reviews_count": 1400,
+      "source": "Google"
+    },
+    {
+      "slug": "dordrechts-museum",
+      "name": "Dordrechts Museum",
+      "rating": 4.5,
+      "reviews_count": 1200,
+      "source": "Google"
+    },
+    {
+      "slug": "drents-museum",
+      "name": "Drents Museum",
+      "rating": 4.6,
+      "reviews_count": 2800,
+      "source": "Google"
+    },
+    {
+      "slug": "drents-museum-de-buitenplaats",
+      "name": "Drents Museum de Buitenplaats",
+      "rating": 4.4,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "eusebiuskerk",
+      "name": "Eusebiuskerk",
+      "rating": 4.4,
+      "reviews_count": 2400,
+      "source": "Google"
+    },
+    {
+      "slug": "eye-filmmuseum",
+      "name": "Eye Filmmuseum",
+      "rating": 4.5,
+      "reviews_count": 7800,
+      "source": "Google"
+    },
+    {
+      "slug": "foam-fotografiemuseum",
+      "name": "Foam Fotografiemuseum",
+      "rating": 4.3,
+      "reviews_count": 3200,
+      "source": "Google"
+    },
+    {
+      "slug": "forteiland-pampus",
+      "name": "Forteiland Pampus",
+      "rating": 4.6,
+      "reviews_count": 2600,
+      "source": "Google"
+    },
+    {
+      "slug": "fortresse-holland",
+      "name": "Fortresse Holland",
+      "rating": 4.3,
+      "reviews_count": 180,
+      "source": "Google"
+    },
+    {
+      "slug": "forum-groningen",
+      "name": "Forum Groningen",
+      "rating": 4.7,
+      "reviews_count": 8900,
+      "source": "Google"
+    },
+    {
+      "slug": "fotomuseum-aan-het-vrijthof",
+      "name": "Fotomuseum aan het Vrijthof",
+      "rating": 4.3,
+      "reviews_count": 950,
+      "source": "Google"
+    },
+    {
+      "slug": "fotomuseum-den-haag",
+      "name": "Fotomuseum Den Haag",
+      "rating": 4.4,
+      "reviews_count": 900,
+      "source": "Google"
+    },
+    {
+      "slug": "fraeylemaborg",
+      "name": "Fraeylemaborg",
+      "rating": 4.5,
+      "reviews_count": 1100,
+      "source": "Google"
+    },
+    {
+      "slug": "frans-hals-museum",
+      "name": "Frans Hals Museum",
+      "rating": 4.5,
+      "reviews_count": 2100,
+      "source": "Google"
+    },
+    {
+      "slug": "fries-museum",
+      "name": "Fries Museum",
+      "rating": 4.4,
+      "reviews_count": 3500,
+      "source": "Google"
+    },
+    {
+      "slug": "gemeenlandshuis-amsterdam",
+      "name": "Gemeenlandshuis Amsterdam",
+      "rating": 4.5,
+      "reviews_count": 180,
+      "source": "Google"
+    },
+    {
+      "slug": "gemeentemuseum-het-hannemahuis",
+      "name": "Gemeentemuseum het Hannemahuis",
+      "rating": 4.5,
+      "reviews_count": 220,
+      "source": "Google"
+    },
+    {
+      "slug": "gevangenismuseum",
+      "name": "Gevangenismuseum",
+      "rating": 4.6,
+      "reviews_count": 4800,
+      "source": "Google"
+    },
+    {
+      "slug": "groninger-museum",
+      "name": "Groninger Museum",
+      "rating": 4.2,
+      "reviews_count": 6200,
+      "source": "Google"
+    },
+    {
+      "slug": "haags-historisch-museum",
+      "name": "Haags Historisch Museum",
+      "rating": 4.3,
+      "reviews_count": 750,
+      "source": "Google"
+    },
+    {
+      "slug": "herinneringscentrum-kamp-westerbork",
+      "name": "Herinneringscentrum Kamp Westerbork",
+      "rating": 4.7,
+      "reviews_count": 3100,
+      "source": "Google"
+    },
+    {
+      "slug": "het-nieuwe-instituut",
+      "name": "Het Nieuwe Instituut",
+      "rating": 4.3,
+      "reviews_count": 1400,
+      "source": "Google"
+    },
+    {
+      "slug": "het-scheepvaartmuseum",
+      "name": "Het Scheepvaartmuseum",
+      "rating": 4.5,
+      "reviews_count": 24000,
+      "source": "Google"
+    },
+    {
+      "slug": "hof-van-nederland",
+      "name": "Hof van Nederland",
+      "rating": 4.3,
+      "reviews_count": 550,
+      "source": "Google"
+    },
+    {
+      "slug": "huis-sonneveld",
+      "name": "Huis Sonneveld",
+      "rating": 4.5,
+      "reviews_count": 950,
+      "source": "Google"
+    },
+    {
+      "slug": "huis-van-eysinga",
+      "name": "Huis Van Eysinga",
+      "rating": 4.4,
+      "reviews_count": 65,
+      "source": "Google"
+    },
+    {
+      "slug": "huis-van-gijn",
+      "name": "Huis Van Gijn",
+      "rating": 4.5,
+      "reviews_count": 850,
+      "source": "Google"
+    },
+    {
+      "slug": "huis-van-meerten",
+      "name": "Huis van Meerten",
+      "rating": 4.3,
+      "reviews_count": 40,
+      "source": "Google"
+    },
+    {
+      "slug": "huis-verwolde",
+      "name": "Huis Verwolde",
+      "rating": 4.6,
+      "reviews_count": 320,
+      "source": "Google"
+    },
+    {
+      "slug": "huis-willet-holthuysen",
+      "name": "Huis Willet-Holthuysen",
+      "rating": 4.4,
+      "reviews_count": 2200,
+      "source": "Google"
+    },
+    {
+      "slug": "huis-zypendaal",
+      "name": "Huis Zypendaal",
+      "rating": 4.4,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "hunebedcentrum",
+      "name": "Hunebedcentrum",
+      "rating": 4.5,
+      "reviews_count": 4600,
+      "source": "Google"
+    },
+    {
+      "slug": "huygens-museum-hofwijck",
+      "name": "Huygens Museum Hofwijck",
+      "rating": 4.4,
+      "reviews_count": 420,
+      "source": "Google"
+    },
+    {
+      "slug": "huygens-museum-notarishuis",
+      "name": "Huygens Museum Notarishuis",
+      "rating": 4.4,
+      "reviews_count": 180,
+      "source": "Google"
+    },
+    {
+      "slug": "japanmuseum-sieboldhuis",
+      "name": "Japanmuseum Sieboldhuis",
+      "rating": 4.3,
+      "reviews_count": 850,
+      "source": "Google"
+    },
+    {
+      "slug": "joods-museum",
+      "name": "Joods Museum",
+      "rating": 4.3,
+      "reviews_count": 4800,
+      "source": "Google"
+    },
+    {
+      "slug": "jopie-huisman-museum",
+      "name": "Jopie Huisman Museum",
+      "rating": 4.5,
+      "reviews_count": 1100,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-ammersoyen",
+      "name": "Kasteel Ammersoyen",
+      "rating": 4.4,
+      "reviews_count": 950,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-cannenburch",
+      "name": "Kasteel Cannenburch",
+      "rating": 4.4,
+      "reviews_count": 1200,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-de-haar",
+      "name": "Kasteel de Haar",
+      "rating": 4.6,
+      "reviews_count": 14500,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-doorwerth",
+      "name": "Kasteel Doorwerth",
+      "rating": 4.4,
+      "reviews_count": 1600,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-hernen",
+      "name": "Kasteel Hernen",
+      "rating": 4.3,
+      "reviews_count": 550,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-het-nijenhuis",
+      "name": "Kasteel het Nijenhuis",
+      "rating": 4.4,
+      "reviews_count": 1300,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-hoensbroek",
+      "name": "Kasteel Hoensbroek",
+      "rating": 4.3,
+      "reviews_count": 3800,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-radboud",
+      "name": "Kasteel Radboud",
+      "rating": 4.3,
+      "reviews_count": 1900,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-rosendael",
+      "name": "Kasteel Rosendael",
+      "rating": 4.4,
+      "reviews_count": 1100,
+      "source": "Google"
+    },
+    {
+      "slug": "kasteel-ruurlo",
+      "name": "Kasteel Ruurlo",
+      "rating": 4.5,
+      "reviews_count": 1400,
+      "source": "Google"
+    },
+    {
+      "slug": "keramiekmuseum-princessehof",
+      "name": "Keramiekmuseum Princessehof",
+      "rating": 4.3,
+      "reviews_count": 950,
+      "source": "Google"
+    },
+    {
+      "slug": "km21",
+      "name": "KM21",
+      "rating": 4.2,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "koepelkathedraal",
+      "name": "Koepelkathedraal",
+      "rating": 4.6,
+      "reviews_count": 1600,
+      "source": "Google"
+    },
+    {
+      "slug": "kroller-muller-museum",
+      "name": "Kröller-Müller Museum",
+      "rating": 4.6,
+      "reviews_count": 11500,
+      "source": "Google"
+    },
+    {
+      "slug": "kunsthal-kade",
+      "name": "Kunsthal KAdE",
+      "rating": 4.3,
+      "reviews_count": 750,
+      "source": "Google"
+    },
+    {
+      "slug": "kunsthal-rotterdam",
+      "name": "Kunsthal Rotterdam",
+      "rating": 4.3,
+      "reviews_count": 4200,
+      "source": "Google"
+    },
+    {
+      "slug": "kunstlinie",
+      "name": "Kunstlinie",
+      "rating": 4.3,
+      "reviews_count": 1100,
+      "source": "Google"
+    },
+    {
+      "slug": "kunstlinie-kunsthal",
+      "name": "Kunstlinie - Kunsthal",
+      "rating": 4.2,
+      "reviews_count": 150,
+      "source": "Google"
+    },
+    {
+      "slug": "kunstmuseum-den-haag",
+      "name": "Kunstmuseum Den Haag",
+      "rating": 4.5,
+      "reviews_count": 7800,
+      "source": "Google"
+    },
+    {
+      "slug": "lalique-museum",
+      "name": "Lalique Museum",
+      "rating": 4.4,
+      "reviews_count": 550,
+      "source": "Google"
+    },
+    {
+      "slug": "landhuis-oud-amelisweerd",
+      "name": "Landhuis Oud Amelisweerd",
+      "rating": 4.3,
+      "reviews_count": 280,
+      "source": "Google"
+    },
+    {
+      "slug": "limburgs-museum",
+      "name": "Limburgs Museum",
+      "rating": 4.3,
+      "reviews_count": 1400,
+      "source": "Google"
+    },
+    {
+      "slug": "louwman-museum",
+      "name": "Louwman Museum",
+      "rating": 4.7,
+      "reviews_count": 6200,
+      "source": "Google"
+    },
+    {
+      "slug": "madurodam",
+      "name": "Madurodam",
+      "rating": 4.4,
+      "reviews_count": 24500,
+      "source": "Google"
+    },
+    {
+      "slug": "marie-tak-van-poortvliet-museum-domburg",
+      "name": "Marie Tak van Poortvliet Museum Domburg",
+      "rating": 4.3,
+      "reviews_count": 350,
+      "source": "Google"
+    },
+    {
+      "slug": "marinemuseum",
+      "name": "Marinemuseum",
+      "rating": 4.5,
+      "reviews_count": 3200,
+      "source": "Google"
+    },
+    {
+      "slug": "mariniersmuseum",
+      "name": "Mariniersmuseum",
+      "rating": 4.4,
+      "reviews_count": 850,
+      "source": "Google"
+    },
+    {
+      "slug": "maritiem-museum-rotterdam",
+      "name": "Maritiem Museum Rotterdam",
+      "rating": 4.4,
+      "reviews_count": 5800,
+      "source": "Google"
+    },
+    {
+      "slug": "marius-van-dokkum-museum",
+      "name": "Marius van Dokkum Museum",
+      "rating": 4.6,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "markiezenhof",
+      "name": "Markiezenhof",
+      "rating": 4.4,
+      "reviews_count": 1300,
+      "source": "Google"
+    },
+    {
+      "slug": "mauritshuis",
+      "name": "Mauritshuis",
+      "rating": 4.6,
+      "reviews_count": 11500,
+      "source": "Google"
+    },
+    {
+      "slug": "micropia",
+      "name": "Micropia",
+      "rating": 4.5,
+      "reviews_count": 4800,
+      "source": "Google"
+    },
+    {
+      "slug": "molenmuseum",
+      "name": "Molenmuseum",
+      "rating": 4.3,
+      "reviews_count": 400,
+      "source": "Google"
+    },
+    {
+      "slug": "mondriaanhuis",
+      "name": "Mondriaanhuis",
+      "rating": 4.3,
+      "reviews_count": 950,
+      "source": "Google"
+    },
+    {
+      "slug": "museon-omniversum",
+      "name": "Museon-Omniversum",
+      "rating": 4.4,
+      "reviews_count": 3800,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-arnhem",
+      "name": "Museum Arnhem",
+      "rating": 4.3,
+      "reviews_count": 1200,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-batavialand",
+      "name": "Museum Batavialand",
+      "rating": 4.3,
+      "reviews_count": 1850,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-beelden-aan-zee",
+      "name": "Museum Beelden aan Zee",
+      "rating": 4.3,
+      "reviews_count": 2100,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-belvedere",
+      "name": "Museum Belvédère",
+      "rating": 4.3,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-broekerveiling",
+      "name": "Museum BroekerVeiling",
+      "rating": 4.3,
+      "reviews_count": 1600,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-catharijneconvent",
+      "name": "Museum Catharijneconvent",
+      "rating": 4.4,
+      "reviews_count": 2200,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-de-dageraad",
+      "name": "Museum de Dageraad",
+      "rating": 4.3,
+      "reviews_count": 280,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-de-fundatie",
+      "name": "Museum De Fundatie",
+      "rating": 4.3,
+      "reviews_count": 2600,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-de-lakenhal",
+      "name": "Museum de Lakenhal",
+      "rating": 4.4,
+      "reviews_count": 1400,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-de-proefkolonie",
+      "name": "Museum de Proefkolonie",
+      "rating": 4.5,
+      "reviews_count": 750,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-engelandvaarders",
+      "name": "Museum Engelandvaarders",
+      "rating": 4.6,
+      "reviews_count": 350,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-flehite",
+      "name": "Museum Flehite",
+      "rating": 4.2,
+      "reviews_count": 400,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-gouda",
+      "name": "Museum Gouda",
+      "rating": 4.2,
+      "reviews_count": 700,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-helmond",
+      "name": "Museum Helmond",
+      "rating": 4.2,
+      "reviews_count": 650,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-henriette-polak",
+      "name": "Museum Henriette Polak",
+      "rating": 4.3,
+      "reviews_count": 250,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-het-rembrandthuis",
+      "name": "Museum het Rembrandthuis",
+      "rating": 4.4,
+      "reviews_count": 7800,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-het-schip",
+      "name": "Museum Het Schip",
+      "rating": 4.4,
+      "reviews_count": 1100,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-het-valkhof",
+      "name": "Museum het Valkhof",
+      "rating": 4.1,
+      "reviews_count": 1300,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-huis-doorn",
+      "name": "Museum Huis Doorn",
+      "rating": 4.4,
+      "reviews_count": 1200,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-jan-cunen",
+      "name": "Museum Jan Cunen",
+      "rating": 4.3,
+      "reviews_count": 300,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-kaap-skil",
+      "name": "Museum Kaap Skil",
+      "rating": 4.5,
+      "reviews_count": 2400,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-klok-peel",
+      "name": "Museum Klok & Peel",
+      "rating": 4.5,
+      "reviews_count": 580,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-martena",
+      "name": "Museum Martena",
+      "rating": 4.3,
+      "reviews_count": 240,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-more",
+      "name": "Museum MORE",
+      "rating": 4.4,
+      "reviews_count": 1400,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-nienoord",
+      "name": "Museum Nienoord",
+      "rating": 4.3,
+      "reviews_count": 950,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-panorama-mesdag",
+      "name": "Museum Panorama Mesdag",
+      "rating": 4.4,
+      "reviews_count": 4800,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-rotterdam",
+      "name": "Museum Rotterdam",
+      "rating": 4.1,
+      "reviews_count": 320,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-schokland",
+      "name": "Museum Schokland",
+      "rating": 4.3,
+      "reviews_count": 780,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-speelklok",
+      "name": "Museum Speelklok",
+      "rating": 4.5,
+      "reviews_count": 4200,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-tachtigjarige-oorlog",
+      "name": "Museum Tachtigjarige Oorlog",
+      "rating": 4.5,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-van-bommel-van-dam",
+      "name": "Museum van Bommel van Dam",
+      "rating": 4.3,
+      "reviews_count": 380,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-van-de-20e-eeuw",
+      "name": "Museum van de 20e eeuw",
+      "rating": 4.4,
+      "reviews_count": 1800,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-van-de-geest-dolhuys",
+      "name": "Museum van de Geest | Dolhuys",
+      "rating": 4.5,
+      "reviews_count": 650,
+      "source": "Google"
+    },
+    {
+      "slug": "museum-volkenkunde",
+      "name": "Museum Volkenkunde",
+      "rating": 4.4,
+      "reviews_count": 3100,
+      "source": "Google"
+    },
+    {
+      "slug": "museumhuis-barnaart",
+      "name": "Museumhuis Barnaart",
+      "rating": 4.4,
+      "reviews_count": 120,
+      "source": "Google"
+    },
+    {
+      "slug": "museumhuis-bartolotti",
+      "name": "Museumhuis Bartolotti",
+      "rating": 4.3,
+      "reviews_count": 150,
+      "source": "Google"
+    },
+    {
+      "slug": "museumhuis-polman",
+      "name": "Museumhuis Polman",
+      "rating": 4.4,
+      "reviews_count": 60,
+      "source": "Google"
+    },
+    {
+      "slug": "museumhuis-rams-woerthe",
+      "name": "Museumhuis Rams Woerthe",
+      "rating": 4.4,
+      "reviews_count": 280,
+      "source": "Google"
+    },
+    {
+      "slug": "museumprinsenhofdelft",
+      "name": "museumprinsenhofdelft",
+      "rating": 4.3,
+      "reviews_count": 1600,
+      "source": "Google"
+    },
+    {
+      "slug": "museumstoomtram",
+      "name": "Museumstoomtram",
+      "rating": 4.5,
+      "reviews_count": 2400,
+      "source": "Google"
+    },
+    {
+      "slug": "museumstoomtram-hoorn-medemblik",
+      "name": "Museumstoomtram Hoorn-Medemblik",
+      "rating": 4.5,
+      "reviews_count": 2400,
+      "source": "Google"
+    },
+    {
+      "slug": "nationaal-glasmuseum",
+      "name": "Nationaal Glasmuseum",
+      "rating": 4.3,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "nationaal-holocaustmuseum",
+      "name": "Nationaal Holocaustmuseum",
+      "rating": 4.6,
+      "reviews_count": 550,
+      "source": "Google"
+    },
+    {
+      "slug": "nationaal-militair-museum",
+      "name": "Nationaal Militair Museum",
+      "rating": 4.5,
+      "reviews_count": 8200,
+      "source": "Google"
+    },
+    {
+      "slug": "nationaal-monument-kamp-amersfoort",
+      "name": "Nationaal Monument Kamp Amersfoort",
+      "rating": 4.5,
+      "reviews_count": 1400,
+      "source": "Google"
+    },
+    {
+      "slug": "nationaal-monument-kamp-vught",
+      "name": "Nationaal Monument Kamp Vught",
+      "rating": 4.6,
+      "reviews_count": 1800,
+      "source": "Google"
+    },
+    {
+      "slug": "nationaal-monument-oranjehotel",
+      "name": "Nationaal monument Oranjehotel",
+      "rating": 4.6,
+      "reviews_count": 950,
+      "source": "Google"
+    },
+    {
+      "slug": "nationaal-onderduikmuseum",
+      "name": "Nationaal Onderduikmuseum",
+      "rating": 4.6,
+      "reviews_count": 350,
+      "source": "Google"
+    },
+    {
+      "slug": "naturalis-biodiversity-center",
+      "name": "Naturalis Biodiversity Center",
+      "rating": 4.6,
+      "reviews_count": 11500,
+      "source": "Google"
+    },
+    {
+      "slug": "natuurmuseum-brabant",
+      "name": "Natuurmuseum Brabant",
+      "rating": 4.4,
+      "reviews_count": 1300,
+      "source": "Google"
+    },
+    {
+      "slug": "natuurmuseum-frysian",
+      "name": "Natuurmuseum FrysIân",
+      "rating": 4.4,
+      "reviews_count": 600,
+      "source": "Google"
+    },
+    {
+      "slug": "nederlands-fotomuseum",
+      "name": "Nederlands Fotomuseum",
+      "rating": 4.3,
+      "reviews_count": 1600,
+      "source": "Google"
+    },
+    {
+      "slug": "nederlands-openluchtmuseum",
+      "name": "Nederlands Openluchtmuseum",
+      "rating": 4.5,
+      "reviews_count": 13500,
+      "source": "Google"
+    },
+    {
+      "slug": "nederlands-zilvermuseum-schoonhoven",
+      "name": "Nederlands Zilvermuseum Schoonhoven",
+      "rating": 4.3,
+      "reviews_count": 500,
+      "source": "Google"
+    },
+    {
+      "slug": "nemo-science-museum",
+      "name": "NEMO Science Museum",
+      "rating": 4.4,
+      "reviews_count": 22000,
+      "source": "Google"
+    },
+    {
+      "slug": "nijntje-museum",
+      "name": "Nijntje Museum",
+      "rating": 4.6,
+      "reviews_count": 1900,
+      "source": "Google"
+    },
+    {
+      "slug": "noordbrabants-museum",
+      "name": "Noordbrabants Museum",
+      "rating": 4.4,
+      "reviews_count": 1500,
+      "source": "Google"
+    },
+    {
+      "slug": "oorlogsmuseum-overloon",
+      "name": "Oorlogsmuseum Overloon",
+      "rating": 4.6,
+      "reviews_count": 4800,
+      "source": "Google"
+    },
+    {
+      "slug": "oyfo-techniekmuseum",
+      "name": "Oyfo Techniekmuseum",
+      "rating": 4.4,
+      "reviews_count": 300,
+      "source": "Google"
+    },
+    {
+      "slug": "paleis-het-loo",
+      "name": "Paleis Het Loo",
+      "rating": 4.5,
+      "reviews_count": 9800,
+      "source": "Google"
+    },
+    {
+      "slug": "paleis-lofen",
+      "name": "Paleis Lofen",
+      "rating": 4.2,
+      "reviews_count": 120,
+      "source": "Google"
+    },
+    {
+      "slug": "portugese-synagoge",
+      "name": "Portugese Synagoge",
+      "rating": 4.6,
+      "reviews_count": 2800,
+      "source": "Google"
+    },
+    {
+      "slug": "rietveld-schroederhuis",
+      "name": "Rietveld Schröderhuis",
+      "rating": 4.4,
+      "reviews_count": 1100,
+      "source": "Google"
+    },
+    {
+      "slug": "rijksmuseum",
+      "name": "Rijksmuseum",
+      "rating": 4.7,
+      "reviews_count": 85000,
+      "source": "Google"
+    },
+    {
+      "slug": "rijksmuseum-boerhaave",
+      "name": "Rijksmuseum Boerhaave",
+      "rating": 4.5,
+      "reviews_count": 1600,
+      "source": "Google"
+    },
+    {
+      "slug": "rijksmuseum-de-gevangenpoort",
+      "name": "Rijksmuseum de Gevangenpoort",
+      "rating": 4.4,
+      "reviews_count": 1900,
+      "source": "Google"
+    },
+    {
+      "slug": "rijksmuseum-muiderslot",
+      "name": "Rijksmuseum Muiderslot",
+      "rating": 4.5,
+      "reviews_count": 7800,
+      "source": "Google"
+    },
+    {
+      "slug": "rijksmuseum-twenthe",
+      "name": "Rijksmuseum Twenthe",
+      "rating": 4.4,
+      "reviews_count": 1300,
+      "source": "Google"
+    },
+    {
+      "slug": "rijksmuseum-van-oudheden",
+      "name": "Rijksmuseum van Oudheden",
+      "rating": 4.5,
+      "reviews_count": 5200,
+      "source": "Google"
+    },
+    {
+      "slug": "schunck",
+      "name": "SCHUNCK",
+      "rating": 4.3,
+      "reviews_count": 650,
+      "source": "Google"
+    },
+    {
+      "slug": "singer-laren",
+      "name": "Singer Laren",
+      "rating": 4.4,
+      "reviews_count": 2400,
+      "source": "Google"
+    },
+    {
+      "slug": "sint-jan-de-doper",
+      "name": "Sint Jan de Doper",
+      "rating": 4.5,
+      "reviews_count": 180,
+      "source": "Google"
+    },
+    {
+      "slug": "sint-jan-gouda",
+      "name": "Sint-Jan Gouda",
+      "rating": 4.6,
+      "reviews_count": 1500,
+      "source": "Google"
+    },
+    {
+      "slug": "sonnenborgh",
+      "name": "Sonnenborgh",
+      "rating": 4.5,
+      "reviews_count": 750,
+      "source": "Google"
+    },
+    {
+      "slug": "sovjet-ereveld-experience",
+      "name": "Sovjet Ereveld Experience",
+      "rating": 4.7,
+      "reviews_count": 120,
+      "source": "Google"
+    },
+    {
+      "slug": "space-expo",
+      "name": "Space Expo",
+      "rating": 4.3,
+      "reviews_count": 3800,
+      "source": "Google"
+    },
+    {
+      "slug": "spoorwegmuseum",
+      "name": "Spoorwegmuseum",
+      "rating": 4.6,
+      "reviews_count": 11500,
+      "source": "Google"
+    },
+    {
+      "slug": "stadsmuseum-harderwijk",
+      "name": "Stadsmuseum Harderwijk",
+      "rating": 4.3,
+      "reviews_count": 250,
+      "source": "Google"
+    },
+    {
+      "slug": "stedelijk-museum-alkmaar",
+      "name": "Stedelijk Museum Alkmaar",
+      "rating": 4.3,
+      "reviews_count": 600,
+      "source": "Google"
+    },
+    {
+      "slug": "stedelijk-museum-amsterdam",
+      "name": "Stedelijk Museum Amsterdam",
+      "rating": 4.3,
+      "reviews_count": 13500,
+      "source": "Google"
+    },
+    {
+      "slug": "stedelijk-museum-breda",
+      "name": "Stedelijk Museum Breda",
+      "rating": 4.2,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "stedelijk-museum-schiedam",
+      "name": "Stedelijk Museum Schiedam",
+      "rating": 4.4,
+      "reviews_count": 650,
+      "source": "Google"
+    },
+    {
+      "slug": "stedelijk-museum-zutphen",
+      "name": "Stedelijk Museum Zutphen",
+      "rating": 4.3,
+      "reviews_count": 350,
+      "source": "Google"
+    },
+    {
+      "slug": "storyworld",
+      "name": "Storyworld",
+      "rating": 4.5,
+      "reviews_count": 600,
+      "source": "Google"
+    },
+    {
+      "slug": "teylers-museum",
+      "name": "Teylers Museum",
+      "rating": 4.6,
+      "reviews_count": 3100,
+      "source": "Google"
+    },
+    {
+      "slug": "universiteits-museum-utrecht",
+      "name": "Universiteits Museum Utrecht",
+      "rating": 4.7,
+      "reviews_count": 1400,
+      "source": "Google"
+    },
+    {
+      "slug": "van-abbemuseum",
+      "name": "Van Abbemuseum",
+      "rating": 4.3,
+      "reviews_count": 3400,
+      "source": "Google"
+    },
+    {
+      "slug": "van-gogh-museum",
+      "name": "Van Gogh Museum",
+      "rating": 4.6,
+      "reviews_count": 82000,
+      "source": "Google"
+    },
+    {
+      "slug": "verzetsmuseum-amsterdam",
+      "name": "Verzetsmuseum Amsterdam",
+      "rating": 4.7,
+      "reviews_count": 2800,
+      "source": "Google"
+    },
+    {
+      "slug": "vrijheidsmuseum",
+      "name": "Vrijheidsmuseum",
+      "rating": 4.6,
+      "reviews_count": 1600,
+      "source": "Google"
+    },
+    {
+      "slug": "watersnoodmuseum",
+      "name": "Watersnoodmuseum",
+      "rating": 4.7,
+      "reviews_count": 2200,
+      "source": "Google"
+    },
+    {
+      "slug": "wereldmuseum-amsterdam",
+      "name": "Wereldmuseum Amsterdam",
+      "rating": 4.4,
+      "reviews_count": 5500,
+      "source": "Google"
+    },
+    {
+      "slug": "zaans-museum",
+      "name": "Zaans Museum",
+      "rating": 4.3,
+      "reviews_count": 9500,
+      "source": "Google"
+    },
+    {
+      "slug": "zeeuws-maritiem-muzeeum",
+      "name": "Zeeuws maritiem muZEEum",
+      "rating": 4.4,
+      "reviews_count": 450,
+      "source": "Google"
+    },
+    {
+      "slug": "zeeuws-museum",
+      "name": "Zeeuws Museum",
+      "rating": 4.4,
+      "reviews_count": 1300,
+      "source": "Google"
+    },
+    {
+      "slug": "zuiderzeemuseum",
+      "name": "Zuiderzeemuseum",
+      "rating": 4.4,
+      "reviews_count": 9200,
+      "source": "Google"
+    }
+  ]
+}

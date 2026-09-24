@@ -132,25 +132,36 @@ def query_wikipedia(museum_name: str, city: str) -> Optional[Dict[str, Any]]:
         img_name = pdata.get("pageimage")
         thumb_url = pdata.get("thumbnail", {}).get("source")
 
-        # If pageimage is missing, a logo, or .png/.svg, find the first real .jpg/.jpeg photo on the page
-        is_bad_img = (not img_name) or ("logo" in img_name.lower()) or (not any(img_name.lower().endswith(ext) for ext in [".jpg", ".jpeg"]))
-        if is_bad_img:
-            images = pdata.get("images", [])
-            for im in images:
-                ititle = im.get("title", "").replace("Bestand:", "").replace("File:", "").strip()
-                if any(ititle.lower().endswith(ext) for ext in [".jpg", ".jpeg"]) and "logo" not in ititle.lower():
-                    img_name = ititle
-                    thumb_url = None
-                    break
+        # Collect up to 3-4 quality photos from page and Commons
+        images_info: List[Dict[str, Any]] = []
+        seen_files = set()
 
-        image_info = None
-        if img_name:
-            image_info = fetch_commons_image_info(img_name, thumb_url)
+        if img_name and "logo" not in img_name.lower() and any(img_name.lower().endswith(ext) for ext in [".jpg", ".jpeg"]):
+            p_info = fetch_commons_image_info(img_name, thumb_url)
+            if p_info:
+                images_info.append(p_info)
+                seen_files.add(img_name.lower())
+
+        page_images = pdata.get("images", [])
+        for im in page_images:
+            if len(images_info) >= 3:
+                break
+            ititle = im.get("title", "").replace("Bestand:", "").replace("File:", "").strip()
+            ilower = ititle.lower()
+            if ilower in seen_files:
+                continue
+            if (any(ilower.endswith(ext) for ext in [".jpg", ".jpeg"])
+                and not any(bad in ilower for bad in ["logo", "map", "kaart", "wapen", "vlag", "icon", "flag", "banner"])):
+                c_info = fetch_commons_image_info(ititle, None)
+                if c_info:
+                    images_info.append(c_info)
+                    seen_files.add(ilower)
 
         return {
             "title": found_title,
             "extract": extract,
-            "image": image_info,
+            "images": images_info,
+            "image": images_info[0] if images_info else None,
         }
     except Exception as e:
         logger.warning(f"Failed to fetch details for '{found_title}': {e}")
@@ -235,6 +246,16 @@ def parse_json_from_llm(raw: str) -> Optional[Dict[str, Any]]:
     return None
 
 
+ALLOWED_CATEGORIES = [
+    "kunst",
+    "geschiedenis",
+    "kastelen",
+    "wetenschap",
+    "natuur",
+    "familie",
+]
+
+
 def synthesize_description(museum: Dict[str, Any], wiki_info: Optional[Dict[str, Any]]) -> Dict[str, Any]:
     """Call free-tier LLM to synthesize summary, why_visit bullet points, and category tags."""
     context = ""
@@ -252,7 +273,13 @@ Province: {museum.get('province')}
 Generate a JSON object with:
 1. "summary": an engaging, factual, concise summary of 3-5 sentences in three languages ("nl", "en", "uk") explaining what the museum is, its primary focus or theme, and what visitors can expect to discover.
 2. "why_visit": 3-4 bullet points in three languages ("nl", "en", "uk") describing key highlights, renowned exhibits, or unique reasons to visit.
-3. "tags": 2-4 category tags in Dutch (e.g. kunst, geschiedenis, maritiem, wetenschap, familie, kastelen, natuur, technologie, archeologie).
+3. "categories": select 1 or 2 PRE-DEFINED CATEGORIES from this exact list ONLY:
+   - "kunst" (Art & Design: paintings, sculpture, modern art, graphic design)
+   - "geschiedenis" (History & Heritage: cultural history, archaeology, war & peace, local heritage)
+   - "kastelen" (Castles & Palaces: historic castles, royal palaces, fortified estates, country houses)
+   - "wetenschap" (Science & Technology: science, engineering, maritime/naval, transport, trains, space)
+   - "natuur" (Nature & Animals: natural history, biodiversity, wildlife, geology, botanical gardens)
+   - "familie" (Family & Interactive: hands-on discovery, child-friendly, open-air parks)
 
 Do NOT copy promotional hype or marketing clichés. Keep it clear, objective, and inspiring for newcomers, families, and cultural explorers. Write strictly in proper Dutch for "nl", standard English for "en", and Ukrainian for "uk". Never mix languages or include characters from other scripts. Respond ONLY with valid JSON.
 """
@@ -344,17 +371,26 @@ def run_enrichment(slugs: Optional[List[str]] = None, limit: Optional[int] = Non
         # 1. Wikipedia + Wikimedia
         wiki_info = query_wikipedia(museum.get("name", ""), museum.get("city", ""))
         image_meta = wiki_info.get("image") if wiki_info else None
+        images_list = wiki_info.get("images", []) if wiki_info else []
+        if not images_list and image_meta:
+            images_list = [image_meta]
 
         # 2. LLM synthesis
         llm_output = synthesize_description(museum, wiki_info)
+
+        cats = [c for c in llm_output.get("categories", llm_output.get("tags", [])) if c in ALLOWED_CATEGORIES]
+        if not cats:
+            cats = ["geschiedenis"]
 
         record = {
             "slug": slug,
             "name": museum.get("name"),
             "image": image_meta,
+            "images": images_list,
             "summary": llm_output.get("summary", {}),
             "why_visit": llm_output.get("why_visit", {}),
-            "tags": llm_output.get("tags", []),
+            "categories": cats,
+            "tags": cats,
             "source": "wikipedia_and_commons" if wiki_info else "official_website",
             "checked_on": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         }

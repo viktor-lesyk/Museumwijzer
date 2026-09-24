@@ -147,6 +147,26 @@ export const ui = {
     photoCredit: 'Foto',
     viaWikimedia: 'via Wikimedia Commons',
 
+    // Pre-defined categories
+    allCategories: 'Alle categorieën',
+    filterByCategory: 'Filter op categorie',
+    catArt: 'Kunst & Design',
+    catHistory: 'Geschiedenis & Erfgoed',
+    catCastles: 'Kastelen & Paleizen',
+    catScience: 'Wetenschap & Techniek',
+    catNature: 'Natuur & Dieren',
+    catFamily: 'Familie & Doemuseums',
+    reviewsOnGoogle: 'reviews op Google',
+
+    // Visited museums feature
+    markAsVisited: 'Markeer als bezocht',
+    markAsNotVisited: 'Markeer als niet bezocht',
+    alreadyVisited: 'Al bezocht',
+    visited: 'Bezocht',
+    hideVisited: 'Verberg bezocht',
+    showVisited: 'Toon bezocht',
+    visitedHiddenNotice: '({count} bezocht verborgen)',
+
     // Prototype preview release strings
     prototypeBanner: 'Prototype voor feedback — Onofficiële gids voor deelnemende musea aan Welkom in het Museum.',
     prototypeFeedback: 'Vragen of feedback? Neem contact op via {email}',
@@ -296,6 +316,26 @@ export const ui = {
     whyVisitHeading: 'Why visit?',
     photoCredit: 'Photo',
     viaWikimedia: 'via Wikimedia Commons',
+
+    // Pre-defined categories
+    allCategories: 'All categories',
+    filterByCategory: 'Filter by category',
+    catArt: 'Art & Design',
+    catHistory: 'History & Heritage',
+    catCastles: 'Castles & Palaces',
+    catScience: 'Science & Technology',
+    catNature: 'Nature & Wildlife',
+    catFamily: 'Family & Interactive',
+    reviewsOnGoogle: 'reviews on Google',
+
+    // Visited museums feature
+    markAsVisited: 'Mark as visited',
+    markAsNotVisited: 'Mark as unvisited',
+    alreadyVisited: 'Already visited',
+    visited: 'Visited',
+    hideVisited: 'Hide visited',
+    showVisited: 'Show visited',
+    visitedHiddenNotice: '({count} visited hidden)',
 
     // Prototype preview release strings
     prototypeBanner: 'Prototype for feedback — Unofficial guide for participating museums in Welkom in het Museum.',
@@ -448,6 +488,26 @@ export const ui = {
     photoCredit: 'Фото',
     viaWikimedia: 'через Wikimedia Commons',
 
+    // Pre-defined categories
+    allCategories: 'Всі категорії',
+    filterByCategory: 'Фільтр за категорією',
+    catArt: 'Мистецтво та дизайн',
+    catHistory: 'Історія та спадщина',
+    catCastles: 'Замки та палаци',
+    catScience: 'Наука та техніка',
+    catNature: 'Природа та фауна',
+    catFamily: 'Для всієї родини',
+    reviewsOnGoogle: 'відгуків у Google',
+
+    // Visited museums feature
+    markAsVisited: 'Позначити як відвіданий',
+    markAsNotVisited: 'Позначити як невідвіданий',
+    alreadyVisited: 'Вже відвідано',
+    visited: 'Відвідано',
+    hideVisited: 'Приховати відвідані',
+    showVisited: 'Показати відвідані',
+    visitedHiddenNotice: '({count} відвіданих приховано)',
+
     // Prototype preview release strings
     prototypeBanner: 'Прототип для відгуків — Неофіційний путівник для музеїв-учасників програми Welkom in het Museum.',
     prototypeFeedback: 'Запитання чи відгуки? Напишіть нам на {email}',
@@ -456,4 +516,17 @@ export const ui = {
 
 export function useTranslations(lang: Locale) {
   return ui[lang] || ui.nl;
+}
+
+export function getCategoryLabel(key: string, locale: Locale): string {
+  const t = useTranslations(locale);
+  const map: Record<string, string> = {
+    kunst: t.catArt,
+    geschiedenis: t.catHistory,
+    kastelen: t.catCastles,
+    wetenschap: t.catScience,
+    natuur: t.catNature,
+    familie: t.catFamily,
+  };
+  return map[key] || key;
 }
