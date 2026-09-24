@@ -63,9 +63,8 @@ def test_build_contains_card_media_and_pills():
     assert 'class="card-rating-tag"' in content
     assert 'class="card-body"' in content
 
-    # Hero overhaul: no old bulky banner, compact catalog hero with ticket pill
-    assert 'class="catalog-hero"' in content
-    assert 'class="btn-ticket-pill"' in content
+    # Ticket button in persistent navigation header, no bulky banners in catalogue
+    assert 'class="btn-nav-tickets"' in content
     assert 'class="hero-section"' not in content
 
 

@@ -167,7 +167,15 @@ export const ui = {
     showVisited: 'Toon bezocht',
     visitedHiddenNotice: '({count} bezocht verborgen)',
 
+    // Location & compact toolbar strings
+    locationAndDistance: 'Locatie & afstand',
+    useMyGps: 'Gebruik mijn GPS',
+    orDivider: 'of',
+    clearLocation: 'Wis locatie',
+    sortByLabel: 'Sorteer',
+
     // Prototype preview release strings
+    requestTicketsNav: 'Tickets aanvragen',
     prototypeBanner: 'Prototype voor feedback — Onofficiële gids voor deelnemende musea aan Welkom in het Museum.',
     prototypeFeedback: 'Vragen of feedback? Neem contact op via {email}',
   },
@@ -337,7 +345,15 @@ export const ui = {
     showVisited: 'Show visited',
     visitedHiddenNotice: '({count} visited hidden)',
 
+    // Location & compact toolbar strings
+    locationAndDistance: 'Location & distance',
+    useMyGps: 'Use my GPS',
+    orDivider: 'or',
+    clearLocation: 'Clear location',
+    sortByLabel: 'Sort',
+
     // Prototype preview release strings
+    requestTicketsNav: 'Request tickets',
     prototypeBanner: 'Prototype for feedback — Unofficial guide for participating museums in Welkom in het Museum.',
     prototypeFeedback: 'Questions or feedback? Contact us at {email}',
   },
@@ -508,7 +524,15 @@ export const ui = {
     showVisited: 'Показати відвідані',
     visitedHiddenNotice: '({count} відвіданих приховано)',
 
+    // Location & compact toolbar strings
+    locationAndDistance: 'Локація та відстань',
+    useMyGps: 'Використати мій GPS',
+    orDivider: 'або',
+    clearLocation: 'Скинути локацію',
+    sortByLabel: 'Сортувати',
+
     // Prototype preview release strings
+    requestTicketsNav: 'Замовити квитки',
     prototypeBanner: 'Прототип для відгуків — Неофіційний путівник для музеїв-учасників програми Welkom in het Museum.',
     prototypeFeedback: 'Запитання чи відгуки? Напишіть нам на {email}',
   },

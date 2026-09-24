@@ -115,38 +115,29 @@ const pageTitle =
 
 <Layout title={pageTitle} locale={lang}>
   <div class="container">
-    <!-- Compact Hero Header -->
-    <header class="catalog-hero">
-      <div class="hero-content">
-        <h1 class="catalog-title">{pageTitle}</h1>
-        <p class="catalog-explainer">{t.explainer}</p>
-      </div>
-      <div class="hero-actions">
-        <a href={t.requestTicketsUrl} class="btn-ticket-pill" target="_blank" rel="noopener noreferrer">
-          <span class="ticket-icon" aria-hidden="true">🎟️</span>
-          <span>{t.requestTickets}</span>
-          <span class="arrow-icon" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </header>
+    <h1 class="sr-only">{pageTitle}</h1>
 
-    <!-- Sticky Filter & Search Toolbar -->
+    <!-- Sticky Compact Filter & Search Toolbar (≤25% screen height) -->
     <div class="sticky-filter-wrapper" id="sticky-filter-bar">
       <section class="search-section" aria-label="Museum search and filters">
+        <!-- Row 1: Search bar -->
         <div class="search-box">
           <label for="search-input" class="sr-only">{t.searchPlaceholder}</label>
-          <input
-            type="search"
-            id="search-input"
-            class="search-input"
-            placeholder={t.searchPlaceholder}
-            autocomplete="off"
-            autocapitalize="none"
-            spellcheck="false"
-          />
+          <div class="search-input-wrapper">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input
+              type="search"
+              id="search-input"
+              class="search-input"
+              placeholder={t.searchPlaceholder}
+              autocomplete="off"
+              autocapitalize="none"
+              spellcheck="false"
+            />
+          </div>
         </div>
 
-        <!-- Multi-select Category Pills (OR logic) -->
+        <!-- Row 2: Category Pills (OR multi-select) -->
         <div class="category-pills-bar" role="group" aria-label={t.filterByCategory}>
           <button type="button" class="category-pill active" data-category="all" id="pill-all">
             <span>{t.allCategories}</span>
@@ -182,155 +173,182 @@ const pageTitle =
           <option value="familie">{t.catFamily}</option>
         </select>
 
-        <div class="filter-controls">
-          <div class="select-wrapper">
-            <label for="province-select" class="sr-only">{t.filterByProvince}</label>
-            <select id="province-select" class="filter-select">
-              <option value="">{t.allProvinces}</option>
-              {provinces.map((p) => <option value={p}>{p}</option>)}
-            </select>
-          </div>
+        <!-- Row 3: Action Toolbar (Left: Filters, Right: Sorting & Views) -->
+        <div class="filter-toolbar">
+          <div class="filter-toolbar-left">
+            <div class="select-wrapper-compact">
+              <label for="province-select" class="sr-only">{t.filterByProvince}</label>
+              <select id="province-select" class="filter-select-compact">
+                <option value="">{t.allProvinces}</option>
+                {provinces.map((p) => <option value={p}>{p}</option>)}
+              </select>
+            </div>
 
-          <div class="select-wrapper">
-            <label for="city-select" class="sr-only">{t.filterByCity}</label>
-            <select id="city-select" class="filter-select">
-              <option value="">{t.allCities}</option>
-              {cities.map((c) => <option value={c}>{c}</option>)}
-            </select>
-          </div>
+            <div class="select-wrapper-compact">
+              <label for="city-select" class="sr-only">{t.filterByCity}</label>
+              <select id="city-select" class="filter-select-compact">
+                <option value="">{t.allCities}</option>
+                {cities.map((c) => <option value={c}>{c}</option>)}
+              </select>
+            </div>
 
-          <div class="select-wrapper">
-            <label for="max-distance-select" class="sr-only">{t.maxDistance}</label>
-            <select id="max-distance-select" class="filter-select">
-              <option value="">{t.allDistances}</option>
-              <option value="10">{t.within10km}</option>
-              <option value="25">{t.within25km}</option>
-              <option value="50">{t.within50km}</option>
-              <option value="100">{t.within100km}</option>
-            </select>
-          </div>
+            <div class="select-wrapper-compact">
+              <label for="price-filter-select" class="sr-only">{t.filterByPrice}</label>
+              <select id="price-filter-select" class="filter-select-compact" title={t.filterByPrice}>
+                <option value="">{t.allPrices}</option>
+                <option value="free">{t.priceFreeOption}</option>
+                <option value="under-10">{t.priceUnder10}</option>
+                <option value="under-15">{t.priceUnder15}</option>
+                <option value="under-20">{t.priceUnder20}</option>
+                <option value="20-plus">{t.price20AndUp}</option>
+              </select>
+            </div>
 
-          <div class="select-wrapper">
-            <label for="price-filter-select" class="sr-only">{t.filterByPrice}</label>
-            <select id="price-filter-select" class="filter-select" title={t.filterByPrice}>
-              <option value="">{t.allPrices}</option>
-              <option value="free">{t.priceFreeOption}</option>
-              <option value="under-10">{t.priceUnder10}</option>
-              <option value="under-15">{t.priceUnder15}</option>
-              <option value="under-20">{t.priceUnder20}</option>
-              <option value="20-plus">{t.price20AndUp}</option>
-            </select>
-          </div>
+            <!-- Location & Distance Button with Popover -->
+            <div class="location-popover-container" id="location-popover-container">
+              <button
+                type="button"
+                id="location-toggle-btn"
+                class="btn-location-toggle"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="location-popover"
+              >
+                <span class="loc-icon" aria-hidden="true">📍</span>
+                <span id="loc-btn-label" class="loc-btn-label">{t.locationAndDistance}</span>
+                <span class="loc-arrow" aria-hidden="true">▾</span>
+              </button>
 
-        <div class="select-wrapper">
-          <label for="sort-select" class="sr-only">{t.sortByPrimary}</label>
-          <select id="sort-select" class="filter-select" title={t.sortByPrimary}>
-            <option value="name">{t.sortByName}</option>
-            <option value="price-asc">{t.sortByPriceAsc}</option>
-            <option value="price-desc">{t.sortByPriceDesc}</option>
-            <option value="province">{t.sortByProvince}</option>
-            <option value="distance" id="distance-sort-option" disabled>{t.sortByDistance}</option>
-          </select>
-        </div>
+              <div id="location-popover" class="location-popover" role="dialog" aria-modal="false" style="display: none;">
+                <div class="popover-section">
+                  <span class="popover-title">{t.locationAndDistance}</span>
 
-        <div class="select-wrapper">
-          <label for="sort-secondary-select" class="sr-only">{t.sortBySecondary}</label>
-          <select id="sort-secondary-select" class="filter-select" title={t.sortBySecondary}>
-            <option value="none">{t.sortBySecondary}: {t.sortNone}</option>
-            <option value="distance" id="distance-sort-secondary-option" disabled>{t.sortByDistance}</option>
-            <option value="price-asc">{t.sortByPriceAsc}</option>
-            <option value="price-desc">{t.sortByPriceDesc}</option>
-            <option value="name">{t.sortByName}</option>
-            <option value="province">{t.sortByProvince}</option>
-          </select>
-        </div>
+                  <button type="button" id="near-me-btn" class="btn-popover-gps">
+                    <span aria-hidden="true">📡</span> <span id="near-me-text">{t.nearMeButton}</span>
+                  </button>
 
-        <!-- Near Me Button (§6.4) -->
-        <button type="button" id="near-me-btn" class="btn-near-me">
-          <span aria-hidden="true">📍</span> <span id="near-me-text">{t.nearMeButton}</span>
-        </button>
+                  <div class="popover-divider">
+                    <span>{t.orDivider}</span>
+                  </div>
 
-        <!-- Hide Visited Museums Toggle Button -->
-        <button type="button" id="toggle-hide-visited-btn" class="btn-toggle-visited" aria-pressed="false" title={t.hideVisited}>
-          <span class="visited-btn-icon" aria-hidden="true">👁️‍🗨️</span>
-          <span id="hide-visited-text">{t.hideVisited}</span>
-          <span id="visited-hidden-badge" class="visited-hidden-badge" style="display: none;">0</span>
-        </button>
+                  <div class="popover-manual-group">
+                    <label for="manual-location-input" class="sr-only">{t.manualLocationPlaceholder}</label>
+                    <input
+                      type="text"
+                      id="manual-location-input"
+                      class="popover-location-input"
+                      placeholder={t.manualLocationPlaceholder}
+                      aria-label={t.manualLocationPlaceholder}
+                      autocomplete="off"
+                    />
+                    <button type="button" id="manual-location-btn" class="btn-popover-apply">
+                      {t.setLocationBtn}
+                    </button>
+                  </div>
 
-        <button type="button" id="clear-filters-btn" class="btn-secondary" style="display: none;">
-          {t.clearFilters}
-        </button>
-      </div>
+                  <div class="popover-distance-group">
+                    <label for="max-distance-select" class="popover-field-label">
+                      {t.maxDistance}:
+                    </label>
+                    <select id="max-distance-select" class="filter-select-compact">
+                      <option value="">{t.allDistances}</option>
+                      <option value="10">{t.within10km}</option>
+                      <option value="25">{t.within25km}</option>
+                      <option value="50">{t.within50km}</option>
+                      <option value="100">{t.within100km}</option>
+                    </select>
+                  </div>
 
-      <!-- Location Control Bar: Manual or Detected (§6.4) -->
-      <div id="location-bar" class="location-bar">
-        <!-- Idle state: Manual place/postcode input -->
-        <div class="location-bar-idle" id="location-bar-idle">
-          <label for="manual-location-input" class="location-label">
-            <span>📍 {lang === 'nl' ? 'Locatie:' : (lang === 'uk' ? 'Локація:' : 'Location:')}</span>
-          </label>
-          <div class="manual-input-group">
-            <input
-              type="text"
-              id="manual-location-input"
-              class="manual-location-input"
-              placeholder={t.manualLocationPlaceholder}
-              aria-label={t.manualLocationPlaceholder}
-              autocomplete="off"
-            />
-            <button type="button" id="manual-location-btn" class="btn-location-apply">
-              {t.setLocationBtn}
+                  <div class="location-bar-active" id="location-bar-active" style="display: none;">
+                    <div class="location-active-info">
+                      <span class="location-pin-icon" aria-hidden="true">📍</span>
+                      <span id="location-active-text" class="location-active-text"></span>
+                    </div>
+                    <div class="location-active-actions">
+                      <button type="button" id="change-location-btn" class="btn-location-action" style="display: none;">
+                        {t.changeLocation}
+                      </button>
+                      <button type="button" id="clear-location-btn" class="btn-location-action btn-location-danger">
+                        {t.clearLocation}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="location-bar-idle" style="display: none;"></div>
+                  <div id="location-feedback-msg" class="location-feedback-msg" style="display: none;" role="alert"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hide Visited Museums Toggle Button -->
+            <button type="button" id="toggle-hide-visited-btn" class="btn-toggle-visited" aria-pressed="false" title={t.hideVisited}>
+              <span class="visited-btn-icon" aria-hidden="true">👁️‍🗨️</span>
+              <span id="hide-visited-text">{t.hideVisited}</span>
+              <span id="visited-hidden-badge" class="visited-hidden-badge" style="display: none;">0</span>
+            </button>
+
+            <!-- Clear Filters Button -->
+            <button type="button" id="clear-filters-btn" class="btn-clear-compact" style="display: none;">
+              ✕ {t.clearFilters}
             </button>
           </div>
-        </div>
 
-        <!-- Active state: displays detected GPS or manual place -->
-        <div class="location-bar-active" id="location-bar-active" style="display: none;">
-          <div class="location-active-info">
-            <span class="location-pin-icon" aria-hidden="true">📍</span>
-            <span id="location-active-text" class="location-active-text"></span>
+          <div class="filter-toolbar-right">
+            <div class="sort-group">
+              <label for="sort-select" class="sort-label">
+                <span class="sort-icon" aria-hidden="true">⇅</span>
+                <span class="sort-text">{t.sortByLabel}:</span>
+              </label>
+              <div class="select-wrapper-compact">
+                <select id="sort-select" class="filter-select-compact sort-select" title={t.sortByPrimary}>
+                  <option value="name">{t.sortByName}</option>
+                  <option value="price-asc">{t.sortByPriceAsc}</option>
+                  <option value="price-desc">{t.sortByPriceDesc}</option>
+                  <option value="province">{t.sortByProvince}</option>
+                  <option value="distance" id="distance-sort-option" disabled>{t.sortByDistance}</option>
+                </select>
+              </div>
+            </div>
+
+            <select id="sort-secondary-select" style="display:none;" aria-hidden="true" title={t.sortBySecondary}>
+              <option value="none">{t.sortBySecondary}: {t.sortNone}</option>
+              <option value="distance" id="distance-sort-secondary-option" disabled>{t.sortByDistance}</option>
+              <option value="price-asc">{t.sortByPriceAsc}</option>
+              <option value="price-desc">{t.sortByPriceDesc}</option>
+              <option value="name">{t.sortByName}</option>
+              <option value="province">{t.sortByProvince}</option>
+            </select>
+
+            <div class="view-toggle-group-compact" role="group" aria-label={t.viewMode}>
+              <a href="#list" id="btn-view-grid" class="btn-view-toggle-compact active" role="button" aria-pressed="true" title={t.gridView}>
+                <span aria-hidden="true">⊞</span>
+              </a>
+              <a href="#map" id="btn-view-map" class="btn-view-toggle-compact" role="button" aria-pressed="false" title={t.mapView}>
+                <span aria-hidden="true">🗺️</span>
+              </a>
+            </div>
           </div>
-          <div class="location-active-actions">
-            <button type="button" id="change-location-btn" class="btn-location-action">
-              {t.changeLocation}
-            </button>
-            <button type="button" id="clear-location-btn" class="btn-location-action btn-location-danger">
-              {t.allDistancesReset}
-            </button>
-          </div>
         </div>
+      </section>
+    </div>
 
-        <!-- Inline error / warning message for location -->
-        <div id="location-feedback-msg" class="location-feedback-msg" style="display: none;" role="alert"></div>
-      </div>
+    <!-- Results Header (Count & Status) below sticky bar -->
+    <div class="results-header" aria-live="polite">
+      <span id="results-count" class="results-count">
+        {t.resultsCount.replace('{count}', String(museums.length))}
+      </span>
+    </div>
 
-      <!-- Result counter and status banner -->
-      <div class="search-status" aria-live="polite">
-        <span id="results-count" class="results-count">
-          {t.resultsCount.replace('{count}', String(museums.length))}
-        </span>
-        <div class="view-toggle-group" role="group" aria-label={t.viewMode}>
-          <a href="#list" id="btn-view-grid" class="btn-view-toggle active" role="button" aria-pressed="true">
-            <span aria-hidden="true">⊞</span> <span>{t.gridView}</span>
-          </a>
-          <a href="#map" id="btn-view-map" class="btn-view-toggle" role="button" aria-pressed="false">
-            <span aria-hidden="true">🗺️</span> <span>{t.mapView}</span>
-          </a>
-        </div>
+    <!-- "Does X participate?" not found message box -->
+    <div id="not-found-box" class="not-found-banner" style="display: none;">
+      <h3 id="not-found-title" class="not-found-title">{t.notFoundTitle.replace('{date}', formattedDate)}</h3>
+      <p id="not-found-text" class="not-found-desc">{t.notFoundText}</p>
+      <div class="not-found-cta">
+        <a href={t.officialListUrl} class="btn-outline" target="_blank" rel="noopener noreferrer">
+          {t.checkOfficialList} ↗
+        </a>
       </div>
-
-      <!-- "Does X participate?" not found message box -->
-      <div id="not-found-box" class="not-found-banner" style="display: none;">
-        <h3 id="not-found-title" class="not-found-title">{t.notFoundTitle.replace('{date}', formattedDate)}</h3>
-        <p id="not-found-text" class="not-found-desc">{t.notFoundText}</p>
-        <div class="not-found-cta">
-          <a href={t.officialListUrl} class="btn-outline" target="_blank" rel="noopener noreferrer">
-            {t.checkOfficialList} ↗
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
+    </div>
 
     <!-- Pre-rendered Museum Cards List (Progressive Enhancement) -->
     <section class="museums-grid" id="museums-list" aria-label="Participating museums">
@@ -500,87 +518,69 @@ const pageTitle =
 </Layout>
 
 <style>
-  .catalog-hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .catalog-title {
-    font-size: 1.85rem;
-    font-weight: 800;
-    line-height: 1.2;
-    color: var(--color-text);
-    margin: 0 0 0.35rem 0;
-    letter-spacing: -0.02em;
-  }
-
-  .catalog-explainer {
-    font-size: 0.95rem;
-    line-height: 1.45;
-    color: var(--color-text-muted);
-    margin: 0;
-    max-width: 65ch;
-  }
-
-  .btn-ticket-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--color-primary);
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.65rem 1.2rem;
-    border-radius: 9999px;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.15s ease, transform 0.15s ease;
-  }
-
-  .btn-ticket-pill:hover {
-    background-color: var(--color-primary-hover);
-    color: #ffffff;
-    transform: translateY(-1px);
-  }
-
-  .ticket-icon, .arrow-icon {
-    font-size: 0.95rem;
-  }
-
-  @media (max-width: 640px) {
-    .catalog-hero {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-  }
-
   .sticky-filter-wrapper {
     position: sticky;
     top: 0;
     z-index: 30;
-    background: rgba(248, 250, 252, 0.95);
+    background: rgba(248, 250, 252, 0.96);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 0.75rem 0;
-    margin-bottom: 1.5rem;
+    padding: 0.6rem 0;
+    margin-bottom: 0.75rem;
     border-bottom: 1px solid var(--color-border-light);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   }
 
   .search-section {
     margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .search-box {
+    margin-bottom: 0;
+  }
+
+  .search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.85rem 0.45rem 2.25rem;
+    height: 38px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .search-input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+    outline: none;
   }
 
   .category-pills-bar {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
     overflow-x: auto;
-    padding: 0.25rem 0 0.5rem 0;
+    padding: 0.1rem 0 0.25rem 0;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
@@ -592,10 +592,11 @@ const pageTitle =
   .category-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    padding: 0.4rem 0.85rem;
+    gap: 0.3rem;
+    padding: 0.25rem 0.7rem;
+    height: 28px;
     border-radius: 9999px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid var(--color-border);
     background-color: var(--color-surface);
@@ -604,6 +605,7 @@ const pageTitle =
     white-space: nowrap;
     transition: all 0.15s ease;
     user-select: none;
+    flex-shrink: 0;
   }
 
   .category-pill:hover {
@@ -616,200 +618,224 @@ const pageTitle =
     color: #ffffff;
     border-color: var(--color-primary);
     font-weight: 600;
-    box-shadow: 0 2px 4px rgba(30, 58, 95, 0.2);
+    box-shadow: 0 1px 3px rgba(30, 58, 95, 0.2);
   }
 
-  .search-box {
-    margin-bottom: 1rem;
-  }
-
-  .search-input {
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 0.85rem 1.25rem;
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius);
-    background-color: var(--color-surface);
-    color: var(--color-text);
-    transition: border-color 0.15s ease;
-  }
-
-  .search-input:focus {
-    border-color: var(--color-accent);
-    outline: none;
-  }
-
-  .filter-controls {
+  .filter-toolbar {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .filter-toolbar-left {
+    display: flex;
     align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .select-wrapper {
-    flex: 1;
-    min-width: 160px;
-  }
-
-  .filter-select {
-    width: 100%;
-    padding: 0.65rem 1rem;
-    font-size: 0.95rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    background-color: var(--color-surface);
-    color: var(--color-text);
-    cursor: pointer;
-  }
-
-  .filter-select-sm {
-    padding: 0.4rem 0.75rem;
-    font-size: 0.85rem;
-  }
-
-  .btn-near-me {
-    display: inline-flex;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 0.4rem;
-    padding: 0.65rem 1.1rem;
-    font-size: 0.95rem;
-    font-weight: 600;
+  }
+
+  .filter-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .select-wrapper-compact {
+    display: inline-block;
+  }
+
+  .filter-select-compact {
+    height: 32px;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.825rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     background-color: var(--color-surface);
     color: var(--color-text);
     cursor: pointer;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
-    white-space: nowrap;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.15s ease;
+    max-width: 135px;
+    text-overflow: ellipsis;
   }
 
-  .btn-near-me:hover {
-    background-color: var(--color-surface-hover);
+  .filter-select-compact:focus {
     border-color: var(--color-accent);
   }
 
-  .btn-near-me.active {
-    background-color: var(--color-badge-bg);
-    color: var(--color-badge-text);
-    border-color: var(--color-badge-border);
+  .location-popover-container {
+    position: relative;
+    display: inline-block;
   }
 
-  .btn-toggle-visited {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.65rem 1.1rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    background-color: var(--color-surface);
-    color: var(--color-text);
-    cursor: pointer;
-    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-    white-space: nowrap;
-  }
-
-  .btn-toggle-visited:hover {
-    background-color: var(--color-surface-hover);
-    border-color: #10b981;
-  }
-
-  .btn-toggle-visited.active {
-    background-color: #ecfdf5;
-    color: #065f46;
-    border-color: #10b981;
-  }
-
-  .visited-hidden-badge {
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.1rem 0.45rem;
-    border-radius: 9999px;
-    background-color: #059669;
-    color: #ffffff;
-  }
-
-  .btn-secondary {
-    padding: 0.65rem 1rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    cursor: pointer;
-  }
-
-  /* Location Control Bar */
-  .location-bar {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    padding: 0.75rem 1rem;
-    margin-bottom: 1.25rem;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-  }
-
-  .location-bar-idle {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  .location-label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-text);
-    white-space: nowrap;
+  .btn-location-toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-  }
-
-  .manual-input-group {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex: 1;
-    min-width: 240px;
-  }
-
-  .manual-location-input {
-    flex: 1;
-    padding: 0.45rem 0.75rem;
-    font-size: 0.9rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.825rem;
+    font-weight: 500;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    height: 32px;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+
+  .btn-location-toggle:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+  }
+
+  .btn-location-toggle.active {
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    border-color: var(--color-badge-border);
+    font-weight: 600;
+  }
+
+  .loc-arrow {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-left: 0.1rem;
+  }
+
+  .location-popover {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    z-index: 100;
+    width: 320px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+
+  .popover-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .popover-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-popover-gps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .btn-popover-gps:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-primary);
+  }
+
+  .btn-popover-gps.active {
+    background-color: var(--color-badge-bg);
+    border-color: var(--color-primary);
+  }
+
+  .popover-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .popover-divider::before,
+  .popover-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .popover-divider span {
+    padding: 0 0.5rem;
+  }
+
+  .popover-manual-group {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .popover-location-input {
+    flex: 1;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    outline: none;
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: inherit;
-    outline: none;
-    transition: border-color 0.15s ease, background-color 0.15s ease;
   }
 
-  .manual-location-input:focus {
+  .popover-location-input:focus {
     border-color: var(--color-accent);
     background-color: var(--color-surface);
   }
 
-  .btn-location-apply {
-    padding: 0.45rem 0.9rem;
-    font-size: 0.85rem;
+  .btn-popover-apply {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.825rem;
     font-weight: 600;
-    color: #ffffff;
     background-color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-    border-radius: var(--radius);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
     white-space: nowrap;
     transition: background-color 0.15s ease;
   }
 
-  .btn-location-apply:hover {
+  .btn-popover-apply:hover {
     background-color: var(--color-primary-hover);
+  }
+
+  .popover-distance-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .popover-field-label {
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--color-text);
   }
 
   .location-bar-active {
@@ -817,20 +843,26 @@ const pageTitle =
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    padding: 0.5rem 0.6rem;
+    background-color: var(--color-bg);
+    border-radius: 6px;
+    border: 1px solid var(--color-border-light);
   }
 
   .location-active-info {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
+    gap: 0.4rem;
+    font-size: 0.825rem;
     color: var(--color-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .location-pin-icon {
-    font-size: 1.1rem;
-    line-height: 1;
+    font-size: 0.95rem;
+    flex-shrink: 0;
   }
 
   .location-active-text {
@@ -841,15 +873,15 @@ const pageTitle =
   .location-active-actions {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem;
   }
 
   .btn-location-action {
     background: transparent;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    padding: 0.35rem 0.7rem;
-    font-size: 0.825rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.775rem;
     font-weight: 600;
     color: var(--color-text);
     cursor: pointer;
@@ -873,61 +905,164 @@ const pageTitle =
   }
 
   .location-feedback-msg {
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-alert-text);
     background-color: var(--color-alert-bg);
     border: 1px solid var(--color-alert-border);
-    padding: 0.4rem 0.75rem;
-    border-radius: var(--radius);
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
   }
 
-  .search-status {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .view-toggle-group {
-    display: inline-flex;
-    align-items: center;
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    padding: 2px;
-  }
-
-  .btn-view-toggle {
+  .btn-toggle-visited {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    padding: 0.35rem 0.75rem;
-    font-size: 0.85rem;
+    height: 32px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.825rem;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+
+  .btn-toggle-visited:hover {
+    background-color: var(--color-surface-hover);
+    border-color: #10b981;
+  }
+
+  .btn-toggle-visited.active {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border-color: #10b981;
+    font-weight: 600;
+  }
+
+  .visited-hidden-badge {
+    font-size: 0.725rem;
+    font-weight: 700;
+    padding: 0.05rem 0.4rem;
+    border-radius: 9999px;
+    background-color: #059669;
+    color: #ffffff;
+  }
+
+  .btn-clear-compact {
+    height: 32px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.825rem;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-bg);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+
+  .btn-clear-compact:hover {
+    background-color: var(--color-alert-bg);
+    color: var(--color-alert-text);
+    border-color: var(--color-alert-border);
+  }
+
+  .sort-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .sort-select {
+    max-width: 145px;
+    text-overflow: ellipsis;
+  }
+
+  .sort-label {
+    font-size: 0.825rem;
     font-weight: 600;
     color: var(--color-text-muted);
-    background: transparent;
-    border: none;
-    border-radius: calc(var(--radius) - 2px);
-    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    white-space: nowrap;
+  }
+
+  .view-toggle-group-compact {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 32px;
+  }
+
+  .btn-view-toggle-compact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 100%;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
     text-decoration: none;
+    background: transparent;
     transition: all 0.15s ease;
   }
 
-  .btn-view-toggle:hover {
+  .btn-view-toggle-compact:hover {
+    background-color: var(--color-surface-hover);
     color: var(--color-text);
-    text-decoration: none;
   }
 
-  .btn-view-toggle.active {
-    background-color: var(--color-surface);
-    color: var(--color-primary);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  .btn-view-toggle-compact.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
+  .results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 0 0.85rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .filter-toolbar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+    }
+
+    .filter-toolbar-left {
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .filter-toolbar-right {
+      margin-left: 0;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 0.35rem;
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .location-popover {
+      left: 0;
+      right: 0;
+      width: auto;
+      max-width: 100%;
+    }
   }
 
   .map-anchor {
@@ -1458,6 +1593,7 @@ const pageTitle =
   detectedLocationText: t.detectedLocation,
   chosenLocationText: t.chosenLocation,
   locationNotFoundText: t.locationNotFound,
+  locationAndDistanceText: t.locationAndDistance,
   setLocationBtnText: t.setLocationBtn,
   nearMeButtonText: t.nearMeButton,
   distanceFilterResultsTemplate: t.distanceFilterResults,
@@ -1532,6 +1668,9 @@ const pageTitle =
     const museumsList = document.getElementById('museums-list');
     const nearMeBtn = document.getElementById('near-me-btn');
     const nearMeText = document.getElementById('near-me-text');
+    const locationToggleBtn = document.getElementById('location-toggle-btn');
+    const locationPopover = document.getElementById('location-popover');
+    const locBtnLabel = document.getElementById('loc-btn-label');
     const locationBarIdle = document.getElementById('location-bar-idle');
     const locationBarActive = document.getElementById('location-bar-active');
     const locationActiveText = document.getElementById('location-active-text');
@@ -1541,6 +1680,37 @@ const pageTitle =
     const clearLocationBtn = document.getElementById('clear-location-btn');
     const locationFeedbackMsg = document.getElementById('location-feedback-msg');
     const cards = Array.from(document.querySelectorAll('.museum-card'));
+
+    if (locationToggleBtn && locationPopover) {
+      locationToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = locationPopover.style.display !== 'none';
+        locationPopover.style.display = isOpen ? 'none' : 'block';
+        locationToggleBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        if (!isOpen && manualLocationInput) {
+          setTimeout(() => manualLocationInput.focus(), 50);
+        }
+      });
+
+      locationPopover.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (locationPopover.style.display !== 'none') {
+          locationPopover.style.display = 'none';
+          locationToggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && locationPopover.style.display !== 'none') {
+          locationPopover.style.display = 'none';
+          locationToggleBtn.setAttribute('aria-expanded', 'false');
+          locationToggleBtn.focus();
+        }
+      });
+    }
 
     const btnViewGrid = document.getElementById('btn-view-grid');
     const btnViewMap = document.getElementById('btn-view-map');
@@ -1998,27 +2168,52 @@ const pageTitle =
       });
     }
 
-    function showActiveLocation(label) {
-      locationActiveText.textContent = label;
-      locationBarIdle.style.display = 'none';
-      locationBarActive.style.display = 'flex';
-      locationFeedbackMsg.style.display = 'none';
-      nearMeBtn.classList.add('active');
+    let activeLocationName = null;
+
+    function updateLocationButtonLabel() {
+      if (!locBtnLabel || !locationToggleBtn) return;
+      const distVal = maxDistanceSelect ? maxDistanceSelect.value : '';
+      const distSuffix = distVal ? ` (≤${distVal}km)` : '';
+
+      if (activeLocationName) {
+        locBtnLabel.textContent = `${activeLocationName}${distSuffix}`;
+        locationToggleBtn.classList.add('active');
+      } else if (distVal) {
+        locBtnLabel.textContent = `≤${distVal}km`;
+        locationToggleBtn.classList.add('active');
+      } else {
+        locBtnLabel.textContent = locationAndDistanceText;
+        locationToggleBtn.classList.remove('active');
+      }
+    }
+
+    function showActiveLocation(label, shortName) {
+      activeLocationName = shortName || label;
+      if (locationActiveText) locationActiveText.textContent = label;
+      if (locationBarIdle) locationBarIdle.style.display = 'none';
+      if (locationBarActive) locationBarActive.style.display = 'flex';
+      if (locationFeedbackMsg) locationFeedbackMsg.style.display = 'none';
+      if (nearMeBtn) nearMeBtn.classList.add('active');
+      updateLocationButtonLabel();
     }
 
     function resetLocation() {
       userLat = null;
       userLon = null;
-      nearMeBtn.classList.remove('active');
-      nearMeText.textContent = nearMeButtonText;
-      locationBarActive.style.display = 'none';
-      locationBarIdle.style.display = 'flex';
-      manualLocationInput.value = '';
-      locationFeedbackMsg.style.display = 'none';
-      maxDistanceSelect.value = '';
+      activeLocationName = null;
+      if (nearMeBtn) {
+        nearMeBtn.classList.remove('active');
+        nearMeText.textContent = nearMeButtonText;
+      }
+      if (locationBarActive) locationBarActive.style.display = 'none';
+      if (locationBarIdle) locationBarIdle.style.display = 'none';
+      if (manualLocationInput) manualLocationInput.value = '';
+      if (locationFeedbackMsg) locationFeedbackMsg.style.display = 'none';
+      if (maxDistanceSelect) maxDistanceSelect.value = '';
       if (priceFilterSelect) priceFilterSelect.value = '';
       if (sortSecondarySelect) sortSecondarySelect.value = 'none';
       updateDistances();
+      updateLocationButtonLabel();
       sortSelect.value = 'name';
       sortAndFilterCards();
     }
@@ -2240,10 +2435,14 @@ const pageTitle =
         userLat = result.lat;
         userLon = result.lon;
         const placeLabel = result.prov ? `${result.name} (${result.prov})` : result.name;
-        showActiveLocation(`${chosenLocationText}: ${placeLabel}`);
+        showActiveLocation(`${chosenLocationText}: ${placeLabel}`, result.name);
         updateDistances();
         sortSelect.value = 'distance';
         sortAndFilterCards();
+        if (locationPopover) {
+          locationPopover.style.display = 'none';
+          if (locationToggleBtn) locationToggleBtn.setAttribute('aria-expanded', 'false');
+        }
       } else {
         showLocationFeedback(locationNotFoundText);
       }
@@ -2295,11 +2494,15 @@ const pageTitle =
           const nearest = findNearestPlace(userLat, userLon, placesList);
           const coordStr = `${userLat.toFixed(2)}° N, ${userLon.toFixed(2)}° E`;
           const nearStr = nearest ? `nabij ${nearest.name} (${coordStr})` : coordStr;
-          showActiveLocation(`${detectedLocationText}: ${nearStr}`);
+          showActiveLocation(`${detectedLocationText}: ${nearStr}`, nearest ? nearest.name : 'GPS');
 
           updateDistances();
           sortSelect.value = 'distance';
           sortAndFilterCards();
+          if (locationPopover) {
+            locationPopover.style.display = 'none';
+            if (locationToggleBtn) locationToggleBtn.setAttribute('aria-expanded', 'false');
+          }
         },
         (error) => {
           nearMeBtn.disabled = false;
@@ -2316,8 +2519,13 @@ const pageTitle =
     maxDistanceSelect.addEventListener('change', () => {
       if (maxDistanceSelect.value !== '' && userLat === null) {
         showLocationFeedback(permissionDeniedText);
+        if (locationPopover && locationPopover.style.display === 'none') {
+          locationPopover.style.display = 'block';
+          if (locationToggleBtn) locationToggleBtn.setAttribute('aria-expanded', 'true');
+        }
         manualLocationInput.focus();
       }
+      updateLocationButtonLabel();
       sortAndFilterCards();
     });
 

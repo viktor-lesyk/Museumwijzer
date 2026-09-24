@@ -72,6 +72,7 @@ const isPreview = process.env.PREVIEW !== 'false';
     <title>{title} — {t.siteTitle}</title>
     <meta name="description" content={description || t.explainer} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Self-contained CSP -->
     <meta
@@ -232,21 +233,56 @@ const isPreview = process.env.PREVIEW !== 'false';
 
       .brand {
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
         text-decoration: none;
         color: var(--color-text);
       }
 
+      .brand-logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
       .brand-name {
-        font-size: 1.4rem;
-        font-weight: 700;
+        font-size: 1.35rem;
+        font-weight: 800;
         letter-spacing: -0.02em;
+        line-height: 1.15;
         color: var(--color-primary);
       }
 
       .brand-tagline {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         color: var(--color-text-muted);
+        line-height: 1.25;
+      }
+
+      .btn-nav-tickets {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.4rem 0.85rem;
+        border-radius: 9999px;
+        background-color: var(--color-primary);
+        color: #ffffff !important;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none !important;
+        box-shadow: 0 1px 3px rgba(30, 58, 95, 0.2);
+        transition: background-color 0.15s ease, transform 0.15s ease;
+      }
+
+      .btn-nav-tickets:hover {
+        background-color: var(--color-primary-hover);
+        transform: translateY(-1px);
       }
 
       .nav-links {
@@ -415,8 +451,11 @@ const isPreview = process.env.PREVIEW !== 'false';
     <header class="site-header">
       <div class="container header-content">
         <a href={`/${locale}/`} class="brand">
-          <span class="brand-name">{t.siteTitle}</span>
-          <span class="brand-tagline">{t.siteTagline}</span>
+          <img src="/favicon.svg" alt="" width="36" height="36" class="brand-logo" aria-hidden="true" />
+          <div class="brand-text">
+            <span class="brand-name">{t.siteTitle}</span>
+            <span class="brand-tagline">{t.siteTagline}</span>
+          </div>
         </a>
 
         <nav aria-label="Main Navigation">
@@ -430,6 +469,13 @@ const isPreview = process.env.PREVIEW !== 'false';
               </a>
             </li>
             <li><a href={`/${locale}/about/`}>{t.navAbout}</a></li>
+            <li>
+              <a href={t.requestTicketsUrl} class="btn-nav-tickets" target="_blank" rel="noopener noreferrer">
+                <span class="ticket-icon" aria-hidden="true">🎟️</span>
+                <span>{t.requestTicketsNav}</span>
+                <span class="arrow-icon" aria-hidden="true">↗</span>
+              </a>
+            </li>
             <li>
               <div class="lang-switcher" aria-label="Language selector">
                 <a href={nlPath} class={locale === 'nl' ? 'active' : ''} aria-current={locale === 'nl' ? 'true' : undefined}>NL</a>

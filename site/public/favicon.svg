@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Rounded tile background -->
+  <rect width="48" height="48" rx="10" fill="#1e3a5f"/>
+  
+  <!-- Museum Pediment (Roof) -->
+  <path d="M10 20L24 10L38 20H10Z" fill="#ffffff"/>
+  
+  <!-- Frieze band -->
+  <rect x="11" y="21" width="26" height="2.5" rx="0.5" fill="#93c5fd"/>
+  
+  <!-- Museum Columns -->
+  <rect x="13.5" y="25" width="3.5" height="11" rx="1" fill="#ffffff"/>
+  <rect x="19.5" y="25" width="3.5" height="11" rx="1" fill="#ffffff"/>
+  <rect x="25" y="25" width="3.5" height="11" rx="1" fill="#ffffff"/>
+  <rect x="31" y="25" width="3.5" height="11" rx="1" fill="#ffffff"/>
+  
+  <!-- Base steps -->
+  <rect x="10" y="37" width="28" height="2.5" rx="0.5" fill="#93c5fd"/>
+  <rect x="8" y="40.5" width="32" height="2" rx="0.5" fill="#ffffff"/>
+  
+  <!-- Compass pointer star (Wijzer) -->
+  <path d="M37 6L38.8 11.2L44 13L38.8 14.8L37 20L35.2 14.8L30 13L35.2 11.2L37 6Z" fill="#fbbf24"/>
+</svg>
