@@ -1,7 +1,7 @@
 # Upstream Data Issues & Suggested Corrections for Welkom in het Museum
 
 > **Audience:** Coordinators and CMS administrators of the *Welkom in het Museum* programme (VluchtelingenWerk Nederland, het Cultuurfonds & VriendenLoterij).  
-> **Prepared by:** The Museumwijzer team  
+> **Prepared by:** Viktor Lesyk — Freelance Software & Data Consultant (https://vlesyk.com)
 > **Date:** September 2026  
 > **Purpose:** A collaborative, factual compilation of data inconsistencies, postal code typos, misplaced addresses, and duplicate entries identified during automated data validation and quality auditing. We hope this report is helpful in improving the accuracy of visitor information across all participating platforms.
 
@@ -68,13 +68,3 @@ The following 10 active participating museums currently lack an official homepag
    `https://kaapskil.nl/` (Heemskerckstraat 9, Oudeschild, Texel)
 10. **Nederlands Zilvermuseum Schoonhoven** (`nederlands-zilvermuseum-schoonhoven`):  
     `https://zilvermuseum.com/` (Kazerneplein 4, Schoonhoven)
-
----
-
-## 4. Minor Slug & Formatting Recommendations
-
-For CMS consistency and long-term URL stability:
-- `HaRT-Museum1` → recommend slug `hart-museum` (remove capitalisation and draft number `1`).
-- `Museum-Tromps-Huys` → recommend slug `museum-tromps-huys` (lowercase).
-- `Museumhuis-sloetjes1` → recommend slug `museumhuis-sloetjes` (remove draft number `1`).
-- `Textiel-museum` → recommend slug `textielmuseum` (lowercase without hyphen, matching official spelling).
