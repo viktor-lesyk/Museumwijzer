@@ -196,11 +196,76 @@ const pageTitle =
               <label for="price-filter-select" class="sr-only">{t.filterByPrice}</label>
               <select id="price-filter-select" class="filter-select-compact" title={t.filterByPrice}>
                 <option value="">{t.allPrices}</option>
-                <option value="free">{t.priceFreeOption}</option>
-                <option value="under-10">{t.priceUnder10}</option>
-                <option value="under-15">{t.priceUnder15}</option>
-                <option value="under-20">{t.priceUnder20}</option>
                 <option value="20-plus">{t.price20AndUp}</option>
+                <option value="15-20">{t.price15To20}</option>
+                <option value="10-15">{t.price10To15}</option>
+                <option value="under-10">{t.priceUnder10}</option>
+                <option value="free">{t.priceFreeOption}</option>
+              </select>
+            </div>
+
+            <!-- Flexible Rating & Reviews Filter Popover -->
+            <div class="location-popover-container" id="rating-popover-container">
+              <button
+                type="button"
+                id="rating-toggle-btn"
+                class="btn-location-toggle"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="rating-popover"
+                title={t.filterByRating}
+              >
+                <span class="loc-icon" aria-hidden="true">⭐</span>
+                <span id="rating-btn-label" class="loc-btn-label">{t.filterByRating}</span>
+                <span class="loc-arrow" aria-hidden="true">▾</span>
+              </button>
+
+              <div id="rating-popover" class="location-popover rating-popover" role="dialog" aria-modal="false" style="display: none;">
+                <div class="popover-section">
+                  <div class="rating-header-row">
+                    <span class="popover-title">{t.minRatingScore}</span>
+                    <span id="rating-slider-display" class="rating-badge-active">{t.allRatings}</span>
+                  </div>
+
+                  <div class="rating-preset-chips" role="group" aria-label={t.minRatingScore}>
+                    <button type="button" class="rating-preset-chip active" data-score="0">{t.allRatings}</button>
+                    <button type="button" class="rating-preset-chip" data-score="4.6">⭐ 4.6+ (Top)</button>
+                    <button type="button" class="rating-preset-chip" data-score="4.5">⭐ 4.5+</button>
+                    <button type="button" class="rating-preset-chip" data-score="4.3">⭐ 4.3+</button>
+                    <button type="button" class="rating-preset-chip" data-score="4.0">⭐ 4.0+</button>
+                  </div>
+
+                  <div class="popover-divider"><span>reviews</span></div>
+
+                  <div class="rating-header-row">
+                    <span class="popover-title">{t.minReviewCount}</span>
+                    <span id="reviews-display-badge" class="rating-badge-active">{t.allReviewCounts}</span>
+                  </div>
+
+                  <div class="reviews-preset-chips" role="group" aria-label={t.minReviewCount}>
+                    <button type="button" class="review-preset-chip active" data-reviews="0">{t.allReviewCounts}</button>
+                    <button type="button" class="review-preset-chip" data-reviews="100">≥ 100</button>
+                    <button type="button" class="review-preset-chip" data-reviews="500">≥ 500</button>
+                    <button type="button" class="review-preset-chip" data-reviews="1000">≥ 1.000</button>
+                  </div>
+
+                  <div class="rating-popover-actions">
+                    <button type="button" id="rating-popover-reset" class="btn-location-action btn-location-danger">
+                      {t.resetRatingFilter}
+                    </button>
+                    <button type="button" id="rating-popover-done" class="btn-popover-primary">
+                      {t.applyRatingFilter}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hidden select for backwards-compatibility -->
+              <select id="rating-filter-select" style="display:none;" aria-hidden="true" title={t.filterByRating}>
+                <option value="">{t.allRatings}</option>
+                <option value="4.6-plus">{t.rating46Plus}</option>
+                <option value="4.5-plus">{t.rating45Plus}</option>
+                <option value="4.3-plus">{t.rating43Plus}</option>
               </select>
             </div>
 
@@ -215,7 +280,7 @@ const pageTitle =
                 aria-controls="location-popover"
               >
                 <span class="loc-icon" aria-hidden="true">📍</span>
-                <span id="loc-btn-label" class="loc-btn-label">{t.locationAndDistance}</span>
+                <span id="loc-btn-label" class="loc-btn-label">{t.filterByDistance}</span>
                 <span class="loc-arrow" aria-hidden="true">▾</span>
               </button>
 
@@ -283,7 +348,7 @@ const pageTitle =
             <!-- Hide Visited Museums Toggle Button -->
             <button type="button" id="toggle-hide-visited-btn" class="btn-toggle-visited" aria-pressed="false" title={t.hideVisited}>
               <span class="visited-btn-icon" aria-hidden="true">👁️‍🗨️</span>
-              <span id="hide-visited-text">{t.hideVisited}</span>
+              <span id="hide-visited-text">{lang === 'nl' ? 'Bezocht' : (lang === 'uk' ? 'Відвідані' : 'Visited')}</span>
               <span id="visited-hidden-badge" class="visited-hidden-badge" style="display: none;">0</span>
             </button>
 
@@ -294,30 +359,60 @@ const pageTitle =
           </div>
 
           <div class="filter-toolbar-right">
-            <div class="sort-group">
-              <label for="sort-select" class="sort-label">
-                <span class="sort-icon" aria-hidden="true">⇅</span>
-                <span class="sort-text">{t.sortByLabel}:</span>
-              </label>
-              <div class="select-wrapper-compact">
-                <select id="sort-select" class="filter-select-compact sort-select" title={t.sortByPrimary}>
-                  <option value="name">{t.sortByName}</option>
-                  <option value="price-asc">{t.sortByPriceAsc}</option>
-                  <option value="price-desc">{t.sortByPriceDesc}</option>
-                  <option value="province">{t.sortByProvince}</option>
-                  <option value="distance" id="distance-sort-option" disabled>{t.sortByDistance}</option>
-                </select>
+            <div class="location-popover-container" id="sort-popover-container">
+              <button
+                type="button"
+                id="sort-toggle-btn"
+                class="btn-location-toggle"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="sort-popover"
+                title={t.sortByLabel}
+              >
+                <span class="loc-icon" aria-hidden="true">⇅</span>
+                <span id="sort-btn-label" class="loc-btn-label">{t.sortByName}</span>
+                <span class="loc-arrow" aria-hidden="true">▾</span>
+              </button>
+
+              <div id="sort-popover" class="location-popover sort-popover" role="dialog" aria-modal="false" style="display: none;">
+                <div class="popover-section">
+                  <span class="popover-title">{t.sortByLabel}</span>
+
+                  <div class="sort-popover-field">
+                    <label for="sort-select" class="popover-field-label">{t.sortByPrimary}:</label>
+                    <select id="sort-select" class="filter-select-compact sort-popover-select" title={t.sortByPrimary}>
+                      <option value="name">{t.sortByName}</option>
+                      <option value="rating-desc">{t.sortByRating}</option>
+                      <option value="reviews-desc">{t.sortByReviews}</option>
+                      <option value="price-asc">{t.sortByPriceAsc}</option>
+                      <option value="price-desc">{t.sortByPriceDesc}</option>
+                      <option value="province">{t.sortByProvince}</option>
+                      <option value="distance" id="distance-sort-option" disabled>{t.sortByDistance}</option>
+                    </select>
+                  </div>
+
+                  <div class="sort-popover-field">
+                    <label for="sort-secondary-select" class="popover-field-label">{t.sortBySecondary}:</label>
+                    <select id="sort-secondary-select" class="filter-select-compact sort-popover-select" title={t.sortBySecondary}>
+                      <option value="none">{t.sortNone}</option>
+                      <option value="rating-desc">{t.sortByRating}</option>
+                      <option value="reviews-desc">{t.sortByReviews}</option>
+                      <option value="price-asc">{t.sortByPriceAsc}</option>
+                      <option value="price-desc">{t.sortByPriceDesc}</option>
+                      <option value="name">{t.sortByName}</option>
+                      <option value="province">{t.sortByProvince}</option>
+                      <option value="distance" id="distance-sort-secondary-option" disabled>{t.sortByDistance}</option>
+                    </select>
+                  </div>
+
+                  <div class="sort-popover-actions">
+                    <button type="button" id="sort-popover-done" class="btn-popover-primary">
+                      {t.applyRatingFilter}
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <select id="sort-secondary-select" style="display:none;" aria-hidden="true" title={t.sortBySecondary}>
-              <option value="none">{t.sortBySecondary}: {t.sortNone}</option>
-              <option value="distance" id="distance-sort-secondary-option" disabled>{t.sortByDistance}</option>
-              <option value="price-asc">{t.sortByPriceAsc}</option>
-              <option value="price-desc">{t.sortByPriceDesc}</option>
-              <option value="name">{t.sortByName}</option>
-              <option value="province">{t.sortByProvince}</option>
-            </select>
 
             <div class="view-toggle-group-compact" role="group" aria-label={t.viewMode}>
               <a href="#list" id="btn-view-grid" class="btn-view-toggle-compact active" role="button" aria-pressed="true" title={t.gridView}>
@@ -377,6 +472,8 @@ const pageTitle =
               data-price={priceDataVal}
               data-status={priceObj?.status || 'unknown'}
               data-categories={cardCategories.join(' ')}
+              data-rating={ratingObj && ratingObj.rating !== null && ratingObj.rating !== undefined ? String(ratingObj.rating) : ''}
+              data-reviews={ratingObj && ratingObj.reviews_count !== null && ratingObj.reviews_count !== undefined ? String(ratingObj.reviews_count) : '0'}
             >
               <div class="card-media">
                 {cardImg && cardImg.url ? (
@@ -428,7 +525,7 @@ const pageTitle =
               <div class="card-body">
                 <div class="card-header">
                   <div class="card-header-left">
-                    <span class="card-province">{m.province}</span>
+                    <span class="card-province" style="display: none;">{m.province}</span>
                     {cardCategories.slice(0, 2).map((catKey: string) => (
                       <span class="card-category-badge">{getCategoryLabel(catKey, lang)}</span>
                     ))}
@@ -442,7 +539,7 @@ const pageTitle =
 
               <div class="card-meta">
                 <div class="card-location-line">
-                  <span class="card-city">{m.city || 'Nederland'}</span>
+                  <span class="card-city">{m.city ? `${m.city}, ${m.province}` : m.province || 'Nederland'}</span>
                   <span class="card-distance" style="display: none;"></span>
                 </div>
                 {m.address?.street && <span class="card-address">{m.address.street}</span>}
@@ -522,13 +619,21 @@ const pageTitle =
     position: sticky;
     top: 0;
     z-index: 30;
-    background: rgba(248, 250, 252, 0.96);
+    background-color: var(--color-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 0.6rem 0;
+    padding: 0.45rem 0;
     margin-bottom: 0.75rem;
     border-bottom: 1px solid var(--color-border-light);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .sticky-filter-wrapper {
+      background-color: rgba(15, 23, 42, 0.95);
+      border-bottom-color: var(--color-border);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
   }
 
   .search-section {
@@ -626,22 +731,31 @@ const pageTitle =
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.35rem;
   }
 
   .filter-toolbar-left {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.3rem;
   }
 
   .filter-toolbar-right {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.35rem;
     margin-left: auto;
     flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .filter-toolbar {
+      flex-wrap: nowrap;
+    }
+    .filter-toolbar-left {
+      flex-wrap: nowrap;
+    }
   }
 
   .select-wrapper-compact {
@@ -649,9 +763,9 @@ const pageTitle =
   }
 
   .filter-select-compact {
-    height: 32px;
-    padding: 0.25rem 0.6rem;
-    font-size: 0.825rem;
+    height: 30px;
+    padding: 0.2rem 0.45rem;
+    font-size: 0.8rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     background-color: var(--color-surface);
@@ -660,7 +774,7 @@ const pageTitle =
     outline: none;
     font-family: inherit;
     transition: border-color 0.15s ease;
-    max-width: 135px;
+    max-width: 115px;
     text-overflow: ellipsis;
   }
 
@@ -676,16 +790,16 @@ const pageTitle =
   .btn-location-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.65rem;
-    font-size: 0.825rem;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     background-color: var(--color-surface);
     color: var(--color-text);
     cursor: pointer;
-    height: 32px;
+    height: 30px;
     white-space: nowrap;
     transition: all 0.15s ease;
     font-family: inherit;
@@ -838,6 +952,88 @@ const pageTitle =
     color: var(--color-text);
   }
 
+  .rating-popover {
+    width: 295px;
+  }
+
+  .rating-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .rating-badge-active {
+    font-size: 0.775rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    background-color: var(--color-badge-bg);
+    border: 1px solid var(--color-badge-border);
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+  }
+
+  .rating-preset-chips,
+  .reviews-preset-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .rating-preset-chip,
+  .review-preset-chip {
+    padding: 0.25rem 0.55rem;
+    font-size: 0.775rem;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+
+  .rating-preset-chip:hover,
+  .review-preset-chip:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-accent);
+  }
+
+  .rating-preset-chip.active,
+  .review-preset-chip.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .rating-popover-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .btn-popover-primary {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    font-family: inherit;
+  }
+
+  .btn-popover-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+
   .location-bar-active {
     display: flex;
     align-items: center;
@@ -916,10 +1112,10 @@ const pageTitle =
   .btn-toggle-visited {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    height: 32px;
-    padding: 0.35rem 0.65rem;
-    font-size: 0.825rem;
+    gap: 0.3rem;
+    height: 30px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
@@ -946,16 +1142,16 @@ const pageTitle =
   .visited-hidden-badge {
     font-size: 0.725rem;
     font-weight: 700;
-    padding: 0.05rem 0.4rem;
+    padding: 0.05rem 0.35rem;
     border-radius: 9999px;
     background-color: #059669;
     color: #ffffff;
   }
 
   .btn-clear-compact {
-    height: 32px;
-    padding: 0.35rem 0.65rem;
-    font-size: 0.825rem;
+    height: 30px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.775rem;
     font-weight: 500;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
@@ -973,25 +1169,31 @@ const pageTitle =
     border-color: var(--color-alert-border);
   }
 
-  .sort-group {
-    display: inline-flex;
-    align-items: center;
+  .sort-popover {
+    width: 260px;
+    right: 0;
+    left: auto;
+  }
+
+  .sort-popover-field {
+    display: flex;
+    flex-direction: column;
     gap: 0.35rem;
   }
 
-  .sort-select {
-    max-width: 145px;
-    text-overflow: ellipsis;
+  .sort-popover-select {
+    width: 100%;
+    max-width: 100%;
+    height: 32px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.825rem;
   }
 
-  .sort-label {
-    font-size: 0.825rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    white-space: nowrap;
+  .sort-popover-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.35rem;
+    border-top: 1px solid var(--color-border-light);
   }
 
   .view-toggle-group-compact {
@@ -1001,16 +1203,16 @@ const pageTitle =
     border: 1px solid var(--color-border);
     border-radius: 6px;
     overflow: hidden;
-    height: 32px;
+    height: 30px;
   }
 
   .btn-view-toggle-compact {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
+    width: 30px;
     height: 100%;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-text-muted);
     text-decoration: none;
     background: transparent;
@@ -1057,11 +1259,20 @@ const pageTitle =
       border-top: 1px solid var(--color-border-light);
     }
 
-    .location-popover {
-      left: 0;
-      right: 0;
+    .location-popover-container {
+      position: static;
+    }
+
+    .location-popover,
+    .rating-popover,
+    .sort-popover {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0.75rem;
+      right: 0.75rem;
       width: auto;
-      max-width: 100%;
+      max-width: calc(100vw - 1.5rem);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
     }
   }
 
@@ -1609,7 +1820,11 @@ const pageTitle =
   visitedText: t.visited,
   hideVisitedText: t.hideVisited,
   showVisitedText: t.showVisited,
-  visitedHiddenNoticeTemplate: t.visitedHiddenNotice
+  visitedHiddenNoticeTemplate: t.visitedHiddenNotice,
+  allRatingsText: t.allRatings,
+  allReviewCountsText: t.allReviewCounts,
+  filterByRatingText: t.filterByRating,
+  filterByDistanceText: t.filterByDistance
 }}>
   document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
@@ -1619,6 +1834,7 @@ const pageTitle =
     const sortSelect = document.getElementById('sort-select');
     const distanceSortOption = document.getElementById('distance-sort-option');
     const priceFilterSelect = document.getElementById('price-filter-select');
+    const ratingFilterSelect = document.getElementById('rating-filter-select');
     const categoryFilterSelect = document.getElementById('category-filter-select');
     const categoryPills = Array.from(document.querySelectorAll('.category-pill'));
     const selectedCategories = new Set();
@@ -1687,8 +1903,18 @@ const pageTitle =
         const isOpen = locationPopover.style.display !== 'none';
         locationPopover.style.display = isOpen ? 'none' : 'block';
         locationToggleBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-        if (!isOpen && manualLocationInput) {
-          setTimeout(() => manualLocationInput.focus(), 50);
+        if (!isOpen) {
+          if (ratingPopover) {
+            ratingPopover.style.display = 'none';
+            if (ratingToggleBtn) ratingToggleBtn.setAttribute('aria-expanded', 'false');
+          }
+          if (sortPopover) {
+            sortPopover.style.display = 'none';
+            if (sortToggleBtn) sortToggleBtn.setAttribute('aria-expanded', 'false');
+          }
+          if (manualLocationInput) {
+            setTimeout(() => manualLocationInput.focus(), 50);
+          }
         }
       });
 
@@ -1708,6 +1934,221 @@ const pageTitle =
           locationPopover.style.display = 'none';
           locationToggleBtn.setAttribute('aria-expanded', 'false');
           locationToggleBtn.focus();
+        }
+      });
+    }
+
+    // Rating & Reviews Popover handling
+    const ratingToggleBtn = document.getElementById('rating-toggle-btn');
+    const ratingPopover = document.getElementById('rating-popover');
+    const ratingBtnLabel = document.getElementById('rating-btn-label');
+    const ratingSliderDisplay = document.getElementById('rating-slider-display');
+    const reviewsDisplayBadge = document.getElementById('reviews-display-badge');
+    const ratingPresetChips = Array.from(document.querySelectorAll('.rating-preset-chip'));
+    const reviewPresetChips = Array.from(document.querySelectorAll('.review-preset-chip'));
+    const ratingPopoverReset = document.getElementById('rating-popover-reset');
+    const ratingPopoverDone = document.getElementById('rating-popover-done');
+
+    let minRatingScore = 0;
+    let minReviewCount = 0;
+
+    function updateRatingButtonUI() {
+      if (!ratingBtnLabel || !ratingToggleBtn) return;
+      if (minRatingScore > 0 && minReviewCount > 0) {
+        ratingBtnLabel.textContent = `⭐ ≥${minRatingScore.toFixed(1)} (${minReviewCount}+)`;
+        ratingToggleBtn.classList.add('active');
+      } else if (minRatingScore > 0) {
+        ratingBtnLabel.textContent = `⭐ ≥${minRatingScore.toFixed(1)}`;
+        ratingToggleBtn.classList.add('active');
+      } else if (minReviewCount > 0) {
+        ratingBtnLabel.textContent = `⭐ ≥${minReviewCount}+ rev`;
+        ratingToggleBtn.classList.add('active');
+      } else {
+        ratingBtnLabel.textContent = filterByRatingText;
+        ratingToggleBtn.classList.remove('active');
+      }
+
+      if (ratingSliderDisplay) {
+        ratingSliderDisplay.textContent = minRatingScore > 0 ? `≥ ${minRatingScore.toFixed(1)} ⭐` : allRatingsText;
+      }
+      if (reviewsDisplayBadge) {
+        reviewsDisplayBadge.textContent = minReviewCount > 0 ? `≥ ${minReviewCount}` : allReviewCountsText;
+      }
+
+      ratingPresetChips.forEach((chip) => {
+        const s = parseFloat(chip.dataset.score);
+        const isActive = (s === 0 && minRatingScore === 0) || (s > 0 && Math.abs(s - minRatingScore) < 0.05);
+        chip.classList.toggle('active', isActive);
+      });
+
+      reviewPresetChips.forEach((chip) => {
+        const r = parseInt(chip.dataset.reviews, 10);
+        const isActive = (r === 0 && minReviewCount === 0) || (r > 0 && r === minReviewCount);
+        chip.classList.toggle('active', isActive);
+      });
+    }
+
+    if (ratingToggleBtn && ratingPopover) {
+      ratingToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = ratingPopover.style.display !== 'none';
+        ratingPopover.style.display = isOpen ? 'none' : 'block';
+        ratingToggleBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        if (!isOpen) {
+          if (locationPopover) {
+            locationPopover.style.display = 'none';
+            if (locationToggleBtn) locationToggleBtn.setAttribute('aria-expanded', 'false');
+          }
+          if (sortPopover) {
+            sortPopover.style.display = 'none';
+            if (sortToggleBtn) sortToggleBtn.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      ratingPopover.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (ratingPopover.style.display !== 'none') {
+          ratingPopover.style.display = 'none';
+          ratingToggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && ratingPopover.style.display !== 'none') {
+          ratingPopover.style.display = 'none';
+          ratingToggleBtn.setAttribute('aria-expanded', 'false');
+          ratingToggleBtn.focus();
+        }
+      });
+    }
+
+    ratingPresetChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const s = parseFloat(chip.dataset.score);
+        minRatingScore = s;
+        updateRatingButtonUI();
+        sortAndFilterCards();
+        if (currentViewMode === 'map') updateMapMarkers();
+      });
+    });
+
+    reviewPresetChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const r = parseInt(chip.dataset.reviews, 10);
+        minReviewCount = r;
+        updateRatingButtonUI();
+        sortAndFilterCards();
+        if (currentViewMode === 'map') updateMapMarkers();
+      });
+    });
+
+    if (ratingPopoverReset) {
+      ratingPopoverReset.addEventListener('click', () => {
+        minRatingScore = 0;
+        minReviewCount = 0;
+        updateRatingButtonUI();
+        sortAndFilterCards();
+        if (currentViewMode === 'map') updateMapMarkers();
+      });
+    }
+
+    if (ratingPopoverDone) {
+      ratingPopoverDone.addEventListener('click', () => {
+        if (ratingPopover) ratingPopover.style.display = 'none';
+        if (ratingToggleBtn) {
+          ratingToggleBtn.setAttribute('aria-expanded', 'false');
+          ratingToggleBtn.focus();
+        }
+      });
+    }
+
+    // Sort Popover handling
+    const sortToggleBtn = document.getElementById('sort-toggle-btn');
+    const sortPopover = document.getElementById('sort-popover');
+    const sortBtnLabel = document.getElementById('sort-btn-label');
+    const sortPopoverDone = document.getElementById('sort-popover-done');
+
+    function updateSortButtonLabel() {
+      if (!sortBtnLabel || !sortSelect) return;
+      const primaryVal = sortSelect.value;
+      const secondaryVal = sortSecondarySelect ? sortSecondarySelect.value : 'none';
+
+      const shortMap = {
+        'name': 'Naam (A-Z)',
+        'rating-desc': 'Score (⭐)',
+        'reviews-desc': 'Reviews',
+        'price-desc': 'Prijs (hoog)',
+        'price-asc': 'Prijs (laag)',
+        'province': 'Provincie',
+        'distance': 'Afstand'
+      };
+
+      const pText = shortMap[primaryVal] || (sortSelect.options[sortSelect.selectedIndex]?.text || 'Naam');
+
+      if (secondaryVal && secondaryVal !== 'none' && secondaryVal !== primaryVal) {
+        const sText = shortMap[secondaryVal] || (sortSecondarySelect.options[sortSecondarySelect.selectedIndex]?.text || '');
+        sortBtnLabel.textContent = `${pText} · 2e: ${sText}`;
+        if (sortToggleBtn) sortToggleBtn.classList.add('active');
+      } else {
+        sortBtnLabel.textContent = pText;
+        if (sortToggleBtn) {
+          if (primaryVal !== 'name') {
+            sortToggleBtn.classList.add('active');
+          } else {
+            sortToggleBtn.classList.remove('active');
+          }
+        }
+      }
+    }
+
+    if (sortToggleBtn && sortPopover) {
+      sortToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = sortPopover.style.display !== 'none';
+        sortPopover.style.display = isOpen ? 'none' : 'block';
+        sortToggleBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        if (!isOpen) {
+          if (locationPopover) {
+            locationPopover.style.display = 'none';
+            if (locationToggleBtn) locationToggleBtn.setAttribute('aria-expanded', 'false');
+          }
+          if (ratingPopover) {
+            ratingPopover.style.display = 'none';
+            if (ratingToggleBtn) ratingToggleBtn.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      sortPopover.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (sortPopover.style.display !== 'none') {
+          sortPopover.style.display = 'none';
+          sortToggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sortPopover.style.display !== 'none') {
+          sortPopover.style.display = 'none';
+          sortToggleBtn.setAttribute('aria-expanded', 'false');
+          sortToggleBtn.focus();
+        }
+      });
+    }
+
+    if (sortPopoverDone) {
+      sortPopoverDone.addEventListener('click', () => {
+        if (sortPopover) sortPopover.style.display = 'none';
+        if (sortToggleBtn) {
+          sortToggleBtn.setAttribute('aria-expanded', 'false');
+          sortToggleBtn.focus();
         }
       });
     }
@@ -2144,6 +2585,7 @@ const pageTitle =
         if (distanceSortSecondaryOption) distanceSortSecondaryOption.disabled = true;
         if (sortSelect.value === 'distance') sortSelect.value = 'name';
         if (sortSecondarySelect && sortSecondarySelect.value === 'distance') sortSecondarySelect.value = 'none';
+        updateSortButtonLabel();
         return;
       }
 
@@ -2182,7 +2624,7 @@ const pageTitle =
         locBtnLabel.textContent = `≤${distVal}km`;
         locationToggleBtn.classList.add('active');
       } else {
-        locBtnLabel.textContent = locationAndDistanceText;
+        locBtnLabel.textContent = filterByDistanceText;
         locationToggleBtn.classList.remove('active');
       }
     }
@@ -2211,10 +2653,15 @@ const pageTitle =
       if (locationFeedbackMsg) locationFeedbackMsg.style.display = 'none';
       if (maxDistanceSelect) maxDistanceSelect.value = '';
       if (priceFilterSelect) priceFilterSelect.value = '';
+      if (ratingFilterSelect) ratingFilterSelect.value = '';
+      minRatingScore = 0;
+      minReviewCount = 0;
+      updateRatingButtonUI();
       if (sortSecondarySelect) sortSecondarySelect.value = 'none';
       updateDistances();
       updateLocationButtonLabel();
       sortSelect.value = 'name';
+      updateSortButtonLabel();
       sortAndFilterCards();
     }
 
@@ -2235,6 +2682,7 @@ const pageTitle =
       const selectedCity = citySelect.value;
       const maxDistance = parseFloat(maxDistanceSelect.value);
       const selectedPriceFilter = priceFilterSelect ? priceFilterSelect.value : '';
+      const selectedRatingFilter = ratingFilterSelect ? ratingFilterSelect.value : '';
       const selectedCategory = categoryFilterSelect ? categoryFilterSelect.value : '';
       const sortBy = sortSelect.value;
       const secondarySort = sortSecondarySelect ? sortSecondarySelect.value : 'none';
@@ -2270,22 +2718,45 @@ const pageTitle =
         const cardDist = card.dataset.distance !== undefined ? parseFloat(card.dataset.distance) : null;
         const matchesDistance = isNaN(maxDistance) || (cardDist !== null && cardDist <= maxDistance);
 
-        // Price filter matching
+        // Discrete non-overlapping price filter matching
         let matchesPrice = true;
         if (selectedPriceFilter === 'free') {
           matchesPrice = card.dataset.status === 'free' || card.dataset.price === '0';
         } else if (selectedPriceFilter === 'under-10') {
           const p = card.dataset.price !== '' ? parseFloat(card.dataset.price) : null;
-          matchesPrice = p !== null && p <= 10.0;
-        } else if (selectedPriceFilter === 'under-15') {
+          matchesPrice = p !== null && p > 0 && p < 10.0;
+        } else if (selectedPriceFilter === '10-15') {
           const p = card.dataset.price !== '' ? parseFloat(card.dataset.price) : null;
-          matchesPrice = p !== null && p <= 15.0;
-        } else if (selectedPriceFilter === 'under-20') {
+          matchesPrice = p !== null && p >= 10.0 && p < 15.0;
+        } else if (selectedPriceFilter === '15-20') {
           const p = card.dataset.price !== '' ? parseFloat(card.dataset.price) : null;
-          matchesPrice = p !== null && p <= 20.0;
+          matchesPrice = p !== null && p >= 15.0 && p < 20.0;
         } else if (selectedPriceFilter === '20-plus') {
           const p = card.dataset.price !== '' ? parseFloat(card.dataset.price) : null;
           matchesPrice = p !== null && p >= 20.0;
+        }
+
+        // Rating filter matching (dynamic slider & preset chips, plus fallback)
+        let matchesRating = true;
+        if (minRatingScore > 0) {
+          const r = card.dataset.rating !== '' && card.dataset.rating !== undefined ? parseFloat(card.dataset.rating) : null;
+          matchesRating = r !== null && r >= minRatingScore;
+        } else if (selectedRatingFilter) {
+          const r = card.dataset.rating !== '' && card.dataset.rating !== undefined ? parseFloat(card.dataset.rating) : null;
+          if (selectedRatingFilter === '4.6-plus') {
+            matchesRating = r !== null && r >= 4.6;
+          } else if (selectedRatingFilter === '4.5-plus') {
+            matchesRating = r !== null && r >= 4.5;
+          } else if (selectedRatingFilter === '4.3-plus') {
+            matchesRating = r !== null && r >= 4.3;
+          }
+        }
+
+        // Reviews count matching
+        let matchesReviews = true;
+        if (minReviewCount > 0) {
+          const rev = card.dataset.reviews !== '' && card.dataset.reviews !== undefined ? parseInt(card.dataset.reviews, 10) : 0;
+          matchesReviews = rev >= minReviewCount;
         }
 
         // Category filter matching (Multi-select OR logic)
@@ -2302,7 +2773,7 @@ const pageTitle =
         const isCardVisited = card.dataset.visited === 'true';
         const matchesVisited = !hideVisited || !isCardVisited;
 
-        const isVisible = matchesQuery && matchesProvince && matchesCity && matchesDistance && matchesPrice && matchesCategory && matchesVisited;
+        const isVisible = matchesQuery && matchesProvince && matchesCity && matchesDistance && matchesPrice && matchesRating && matchesReviews && matchesCategory && matchesVisited;
         card.style.display = isVisible ? 'flex' : 'none';
         if (isVisible) {
           visibleCards.push(card);
@@ -2317,6 +2788,38 @@ const pageTitle =
           return distA - distB;
         } else if (key === 'province') {
           return (a.dataset.province || '').localeCompare(b.dataset.province || '');
+        } else if (key === 'rating-desc') {
+          const hasRatingA = a.dataset.rating !== '' && a.dataset.rating !== undefined;
+          const hasRatingB = b.dataset.rating !== '' && b.dataset.rating !== undefined;
+          if (hasRatingA && hasRatingB) {
+            const rA = parseFloat(a.dataset.rating);
+            const rB = parseFloat(b.dataset.rating);
+            if (rB !== rA) return rB - rA;
+            const revA = parseInt(a.dataset.reviews || '0', 10);
+            const revB = parseInt(b.dataset.reviews || '0', 10);
+            return revB - revA;
+          } else if (hasRatingA && !hasRatingB) {
+            return -1;
+          } else if (!hasRatingA && hasRatingB) {
+            return 1;
+          }
+          return 0;
+        } else if (key === 'reviews-desc') {
+          const revA = parseInt(a.dataset.reviews || '0', 10);
+          const revB = parseInt(b.dataset.reviews || '0', 10);
+          if (revB !== revA) return revB - revA;
+          const hasRatingA = a.dataset.rating !== '' && a.dataset.rating !== undefined;
+          const hasRatingB = b.dataset.rating !== '' && b.dataset.rating !== undefined;
+          if (hasRatingA && hasRatingB) {
+            const rA = parseFloat(a.dataset.rating);
+            const rB = parseFloat(b.dataset.rating);
+            return rB - rA;
+          } else if (hasRatingA && !hasRatingB) {
+            return -1;
+          } else if (!hasRatingA && hasRatingB) {
+            return 1;
+          }
+          return 0;
         } else if (key === 'price-asc') {
           const hasPriceA = a.dataset.price !== '' && a.dataset.price !== undefined;
           const hasPriceB = b.dataset.price !== '' && b.dataset.price !== undefined;
@@ -2406,6 +2909,9 @@ const pageTitle =
         selectedCity ||
         !isNaN(maxDistance) ||
         (priceFilterSelect && priceFilterSelect.value) ||
+        (ratingFilterSelect && ratingFilterSelect.value) ||
+        minRatingScore > 0 ||
+        minReviewCount > 0 ||
         selectedCategories.size > 0 ||
         (categoryFilterSelect && categoryFilterSelect.value) ||
         sortBy !== 'name' ||
@@ -2573,9 +3079,18 @@ const pageTitle =
     provinceSelect.addEventListener('change', sortAndFilterCards);
     citySelect.addEventListener('change', sortAndFilterCards);
     if (priceFilterSelect) priceFilterSelect.addEventListener('change', sortAndFilterCards);
+    if (ratingFilterSelect) ratingFilterSelect.addEventListener('change', sortAndFilterCards);
     if (categoryFilterSelect) categoryFilterSelect.addEventListener('change', sortAndFilterCards);
-    sortSelect.addEventListener('change', sortAndFilterCards);
-    if (sortSecondarySelect) sortSecondarySelect.addEventListener('change', sortAndFilterCards);
+    sortSelect.addEventListener('change', () => {
+      updateSortButtonLabel();
+      sortAndFilterCards();
+    });
+    if (sortSecondarySelect) {
+      sortSecondarySelect.addEventListener('change', () => {
+        updateSortButtonLabel();
+        sortAndFilterCards();
+      });
+    }
 
     clearBtn.addEventListener('click', () => {
       searchInput.value = '';
@@ -2583,11 +3098,16 @@ const pageTitle =
       citySelect.value = '';
       maxDistanceSelect.value = '';
       if (priceFilterSelect) priceFilterSelect.value = '';
+      if (ratingFilterSelect) ratingFilterSelect.value = '';
+      minRatingScore = 0;
+      minReviewCount = 0;
+      updateRatingButtonUI();
       if (categoryFilterSelect) categoryFilterSelect.value = '';
       selectedCategories.clear();
       updateCategoryPillsUI();
       sortSelect.value = 'name';
       if (sortSecondarySelect) sortSecondarySelect.value = 'none';
+      updateSortButtonLabel();
       resetLocation();
       searchInput.focus();
     });
@@ -2602,6 +3122,8 @@ const pageTitle =
     // Initial setup
     updateCardListButtons();
     updateCardVisitedButtons();
+    updateSortButtonLabel();
+    updateLocationButtonLabel();
     sortAndFilterCards();
   });
 </script>
