@@ -20,14 +20,14 @@ export default {
     }
 
     // Health check
-    if (url.pathname === '/api/sync/health' || url.pathname === '/health') {
+    if (url.pathname === '/api/sync/health' || url.pathname === '/health' || url.pathname === '/') {
       return new Response(JSON.stringify({ status: 'ok', service: 'museumwijzer-sync' }), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
 
-    // POST /api/sync : Save/update list under a 6-digit code
-    if (request.method === 'POST' && (url.pathname === '/api/sync' || url.pathname === '/api/sync/')) {
+    // POST /api/sync or / : Save/update list under a 6-digit code
+    if (request.method === 'POST' && (url.pathname === '/api/sync' || url.pathname === '/api/sync/' || url.pathname === '/' || url.pathname === '')) {
       try {
         if (!env.MUSEUM_SYNC_KV) {
           return new Response(JSON.stringify({ error: 'MUSEUM_SYNC_KV binding not configured on Worker' }), {
@@ -85,8 +85,8 @@ export default {
       }
     }
 
-    // GET /api/sync/:code : Fetch list by 6-digit code
-    const match = url.pathname.match(/\/api\/sync\/(\d{6})/);
+    // GET /api/sync/:code or /:code : Fetch list by 6-digit code
+    const match = url.pathname.match(/(?:\/api\/sync\/|\/)(\d{6})/);
     if (request.method === 'GET' && match) {
       if (!env.MUSEUM_SYNC_KV) {
         return new Response(JSON.stringify({ error: 'MUSEUM_SYNC_KV binding not configured on Worker' }), {

@@ -7,7 +7,7 @@ compatibility_date = "2024-01-01"
 # Paste the resulting id below:
 [[kv_namespaces]]
 binding = "MUSEUM_SYNC_KV"
-id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+id = "c925fb8d2a034924bf1cb549ee751316"
 
 # Optional Custom Domain / Route under your vlesyk.com zone:
 # routes = [
