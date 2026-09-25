@@ -1,8 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { type Locale } from '../../i18n/languages';
-import { useTranslations } from '../../i18n/ui';
+import { useTranslations, getCategoryLabel } from '../../i18n/ui';
 import museumsData from '../../../../data/museums.json';
+import descriptionsData from '../../../../data/enrichment/descriptions.json';
+import { getMuseumRating, formatReviewsCount } from '../../utils/rating';
 
 export function getStaticPaths() {
   return [
@@ -22,9 +24,36 @@ for (const m of allMuseums) {
   }
 }
 
+const descriptionsMap: Record<string, any> = {};
+for (const d of (descriptionsData.museums || [])) {
+  if (d.slug) {
+    descriptionsMap[d.slug] = d;
+  }
+}
+
 // Compact lookup dictionary for client-side rendering
-const museumsLookup: Record<string, { name: string; city: string; province: string; street: string; website: string | null; status: string }> = {};
+const museumsLookup: Record<string, {
+  name: string;
+  city: string;
+  province: string;
+  street: string;
+  website: string | null;
+  status: string;
+  image: string | null;
+  rating: number | null;
+  reviews: number | null;
+  reviewsFormatted: string | null;
+  categories: { key: string; label: string }[];
+}> = {};
+
 for (const m of allMuseums) {
+  const desc = descriptionsMap[m.slug];
+  const r = getMuseumRating(m.slug);
+  const cats = (desc?.categories || []).map((k: string) => ({
+    key: k,
+    label: getCategoryLabel(k, lang),
+  }));
+
   museumsLookup[m.slug] = {
     name: m.name,
     city: m.city || '',
@@ -32,6 +61,11 @@ for (const m of allMuseums) {
     street: m.address?.street || '',
     website: m.museum_website || null,
     status: (m as any).status || 'active',
+    image: desc?.image?.url || desc?.images?.[0]?.url || null,
+    rating: r.rating,
+    reviews: r.reviews,
+    reviewsFormatted: r.reviews ? formatReviewsCount(r.reviews) : null,
+    categories: cats,
   };
 }
 ---
@@ -70,6 +104,11 @@ for (const m of allMuseums) {
             <rect x="6" y="14" width="12" height="8"></rect>
           </svg>
           <span>{t.printList}</span>
+        </button>
+
+        <button type="button" id="toggle-hide-visited-btn" class="btn-action btn-action-visited" style="display: none;" title={t.hideVisited}>
+          <span class="visited-btn-icon" aria-hidden="true">👁️‍🗨️</span>
+          <span id="hide-visited-btn-text">{t.hideVisited}</span>
         </button>
 
         <div class="dropdown-container">
@@ -143,6 +182,17 @@ for (const m of allMuseums) {
 
     <!-- Active List Items -->
     <ol id="priority-items-list" class="priority-list" aria-label="Prioriteitenlijst"></ol>
+
+    <!-- Visited Items Hidden Notice Banner -->
+    <div id="visited-hidden-banner" class="visited-hidden-banner" style="display: none;" role="status">
+      <div class="visited-hidden-info">
+        <span class="visited-hidden-icon" aria-hidden="true">👁️‍🗨️</span>
+        <span id="visited-hidden-count-text"></span>
+      </div>
+      <button type="button" id="show-visited-inline-btn" class="btn-link-action">
+        {t.showVisited}
+      </button>
+    </div>
   </div>
 </Layout>
 
@@ -504,6 +554,14 @@ for (const m of allMuseums) {
     min-width: 240px;
   }
 
+  .card-controls-col {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
   .drag-grip {
     cursor: grab;
     color: var(--color-text-muted);
@@ -513,7 +571,6 @@ for (const m of allMuseums) {
     opacity: 0.5;
     transition: opacity 0.15s ease;
     user-select: none;
-    margin-top: 0.1rem;
   }
 
   .drag-grip:hover {
@@ -537,7 +594,6 @@ for (const m of allMuseums) {
     align-items: center;
     justify-content: center;
     padding: 0;
-    margin-top: 0.1rem;
     color: transparent;
     transition: all 0.15s ease;
     flex-shrink: 0;
@@ -559,10 +615,43 @@ for (const m of allMuseums) {
     font-weight: 700;
     color: var(--color-text-muted);
     opacity: 0.6;
-    margin-top: 0.25rem;
     min-width: 1.25rem;
     text-align: right;
     flex-shrink: 0;
+  }
+
+  /* Small Thumbnail Wrap */
+  .card-thumb-wrap {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+
+  .priority-item-card.is-visited .card-thumb-img {
+    filter: grayscale(0.85);
+    opacity: 0.55;
+  }
+
+  .card-thumb-empty {
+    font-size: 1.6rem;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+    user-select: none;
   }
 
   .item-info {
@@ -598,16 +687,116 @@ for (const m of allMuseums) {
   }
 
   .city-tag {
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  .province-tag {
+    font-weight: 500;
     color: var(--color-text-muted);
   }
 
   .street-tag {
     color: var(--color-text-muted);
+  }
+
+  .street-tag::before {
+    content: "•";
+    margin-right: 0.4rem;
+    color: var(--color-border);
+  }
+
+  /* Ratings & Categories line */
+  .item-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.15rem;
+    font-size: 0.8rem;
+  }
+
+  .item-rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.12rem 0.45rem;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .rating-count {
+    color: var(--color-text-muted);
+    font-weight: normal;
+    font-size: 0.75rem;
+  }
+
+  .item-category-pills {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .item-cat-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.12rem 0.45rem;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  /* Visited Hidden Banner */
+  .visited-hidden-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.25rem;
+    background-color: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius);
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+
+  .visited-hidden-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-link-action {
+    background: transparent;
+    border: none;
+    color: var(--color-accent);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .btn-action.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+  }
+
+  @media (max-width: 640px) {
+    .card-thumb-wrap {
+      width: 48px;
+      height: 48px;
+    }
+    .card-left-col {
+      gap: 0.5rem;
+    }
+    .street-tag {
+      display: none;
+    }
   }
 
   .card-right-col {
@@ -868,6 +1057,9 @@ for (const m of allMuseums) {
   lang: lang,
   emptyNoticeText: t.emptyListNotice,
   visitedText: t.visitedCheckbox,
+  hideVisitedText: t.hideVisited,
+  showVisitedText: t.showVisited,
+  visitedHiddenNoticeTemplate: t.visitedHiddenNotice,
   notePlaceholder: t.personalNotePlaceholder,
   moveUpText: t.moveUp,
   moveDownText: t.moveDown,
@@ -894,9 +1086,18 @@ for (const m of allMuseums) {
     const importInput = document.getElementById('import-json-input');
     const printBtn = document.getElementById('print-list-btn');
     const clearBtn = document.getElementById('clear-list-btn');
+    const toggleHideVisitedBtn = document.getElementById('toggle-hide-visited-btn');
+    const hideVisitedBtnText = document.getElementById('hide-visited-btn-text');
+    const visitedHiddenBanner = document.getElementById('visited-hidden-banner');
+    const visitedHiddenCountText = document.getElementById('visited-hidden-count-text');
+    const showVisitedInlineBtn = document.getElementById('show-visited-inline-btn');
 
     let currentList = [];
     let sharedSlugs = null;
+    let hideVisited = false;
+    try {
+      hideVisited = localStorage.getItem('museumwijzer_hide_visited_list') === 'true';
+    } catch(e) {}
 
     function loadSavedList() {
       try {
@@ -988,32 +1189,72 @@ for (const m of allMuseums) {
       itemsListEl.innerHTML = '';
       updateStatsBadge();
 
+      const visitedCount = currentList.filter((item) => item.visited).length;
+
+      // Update Toolbar Hide Visited Button
+      if (toggleHideVisitedBtn) {
+        if (visitedCount === 0) {
+          toggleHideVisitedBtn.style.display = 'none';
+        } else {
+          toggleHideVisitedBtn.style.display = 'inline-flex';
+          if (hideVisited) {
+            toggleHideVisitedBtn.classList.add('active');
+            toggleHideVisitedBtn.setAttribute('aria-pressed', 'true');
+            if (hideVisitedBtnText) hideVisitedBtnText.textContent = `${showVisitedText} (${visitedCount})`;
+          } else {
+            toggleHideVisitedBtn.classList.remove('active');
+            toggleHideVisitedBtn.setAttribute('aria-pressed', 'false');
+            if (hideVisitedBtnText) hideVisitedBtnText.textContent = `${hideVisitedText} (${visitedCount})`;
+          }
+        }
+      }
+
       if (currentList.length === 0) {
         emptyNoticeEl.style.display = 'flex';
         itemsListEl.style.display = 'none';
+        if (visitedHiddenBanner) visitedHiddenBanner.style.display = 'none';
         return;
       }
 
       emptyNoticeEl.style.display = 'none';
       itemsListEl.style.display = 'flex';
 
-      currentList.forEach((item, index) => {
+      const visibleList = hideVisited ? currentList.filter((item) => !item.visited) : currentList;
+
+      // Visited hidden bottom banner
+      if (visitedHiddenBanner) {
+        if (hideVisited && visitedCount > 0) {
+          visitedHiddenBanner.style.display = 'flex';
+          if (visitedHiddenCountText) {
+            visitedHiddenCountText.textContent = visitedHiddenNoticeTemplate.replace('{count}', String(visitedCount));
+          }
+        } else {
+          visitedHiddenBanner.style.display = 'none';
+        }
+      }
+
+      visibleList.forEach((item, visibleIndex) => {
+        const fullIndex = currentList.indexOf(item);
         const slug = item.slug;
         const museum = lookup[slug];
 
         const card = document.createElement('li');
         card.className = 'priority-item-card' + (item.visited ? ' is-visited' : '');
         card.setAttribute('draggable', 'true');
-        card.dataset.index = String(index);
+        card.dataset.index = String(fullIndex);
         card.dataset.slug = slug;
 
         // Top Row
         const topRow = document.createElement('div');
         topRow.className = 'card-top-row';
 
-        // Left Col: Grip, Check circle, Rank, Info
+        // Left Col: Controls, Thumbnail, Info
         const leftCol = document.createElement('div');
         leftCol.className = 'card-left-col';
+
+        // Controls (Grip, Check circle, Rank)
+        const controlsCol = document.createElement('div');
+        controlsCol.className = 'card-controls-col';
 
         // Drag grip
         const grip = document.createElement('span');
@@ -1027,7 +1268,7 @@ for (const m of allMuseums) {
             <circle cx="5" cy="13" r="1.5"/><circle cx="11" cy="13" r="1.5"/>
           </svg>
         `;
-        leftCol.appendChild(grip);
+        controlsCol.appendChild(grip);
 
         // Circular Check Button
         const checkBtn = document.createElement('button');
@@ -1045,15 +1286,32 @@ for (const m of allMuseums) {
           saveListToStorage(currentList);
           renderList();
         });
-        leftCol.appendChild(checkBtn);
+        controlsCol.appendChild(checkBtn);
 
         // Rank indicator
         const rank = document.createElement('span');
         rank.className = 'rank-badge';
-        rank.textContent = `${index + 1}`;
-        leftCol.appendChild(rank);
+        rank.textContent = `${fullIndex + 1}`;
+        controlsCol.appendChild(rank);
+        leftCol.appendChild(controlsCol);
 
-        // Info (title, city, badges)
+        // Small Thumbnail Image
+        const thumbWrap = document.createElement('div');
+        thumbWrap.className = 'card-thumb-wrap';
+        if (museum && museum.image) {
+          const img = document.createElement('img');
+          img.src = museum.image;
+          img.alt = '';
+          img.className = 'card-thumb-img';
+          img.loading = 'lazy';
+          thumbWrap.appendChild(img);
+        } else {
+          thumbWrap.classList.add('card-thumb-empty');
+          thumbWrap.innerHTML = '🏛️';
+        }
+        leftCol.appendChild(thumbWrap);
+
+        // Info (title, badges, ratings & categories)
         const info = document.createElement('div');
         info.className = 'item-info';
 
@@ -1070,25 +1328,47 @@ for (const m of allMuseums) {
           const badges = document.createElement('div');
           badges.className = 'item-badges';
 
-          if (museum.city) {
-            const citySpan = document.createElement('span');
-            citySpan.className = 'city-tag';
-            citySpan.textContent = museum.city;
-            badges.appendChild(citySpan);
-          }
-          if (museum.province) {
-            const provSpan = document.createElement('span');
-            provSpan.className = 'province-tag';
-            provSpan.textContent = `• ${museum.province}`;
-            badges.appendChild(provSpan);
+          const locText = museum.city ? (museum.province ? `${museum.city}, ${museum.province}` : museum.city) : (museum.province || '');
+          if (locText) {
+            const locSpan = document.createElement('span');
+            locSpan.className = 'city-tag';
+            locSpan.textContent = locText;
+            badges.appendChild(locSpan);
           }
           if (museum.street) {
             const streetSpan = document.createElement('span');
             streetSpan.className = 'street-tag';
-            streetSpan.textContent = `• ${museum.street}`;
+            streetSpan.textContent = museum.street;
             badges.appendChild(streetSpan);
           }
           info.appendChild(badges);
+
+          // Ratings & Categories row
+          const metaRow = document.createElement('div');
+          metaRow.className = 'item-meta-row';
+
+          if (museum.rating) {
+            const rTag = document.createElement('span');
+            rTag.className = 'item-rating-badge';
+            rTag.innerHTML = `⭐ <strong>${museum.rating}</strong>${museum.reviewsFormatted ? ` <span class="rating-count">(${museum.reviewsFormatted})</span>` : ''}`;
+            metaRow.appendChild(rTag);
+          }
+
+          if (museum.categories && museum.categories.length > 0) {
+            const catGroup = document.createElement('div');
+            catGroup.className = 'item-category-pills';
+            museum.categories.slice(0, 2).forEach((cat) => {
+              const cPill = document.createElement('span');
+              cPill.className = 'item-cat-pill';
+              cPill.textContent = cat.label;
+              catGroup.appendChild(cPill);
+            });
+            metaRow.appendChild(catGroup);
+          }
+
+          if (metaRow.children.length > 0) {
+            info.appendChild(metaRow);
+          }
         } else {
           title.textContent = museum ? museum.name : slug;
           info.appendChild(title);
@@ -1114,17 +1394,18 @@ for (const m of allMuseums) {
         upBtn.type = 'button';
         upBtn.className = 'btn-step';
         upBtn.title = moveUpText;
-        upBtn.disabled = index === 0;
+        upBtn.disabled = visibleIndex === 0;
         upBtn.innerHTML = `
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
           </svg>
         `;
         upBtn.addEventListener('click', () => {
-          if (index > 0) {
-            const temp = currentList[index - 1];
-            currentList[index - 1] = currentList[index];
-            currentList[index] = temp;
+          if (visibleIndex > 0) {
+            const prevItem = visibleList[visibleIndex - 1];
+            const prevFullIdx = currentList.indexOf(prevItem);
+            currentList.splice(fullIndex, 1);
+            currentList.splice(prevFullIdx, 0, item);
             saveListToStorage(currentList);
             renderList();
           }
@@ -1135,17 +1416,18 @@ for (const m of allMuseums) {
         downBtn.type = 'button';
         downBtn.className = 'btn-step';
         downBtn.title = moveDownText;
-        downBtn.disabled = index === currentList.length - 1;
+        downBtn.disabled = visibleIndex === visibleList.length - 1;
         downBtn.innerHTML = `
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         `;
         downBtn.addEventListener('click', () => {
-          if (index < currentList.length - 1) {
-            const temp = currentList[index + 1];
-            currentList[index + 1] = currentList[index];
-            currentList[index] = temp;
+          if (visibleIndex < visibleList.length - 1) {
+            const nextItem = visibleList[visibleIndex + 1];
+            const nextFullIdx = currentList.indexOf(nextItem);
+            currentList.splice(fullIndex, 1);
+            currentList.splice(nextFullIdx, 0, item);
             saveListToStorage(currentList);
             renderList();
           }
@@ -1166,7 +1448,7 @@ for (const m of allMuseums) {
           </svg>
         `;
         delBtn.addEventListener('click', () => {
-          currentList.splice(index, 1);
+          currentList.splice(fullIndex, 1);
           saveListToStorage(currentList);
           renderList();
         });
@@ -1246,7 +1528,7 @@ for (const m of allMuseums) {
 
         // Drag and drop handlers
         card.addEventListener('dragstart', (e) => {
-          e.dataTransfer.setData('text/plain', String(index));
+          e.dataTransfer.setData('text/plain', String(fullIndex));
           card.classList.add('is-dragging');
         });
         card.addEventListener('dragend', () => {
@@ -1264,7 +1546,7 @@ for (const m of allMuseums) {
           e.preventDefault();
           card.classList.remove('is-drag-over');
           const fromIndex = parseInt(e.dataTransfer.getData('text/plain'), 10);
-          const toIndex = index;
+          const toIndex = fullIndex;
           if (!isNaN(fromIndex) && fromIndex !== toIndex) {
             const [moved] = currentList.splice(fromIndex, 1);
             currentList.splice(toIndex, 0, moved);
@@ -1442,6 +1724,27 @@ for (const m of allMuseums) {
     printBtn.addEventListener('click', () => {
       window.print();
     });
+
+    // Toggle Hide Visited
+    if (toggleHideVisitedBtn) {
+      toggleHideVisitedBtn.addEventListener('click', () => {
+        hideVisited = !hideVisited;
+        try {
+          localStorage.setItem('museumwijzer_hide_visited_list', String(hideVisited));
+        } catch (e) {}
+        renderList();
+      });
+    }
+
+    if (showVisitedInlineBtn) {
+      showVisitedInlineBtn.addEventListener('click', () => {
+        hideVisited = false;
+        try {
+          localStorage.setItem('museumwijzer_hide_visited_list', 'false');
+        } catch (e) {}
+        renderList();
+      });
+    }
 
     // Clear list
     clearBtn.addEventListener('click', () => {
