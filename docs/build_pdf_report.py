@@ -1,0 +1,544 @@
+"""Generate a verified, accurate 2-page PDF data audit report highlighting NL vs EN desynchronisation."""
+
+from pathlib import Path
+import subprocess
+
+HTML_CONTENT = """<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Gegevenskwaliteit &amp; Correctierapport — Welkom in het Museum</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    line-height: 1.32;
+    font-size: 8pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-card {
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid #1b365d;
+    background: #f8fafc;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+  }
+
+  .report-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .report-title {
+    font-size: 13.5pt;
+    font-weight: 700;
+    color: #1b365d;
+    margin: 0;
+  }
+
+  .report-tag {
+    font-size: 7.2pt;
+    font-weight: 600;
+    color: #0369a1;
+    background: #e0f2fe;
+    border: 1px solid #bae6fd;
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .report-subtitle {
+    font-size: 8.5pt;
+    font-weight: 500;
+    color: #475569;
+    margin: 0 0 5px 0;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3px 16px;
+    font-size: 7.5pt;
+    color: #334155;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 5px;
+  }
+
+  .meta-item strong {
+    color: #0f172a;
+  }
+
+  .purpose-note {
+    margin-top: 5px;
+    font-size: 7.2pt;
+    color: #64748b;
+    line-height: 1.28;
+  }
+
+  h2 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #1b365d;
+    border-bottom: 1.5px solid #cbd5e1;
+    padding-bottom: 2px;
+    margin: 8px 0 6px 0;
+  }
+
+  .kpi-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .kpi-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 5px 8px;
+    text-align: center;
+  }
+
+  .kpi-card.severe { border-top: 3px solid #dc2626; }
+  .kpi-card.warning { border-top: 3px solid #d97706; }
+  .kpi-card.info { border-top: 3px solid #2563eb; }
+  .kpi-card.neutral { border-top: 3px solid #64748b; }
+
+  .kpi-num {
+    font-size: 11pt;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.1;
+  }
+
+  .kpi-label {
+    font-size: 6.6pt;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: 2px;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.2pt;
+    margin-bottom: 8px;
+  }
+
+  th {
+    background: #1b365d;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 4px 6px;
+    font-size: 7.2pt;
+  }
+
+  td {
+    padding: 3.5px 6px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+    line-height: 1.28;
+  }
+
+  tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 6.2pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+
+  .badge-severe { background: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+  .badge-high { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+  .badge-medium { background: #e0f2fe; color: #0369a1; border: 1px solid #7dd3fc; }
+
+  .wrong-data {
+    color: #b91c1c;
+    text-decoration: line-through;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 6.8pt;
+  }
+
+  .correct-data {
+    color: #047857;
+    font-weight: 600;
+  }
+
+  .source-link {
+    color: #2563eb;
+    text-decoration: none;
+    word-break: break-all;
+    font-size: 6.8pt;
+  }
+
+  .slug-code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 6.8pt;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+
+  .lang-tag {
+    font-size: 6.2pt;
+    font-weight: 700;
+    padding: 1px 3px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 2px;
+  }
+  .lang-tag.nl { background: #fed7aa; color: #9a3412; }
+  .lang-tag.en { background: #dcfce7; color: #166534; }
+  .lang-tag.both { background: #fee2e2; color: #991b1b; }
+
+  .page-divider {
+    page-break-before: always;
+  }
+
+  .page-header-mini {
+    display: flex;
+    justify-content: space-between;
+    font-size: 7pt;
+    color: #64748b;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+
+  .suggestions-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 6.8pt;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .suggestions-box h3 {
+    margin: 0 0 3px 0;
+    font-size: 7.5pt;
+    color: #1b365d;
+  }
+
+  .suggestions-box ul {
+    margin: 2px 0 4px 14px;
+    padding: 0;
+  }
+
+  .suggestions-box li {
+    margin-bottom: 2px;
+  }
+
+  .footer-note {
+    border-top: 1px solid #cbd5e1;
+    padding-top: 4px;
+    margin-top: 6px;
+    font-size: 6.8pt;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-author {
+    font-weight: 600;
+    color: #334155;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <div class="header-card">
+    <div class="report-title-row">
+      <div class="report-title">Gegevenskwaliteit &amp; Correctierapport</div>
+      <div class="report-tag">NL vs. EN Audit</div>
+    </div>
+    <div class="report-subtitle">Geconstateerde inconsistenties &amp; voorgestelde correcties voor <em>Welkom in het Museum</em></div>
+    <div class="meta-grid">
+      <div class="meta-item">
+        <strong>Doelgroep:</strong> Programmacoördinatoren en webredactie (VluchtelingenWerk Nederland, Cultuurfonds &amp; VriendenLoterij)
+      </div>
+      <div class="meta-item">
+        <strong>Datum:</strong> September 2026 &nbsp;|&nbsp; <strong>Status:</strong> Live gecontroleerd op `/nl/` en `/en/`
+      </div>
+      <div class="meta-item">
+        <strong>Samensteller:</strong> Viktor Lesyk — Freelance Software &amp; Data Consultant (<a href="https://vlesyk.com" style="color: #2563eb; text-decoration: none;">vlesyk.com</a>)
+      </div>
+      <div class="meta-item">
+        <strong>Referentie:</strong> Onafhankelijk burgerinitiatief <a href="https://museumwijzer.vlesyk.com" style="color: #2563eb; text-decoration: none;">museumwijzer.vlesyk.com</a>
+      </div>
+    </div>
+    <div class="purpose-note">
+      <em>Kernbevinding:</em> In het CMS zijn meerdere records op de Engelse vertaling (<code>/en/</code>) gecorrigeerd, maar staat op de primaire Nederlandse website (<code>/nl/</code>) nog gekloonde data. Daarnaast bevatten beide taalversies gezamenlijk enkele structurele postcode- en koppelingsfouten.
+    </div>
+  </div>
+
+  <div class="kpi-container">
+    <div class="kpi-card severe">
+      <div class="kpi-num">5</div>
+      <div class="kpi-label">NL vs EN desynchronisaties</div>
+    </div>
+    <div class="kpi-card warning">
+      <div class="kpi-num">5</div>
+      <div class="kpi-label">Postcode / Plaats fouten</div>
+    </div>
+    <div class="kpi-card info">
+      <div class="kpi-num">2</div>
+      <div class="kpi-label">Foutieve links / Duplicaat</div>
+    </div>
+    <div class="kpi-card neutral">
+      <div class="kpi-num">13 / 195</div>
+      <div class="kpi-label">Geverifieerde actiepunten</div>
+    </div>
+  </div>
+
+  <h2>1. Overzicht van geverifieerde afwijkingen en correcties</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 3%;">#</th>
+        <th style="width: 20%;">Museum &amp; CMS-slug</th>
+        <th style="width: 24%;">Status Nederlandse site (<code>/nl/</code>)</th>
+        <th style="width: 20%;">Status Engelse site (<code>/en/</code>)</th>
+        <th style="width: 21%;">Geverifieerde data &amp; bron</th>
+        <th style="width: 12%;">Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1</strong></td>
+        <td><strong>Sint-Jan de Doper</strong><br><span class="slug-code">sint-jan-de-doper</span></td>
+        <td><span class="lang-tag nl">FOUT OP /NL/</span><br><span class="wrong-data">Grote Kerk van Breda<br>Kerkplein 2, 4811 XT Breda<br>grotekerkbreda.nl</span></td>
+        <td><span class="lang-tag en">JUIST OP /EN/</span><br>Sint Jan de Doper<br>Sint Jansplein 2, Waalwijk</td>
+        <td><span class="correct-data">Sint Jansplein 2, 5141 GR Waalwijk</span><br><a class="source-link" href="https://www.vriendensintjanwaalwijk.nl/">vriendensintjanwaalwijk.nl</a></td>
+        <td><span class="badge badge-severe">Ernstig</span><br>Op /nl/ gekloond van Breda. Sync nodig van EN naar NL.</td>
+      </tr>
+      <tr>
+        <td><strong>2</strong></td>
+        <td><strong>Het Nieuwe Instituut</strong><br><span class="slug-code">het-nieuwe-instituut</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Museumpark 25<br><span class="wrong-data">9341 AA Veenhuizen</span><br><span class="wrong-data">gevangenismuseum.nl</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Museumpark 25<br><span class="wrong-data">9341 AA Veenhuizen</span><br><span class="wrong-data">gevangenismuseum.nl</span></td>
+        <td><span class="correct-data">Museumpark 25, 3015 CB Rotterdam</span><br><a class="source-link" href="https://nieuweinstituut.nl/">nieuweinstituut.nl</a></td>
+        <td><span class="badge badge-severe">Ernstig</span><br>Postcode/website op beide talen gekloond van Gevangenismuseum.</td>
+      </tr>
+      <tr>
+        <td><strong>3</strong></td>
+        <td><strong>Czaar Peterhuisje</strong><br><span class="slug-code">czaar-peterhuisje</span></td>
+        <td><span class="lang-tag nl">FOUT OP /NL/</span><br><span class="wrong-data">Ned. Zilvermuseum<br>Kazerneplein 4, Schoonhoven<br>zilvermuseum.com</span></td>
+        <td><span class="lang-tag en">JUIST OP /EN/</span><br>The Czaar Peter House<br>Krimp 23, Zaandam</td>
+        <td><span class="correct-data">Krimp 23, 1506 AA Zaandam</span><br><a class="source-link" href="https://zaansmuseum.nl/czaar-peterhuisje/">zaansmuseum.nl</a></td>
+        <td><span class="badge badge-severe">Ernstig</span><br>Op /nl/ gekloond van Zilvermuseum. Sync nodig naar NL.</td>
+      </tr>
+      <tr>
+        <td><strong>4</strong></td>
+        <td><strong>Museum Kaap Skil</strong><br><span class="slug-code">museum-kaap-skil</span></td>
+        <td><span class="lang-tag nl">FOUT OP /NL/</span><br><span class="wrong-data">Ned. Zilvermuseum<br>Kazerneplein 4, Schoonhoven<br>zilvermuseum.com</span></td>
+        <td><span class="lang-tag en">JUIST OP /EN/</span><br>Museum Kaap Skil<br>Heemskerckstr. 9, Texel</td>
+        <td><span class="correct-data">Heemskerckstraat 9, 1792 AA Oudeschild (Texel)</span><br><a class="source-link" href="https://kaapskil.nl/contact/">kaapskil.nl</a></td>
+        <td><span class="badge badge-severe">Ernstig</span><br>Op /nl/ gekloond van Zilvermuseum. Sync nodig naar NL.</td>
+      </tr>
+      <tr>
+        <td><strong>5</strong></td>
+        <td><strong>Huis Willet-Holthuysen</strong><br><span class="slug-code">huis-willet-holthuysen</span></td>
+        <td><span class="lang-tag nl">FOUT OP /NL/</span><br><span class="wrong-data">Ned. Zilvermuseum<br>Kazerneplein 4, Schoonhoven<br>zilvermuseum.com</span></td>
+        <td><span class="lang-tag en">JUIST OP /EN/</span><br>Huis Willet-Holthuysen<br>Herengracht 605, Amsterdam</td>
+        <td><span class="correct-data">Herengracht 605, 1017 CE Amsterdam</span><br><a class="source-link" href="https://www.willetholthuysen.nl/">willetholthuysen.nl</a></td>
+        <td><span class="badge badge-severe">Ernstig</span><br>Op /nl/ gekloond van Zilvermuseum. Sync nodig naar NL.</td>
+      </tr>
+      <tr>
+        <td><strong>6</strong></td>
+        <td><strong>KM21</strong><br><span class="slug-code">km21</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Stadhouderslaan 43, Den Haag<br>Website: <span class="wrong-data">gevangenismuseum.nl</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Stadhouderslaan 43, Den Haag<br>Website: <span class="wrong-data">gevangenismuseum.nl</span></td>
+        <td>Adres is al juist in Den Haag.<br>Website: <span class="correct-data">https://www.km21.nl/</span></td>
+        <td><span class="badge badge-high">Hoog</span><br>Link verwijst op beide talen naar Gevangenismuseum Drenthe.</td>
+      </tr>
+      <tr>
+        <td><strong>7</strong></td>
+        <td><strong>Museumstoomtram</strong> <em>(Dubbel)</em><br><span class="slug-code">museumstoomtram</span><br><span class="slug-code">museumstoomtram-hoorn-medemblik</span></td>
+        <td>• 2022-slug: Hoorn (juist)<br>• 2025-slug: <span class="wrong-data">BroekerVeiling (Broek op Langedijk)</span></td>
+        <td>• 2022-slug: Hoorn<br>• 2025-slug: Enkhuizen steiger (stoomtram.nl)</td>
+        <td>Eén canonieke vermelding:<br><span class="correct-data">Van Dedemstraat 8, 1624 NN Hoorn</span><br><a class="source-link" href="https://www.stoomtram.nl/contact/">stoomtram.nl/contact</a></td>
+        <td><span class="badge badge-high">Hoog</span><br>2e actieve URL op /nl/ bevat BroekerVeiling; 2025-slug depubliceren.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer-note">
+    <div>Welkom in het Museum — Gegevenskwaliteit &amp; Correctierapport</div>
+    <div>Pagina 1 van 2</div>
+  </div>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page-divider"></div>
+
+  <div class="page-header-mini">
+    <div><strong>Welkom in het Museum</strong> — Gegevenskwaliteit &amp; Correctierapport (Vervolg)</div>
+    <div>September 2026</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 3%;">#</th>
+        <th style="width: 20%;">Museum &amp; CMS-slug</th>
+        <th style="width: 24%;">Status Nederlandse site (<code>/nl/</code>)</th>
+        <th style="width: 20%;">Status Engelse site (<code>/en/</code>)</th>
+        <th style="width: 21%;">Geverifieerde data &amp; bron</th>
+        <th style="width: 12%;">Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>8</strong></td>
+        <td><strong>KoepelKathedraal Haarlem</strong><br><span class="slug-code">koepelkathedraal</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Leidsevaart 146<br><span class="wrong-data">6211 HD Maastricht</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Leidsevaart 146<br><span class="wrong-data">6211 HD Maastricht</span></td>
+        <td><span class="correct-data">Leidsevaart 146, 2014 HE Haarlem</span><br><a class="source-link" href="https://koepelkathedraal.nl/">koepelkathedraal.nl</a></td>
+        <td><span class="badge badge-medium">Middel</span><br>Plaats en postcode gekloond van Maastricht (6211 HD).</td>
+      </tr>
+      <tr>
+        <td><strong>9</strong></td>
+        <td><strong>Nat. Monument Oranjehotel</strong><br><span class="slug-code">nationaal-monument-oranjehotel</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Van Alkemadelaan 1258<br>Postcode: <span class="wrong-data">297 BP Den Haag</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Van Alkemadelaan 1258<br>Postcode: <span class="wrong-data">297 BP Den Haag</span></td>
+        <td><span class="correct-data">2597 BP Den Haag</span><br>(Van Alkemadelaan 1258)<br><a class="source-link" href="https://www.oranjehotel.org/nl/contact/">oranjehotel.org</a></td>
+        <td><span class="badge badge-medium">Middel</span><br>Cijfer 5 ontbreekt in postcode; routeplanners falen.</td>
+      </tr>
+      <tr>
+        <td><strong>10</strong></td>
+        <td><strong>Forum Groningen</strong><br><span class="slug-code">forum-groningen</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Nieuwe Markt 1<br>Postcode: <span class="wrong-data">99712 KN Groningen</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Nieuwe Markt 1<br>Postcode: <span class="wrong-data">99712 KN Groningen</span></td>
+        <td><span class="correct-data">9712 KN Groningen</span><br>(Nieuwe Markt 1)<br><a class="source-link" href="https://forum.nl/nl/contact">forum.nl/contact</a></td>
+        <td><span class="badge badge-medium">Middel</span><br>Dubbele 9; ongeldige 5-cijferige postcode. <em>(Storyworld is wel juist)</em>.</td>
+      </tr>
+      <tr>
+        <td><strong>11</strong></td>
+        <td><strong>Kunstmuseum Den Haag</strong><br><span class="slug-code">kunstmuseum-den-haag</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Stadhouderslaan 41<br>Postcode: <span class="wrong-data">2717 HV Den Haag</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Stadhouderslaan 41<br>Postcode: <span class="wrong-data">2717 HV Den Haag</span></td>
+        <td><span class="correct-data">2517 HV Den Haag</span><br>(Stadhouderslaan 41)<br><a class="source-link" href="https://www.kunstmuseum.nl/nl/bezoek">kunstmuseum.nl</a></td>
+        <td><span class="badge badge-medium">Middel</span><br>Typefout 2717 ipv 2517.</td>
+      </tr>
+      <tr>
+        <td><strong>12</strong></td>
+        <td><strong>Museum Volkenkunde / Wereldmuseum</strong><br><span class="slug-code">museum-volkenkunde</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Steenstraat 1<br>Postcode: <span class="wrong-data">1624 NN Leiden</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Steenstraat 1<br>Postcode: <span class="wrong-data">1624 NN Leiden</span></td>
+        <td><span class="correct-data">2312 BS Leiden</span> (Steenstraat 1)<br><em>Officiële naam:</em> <strong>Wereldmuseum Leiden</strong><br><a class="source-link" href="https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact">wereldmuseum.nl</a></td>
+        <td><span class="badge badge-medium">Middel</span><br>Postcode hoort bij Hoorn; museum is hernoemd naar Wereldmuseum Leiden.</td>
+      </tr>
+      <tr>
+        <td><strong>13</strong></td>
+        <td><strong>Museum Tachtigjarige Oorlog</strong><br><span class="slug-code">museum-tachtigjarige-oorlog</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Mattelierstraat 5, Groenlo<br>CMS-tag: <span class="wrong-data">Groningen</span></td>
+        <td><span class="lang-tag both">FOUT OP NL &amp; EN</span><br>Mattelierstraat 5, Groenlo<br>CMS-tag: <span class="wrong-data">Groningen</span></td>
+        <td>Provincie: <span class="correct-data">Gelderland</span><br>(Mattelierstraat 5, Groenlo)<br><a class="source-link" href="https://www.nmto.nl/contact">nmto.nl/contact</a></td>
+        <td><span class="badge badge-medium">Middel</span><br>Groenlo (Achterhoek) staat onder provincie Groningen in het CMS-filter.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 2: EDITORIAL SUGGESTIONS -->
+  <h2>2. Aanvullende redactionele &amp; technische verbetersuggesties</h2>
+  
+  <div class="suggestions-box">
+    <h3>A. Niet-aanklikbare websites (platte tekst i.p.v. hyperlink)</h3>
+    Bij een aantal deelnemende musea staat het webadres wel in het contactblok, maar als platte tekst ingevoerd i.p.v. een aanklikbare link (<code>&lt;a href="..."&gt;</code>). Voor mobiele bezoekers is het prettig als deze direct aantikbaar zijn:
+    <ul>
+      <li><strong>Madurodam</strong> (<code>madurodam</code>): <code>www.madurodam.nl</code> staat in tekst; advies: hyperlink toevoegen.</li>
+      <li><strong>TextielMuseum</strong> (<code>Textiel-museum</code>): <code>www.textielmuseum.nl</code> staat in tekst; advies: hyperlink toevoegen.</li>
+      <li><strong>H’ART Museum</strong> (<code>HaRT-Museum1</code>): <code>www.hartmuseum.nl</code> staat in tekst; advies: hyperlink toevoegen.</li>
+      <li><strong>Museum BroekerVeiling</strong> (<code>museum-broekerveiling</code>): <code>www.broekerveiling.nl</code> staat in tekst; advies: hyperlink toevoegen.</li>
+      <li><strong>Museumhuis Sloëtjes</strong> (<code>Museumhuis-sloetjes1</code>): <code>www.hendrickdekeyser.nl/huis-sloetjes</code> staat in tekst; advies: hyperlink toevoegen.</li>
+      <li><strong>Museum Tromp’s Huys</strong> (<code>Museum-Tromps-Huys</code>): <code>www.trompshuys.nl</code> staat in tekst; advies: hyperlink toevoegen.</li>
+    </ul>
+
+    <h3 style="margin-top: 5px;">B. Uniformiteit van CMS URL-slugs</h3>
+    Enkele records bevatten concept-nummers of afwijkend hoofdlettergebruik in hun URL-slugs:
+    <ul>
+      <li><code>HaRT-Museum1</code> &rarr; advies: <code>hart-museum</code> (verwijder draft-nummer '1' en hoofdletters)</li>
+      <li><code>Museum-Tromps-Huys</code> &rarr; advies: <code>museum-tromps-huys</code> (kleine letters)</li>
+      <li><code>Museumhuis-sloetjes1</code> &rarr; advies: <code>museumhuis-sloetjes</code> (verwijder draft-nummer '1')</li>
+      <li><code>Textiel-museum</code> &rarr; advies: <code>textielmuseum</code> (kleine letters zonder koppelteken, passend bij officiële schrijfwijze)</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    <div>
+      <span class="footer-author">Viktor Lesyk</span> &nbsp;|&nbsp; 
+      Freelance Software &amp; Data Consultant &nbsp;|&nbsp; 
+      <a href="https://vlesyk.com" style="color: #2563eb; text-decoration: none;">vlesyk.com</a> &nbsp;|&nbsp; 
+      Referentieproject: <a href="https://museumwijzer.vlesyk.com" style="color: #2563eb; text-decoration: none;">museumwijzer.vlesyk.com</a>
+    </div>
+    <div>Pagina 2 van 2</div>
+  </div>
+
+</body>
+</html>
+"""
+
+def generate_pdf():
+    docs_dir = Path(__file__).resolve().parent
+    html_path = docs_dir / "data-audit-report.html"
+    pdf_path = docs_dir / "Welkom-in-het-Museum-Data-Audit-2026.pdf"
+
+    html_path.write_text(HTML_CONTENT, encoding="utf-8")
+    print(f"Written HTML template to {html_path}")
+
+    cmd = [
+        "google-chrome",
+        "--headless=new",
+        "--disable-gpu",
+        "--no-sandbox",
+        "--no-pdf-header-footer",
+        "--run-all-compositor-stages-before-draw",
+        f"--print-to-pdf={pdf_path}",
+        str(html_path)
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    if res.returncode == 0:
+        print(f"Successfully generated PDF: {pdf_path} ({pdf_path.stat().st_size} bytes)")
+    else:
+        print(f"Error generating PDF: {res.stderr}")
+
+if __name__ == "__main__":
+    generate_pdf()
