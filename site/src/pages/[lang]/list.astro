@@ -97,6 +97,15 @@ for (const m of allMuseums) {
           <span>{t.shareList}</span>
         </button>
 
+        <button type="button" id="open-sync-modal-btn" class="btn-action" title={t.syncDevices}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          <span>{t.syncDevices}</span>
+        </button>
+
         <button type="button" id="print-list-btn" class="btn-action">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -133,6 +142,59 @@ for (const m of allMuseums) {
         </button>
       </div>
     </header>
+
+    <!-- Sync & Device Linking Modal -->
+    <div id="sync-modal-backdrop" class="modal-backdrop" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="sync-modal-title">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-header-title-wrap">
+            <span class="modal-header-icon" aria-hidden="true">📱</span>
+            <h2 id="sync-modal-title" class="modal-title">{t.syncModalTitle}</h2>
+          </div>
+          <button type="button" id="close-sync-modal-btn" class="btn-modal-close" aria-label="Sluiten">✕</button>
+        </div>
+
+        <div class="modal-tabs">
+          <button type="button" id="tab-btn-code" class="modal-tab-btn active">{t.syncCodeTab}</button>
+          <button type="button" id="tab-btn-qr" class="modal-tab-btn">{t.syncQrTab}</button>
+        </div>
+
+        <!-- Tab 1: 6-Digit Code -->
+        <div id="sync-tab-code-panel" class="modal-tab-panel">
+          <div class="sync-code-section">
+            <span class="sync-section-label">{t.syncYourCode}</span>
+            <div class="sync-code-display-row">
+              <div id="sync-code-box" class="sync-code-box">------</div>
+              <button type="button" id="sync-copy-code-btn" class="btn-action-small">Kopieer</button>
+              <button type="button" id="sync-refresh-btn" class="btn-action-small" title="Verversen / Opslaan in cloud">🔄 Cloud Sync</button>
+            </div>
+            <p class="sync-hint-text">{t.syncCodeDesc}</p>
+          </div>
+
+          <div class="sync-divider">
+            <span>OF</span>
+          </div>
+
+          <div class="sync-connect-section">
+            <label for="input-remote-code" class="sync-section-label">{t.syncConnectPrompt}</label>
+            <div class="sync-input-row">
+              <input type="text" id="input-remote-code" class="sync-code-input" placeholder={t.syncCodePlaceholder} maxlength="7" autocomplete="off" />
+              <button type="button" id="btn-submit-sync-code" class="btn-action btn-sync-submit">{t.syncConnectBtn}</button>
+            </div>
+            <div id="sync-status-msg" class="sync-status-msg" style="display: none;"></div>
+          </div>
+        </div>
+
+        <!-- Tab 2: QR Code -->
+        <div id="sync-tab-qr-panel" class="modal-tab-panel" style="display: none;">
+          <p class="sync-hint-text">{t.syncQrDesc}</p>
+          <div id="sync-qr-container" class="sync-qr-container">
+            <!-- SVG QR code injected here -->
+          </div>
+          <p class="sync-qr-subtext">Geen account of installatie vereist. Werkt direct via je camera.</p>
+        </div>
+      </div>
+    </div>
 
     <!-- Share Feedback Toast -->
     <div id="share-toast" class="toast-message" style="display: none;" role="status">
@@ -1016,6 +1078,255 @@ for (const m of allMuseums) {
     border: 0;
   }
 
+  /* Sync Modal */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+  }
+
+  .modal-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: modalPop 0.15s ease-out;
+  }
+
+  @keyframes modalPop {
+    from { transform: scale(0.96); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .modal-header-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .btn-modal-close {
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    padding: 0.2rem 0.5rem;
+    line-height: 1;
+    border-radius: 4px;
+  }
+
+  .btn-modal-close:hover {
+    color: var(--color-text);
+  }
+
+  .modal-tabs {
+    display: flex;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .modal-tab-btn {
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .modal-tab-btn.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+    background-color: var(--color-surface);
+  }
+
+  .modal-tab-panel {
+    padding: 1.25rem;
+  }
+
+  .sync-section-label {
+    display: block;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+  }
+
+  .sync-code-display-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sync-code-box {
+    font-family: monospace;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    padding: 0.45rem 0.75rem;
+    background-color: var(--color-bg);
+    border: 2px dashed var(--color-primary);
+    border-radius: var(--radius);
+    color: var(--color-primary);
+    flex: 1;
+    text-align: center;
+  }
+
+  .sync-hint-text {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .sync-divider {
+    position: relative;
+    text-align: center;
+    margin: 1.25rem 0;
+  }
+
+  .sync-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color-border);
+  }
+
+  .sync-divider span {
+    position: relative;
+    background-color: var(--color-surface);
+    padding: 0 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+  }
+
+  .sync-input-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+  }
+
+  .sync-code-input {
+    flex: 1;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  .sync-code-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .btn-sync-submit {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-action-small {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .btn-action-small:hover {
+    background-color: var(--color-surface-hover);
+  }
+
+  .sync-qr-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem;
+    background: #ffffff;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    margin: 1rem auto;
+    width: 210px;
+    height: 210px;
+  }
+
+  .sync-qr-container svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sync-qr-subtext {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .sync-status-msg {
+    margin-top: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+  }
+
+  .sync-status-msg.is-success {
+    background-color: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    border: 1px solid var(--color-badge-border);
+  }
+
+  .sync-status-msg.is-error {
+    background-color: var(--color-alert-bg);
+    color: var(--color-alert-text);
+    border: 1px solid var(--color-alert-border);
+  }
+
   /* Print Stylesheet */
   @media print {
     .toolbar-actions, .shared-list-card, .toast-message, .empty-state-box, .reorder-btns, .btn-item-delete, .drag-grip, .btn-open-note, .note-memo-actions {
@@ -1052,6 +1363,26 @@ for (const m of allMuseums) {
   }
 </style>
 
+<script>
+  import QRCode from 'qrcode';
+  (window as any).__renderMuseumQRCode = async (containerEl: HTMLElement, url: string) => {
+    try {
+      const svg = await QRCode.toString(url, {
+        type: 'svg',
+        margin: 1,
+        width: 200,
+        color: {
+          dark: '#0f172a',
+          light: '#ffffff',
+        },
+      });
+      containerEl.innerHTML = svg;
+    } catch (e) {
+      console.error('Failed to generate QR code', e);
+    }
+  };
+</script>
+
 <script is:inline define:vars={{
   lookup: museumsLookup,
   lang: lang,
@@ -1070,7 +1401,10 @@ for (const m of allMuseums) {
   saveNoteText: t.saveNote,
   cancelNoteText: t.cancelNote,
   deleteNoteText: t.deleteNote,
-  canonicalMapping: canonicalMapping
+  canonicalMapping: canonicalMapping,
+  syncSuccessText: t.syncSuccess,
+  syncErrorText: t.syncError,
+  syncMergedNoticeText: t.syncMergedNotice
 }}>
   document.addEventListener('DOMContentLoaded', () => {
     const itemsListEl = document.getElementById('priority-items-list');
@@ -1091,6 +1425,24 @@ for (const m of allMuseums) {
     const visitedHiddenBanner = document.getElementById('visited-hidden-banner');
     const visitedHiddenCountText = document.getElementById('visited-hidden-count-text');
     const showVisitedInlineBtn = document.getElementById('show-visited-inline-btn');
+
+    // Sync modal elements
+    const openSyncModalBtn = document.getElementById('open-sync-modal-btn');
+    const closeSyncModalBtn = document.getElementById('close-sync-modal-btn');
+    const syncModalBackdrop = document.getElementById('sync-modal-backdrop');
+    const tabBtnCode = document.getElementById('tab-btn-code');
+    const tabBtnQr = document.getElementById('tab-btn-qr');
+    const syncTabCodePanel = document.getElementById('sync-tab-code-panel');
+    const syncTabQrPanel = document.getElementById('sync-tab-qr-panel');
+    const syncCodeBox = document.getElementById('sync-code-box');
+    const syncCopyCodeBtn = document.getElementById('sync-copy-code-btn');
+    const syncRefreshBtn = document.getElementById('sync-refresh-btn');
+    const inputRemoteCode = document.getElementById('input-remote-code');
+    const btnSubmitSyncCode = document.getElementById('btn-submit-sync-code');
+    const syncStatusMsg = document.getElementById('sync-status-msg');
+    const syncQrContainer = document.getElementById('sync-qr-container');
+
+    const SYNC_API_URL = 'https://museumwijzer.vlesyk.com/api/sync';
 
     let currentList = [];
     let sharedSlugs = null;
@@ -1136,6 +1488,14 @@ for (const m of allMuseums) {
         if (badge) {
           badge.textContent = String(list.length);
           badge.style.display = list.length > 0 ? 'inline-flex' : 'none';
+        }
+      } catch (e) {}
+
+      // Background auto-sync if device is linked to a code
+      try {
+        const activeCode = localStorage.getItem('museumwijzer_sync_code');
+        if (activeCode) {
+          pushListToCloud(activeCode);
         }
       } catch (e) {}
     }
@@ -1743,6 +2103,194 @@ for (const m of allMuseums) {
           localStorage.setItem('museumwijzer_hide_visited_list', 'false');
         } catch (e) {}
         renderList();
+      });
+    }
+
+    // Sync Helpers & Event Handlers
+    function formatCode(c) {
+      const clean = String(c || '').replace(/\D/g, '');
+      if (clean.length === 6) {
+        return `${clean.slice(0, 3)} - ${clean.slice(3)}`;
+      }
+      return clean;
+    }
+
+    async function pushListToCloud(code) {
+      if (!currentList || currentList.length === 0) return null;
+      try {
+        const res = await fetch(SYNC_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            code: code || undefined,
+            items: currentList
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.code) {
+            localStorage.setItem('museumwijzer_sync_code', data.code);
+            return data.code;
+          }
+        }
+      } catch (e) {
+        console.warn('Sync API unavailable', e);
+      }
+      return null;
+    }
+
+    async function pullListFromCloud(code) {
+      const clean = String(code || '').replace(/\D/g, '');
+      if (clean.length !== 6) throw new Error(syncErrorText);
+      const res = await fetch(`${SYNC_API_URL}/${clean}`);
+      if (!res.ok) {
+        throw new Error(syncErrorText);
+      }
+      const data = await res.json();
+      return data.items || [];
+    }
+
+    function renderModalQR() {
+      if (window.__renderMuseumQRCode && syncQrContainer) {
+        const slugs = currentList.map((item) => encodeURIComponent(item.slug)).join(',');
+        const shareUrl = `${window.location.origin}${window.location.pathname}#list=${slugs}`;
+        window.__renderMuseumQRCode(syncQrContainer, shareUrl);
+      }
+    }
+
+    if (openSyncModalBtn && syncModalBackdrop) {
+      openSyncModalBtn.addEventListener('click', async () => {
+        syncModalBackdrop.style.display = 'flex';
+        if (syncStatusMsg) syncStatusMsg.style.display = 'none';
+
+        // Display current code or generate new one
+        let savedCode = localStorage.getItem('museumwijzer_sync_code');
+        if (savedCode) {
+          if (syncCodeBox) syncCodeBox.textContent = formatCode(savedCode);
+          pushListToCloud(savedCode);
+        } else if (currentList.length > 0) {
+          if (syncCodeBox) syncCodeBox.textContent = '...';
+          const newCode = await pushListToCloud();
+          if (newCode && syncCodeBox) {
+            syncCodeBox.textContent = formatCode(newCode);
+          } else if (syncCodeBox) {
+            syncCodeBox.textContent = 'Offline';
+            syncCodeBox.style.fontSize = '1.1rem';
+          }
+        } else if (syncCodeBox) {
+          syncCodeBox.textContent = '------';
+        }
+
+        renderModalQR();
+      });
+    }
+
+    if (closeSyncModalBtn && syncModalBackdrop) {
+      closeSyncModalBtn.addEventListener('click', () => {
+        syncModalBackdrop.style.display = 'none';
+      });
+      syncModalBackdrop.addEventListener('click', (e) => {
+        if (e.target === syncModalBackdrop) {
+          syncModalBackdrop.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal tabs
+    if (tabBtnCode && tabBtnQr && syncTabCodePanel && syncTabQrPanel) {
+      tabBtnCode.addEventListener('click', () => {
+        tabBtnCode.classList.add('active');
+        tabBtnQr.classList.remove('active');
+        syncTabCodePanel.style.display = 'block';
+        syncTabQrPanel.style.display = 'none';
+      });
+      tabBtnQr.addEventListener('click', () => {
+        tabBtnQr.classList.add('active');
+        tabBtnCode.classList.remove('active');
+        syncTabQrPanel.style.display = 'block';
+        syncTabCodePanel.style.display = 'none';
+        renderModalQR();
+      });
+    }
+
+    // Copy code button
+    if (syncCopyCodeBtn) {
+      syncCopyCodeBtn.addEventListener('click', () => {
+        const code = localStorage.getItem('museumwijzer_sync_code');
+        if (code) {
+          navigator.clipboard.writeText(code).then(() => {
+            syncCopyCodeBtn.textContent = '✓ Gekopieerd!';
+            setTimeout(() => {
+              syncCopyCodeBtn.textContent = 'Kopieer';
+            }, 2000);
+          });
+        }
+      });
+    }
+
+    // Refresh sync button
+    if (syncRefreshBtn) {
+      syncRefreshBtn.addEventListener('click', async () => {
+        syncRefreshBtn.disabled = true;
+        const code = localStorage.getItem('museumwijzer_sync_code');
+        const resCode = await pushListToCloud(code);
+        if (resCode) {
+          if (syncCodeBox) syncCodeBox.textContent = formatCode(resCode);
+          if (syncStatusMsg) {
+            syncStatusMsg.className = 'sync-status-msg is-success';
+            syncStatusMsg.textContent = syncSuccessText;
+            syncStatusMsg.style.display = 'block';
+          }
+        } else if (syncStatusMsg) {
+          syncStatusMsg.className = 'sync-status-msg is-error';
+          syncStatusMsg.textContent = 'Cloud Worker API nog niet bereikbaar.';
+          syncStatusMsg.style.display = 'block';
+        }
+        syncRefreshBtn.disabled = false;
+      });
+    }
+
+    // Submit code to link device
+    if (btnSubmitSyncCode && inputRemoteCode) {
+      btnSubmitSyncCode.addEventListener('click', async () => {
+        const raw = inputRemoteCode.value.trim().replace(/\D/g, '');
+        if (raw.length !== 6) {
+          if (syncStatusMsg) {
+            syncStatusMsg.className = 'sync-status-msg is-error';
+            syncStatusMsg.textContent = syncErrorText;
+            syncStatusMsg.style.display = 'block';
+          }
+          return;
+        }
+        btnSubmitSyncCode.disabled = true;
+        btnSubmitSyncCode.textContent = '...';
+        try {
+          const items = await pullListFromCloud(raw);
+          if (items && items.length > 0) {
+            const currentSlugs = new Set(currentList.map(i => i.slug));
+            const newItems = items.filter(it => !currentSlugs.has(it.slug));
+            const merged = [...currentList, ...newItems];
+            localStorage.setItem('museumwijzer_sync_code', raw);
+            saveListToStorage(merged);
+            renderList();
+            if (syncCodeBox) syncCodeBox.textContent = formatCode(raw);
+            if (syncStatusMsg) {
+              syncStatusMsg.className = 'sync-status-msg is-success';
+              syncStatusMsg.textContent = `${syncSuccessText} (${items.length} musea)`;
+              syncStatusMsg.style.display = 'block';
+            }
+            inputRemoteCode.value = '';
+          }
+        } catch (err) {
+          if (syncStatusMsg) {
+            syncStatusMsg.className = 'sync-status-msg is-error';
+            syncStatusMsg.textContent = syncErrorText;
+            syncStatusMsg.style.display = 'block';
+          }
+        } finally {
+          btnSubmitSyncCode.disabled = false;
+          btnSubmitSyncCode.textContent = 'Koppelen & ophalen';
+        }
       });
     }
 

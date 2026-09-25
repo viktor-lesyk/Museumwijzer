@@ -1,0 +1,15 @@
+name = "museumwijzer-sync"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# KV Namespace binding for anonymous sync codes
+# Run: npx wrangler kv:namespace create "MUSEUM_SYNC_KV"
+# Paste the resulting id below:
+[[kv_namespaces]]
+binding = "MUSEUM_SYNC_KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+# Optional Custom Domain / Route under your vlesyk.com zone:
+# routes = [
+#   { pattern = "sync.museumwijzer.vlesyk.com/*", zone_name = "vlesyk.com" }
+# ]

@@ -242,6 +242,46 @@ const ogLocale = locale === 'nl' ? 'nl_NL' : (locale === 'uk' ? 'uk_UA' : 'en_US
         color: inherit;
       }
 
+      .in-app-banner {
+        background-color: var(--color-warn-bg);
+        color: var(--color-warn-text);
+        border-bottom: 1px solid var(--color-warn-border);
+        font-size: 0.85rem;
+        padding: 0.55rem 1rem;
+        position: relative;
+        z-index: 100;
+      }
+
+      .in-app-banner-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        justify-content: space-between;
+      }
+
+      .in-app-text {
+        flex: 1;
+        line-height: 1.35;
+      }
+
+      .in-app-dismiss {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        color: inherit;
+        padding: 0.2rem 0.5rem;
+        line-height: 1;
+        border-radius: 4px;
+        opacity: 0.8;
+      }
+
+      .in-app-dismiss:hover {
+        opacity: 1;
+      }
+
       .site-header {
         background-color: var(--color-surface);
         border-bottom: 1px solid var(--color-border);
@@ -467,6 +507,28 @@ const ogLocale = locale === 'nl' ? 'nl_NL' : (locale === 'uk' ? 'uk_UA' : 'en_US
       // Update nav list counter if items exist in localStorage
       document.addEventListener('DOMContentLoaded', () => {
         try {
+          // In-App Browser Detection (Telegram, Instagram, Facebook, WhatsApp, Line)
+          const ua = navigator.userAgent || navigator.vendor || '';
+          const isInApp = /Telegram|FBAN|FBAV|Instagram|Line|WhatsApp/i.test(ua);
+          if (isInApp) {
+            try {
+              if (!sessionStorage.getItem('museumwijzer_dismiss_in_app')) {
+                const banner = document.getElementById('in-app-browser-banner');
+                if (banner) banner.style.display = 'block';
+              }
+            } catch (e) {}
+          }
+          const dismissBtn = document.getElementById('dismiss-in-app-banner');
+          if (dismissBtn) {
+            dismissBtn.addEventListener('click', () => {
+              try {
+                sessionStorage.setItem('museumwijzer_dismiss_in_app', '1');
+              } catch (e) {}
+              const banner = document.getElementById('in-app-browser-banner');
+              if (banner) banner.style.display = 'none';
+            });
+          }
+
           const raw = localStorage.getItem('museumwijzer_priority_list');
           if (raw) {
             const list = JSON.parse(raw);
@@ -483,6 +545,21 @@ const ogLocale = locale === 'nl' ? 'nl_NL' : (locale === 'uk' ? 'uk_UA' : 'en_US
     </script>
   </head>
   <body>
+
+    <!-- In-App Browser Warning Banner -->
+    <aside id="in-app-browser-banner" class="in-app-banner" style="display: none;" role="status">
+      <div class="in-app-banner-content">
+        <span class="in-app-icon" aria-hidden="true">📱</span>
+        <span class="in-app-text">
+          {locale === 'nl'
+            ? "Je bekijkt Museumwijzer in een in-app browser (zoals Telegram of Instagram). Tik op ••• en kies 'Open in browser' (Safari / Chrome) zodat je bewaarde musea niet kwijtraken."
+            : locale === 'uk'
+            ? "Ви переглядаєте сайт у додатку (Telegram / Instagram). Торкніться ••• та оберіть «Відкрити в браузері» (Safari / Chrome), щоб збережені музеї не загубилися."
+            : "You are viewing Museumwijzer in an in-app browser. Tap ••• and choose 'Open in browser' (Safari / Chrome) so your saved list stays on your device."}
+        </span>
+        <button type="button" id="dismiss-in-app-banner" class="in-app-dismiss" title="Sluiten" aria-label="Sluiten">✕</button>
+      </div>
+    </aside>
 
     <!-- Site-wide Notice Banner (controlled by data/notice.json or stale data) -->
     {showNotice && (
