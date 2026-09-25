@@ -110,5 +110,6 @@ export function getReportWrongPriceUrl(
     uk: `Повідомлення про ціну: ${museumName}`,
   };
   const bodyText = `Museum: ${museumName} (${museumSlug})\nBronpagina / Source: ${sourceUrl || 'onbekend'}\n\nJuiste prijs / Correct price:\nToelichting / Details:\n`;
-  return `mailto:info@museumwijzer.nl?subject=${encodeURIComponent(subjects[lang] || subjects.nl)}&body=${encodeURIComponent(bodyText)}`;
+  return `mailto:museumwijzer@vlesyk.com?subject=${encodeURIComponent(subjects[lang] || subjects.nl)}&body=${encodeURIComponent(bodyText)}`;
 }
+

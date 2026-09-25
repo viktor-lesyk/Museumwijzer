@@ -37,7 +37,7 @@ if env_path.exists():
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-USER_AGENT = "Museumwijzer/1.0 (https://museumwijzer.nl; info@museumwijzer.nl)"
+USER_AGENT = "Museumwijzer/1.0 (https://museumwijzer.vlesyk.com; museumwijzer@vlesyk.com)"
 HEADERS = {"User-Agent": USER_AGENT}
 
 LITELLM_BASE_URL = os.environ.get("LITELLM_BASE_URL", "http://localhost:4000/v1")

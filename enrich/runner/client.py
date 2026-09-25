@@ -31,7 +31,7 @@ class OpenAICompatClient:
         self.session.headers.update({
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}",
-            "HTTP-Referer": "https://github.com/museumwijzer/museumwijzer",
+            "HTTP-Referer": "https://github.com/viktor-lesyk/Museumwijzer",
             "X-Title": "Museumwijzer Enrichment Runner",
         })
 

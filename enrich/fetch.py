@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CACHE_DIR = REPO_ROOT / ".cache" / "enrichment" / "pages"
-PROJECT_REPO_URL = os.environ.get("MUSEUMWIJZER_REPO_URL", "https://github.com/museumwijzer/museumwijzer")
+PROJECT_REPO_URL = os.environ.get("MUSEUMWIJZER_REPO_URL", "https://github.com/viktor-lesyk/Museumwijzer")
 CONTACT_EMAIL = os.environ.get("MUSEUMWIJZER_CONTACT", "contact-email-not-configured")
 DEFAULT_USER_AGENT = f"Museumwijzer/1.0 (+{PROJECT_REPO_URL}; contact: {CONTACT_EMAIL})"
 MIN_REQUEST_INTERVAL = 1.0  # seconds between requests per host

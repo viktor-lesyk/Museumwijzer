@@ -34,6 +34,8 @@ jobs:
           npm ci
 
       - name: Build site
+        env:
+          PREVIEW: 'false'
         run: |
           cd site
           npm run build

@@ -42,7 +42,7 @@ if (metaData?.last_checked) {
 }
 
 // Compute language alternate paths and canonical URLs
-const siteOrigin = Astro.site ? Astro.site.origin : 'https://museumwijzer.nl';
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://museumwijzer.vlesyk.com';
 const currentPathWithoutLang = Astro.url.pathname.replace(/^\/(nl|en|uk)/, '');
 const nlPath = `/nl${currentPathWithoutLang}`;
 const enPath = `/en${currentPathWithoutLang}`;
@@ -60,7 +60,11 @@ const noticeMessage = showNotice && noticeData.message ? (noticeData.message[loc
 const noticeLink = showNotice && noticeData.link ? noticeData.link : null;
 
 // Preview release configuration (controls indexing meta tag)
-const isPreview = process.env.PREVIEW !== 'false';
+const isPreview = process.env.PREVIEW === 'true';
+const pageTitle = `${title} — ${t.siteTitle}`;
+const pageDescription = description || t.explainer;
+const ogImageUrl = new URL('/og-image.png', siteOrigin).href;
+const ogLocale = locale === 'nl' ? 'nl_NL' : (locale === 'uk' ? 'uk_UA' : 'en_US');
 ---
 
 <!doctype html>
@@ -68,11 +72,32 @@ const isPreview = process.env.PREVIEW !== 'false';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content={isPreview ? "noindex, nofollow" : "index, follow"} />
-    <title>{title} — {t.siteTitle}</title>
-    <meta name="description" content={description || t.explainer} />
+    <title>{pageTitle}</title>
+    <meta name="title" content={pageTitle} />
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content={isPreview ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={t.siteTitle} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Museumwijzer — Welkom in het Museum Gids" />
+    <meta property="og:locale" content={ogLocale} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="Museumwijzer — Welkom in het Museum Gids" />
 
     <!-- Self-contained CSP -->
     <meta
@@ -365,11 +390,47 @@ const isPreview = process.env.PREVIEW !== 'false';
         gap: 1.5rem;
       }
 
-      .footer-disclaimer {
-        padding: 1rem;
+      .footer-disclaimer-card {
+        padding: 1.25rem 1.5rem;
         background-color: var(--color-bg);
+        border: 1px solid var(--color-border);
         border-radius: var(--radius);
         border-inline-start: 4px solid var(--color-accent);
+      }
+
+      .disclaimer-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.95rem;
+        color: var(--color-text);
+        margin-bottom: 0.5rem;
+      }
+
+      .disclaimer-body {
+        font-size: 0.875rem;
+        line-height: 1.55;
+        color: var(--color-text-muted);
+        margin-bottom: 0.75rem;
+      }
+
+      .disclaimer-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .disclaimer-link {
+        color: var(--color-accent);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .disclaimer-links .divider {
+        color: var(--color-border);
       }
 
       .footer-meta {
@@ -494,13 +555,28 @@ const isPreview = process.env.PREVIEW !== 'false';
 
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div class="footer-disclaimer">
-          <p><strong>{t.footerDisclaimer}</strong></p>
+        <div class="footer-disclaimer-card">
+          <div class="disclaimer-header">
+            <span class="disclaimer-icon" aria-hidden="true">ℹ️</span>
+            <strong>{t.footerDisclaimerTitle}</strong>
+          </div>
+          <p class="disclaimer-body">{t.footerDisclaimerText}</p>
+          <div class="disclaimer-links">
+            <a href={t.officialListUrl} target="_blank" rel="noopener noreferrer" class="disclaimer-link">
+              <span>{t.footerCheckOfficialSources}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <span class="divider" aria-hidden="true">•</span>
+            <a href="mailto:museumwijzer@vlesyk.com?subject=Museumwijzer%20Feedback" class="disclaimer-link">
+              <span>{t.footerContactFeedback} (museumwijzer@vlesyk.com)</span>
+            </a>
+          </div>
         </div>
         <div class="footer-meta">
           <span><a href={t.officialListUrl} target="_blank" rel="noopener noreferrer">{t.footerDataSource}</a></span>
           <span>{t.footerLastUpdated.replace('{date}', formattedDate)}</span>
           <span>{t.footerGeodata}</span>
+          <span><a href="https://github.com/viktor-lesyk/Museumwijzer" target="_blank" rel="noopener noreferrer">{t.footerOpenSource} ↗</a></span>
         </div>
       </div>
     </footer>

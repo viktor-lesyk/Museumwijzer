@@ -99,9 +99,18 @@ const unofficialBadgeText =
               : 'Museumwijzer is an open-source project under the MIT licence. To report data errors, corrections, or inquiries, please open an issue on GitHub:'}
         </p>
         <p>
-          <a href="https://github.com/museumwijzer/museumwijzer" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/viktor-lesyk/Museumwijzer" class="btn-secondary" target="_blank" rel="noopener noreferrer">
             {t.githubLinkText} ↗
           </a>
+        </p>
+        <p style="margin-top: 1.25rem;">
+          {lang === 'nl'
+            ? 'Heb je geen GitHub-account of stuur je liever een bericht? Mail ons direct via:'
+            : lang === 'uk'
+              ? 'Не маєте акаунта на GitHub або зручніше написати на пошту? Напишіть нам напряму:'
+              : 'Don’t have a GitHub account or prefer email? Contact us directly at:'}
+          <br />
+          <a href="mailto:museumwijzer@vlesyk.com?subject=Museumwijzer%20Contact" style="font-weight: 600;">museumwijzer@vlesyk.com</a>
         </p>
       </section>
     </article>
